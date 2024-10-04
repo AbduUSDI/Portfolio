@@ -1,0 +1,30 @@
+# Activer le moteur de réécriture d'URL
+RewriteEngine On
+
+# 1. Redirection vers les fichiers du portfolio principal
+RewriteRule ^home$ index.html [L]
+RewriteRule ^aproposdemoi$ aproposdemoi.html [L]
+RewriteRule ^projects$ projects.html [L]
+RewriteRule ^contact$ contact.html [L]
+
+# 2. Redirections pour chaque projet
+# Zoo-Arcadia
+RewriteRule ^zoo-arcadia-new/(.*)$ /zoo-arcadia-new/$1 [L]
+RewriteRule ^zoo-arcadia-new$ /zoo-arcadia-new/index.php [L]
+
+# Tout pour un nouveau né
+RewriteRule ^toutpourunnouveaune/(.*)$ /toutpourunnouveaune/$1 [L]
+RewriteRule ^toutpourunnouveaune$ /toutpourunnouveaune/index.php [L]
+
+# E-learning
+RewriteRule ^e-learning/(.*)$ /e-learning/$1 [L]
+RewriteRule ^e-learning$ /e-learning/index.php [L]
+
+# 3. Gestion des erreurs 404 (personnalisée)
+ErrorDocument 404 /404.html
+
+# Protection des fichiers sensibles
+<FilesMatch "(\.htaccess|\.env|composer\.json|composer\.lock)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
