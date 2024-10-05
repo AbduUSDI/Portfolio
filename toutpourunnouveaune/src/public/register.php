@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $user->addUser($email, $password, $role, $username);
         if ($result) {
             $success = "Inscription réussie. Vous pouvez maintenant vous connecter.";
-            header("Location: login.php?success=" . urlencode($success));
+            header("Location: /Portfolio/toutpourunnouveaune/login?success=" . urlencode($success));
             exit();
         } else {
             $error = "Erreur lors de l'inscription. Veuillez réessayer.";
-            header("Location: login.php?error=" . urlencode($error));
+            header("Location: /Portfolio/toutpourunnouveaune/login?error=" . urlencode($error));
             exit();
         }
     }

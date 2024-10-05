@@ -60,7 +60,10 @@ class UserTwoController {
     public function getFriends($user_id) {
         return $this->user->getFriends($user_id);
     }
-
+    // Récupérer le l'username d'un utilisateur
+    public function getByUsername($username) {
+        return $this->user->getUserByUsername($username);
+    }
     // Supprimer un ami
     public function removeFriend($request_id) {
         if ($this->user->removeFriend($request_id)) {

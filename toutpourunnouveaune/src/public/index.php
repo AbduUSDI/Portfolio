@@ -5,7 +5,7 @@ $sessionLifetime = 1800;
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: login.php');
+    header('Location: /Portfolio/toutpourunnouveaune/login');
     exit;
 }
 

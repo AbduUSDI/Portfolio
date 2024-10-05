@@ -69,5 +69,5 @@ try {
     die('Erreur lors de la soumission du quiz. Veuillez réessayer.');
 }
 
-header('Location: get_score.php?score=' . $score);
+header('Location: /Portfolio/toutpourunnouveaune/get_score?score=' . $score);
 exit;

@@ -54,7 +54,7 @@ class QuizController {
     public function calculateScore($quiz_id, $user_answers) {
         try {
             $score = $this->quiz->calculateScore($quiz_id, $user_answers);
-            return "Score obtenu : $score";
+            return $score;
         } catch (\Exception $e) {
             return "Erreur lors du calcul du score : " . $e->getMessage();
         }

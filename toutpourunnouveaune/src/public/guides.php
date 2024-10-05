@@ -70,7 +70,7 @@ include '../views/templates/navbar.php';
 
         <!-- Formulaire pour ajouter un commentaire -->
         <?php if (isset($_SESSION['user'])): ?>
-            <form action="add_comment.php" method="POST" class="mb-4">
+            <form action="/Portfolio/toutpourunnouveaune/add_comment" method="POST" class="mb-4">
                 <input type="hidden" name="guide_id" value="<?php echo htmlspecialchars($guide['id']); ?>">
                 <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                 <div class="form-group">

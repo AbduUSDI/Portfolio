@@ -1,6 +1,6 @@
 # Activer le module de réécriture
 RewriteEngine On
-RewriteBase /Toutpourunnouveaune/
+RewriteBase /Portfolio/Toutpourunnouveaune/
 
 # Redirection de toutes les erreurs vers une page 404 personnalisée
 ErrorDocument 404 /Toutpourunnouveaune/404.php
@@ -24,9 +24,11 @@ RewriteRule ^submit_quiz$ src/public/index.php?page=submit_quiz [L,QSA]
 RewriteRule ^quizzes$ src/public/index.php?page=quizzes [L,QSA]
 RewriteRule ^guides$ src/public/index.php?page=guides [L,QSA]
 RewriteRule ^get_score$ src/public/index.php?page=get_score [L,QSA]
+RewriteRule ^add_comment$ src/public/index.php?page=add_comment [L,QSA]
 
 # Réécriture pour les pages dynamiques avec des IDs (par exemple, /comment/1, /guide/2)
 RewriteRule ^quiz/([0-9]+)$ src/public/quiz.php?id=$1 [L,QSA]
+RewriteRule ^forum/thread/([0-9]+)$ src/views/forum/threads/thread.php?id=$1 [L,QSA]
 
 # Réécriture pour les vues de l'administration (exemple: /admin, /admin/comments, etc.)
 RewriteRule ^admin$ src/views/admin/index.php [L]
@@ -64,7 +66,6 @@ RewriteRule ^forum/contact$ src/views/forum/contact.php [L]
 RewriteRule ^forum/profile$ src/views/forum/profile/my_profile.php [L]
 RewriteRule ^forum/threads$ src/views/forum/threads/threads.php [L]
 RewriteRule ^forum/threads/add$ src/views/forum/threads/add_thread.php [L]
-RewriteRule ^forum/threads/thread$ src/views/forum/threads/thread.php [L]
 
 # Gestion des fichiers statiques (images, scripts, styles, etc.)
 RewriteCond %{REQUEST_FILENAME} -f
