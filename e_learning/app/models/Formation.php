@@ -1,7 +1,7 @@
 <?php
-namespace App\Models;
+namespace Models;
 
-use App\Models\Progress;
+use Models\Progress;
 use PDO;
 
 class Formation

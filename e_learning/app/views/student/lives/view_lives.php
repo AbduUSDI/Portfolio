@@ -1,151 +1,67 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+session_start();
+
+// Durée de vie de la session en secondes (30 minutes)
+$sessionLifetime = 1800;
+
+// Vérification que l'utilisateur est connecté et est un étudiant
+if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 3) {
+    header('Location: /Portfolio/e_learning/login');
+    exit;
 }
+
+// Gestion de la durée de la session
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
+    session_unset();
+    session_destroy();
+    header('Location: /Portfolio/e_learning/login');
+    exit;
+}
+
+$_SESSION['LAST_ACTIVITY'] = time();
+
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\LiveController;
-use App\Controllers\AuthController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$liveController = new LiveController($db);
-$authController = new AuthController($db);
+$liveController = new \Controllers\LiveController($db);
 
-// Vérifiez que l'utilisateur est connecté et qu'il est un étudiant
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
-
-if (!$user || $user['role_id'] != 3) {
-    header('Location: ../../auth/login.php');
-    exit();
-}
-
-// Récupérer les sessions live disponibles pour l'étudiant
+// Récupération des sessions live disponibles
 $lives = $liveController->getAllLivesStudent();
 
 include_once '../../../../public/templates/header.php';
 include_once '../navbar_student.php';
 ?>
 
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    .card {
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #f8f9fa;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .card img {
-        border-radius: 50%;
-        margin-right: 20px;
-        width: 100px;
-        height: 100px;
-    }
-
-    .card h5 {
-        margin-bottom: 10px;
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
-
-    .card p {
-        margin-bottom: 10px;
-        font-size: 1rem;
-    }
-
-    .card a {
-        margin-top: 10px;
-        display: inline-block;
-        background-color: #007bff;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 4px;
-        text-decoration: none;
-    }
-
-    .card a:hover {
-        background-color: #0056b3;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-
-    .navbar-toggler {
-        background-color: #fff;
-        border: none;
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<div class="container mt-5">
+<div class="container containerr rounded mt-5">
     <h2 class="text-white">Sessions Live Disponibles</h2>
 
     <?php if (count($lives) > 0): ?>
         <div class="row">
-            <?php foreach ($lives as $live): ?>
-                <div class="col-md-6">
+            <?php foreach ($lives as $live): 
+                // Calculer la date de fin du live
+                $liveStartDate = new DateTime($live['live_date']);
+                $liveEndDate = clone $liveStartDate;
+                $liveEndDate->modify('+1 hour'); // Ajouter une heure à la date de début
+                $now = new DateTime();
+
+                // Vérifier si le live est toujours accessible
+                $isLiveAccessible = $now < $liveEndDate;
+            ?>
+                <div class="col-md-3">
                     <div class="card">
-                        <img src="../../../../public/uploads/profil_picture/<?php echo htmlspecialchars($live['photo_profil'] ?? '../../../../public/image_and_video/avatar_default.jpg'); ?>" alt="Photo de profil du formateur">
+                        <img src="/Portfolio/e_learning/public/uploads/profil_picture/<?php echo htmlspecialchars($live['photo_profil'] ?? '/Portfolio/e_learning/public/image_and_video/jpg/avatar_default.jpg'); ?>" class="img-thumbnail" width="230px" alt="Photo de profil du formateur">
                         <div>
-                            <h5><?php echo htmlspecialchars($live['title']); ?></h5>
+                            <h5 style="color: black;"><?php echo htmlspecialchars($live['title']); ?></h5>
                             <p><?php echo htmlspecialchars($live['description']); ?></p>
                             <p><strong>Date :</strong> <?php echo htmlspecialchars($live['live_date']); ?></p>
                             <p><strong>Formateur :</strong> <?php echo htmlspecialchars($live['prenom']) . ' ' . htmlspecialchars($live['nom']); ?></p>
-                            <a href="<?php echo htmlspecialchars($live['link']); ?>" target="_blank">Assister au live</a>
+                            <?php if ($isLiveAccessible): ?>
+                                <a class="btn btn-outline-info" href="<?php echo htmlspecialchars($live['link']); ?>" target="_blank">Assister au live</a>
+                            <?php else: ?>
+                                <button class="btn btn-outline-secondary" disabled>Live Expiré</button>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -156,4 +72,4 @@ include_once '../navbar_student.php';
     <?php endif; ?>
 </div>
 
-<?php include '../../../../public/templates/footer.php'; ?>
+<?php include '../../../../public/templates/footer.php'; ?> 

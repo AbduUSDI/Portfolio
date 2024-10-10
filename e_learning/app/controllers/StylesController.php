@@ -1,6 +1,6 @@
 <?php 
-namespace App\Controllers;
-use App\Models\Styles;
+namespace Controllers;
+use Models\Styles;
 
 class StylesController extends Styles
 {

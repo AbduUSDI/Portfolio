@@ -1,27 +1,31 @@
-<?php 
+<?php
 session_start();
 
+// Durée de vie de la session en secondes (30 minutes)
+$sessionLifetime = 1800;
+
+// Vérification que l'utilisateur est connecté et est un étudiant
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 3) {
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
+// Gestion de la durée de la session
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
+    session_unset();
+    session_destroy();
+    header('Location: /Portfolio/e_learning/login');
+    exit;
+}
+
+$_SESSION['LAST_ACTIVITY'] = time();
+
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\FormationController;
-use App\Controllers\AuthController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$formationController = new FormationController($db);
-
-// Déconnexion si le bouton est cliqué
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
-    $authController = new AuthController($db);
-    $authController->logoutInFolder();
-}
+$formationController = new \Controllers\FormationController($db);
 
 // Récupérer les formations de l'étudiant
 $formations = $formationController->getFormationsByUser($_SESSION['user']['id']);
@@ -30,85 +34,8 @@ include_once '../../../../public/templates/header.php';
 include_once '../navbar_student.php';
 ?>
 
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .card {
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 10px 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-    }
-
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
-    }
-
-    .list-group-item {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        margin-bottom: 10px;
-        border-radius: 4px;
-    }
-
-    .progress {
-        height: 20px;
-        border-radius: 10px;
-    }
-
-    .progress-bar {
-        background-color: #28a745;
-        font-size: 14px;
-        line-height: 20px;
-    }
-</style>
-
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Mes Cours</h1>
+    <h1 class="text-center mb-4">Mes cours assignés</h1>
     <?php if (empty($formations)): ?>
         <p class="text-center">Aucune formation disponible.</p>
     <?php else: ?>
@@ -130,7 +57,7 @@ include_once '../navbar_student.php';
                                     <?php echo $progress; ?>%
                                 </div>
                             </div>
-                            <a href="formation_details.php?formation_id=<?php echo $formation['id']; ?>" class="btn btn-primary">Voir les cours</a>
+                            <a href="/Portfolio/e_learning/student/mediateque/formation/<?php echo $formation['id']; ?>" class="btn btn-primary">Voir les cours</a>
                         </div>
                     </div>
                 </div>

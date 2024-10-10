@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace Models;
 
 use PDO;
 
@@ -83,6 +83,13 @@ class Message
         $query = "UPDATE messages SET read_status = 1 WHERE receiver_id = :user_id AND read_status = 0";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':user_id', $userId);
+        return $stmt->execute();
+    }
+    public function deleteMessage($id) 
+    {
+        $query = "DELETE from messages WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
 }

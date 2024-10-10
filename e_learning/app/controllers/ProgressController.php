@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Progress;
+use Models\Progress;
 use PDO;
 
 class ProgressController {

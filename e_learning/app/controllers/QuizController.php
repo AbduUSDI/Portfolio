@@ -1,10 +1,11 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Quiz;
-use App\Models\Question;
-use App\Models\Answer;
+use Models\Quiz;
+use Models\Question;
+use Models\Answer;
 use Exception;
+
 class QuizController
 {
     private $db;

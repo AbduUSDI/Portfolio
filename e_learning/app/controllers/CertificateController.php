@@ -1,9 +1,9 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
 use FPDF;
-use App\Models\User;
-use App\Models\Formation;
+use Models\User;
+use Models\Formation;
 
 class CertificateController
 {

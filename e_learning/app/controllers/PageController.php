@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Page;
+use Models\Page;
 
 class PageController {
 

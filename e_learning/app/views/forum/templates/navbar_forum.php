@@ -1,7 +1,5 @@
 <?php
 
-use App\Controllers\AuthController;
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -10,7 +8,7 @@ $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
 // Déconnexion si le bouton est cliqué
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
-  $authController = new AuthController($db);
+  $authController = new \Controllers\AuthController($db);
   $authController->logoutAdmin();
 }
 
@@ -19,7 +17,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 <nav class="navbar navbar-expand-lg navbar bg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Forum</a>
+    <a class="navbar-brand" href="/Portfolio/e_learning/forum">Forum</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,17 +27,17 @@ header('Content-Type: text/html; charset=utf-8');
           <?php if ($user): ?>
             <?php
               $roleId = is_object($user) ? $user->role_id : (is_array($user) ? $user['role_id'] : null);
-              $spacePage = '../../auth/index.html';
+              $spacePage = '/Portfolio/e_learning/home';
 
               switch ($roleId) {
                 case 1:
-                  $spacePage = '../admin/my_profile.php';
+                  $spacePage = '/Portfolio/e_learning/admin/profile';
                   break;
                 case 2:
-                  $spacePage = '../teacher/my_profile.php';
+                  $spacePage = '/Portfolio/e_learning/teacher/profile';
                   break;
                 case 3:
-                  $spacePage = '../student/my_profile.php';
+                  $spacePage = '/Portfolio/e_learning/student/profile';
                   break;
               }
             ?>
@@ -52,28 +50,28 @@ header('Content-Type: text/html; charset=utf-8');
             Les discussions
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="add_thread.php">Créer une discussion</a></li>
-            <li><a class="dropdown-item" href="threads.php">Les discussions</a></li>
+            <li><a class="dropdown-item text-dark" href="/Portfolio/e_learning/forum/threads/add">Créer une discussion</a></li>
+            <li><a class="dropdown-item text-dark" href="/Portfolio/e_learning/forum/threads">Les discussions</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="my_threads.php">Mes publications</a></li>
+            <li><a class="dropdown-item text-dark" href="/Portfolio/e_learning/forum/my_threads">Mes publications</a></li>
           </ul>
         </li>
 
         <?php if ($user && $user['role_id'] == 1): ?>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/admin_dashboard.php">Mon espace administrateur</a>
+            <a class="nav-link" href="/Portfolio/e_learning/admin">Mon espace administrateur</a>
           </li>
         <?php endif; ?>
 
         <?php if ($user && $user['role_id'] == 2): ?>
           <li class="nav-item">
-            <a class="nav-link" href="../teacher/teacher_dashboard.php">Mon espace formateur</a>
+            <a class="nav-link" href="/Portfolio/e_learning/teacher">Mon espace formateur</a>
           </li>
         <?php endif; ?>
 
         <?php if ($user && $user['role_id'] == 3): ?>
           <li class="nav-item">
-            <a class="nav-link" href="../student/student_dashboard.php">Mon espace apprenant</a>
+            <a class="nav-link" href="/Portfolio/e_learning/student">Mon espace apprenant</a>
           </li>
         <?php endif; ?>
       </ul>

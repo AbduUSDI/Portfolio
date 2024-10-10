@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Category;
+use Models\Category;
 
 class CategoryController {
 

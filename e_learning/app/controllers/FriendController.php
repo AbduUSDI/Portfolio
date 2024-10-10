@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\FriendRequest;
+use Models\FriendRequest;
 
 class FriendController
 {

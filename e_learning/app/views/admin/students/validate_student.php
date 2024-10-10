@@ -1,15 +1,11 @@
 <?php
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-use App\Controllers\CertificateController; // Nouveau contrôleur pour gérer les certificats
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$userController = new UserController($db);
-$certificateController = new CertificateController($db); // Initialiser le contrôleur des certificats
+$userController = new \Controllers\UserController($db);
+$certificateController = new \Controllers\CertificateController($db); // Initialiser le contrôleur des certificats
 
 $studentId = $_POST['student_id'];
 $validationStatus = $_POST['validation_status'];

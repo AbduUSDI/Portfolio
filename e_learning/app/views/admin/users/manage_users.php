@@ -7,7 +7,7 @@ $sessionLifetime = 1800;
 
 // Vérification que l'utilisateur est connecté et est un administrateur
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 1) {
-    header('Location: ../../../../app/auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -15,7 +15,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 1) {
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: ../../../../app/auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -23,15 +23,12 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-
 try {
     // Connexion à la base de données
-    $database = new Database();
+    $database = new \Database\Database();
     $conn = $database->getConnection();
 
-    $userController = new UserController($conn);
+    $userController = new \Controllers\UserController($conn);
 
     // Génération du token CSRF pour protéger les formulaires
     if (empty($_SESSION['csrf_token'])) {
@@ -129,226 +126,33 @@ include_once '../../../../public/templates/header.php';
 include_once '../navbar_admin.php';
 
 ?>
-<style>
-body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .table-responsive {
-        margin-bottom: 50px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #218838;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .btn-secondary:hover {
-        background-color: #5a6268;
-        border-color: #5a6268;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        border-color: #ffc107;
-    }
-
-    .btn-warning:hover {
-        background-color: #e0a800;
-        border-color: #d39e00;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-    .modal-header, .modal-footer {
-        background-color: #f0f2f5;
-    }
-
-    .modal-title {
-        font-weight: bold;
-        color: #333;
-    }
-    /* Ajout de la section "hero" pour donner une touche professionnelle */
-    .hero {
-        background: url('../../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-    .navbar-toggler {
-    background-color: #fff; /* Changer la couleur de fond du bouton */
-    border: none; /* Supprimer les bordures */
-    outline: none; /* Supprimer l'outline */
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        /* Remplacer la couleur de l'icône par une couleur plus foncée */
-        /* Vous pouvez ajuster la couleur rgba(0, 0, 0, 0.5) pour un contraste différent */
-    }
-
-    .navbar-toggler:focus {
-        outline: none; /* Assurez-vous que le bouton ne montre pas d'outline au focus */
-    }
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-<br>
-<hr>
 <h1 class="my-4 text-white">Gérer les utilisateurs</h1>
-<hr>
-<br>
-<div class="container mt-5 hero">
-    <div class="table-responsive">
-        <a href="javascript:void(0);" class="btn btn-success mb-4" data-toggle="modal" data-target="#addUserModal">Ajouter un utilisateur</a>
-        <table class="table table-bordered table-striped table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Email</th>
-                    <th>Rôle</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($users as $user): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($user['email']); ?></td>
-                        <td><?php echo htmlspecialchars($user['role_id'] == 1 ? 'Administrateur' : ($user['role_id'] == 2 ? 'Formateur' : 'Apprenant')); ?></td>
-                        <td>
+<div class="container mt-5">
+    <a href="javascript:void(0);" class="btn btn-success mb-4" data-toggle="modal" data-target="#addUserModal">Ajouter un utilisateur</a>
+    <div class="row">
+        <?php foreach ($users as $user): ?>
+            <div class="col-md-3">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: black;"><?php echo htmlspecialchars($user['username']); ?></h5>
+                        <p class="card-text"><strong>Email :</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                        <p class="card-text"><strong>Rôle :</strong> 
+                            <?php 
+                            echo htmlspecialchars($user['role_id'] == 1 ? 'Administrateur' : ($user['role_id'] == 2 ? 'Formateur' : 'Apprenant')); 
+                            ?>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
                             <a href="javascript:void(0);" class="btn btn-warning btn-sm btn-edit" data-id="<?php echo $user['id']; ?>" data-toggle="modal" data-target="#editUserModal">Modifier</a>
                             <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="<?php echo $user['id']; ?>" data-csrf_token="<?php echo $_SESSION['csrf_token']; ?>">Supprimer</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
 
-<!-- Modals pour Ajouter et Modifier -->
+<!-- Modals pour Ajouter et Modifier utilisateur -->
 <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -451,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addUserForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(addUserForm);
-        fetch('manage_users.php?action=add', {
+        fetch('/Portfolio/e_learning/admin/users/add', {
             method: 'POST',
             body: formData
         }).then(response => response.json()) // Traiter directement la réponse en JSON
@@ -467,10 +271,10 @@ document.addEventListener('DOMContentLoaded', function () {
     editUserForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(editUserForm);
-        fetch('manage_users.php?action=edit', {
+        fetch('/Portfolio/e_learning/admin/users/edit', {
             method: 'POST',
             body: formData
-        }).then(response => response.json()) // Traiter directement la réponse en JSON
+        }).then(response => response.json())
           .then(data => {
               alert(data.message);
               if (data.status === 'success') {
@@ -483,15 +287,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.btn-edit').forEach(button => {
         button.addEventListener('click', function () {
             const userId = this.getAttribute('data-id');
-            fetch(`manage_users.php?action=get&id=${userId}`)
-                .then(response => response.json()) // Traiter directement la réponse en JSON
+            fetch(`/Portfolio/e_learning/admin/users/get/${userId}`)
+                .then(response => response.json())
                 .then(data => {
                     document.getElementById('editUserId').value = data.id;
                     document.getElementById('editEmail').value = data.email;
                     document.getElementById('editUsername').value = data.username;
                     document.getElementById('editRole').value = data.role_id;
 
-                    // Ouvrir le modal après avoir inséré les données
                     $('#editUserModal').modal('show');
                 })
                 .catch(error => console.error('Erreur:', error));
@@ -503,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const userId = this.getAttribute('data-id');
             const csrfToken = this.getAttribute('data-csrf_token');
             if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-                fetch(`manage_users.php?action=delete&id=${userId}&csrf_token=${csrfToken}`)
+                fetch(`/Portfolio/e_learning/admin/users/delete/${userId}&csrf_token=${csrfToken}`)
                     .then(response => response.json()) // Traiter directement la réponse en JSON
                     .then(data => {
                         alert(data.message);
@@ -537,3 +340,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php include '../../../../public/templates/footer.php'; ?>
+

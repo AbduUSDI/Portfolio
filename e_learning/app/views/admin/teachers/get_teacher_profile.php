@@ -2,15 +2,11 @@
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\ProfileController;
-use App\Controllers\FriendController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$profileController = new ProfileController($db);
-$friendController = new FriendController($db);
+$profileController = new \Controllers\ProfileController($db);
+$friendController = new \Controllers\FriendController($db);
 
 if (isset($_GET['id'])) {
     $teacher_id = $_GET['id'];
@@ -25,16 +21,17 @@ if (isset($_GET['id'])) {
         echo "<p><strong>Date de naissance:</strong> " . htmlspecialchars($profile['date_naissance']) . "</p>";
         echo "<p><strong>Biographie:</strong> " . htmlspecialchars($profile['biographie']) . "</p>";
         if ($profile['photo_profil']) {
-            // Construire le chemin vers la photo de profil
-            $photoProfilPath = "../../../../public/uploads/profil_picture/" . basename($profile['photo_profil']);
-        
-            // Vérifier si le fichier existe
-            if (file_exists($photoProfilPath)) {
-                echo "<p><strong>Photo de profil:</strong><br><img src='" . htmlspecialchars($photoProfilPath) . "' alt='Photo de profil' style='max-width:200px;'></p>";
+            // Définir le chemin relatif de la photo de profil
+            $photoProfilPath = '/Portfolio/e_learning/public/uploads/profil_picture/' . basename($profile['photo_profil']);
+            
+            // Vérifier si le fichier existe (avec le chemin réel du fichier)
+            if (file_exists(__DIR__ . '/../../../../public/uploads/profil_picture/' . basename($profile['photo_profil']))) {
+                echo "<p><strong>Photo de profil:</strong><br><img src='" . htmlspecialchars($photoProfilPath) . "' alt='Photo de profil' style='max-width:200px;' class='img-thumbnail rounded mx-auto d-block'></p>";
             } else {
                 echo "<p><strong>Photo de profil:</strong> Image non trouvée.</p>";
             }
         }
+        
         
 
         // Vérifier si l'utilisateur connecté est différent du profil consulté
@@ -57,7 +54,7 @@ if (isset($_GET['id'])) {
 <script>
 document.getElementById('friendRequestBtn').addEventListener('click', function() {
     const userId = this.getAttribute('data-id');
-    fetch('send_friend_request.php', {
+    fetch('/Portfolio/e_learning/admin/teachers/send_friend', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

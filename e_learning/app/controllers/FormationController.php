@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Formation;
-use PDO;
+use Models\Formation;
 
 class FormationController
 {

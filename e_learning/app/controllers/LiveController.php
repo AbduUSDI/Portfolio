@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Live;
+use Models\Live;
 
 class LiveController
 {

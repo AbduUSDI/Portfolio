@@ -3,28 +3,27 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\ExamController;
-use App\Controllers\AuthController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$examController = new ExamController($db);
-$authController = new AuthController($db);
+$examController = new \Controllers\ExamController($db);
+$authController = new \Controllers\AuthController($db);
 
 // Vérifiez que l'utilisateur est connecté et qu'il est un enseignant
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
 if (!$user || $user['role_id'] != 2) {
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit();
 }
 
 // Gestion du téléchargement du fichier PDF et création de l'examen
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['exam_file'])) {
-    $uploadDir = '../../../../public/uploads/exams/';
-    $uploadFile = $uploadDir . basename($_FILES['exam_file']['name']);
+    $uploadDir = '/uploads/exams/'; // Chemin relatif depuis le dossier public
+    $fileName = basename($_FILES['exam_file']['name']);
+    $uploadFile = $uploadDir . $fileName;
+    $uploadPath = '../../../../public' . $uploadFile; // Chemin complet pour enregistrer le fichier
+
     $uploadOk = 1;
 
     // Vérification du fichier PDF
@@ -35,13 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['exam_file'])) {
     }
 
     if ($uploadOk == 1) {
-        if (move_uploaded_file($_FILES['exam_file']['tmp_name'], $uploadFile)) {
+        if (move_uploaded_file($_FILES['exam_file']['tmp_name'], $uploadPath)) {
             $examTitle = $_POST['exam_title'];
             $examDescription = $_POST['exam_description'];
             $dueDate = $_POST['due_date'];
             $formationId = $_POST['formation_id'];
 
-            // Insertion de l'examen dans la base de données
+            // Insertion de l'examen dans la base de données avec le chemin relatif
             $examController->createExam($examTitle, $examDescription, $uploadFile, $dueDate, $formationId);
             $message = "Examen créé avec succès.";
         } else {
@@ -49,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['exam_file'])) {
         }
     }
 }
+
 
 // Supprimer un examen
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_exam') {
@@ -63,156 +63,6 @@ $formations = $examController->getFormations();
 include_once '../../../../public/templates/header.php'; 
 include_once '../navbar_teacher.php';
 ?>
-
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .card {
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-    }
-
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
-    }
-
-    .table-responsive {
-        margin-bottom: 50px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        color: white;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        border-color: #dc3545;
-        color: white;
-    }
-
-    .btn-danger:hover {
-        background-color: #c82333;
-        border-color: #bd2130;
-    }
-
-    .btn-info {
-        background-color: #17a2b8;
-        border-color: #17a2b8;
-        color: white;
-    }
-
-    .btn-info:hover {
-        background-color: #138496;
-        border-color: #117a8b;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-</style>
-
 
 <div class="container mt-5">
     <h1 class="text-white">Gérer les Examens / Évaluations</h1>
@@ -273,9 +123,9 @@ include_once '../navbar_teacher.php';
                         <td><?php echo htmlspecialchars_decode($exam['description']); ?></td>
                         <td><?php echo htmlspecialchars_decode($exam['formation_name']); ?></td>
                         <td><?php echo htmlspecialchars_decode($exam['due_date']); ?></td>
-                        <td><a href="<?php echo htmlspecialchars_decode($exam['file_path']); ?>" target="_blank">Télécharger</a></td>
+                        <td><a href="/Portfolio/e_learning/public<?php echo htmlspecialchars_decode($exam['file_path']); ?>" target="_blank">Télécharger</a></td>
                         <td>
-                            <form action="manage_exams.php" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet examen ?');">
+                            <form action="/Portfolio/e_learning/teacher/exams" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet examen ?');">
                                 <input type="hidden" name="action" value="delete_exam">
                                 <input type="hidden" name="exam_id" value="<?php echo $exam['id']; ?>">
                                 <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>

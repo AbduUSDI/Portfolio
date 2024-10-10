@@ -1,26 +1,17 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\FormationController;
-use App\Controllers\CategoryController;
-use App\Controllers\SubCategoryController;
-use App\Controllers\PageController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$formationController = new FormationController($db);
-$categoryController = new CategoryController($db);
-$subCategoryController = new SubCategoryController($db);
-$pageController = new PageController($db);
+$formationController = new \Controllers\FormationController($db);
+$categoryController = new \Controllers\CategoryController($db);
+$subCategoryController = new \Controllers\SubCategoryController($db);
+$pageController = new \Controllers\PageController($db);
 
-header('Content-Type: application/json; charset=utf-8');  // Assurer l'encodage UTF-8 pour les réponses JSON
+header('Content-Type: application/json; charset=utf-8');
 
 // Vérification de la méthode de requête
 $method = $_SERVER['REQUEST_METHOD'];
@@ -244,61 +235,72 @@ switch ($action) {
             break;
         
 
-        case 'save_page':
-            $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $content = filter_input(INPUT_POST, 'content', FILTER_UNSAFE_RAW);
-            $subcategory_id = filter_input(INPUT_POST, 'subcategory_id', FILTER_VALIDATE_INT);
-            $video_url = filter_input(INPUT_POST, 'video_url', FILTER_VALIDATE_URL);
-        
-            // Récupérer l'URL actuelle de la vidéo si elle existe déjà
-            $currentVideoUrl = null;
-            if ($id) {
-                $currentPage = $pageController->getPageById($id);
-                if ($currentPage) {
-                    $currentVideoUrl = $currentPage['video_url'];
+            case 'save_page':
+                $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+                $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $content = filter_input(INPUT_POST, 'content', FILTER_UNSAFE_RAW);
+                $subcategory_id = filter_input(INPUT_POST, 'subcategory_id', FILTER_VALIDATE_INT);
+                $video_url = filter_input(INPUT_POST, 'video_url', FILTER_VALIDATE_URL);
+            
+                // Récupérer l'URL actuelle de la vidéo si elle existe déjà
+                $currentVideoUrl = null;
+                if ($id) {
+                    $currentPage = $pageController->getPageById($id);
+                    if ($currentPage) {
+                        $currentVideoUrl = $currentPage['video_url'];
+                    }
                 }
-            }
-        
-            // Gestion de l'upload de fichier vidéo
-            if (isset($_FILES['video']) && $_FILES['video']['error'] === UPLOAD_ERR_OK) {
-                $fileTmpPath = $_FILES['video']['tmp_name'];
-                $fileName = $_FILES['video']['name'];
-                $uploadFileDir = '../../../../public/image_and_video/mp4/';
-                $dest_path = $uploadFileDir . $fileName;
-        
-                if (!move_uploaded_file($fileTmpPath, $dest_path)) {
-                    echo json_encode(['status' => 'error', 'message' => 'File upload failed.']);
+            
+                // Gestion de l'upload de fichier vidéo
+                if (isset($_FILES['video']) && $_FILES['video']['error'] === UPLOAD_ERR_OK) {
+                    $uploadDir = '../../../../public/image_and_video/mp4/';
+                    $fileName = basename($_FILES['video']['name']);
+                    $uploadFile = $uploadDir . $fileName;
+            
+                    // Vérification du type de fichier
+                    $fileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
+                    if ($fileType != "mp4") {
+                        echo json_encode(['status' => 'error', 'message' => 'Only MP4 video files are allowed.']);
+                        exit;
+                    }
+            
+                    // Upload du fichier
+                    if (move_uploaded_file($_FILES['video']['tmp_name'], $uploadFile)) {
+                        // Enregistrer uniquement le chemin relatif
+                        $relativeVideoPath = '/public/image_and_video/mp4/' . $fileName;
+                        $video_url = $relativeVideoPath;
+                    } else {
+                        echo json_encode(['status' => 'error', 'message' => 'File upload failed.']);
+                        exit;
+                    }
+                } elseif (empty($video_url)) {
+                    // Si l'utilisateur n'a pas fourni de nouvelle URL vidéo ou uploadé un nouveau fichier, conserver l'URL actuelle
+                    $video_url = $currentVideoUrl;
+                }
+            
+                // Validation des données
+                if (!$title || !$content || !$subcategory_id) {
+                    http_response_code(400);
+                    echo json_encode(['status' => 'error', 'message' => 'Invalid input.']);
                     exit;
                 }
-                $video_url = $dest_path;  // Mettre à jour l'URL de la vidéo avec le nouveau chemin de fichier
-            } elseif (empty($video_url)) {
-                // Si l'utilisateur n'a pas fourni de nouvelle URL vidéo ou uploadé un nouveau fichier, conserver l'URL actuelle
-                $video_url = $currentVideoUrl;
-            }
-        
-            // Validation des données
-            if (!$title || !$content || !$subcategory_id) {
-                http_response_code(400);
-                echo json_encode(['status' => 'error', 'message' => 'Invalid input.']);
-                exit;
-            }
-        
-            // Mise à jour ou création de la page
-            if ($id) {
-                $success = $pageController->updatePage($id, $title, $content, $video_url, $subcategory_id);
-            } else {
-                $success = $pageController->createPage($title, $content, $video_url, $subcategory_id);
-            }
-        
-            // Réponse JSON
-            if ($success) {
-                echo json_encode(['status' => 'success']);
-            } else {
-                http_response_code(500);
-                echo json_encode(['status' => 'error', 'message' => 'Failed to save page.']);
-            }
-            break;        
+            
+                // Mise à jour ou création de la page
+                if ($id) {
+                    $success = $pageController->updatePage($id, $title, $content, $video_url, $subcategory_id);
+                } else {
+                    $success = $pageController->createPage($title, $content, $video_url, $subcategory_id);
+                }
+            
+                // Réponse JSON
+                if ($success) {
+                    echo json_encode(['status' => 'success']);
+                } else {
+                    http_response_code(500);
+                    echo json_encode(['status' => 'error', 'message' => 'Failed to save page.']);
+                }
+                break;
+                    
 
     case 'delete_page':
         $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);

@@ -1,32 +1,38 @@
 <?php
 session_start();
 
-require_once '../../../../vendor/autoload.php';
+// Durée de vie de la session en secondes (30 minutes)
+$sessionLifetime = 1800;
 
-use App\Config\Database;
-use App\Controllers\LiveController;
-use App\Controllers\AuthController;
-
-$database = new Database();
-$db = $database->getConnection();
-
-$liveController = new LiveController($db);
-$authController = new AuthController($db);
-
-// Vérifiez que l'utilisateur est connecté et qu'il est un formateur
+// Vérification que l'utilisateur est connecté et est un administrateur
+if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 2) {
+    header('Location: /Portfolio/e_learning/login');
+    exit;
+}
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
-if (!$user || $user['role_id'] != 2) {
-    header('Location: ../../auth/login.php');
-    exit();
+// Gestion de la durée de la session
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
+    session_unset();
+    session_destroy();
+    header('Location: /Portfolio/e_learning/login');
+    exit;
 }
+
+$_SESSION['LAST_ACTIVITY'] = time();
+
+require_once '../../../../vendor/autoload.php';
+
+$database = new \Database\Database();
+$db = $database->getConnection();
+
+$liveController = new \Controllers\LiveController($db);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         $utilisateur_id = $user['id'];  // ID du formateur connecté
         
         if ($_POST['action'] === 'create') {
-            // Création d'une nouvelle session live
             $title = $_POST['title'];
             $description = $_POST['description'];
             $date = $_POST['date'];
@@ -35,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $liveController->createLive($title, $description, $date, $link, $utilisateur_id);
             $message = "Session live créée avec succès.";
         } elseif ($_POST['action'] === 'update') {
-            // Mise à jour d'une session live existante
             $id = $_POST['id'];
             $title = $_POST['title'];
             $description = $_POST['description'];
@@ -45,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $liveController->updateLive($id, $title, $description, $date, $link, $utilisateur_id);
             $message = "Session live mise à jour avec succès.";
         } elseif ($_POST['action'] === 'delete') {
-            // Suppression d'une session live
             $id = $_POST['id'];
             $liveController->deleteLive($id);
             $message = "Session live supprimée avec succès.";
@@ -53,209 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-// Récupérer la liste des sessions live
 $lives = $liveController->getAllLives();
 
 include_once '../../../../public/templates/header.php';
 include_once '../navbar_teacher.php';
 ?>
-
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .table-responsive {
-        margin-bottom: 50px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #218838;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .btn-secondary:hover {
-        background-color: #5a6268;
-        border-color: #5a6268;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        border-color: #ffc107;
-    }
-
-    .btn-warning:hover {
-        background-color: #e0a800;
-        border-color: #d39e00;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-
-    .card {
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-    }
-
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
-    }
-
-    .btn-info {
-        background-color: #17a2b8;
-        border-color: #17a2b8;
-        color: white;
-    }
-
-    .btn-info:hover {
-        background-color: #138496;
-        border-color: #117a8b;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .modal-header, .modal-footer {
-        background-color: #343a40;
-        color: white;
-    }
-
-    .modal-title {
-        font-weight: bold;
-    }
-
-    .h3catego {
-        font-weight: bold;
-    }
-
-    .subcategomodal {
-        font-style: italic;
-    }
-
-    .pagemodal {
-        color: blue;
-    }
-</style>
 
 <div class="container mt-5">
     <h1 class="text-white">Gérer les Sessions Live</h1>
@@ -266,44 +72,57 @@ include_once '../navbar_teacher.php';
 
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#createLiveModal">Créer une nouvelle session Live</button>
 
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                    <th>Lien</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($lives as $live) : ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($live['title']); ?></td>
-                        <td><?php echo htmlspecialchars($live['description']); ?></td>
-                        <td><?php echo htmlspecialchars($live['date']); ?></td>
-                        <td><a href="<?php echo htmlspecialchars($live['link']); ?>" target="_blank">Rejoindre</a></td>
-                        <td>
-                            <button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editLiveModal" data-id="<?php echo $live['id']; ?>" data-title="<?php echo htmlspecialchars($live['title']); ?>" data-description="<?php echo htmlspecialchars($live['description']); ?>" data-date="<?php echo htmlspecialchars($live['date']); ?>" data-link="<?php echo htmlspecialchars($live['link']); ?>">Modifier</button>
-                            <form action="manage_lives.php" method="POST" style="display:inline-block;">
-                                <input type="hidden" name="id" value="<?php echo $live['id']; ?>">
-                                <input type="hidden" name="action" value="delete">
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette session live ?')">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+    <div class="row">
+    <?php foreach ($lives as $live) : 
+        // Calculer la date de fin du live
+        $liveStartDate = new DateTime($live['date']);
+        $liveEndDate = clone $liveStartDate;
+        $liveEndDate->modify('+1 hour'); // Ajouter une heure à la date de début
+        $now = new DateTime();
+
+        // Vérifier si le live est toujours accessible
+        $isLiveAccessible = $now < $liveEndDate;
+    ?>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black;"><?php echo htmlspecialchars($live['title']); ?></h5>
+                    <p class="card-text"><?php echo htmlspecialchars($live['description']); ?></p>
+                    <p class="card-text"><strong>Date :</strong> <?php echo htmlspecialchars($live['date']); ?></p>
+                    <?php if ($isLiveAccessible): ?>
+                        <a href="<?php echo htmlspecialchars($live['link']); ?>" target="_blank" class="btn btn-outline-success mb-2">Rejoindre</a>
+                    <?php else: ?>
+                        <button class="btn btn-outline-secondary mb-2" disabled>Live Expiré</button>
+                    <?php endif; ?>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-secondary btn-sm" 
+                        data-toggle="modal" 
+                        data-target="#editLiveModal" 
+                        data-id="<?php echo $live['id']; ?>" 
+                        data-title="<?php echo htmlspecialchars($live['title']); ?>" 
+                        data-description="<?php echo htmlspecialchars($live['description']); ?>" 
+                        data-date="<?php echo htmlspecialchars($live['date']); ?>" 
+                        data-link="<?php echo htmlspecialchars($live['link']); ?>">
+                        Modifier
+                    </button>
+                        <form action="/Portfolio/e_learning/teacher/lives" method="POST" style="display:inline-block;">
+                            <input type="hidden" name="id" value="<?php echo $live['id']; ?>">
+                            <input type="hidden" name="action" value="delete">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette session live ?')">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
+
 
 <!-- Modal pour créer une session live -->
 <div class="modal fade" id="createLiveModal" tabindex="-1" role="dialog" aria-labelledby="createLiveModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="manage_lives.php" method="POST">
+            <form action="/Portfolio/e_learning/teacher/lives" method="POST">
                 <div class="modal-header">
                     <h5 class="modal-title" id="createLiveModalLabel">Créer une nouvelle session Live</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -342,7 +161,7 @@ include_once '../navbar_teacher.php';
 <div class="modal fade" id="editLiveModal" tabindex="-1" role="dialog" aria-labelledby="editLiveModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="manage_lives.php" method="POST">
+            <form action="/Portfolio/e_learning/teacher/lives" method="POST">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editLiveModalLabel">Modifier la session Live</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -378,6 +197,10 @@ include_once '../navbar_teacher.php';
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- Votre script personnalisé -->
 <script>
     $('#editLiveModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
@@ -386,14 +209,17 @@ include_once '../navbar_teacher.php';
         var description = button.data('description');
         var date = button.data('date');
         var link = button.data('link');
-
+        
+        var formattedDate = date.replace(' ', 'T');
         var modal = $(this);
+
         modal.find('#editLiveId').val(id);
         modal.find('#editTitle').val(title);
         modal.find('#editDescription').val(description);
-        modal.find('#editDate').val(date);
+        modal.find('#editDate').val(formattedDate);
         modal.find('#editLink').val(link);
     });
 </script>
+
 
 <?php include '../../../../public/templates/footer.php'; ?>

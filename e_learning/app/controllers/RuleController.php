@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Rule;
+use Models\Rule;
 
 class RuleController
 {

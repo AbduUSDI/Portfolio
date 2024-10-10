@@ -1,0 +1,117 @@
+# Activer le module de réécriture
+RewriteEngine On
+RewriteBase /Portfolio/e_learning/
+
+# Redirection de toutes les erreurs vers une page 404 personnalisée
+ErrorDocument 404 /Portfolio/e_learning/404.php
+
+# Gérer l'accès direct aux fichiers dans les dossiers comme css, js, image_and_video, etc.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Réécriture des URLs pour les pages principales
+RewriteRule ^home$ app/auth/index.php?page=home [L,QSA]
+RewriteRule ^contact$ app/auth/contact.php [L,QSA]
+RewriteRule ^forgot$ app/auth/forgot_password.php [L,QSA]
+RewriteRule ^reset$ app/auth/reset_password.php [L,QSA]
+RewriteRule ^login$ app/auth/login.php [L,QSA]
+RewriteRule ^register$ app/auth/register.php [L,QSA]
+RewriteRule ^terms$ app/auth/termsofservice.php [L,QSA]
+RewriteRule ^privacy$ app/auth/privacypolicy.php [L,QSA]
+RewriteRule ^formations-prospect$ app/auth/formations.php [L,QSA]
+RewriteRule ^forum-prospect$ app/auth/indexforum.php [L,QSA]
+RewriteRule ^mentions$ app/auth/mentions-legales.php [L,QSA]
+RewriteRule ^apropos$ app/auth/aproposdenous.php [L,QSA]
+
+# Réécriture pour les pages aux url dynamique
+RewriteRule ^forum/thread/([0-9]+)$ app/views/forum/thread.php?id=$1 [L,QSA]
+RewriteRule ^admin/quizzes/get_questions/([0-9]+)$ app/views/admin/quizzes/get_questions.php?quiz_id=$1 [L,QSA]
+RewriteRule ^admin/get_profile/([0-9]+)$ app/views/admin/ajax/get_user_profile.php?friend_id=$1 [L,QSA]
+RewriteRule ^teacher/get_profile/([0-9]+)$ app/views/teacher/ajax/get_user_profile.php?friend_id=$1 [L,QSA]
+
+RewriteRule ^admin/users/([a-zA-Z0-9_-]+)/([0-9]+)&csrf_token=([a-zA-Z0-9]+)$ app/views/admin/users/manage_users.php?action=$1&id=$2&csrf_token=$3 [L,QSA]
+RewriteRule ^admin/teachers/profile/([0-9]+)$ app/views/admin/teachers/get_teacher_profile.php?id=$1 [L,QSA]
+RewriteRule ^forum/profile/([0-9]+)$ app/views/forum/ajax/get_user_profile.php?user_id=$1 [L,QSA]
+RewriteRule ^student/mediateque/formation/([0-9]+)$ app/views/student/mediateque/formation_details.php?formation_id=$1 [L,QSA]
+RewriteRule ^student/quiz/take_quiz/([0-9]+)$ app/views/student/quiz/take_quiz.php?quiz_id=$1 [L,QSA]
+RewriteRule ^teacher/get_profile/([0-9]+)$ app/views/teacher/ajax/get_user_profile.php?friend_id=$1 [L,QSA]
+RewriteRule ^teacher/students/quiz/([0-9]+)$ app/views/teacher/students/manage_students.php?quiz_id=$1 [L,QSA]
+RewriteRule ^teacher/quizzes/get_questions/([0-9]+)$ app/views/teacher/quiz/get_questions.php?quiz_id=$1 [L,QSA]
+
+# Capturer action et id
+RewriteRule ^admin/users/([a-zA-Z0-9_-]+)/([0-9]+)$ app/views/admin/users/manage_users.php?action=$1&id=$2 [L,QSA]
+
+# Capturer action sans id (pour les actions comme 'add' et 'edit' où id n'est pas nécessaire)
+RewriteRule ^admin/users/([a-zA-Z0-9_-]+)$ app/views/admin/users/manage_users.php?action=$1 [L,QSA]
+
+# Réécriture pour les pages d'administration
+RewriteRule ^admin$ app/views/admin/admin_dashboard.php [L]
+RewriteRule ^admin/exams$ app/views/admin/exams/manage_exams.php [L]
+RewriteRule ^admin/mediateque$ app/views/admin/mediateque/manage_mediateque.php [L]
+RewriteRule ^admin/mediateque/save$ app/views/admin/mediateque/save_mediateque.php [L]
+RewriteRule ^admin/quizzes$ app/views/admin/quizzes/manage_quizzes.php [L]
+RewriteRule ^admin/rules$ app/views/admin/rules/manage_rules.php [L]
+RewriteRule ^admin/teachers$ app/views/admin/teachers/manage_teachers.php [L]
+RewriteRule ^admin/teachers/contact$ app/views/admin/teachers/contact_teacher.php [L]
+RewriteRule ^admin/teachers/schedule$ app/views/admin/teachers/assign_schedule.php [L]
+RewriteRule ^admin/teachers/send_friend$ app/views/admin/ajax/send_friend_request.php [L]
+RewriteRule ^admin/users$ app/views/admin/users/manage_users.php [L]
+RewriteRule ^admin/profile$ app/views/admin/my_profile.php [L]
+RewriteRule ^admin/get_profile$ app/views/admin/ajax/get_user_profile.php [L]
+RewriteRule ^admin/students$ app/views/admin/students/manage_students.php [L]
+RewriteRule ^admin/students/get_profile$ app/views/admin/students/get_profile.php [L]
+RewriteRule ^admin/students/message$ app/views/admin/students/send_message_to_student.php [L]
+RewriteRule ^admin/students/assign_course$ app/views/admin/students/assign_course_to_student.php [L]
+RewriteRule ^admin/students/validate$ app/views/admin/students/validate_student.php [L]
+
+# Réécriture pour les pages des étudiants
+RewriteRule ^student$ app/views/student/student_dashboard.php [L]
+RewriteRule ^student/exams$ app/views/student/exam/view_exams.php [L]
+RewriteRule ^student/correction$ app/views/student/exam/view_corrections.php [L]
+RewriteRule ^student/mediateque$ app/views/student/mediateque/view_courses.php [L]
+RewriteRule ^student/quiz$ app/views/student/quiz/views_quizzes.php [L]
+RewriteRule ^student/messages$ app/views/student/messages.php [L]
+RewriteRule ^student/profile$ app/views/student/my_profile.php [L]
+RewriteRule ^student/lives$ app/views/student/lives/view_lives.php [L]
+RewriteRule ^student/quiz/scores$ app/views/student/quiz/manage_quiz_scores.php [L]
+RewriteRule ^student/mediateque/update_status$ app/views/student/mediateque/update_category_status.php [L]
+RewriteRule ^student/mediateque/update_count$ app/views/student/mediateque/update_view_count.php [L]
+
+# Réécriture pour les pages des enseignants
+RewriteRule ^teacher$ app/views/teacher/teacher_dashboard.php [L]
+RewriteRule ^teacher/exams$ app/views/teacher/exams/manage_exams.php [L]
+RewriteRule ^teacher/lives$ app/views/teacher/live/manage_lives.php [L]
+RewriteRule ^teacher/quizzes$ app/views/teacher/quiz/manage_quizzes.php [L]
+RewriteRule ^teacher/students$ app/views/teacher/students/manage_students.php [L]
+RewriteRule ^teacher/messages$ app/views/teacher/messages.php [L]
+RewriteRule ^teacher/profile$ app/views/teacher/my_profile.php [L]
+RewriteRule ^teacher/correction$ app/views/teacher/exams/correction_exam.php [L]
+RewriteRule ^teacher/students/get_profile$ app/views/teacher/students/get_profile.php [L]
+RewriteRule ^teacher/students/message$ app/views/teacher/students/send_message_to_student.php [L]
+RewriteRule ^teacher/students/assign_course$ app/views/teacher/students/assign_course_to_student.php [L]
+RewriteRule ^teacher/students/validate$ app/views/teacher/students/validate_student.php [L]
+
+# Réécriture pour les pages du forum
+RewriteRule ^forum$ app/views/forum/index.php [L]
+RewriteRule ^forum/threads$ app/views/forum/threads.php [L]
+RewriteRule ^forum/my_threads$ app/views/forum/my_threads.php [L]
+RewriteRule ^forum/threads/add$ app/views/forum/add_thread.php [L]
+RewriteRule ^forum/send_friend$ app/views/forum/ajax/send_friend_request.php [L]
+RewriteRule ^forum/message$ app/views/forum/ajax/send_message.php [L]
+RewriteRule ^forum/my_threads$ app/views/forum/my_threads.php [L]
+
+# Gestion des fichiers statiques (images, scripts, styles, etc.)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^public/css/(.*)$ public/css/$1 [L]
+RewriteRule ^public/js/(.*)$ public/js/$1 [L]
+RewriteRule ^public/image_and_video/(.*)$ public/image_and_video/$1 [L]
+RewriteRule ^public/uploads/(.*)$ public/uploads/$1 [L]
+
+# Gestion des fichiers dans vendor
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^vendor/(.*)$ vendor/$1 [L]
+
+# Redirection par défaut pour toute autre page (si aucun fichier ou dossier n'est trouvé)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ app/auth/index.php?page=$1 [L,QSA]

@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Schedule;
+use Models\Schedule;
 use Exception;
 
 class ScheduleController

@@ -1,13 +1,10 @@
 <?php
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\ScheduleController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$scheduleController = new ScheduleController($db);
+$scheduleController = new \Controllers\ScheduleController($db);
 
 $teacherId = (int)$_POST['teacher_id'];
 $schedule = (string)$_POST['schedule'];

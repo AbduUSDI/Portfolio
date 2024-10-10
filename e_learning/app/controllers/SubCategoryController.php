@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\SubCategory;
+use Models\SubCategory;
 
 class SubCategoryController {
 

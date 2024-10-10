@@ -6,7 +6,7 @@ $sessionLifetime = 1800;
 
 // Vérification que l'utilisateur est connecté et est un administrateur
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 1) {
-    header('Location: ../../login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 1) {
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: ../../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -22,24 +22,18 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\FormationController;
-use App\Controllers\CategoryController;
-use App\Controllers\SubCategoryController;
-use App\Controllers\PageController;
-
 // Génération d'un token CSRF
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$formationController = new FormationController($db);
-$categoryController = new CategoryController($db);
-$subCategoryController = new SubCategoryController($db);
-$pageController = new PageController($db);
+$formationController = new \Controllers\FormationController($db);
+$categoryController = new \Controllers\CategoryController($db);
+$subCategoryController = new \Controllers\SubCategoryController($db);
+$pageController = new \Controllers\PageController($db);
 
 $formations = $formationController->getAllFormations();
 
@@ -51,183 +45,10 @@ include_once '../navbar_admin.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
-  body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .table-responsive {
-        margin-bottom: 50px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #218838;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .btn-secondary:hover {
-        background-color: #5a6268;
-        border-color: #5a6268;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        border-color: #ffc107;
-    }
-
-    .btn-warning:hover {
-        background-color: #e0a800;
-        border-color: #d39e00;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-    .hero {
-        background: url('../../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-    .navbar-toggler {
-    background-color: #fff;
-    border: none;
-    outline: none;
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
-
-    .navbar-toggler:focus {
-        outline: none;
-    }
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
     #scrollToTopBtn {
         display: none;
         position: fixed;
-        bottom: 20px;
+        bottom: 170px;
         right: 20px;
         z-index: 99;
         font-size: 18px;
@@ -246,7 +67,7 @@ include_once '../navbar_admin.php';
     #scrollToBottomBtn {
         display: none;
         position: fixed;
-        bottom: 20px;
+        bottom: 170px;
         right: 80px;
         z-index: 99;
         font-size: 18px;
@@ -398,7 +219,7 @@ $(document).ready(function () {
     // Charger la liste des formations et leurs catégories, sous-catégories et pages
     function loadFormations() {
     $.ajax({
-        url: 'save_mediateque.php',
+        url: '/Portfolio/e_learning/admin/mediateque/save',
         method: 'POST',
         data: { action: 'get_formations', csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
         success: function (data) {
@@ -489,7 +310,7 @@ function loadPages(pages) {
                     <div class="card-body">
                         <h6 class="card-title">${page.title}</h6>
                         <p class="card-text" name="page-description">${page.content}</p>
-                        ${page.video_url ? `<video controls style="width: 100%;"><source src="${page.video_url}" type="video/mp4">Your browser does not support the video tag.</video>` : ''}
+                        ${page.video_url ? `<video controls style="width: 100%;"><source src="/Portfolio/e_learning${page.video_url}" type="video/mp4">Your browser does not support the video tag.</video>` : ''}
                         <button class="btn btn-secondary editPage" data-id="${page.id}">Modifier</button>
                         <button class="btn btn-danger deletePage" data-id="${page.id}">Supprimer</button>
                     </div>
@@ -515,7 +336,7 @@ function loadPages(pages) {
         var formData = $(this).serialize();
         formData += '&action=save_formation';
         $.ajax({
-            url: 'save_mediateque.php',
+            url: '/Portfolio/e_learning/admin/mediateque/save',
             method: 'POST',
             data: formData,
             success: function (response) {
@@ -540,7 +361,7 @@ function loadPages(pages) {
         return;
     }
     $.ajax({
-        url: 'save_mediateque.php',
+        url: '/Portfolio/e_learning/admin/mediateque/save',
         method: 'POST',
         data: { action: 'get_formation', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
         success: function (response) {
@@ -576,7 +397,7 @@ function htmlspecialchars_decode(str) {
         var id = $(this).data('id');
         if (confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')) {
             $.ajax({
-                url: 'save_mediateque.php',
+                url: '/Portfolio/e_learning/admin/mediateque/save',
                 method: 'POST',
                 data: { action: 'delete_formation', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
                 success: function (response) {
@@ -604,7 +425,7 @@ function htmlspecialchars_decode(str) {
         var formData = $(this).serialize();
         formData += '&action=save_category';
         $.ajax({
-            url: 'save_mediateque.php',
+            url: '/Portfolio/e_learning/admin/mediateque/save',
             method: 'POST',
             data: formData,
             success: function (response) {
@@ -626,7 +447,7 @@ function htmlspecialchars_decode(str) {
     $(document).on('click', '.editCategory', function () {
     var id = $(this).data('id');
     $.ajax({
-        url: 'save_mediateque.php',
+        url: '/Portfolio/e_learning/admin/mediateque/save',
         method: 'POST',
         data: { action: 'get_category', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
         success: function (data) {
@@ -660,7 +481,7 @@ function htmlspecialchars_decode(str) {
         var id = $(this).data('id');
         if (confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')) {
             $.ajax({
-                url: 'save_mediateque.php',
+                url: '/Portfolio/e_learning/admin/mediateque/save',
                 method: 'POST',
                 data: { action: 'delete_category', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
                 success: function (response) {
@@ -688,7 +509,7 @@ function htmlspecialchars_decode(str) {
         var formData = $(this).serialize();
         formData += '&action=save_subcategory';
         $.ajax({
-            url: 'save_mediateque.php',
+            url: '/Portfolio/e_learning/admin/mediateque/save',
             method: 'POST',
             data: formData,
             success: function (response) {
@@ -710,7 +531,7 @@ function htmlspecialchars_decode(str) {
 $(document).on('click', '.editSubCategory', function () {
     var id = $(this).data('id');
     $.ajax({
-        url: 'save_mediateque.php',
+        url: '/Portfolio/e_learning/admin/mediateque/save',
         method: 'POST',
         data: { action: 'get_subcategory', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
         success: function (response) {
@@ -743,7 +564,7 @@ $(document).on('click', '.editSubCategory', function () {
         var id = $(this).data('id');
         if (confirm('Êtes-vous sûr de vouloir supprimer cette sous-catégorie ?')) {
             $.ajax({
-                url: 'save_mediateque.php',
+                url: '/Portfolio/e_learning/admin/mediateque/save',
                 method: 'POST',
                 data: { action: 'delete_subcategory', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
                 success: function (response) {
@@ -772,7 +593,7 @@ $(document).on('click', '.editSubCategory', function () {
         formData.append('action', 'save_page');
         formData.append('csrf_token', '<?php echo $_SESSION['csrf_token']; ?>');
         $.ajax({
-            url: 'save_mediateque.php',
+            url: '/Portfolio/e_learning/admin/mediateque/save',
             method: 'POST',
             data: formData,
             processData: false,
@@ -797,7 +618,7 @@ $(document).on('click', '.editSubCategory', function () {
 $(document).on('click', '.editPage', function () {
     var id = $(this).data('id');
     $.ajax({
-        url: 'save_mediateque.php',
+        url: '/Portfolio/e_learning/admin/mediateque/save',
         method: 'POST',
         data: { action: 'get_page', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
         success: function (response) {
@@ -836,7 +657,7 @@ $(document).on('click', '.editPage', function () {
         var id = $(this).data('id');
         if (confirm('Êtes-vous sûr de vouloir supprimer cette page ?')) {
             $.ajax({
-                url: 'save_mediateque.php',
+                url: '/Portfolio/e_learning/admin/mediateque/save',
                 method: 'POST',
                 data: { action: 'delete_page', id: id, csrf_token: '<?php echo $_SESSION['csrf_token']; ?>' },
                 success: function (response) {

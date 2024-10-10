@@ -3,13 +3,11 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\CategoryController;
 
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$categoryController = new CategoryController($db);
+$categoryController = new \Controllers\CategoryController($db);
 
 $categoryId = isset($_POST['category_id']) ? $_POST['category_id'] : null;
 $status = isset($_POST['status']) ? $_POST['status'] : null;

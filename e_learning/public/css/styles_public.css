@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+.hero {
+    background: url('../../public/image_and_video/webp/background_image_index.webp');
+    background-size: cover;
+    height: 600px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+.features {
+    padding: 50px 0;
+}
+.features h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+.feature-item {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.feature-item img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+.carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+footer a {
+    color: #adb5bd;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}

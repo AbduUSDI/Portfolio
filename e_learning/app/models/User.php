@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Models;
 
 use PDO;
 
@@ -171,12 +171,29 @@ class User {
     }
     // Méthode pour obtenir les utilisateurs par rôle
     public function getUsersByRole($role_id) {
-        $query = "SELECT * FROM users WHERE role_id = :role_id";
+        $query = "
+            SELECT 
+                users.*, 
+                profils.prenom, 
+                profils.nom, 
+                profils.date_naissance, 
+                profils.biographie, 
+                profils.specialty, 
+                profils.photo_profil
+            FROM 
+                users
+            LEFT JOIN 
+                profils ON users.id = profils.utilisateur_id
+            WHERE 
+                users.role_id = :role_id
+        ";
+        
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':role_id', $role_id, PDO::PARAM_INT);
         $stmt->execute();
+        
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    }    
     public function validateCursus($studentId, $validationStatus)
     {
         $query = "UPDATE " . $this->table_name . " SET cursus_valide = :validation_status WHERE id = :student_id";

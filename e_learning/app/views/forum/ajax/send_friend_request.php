@@ -3,9 +3,6 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\FriendController;
-
 if (!isset($_SESSION['user'])) {
     echo json_encode(['status' => 'error', 'message' => 'Accès non autorisé']);
     exit;
@@ -22,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $database = new Database();
+    $database = new \Database\Database();
     $db = $database->getConnection();
 
-    $friendController = new FriendController($db);
+    $friendController = new \Controllers\FriendController($db);
 
     $result = $friendController->sendFriendRequest($senderId, $receiverId);
     echo json_encode($result);

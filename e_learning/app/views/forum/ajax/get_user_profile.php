@@ -3,9 +3,6 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\ProfileController;
-
 if (!isset($_SESSION['user'])) {
     echo 'Accès non autorisé';
     exit;
@@ -14,10 +11,10 @@ if (!isset($_SESSION['user'])) {
 if (isset($_GET['user_id'])) {
     $userId = intval($_GET['user_id']);
 
-    $database = new Database();
+    $database = new \Database\Database();
     $db = $database->getConnection();
 
-    $profileController = new ProfileController($db);
+    $profileController = new \Controllers\ProfileController($db);
     $profile = $profileController->getProfileByUserId($userId);
 
     if ($profile) {
@@ -29,7 +26,7 @@ if (isset($_GET['user_id'])) {
             <p><strong>Biographie:</strong> <?php echo nl2br(htmlspecialchars($profile['biographie'])); ?></p>
             <?php if (!empty($profile['photo_profil'])): ?>
                 <p><strong>Photo de profil:</strong><br>
-                <img src="../../../public/uploads/profil_picture/<?php echo htmlspecialchars($profile['photo_profil']); ?>" alt="Photo de profil" style="max-width: 100px;">
+                <img src="/Portfolio/e_learning/public/uploads/profil_picture/<?php echo htmlspecialchars($profile['photo_profil']); ?>" alt="Photo de profil" style="max-width: 100px;" class="img-thumbnail rounded mx-auto d-block">
                 </p>
             <?php endif; ?>
         </div>

@@ -3,9 +3,6 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\MessageController;
-
 if (!isset($_SESSION['user'])) {
     echo json_encode(['status' => 'error', 'message' => 'Accès non autorisé']);
     exit;
@@ -21,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $database = new Database();
+    $database = new \Database\Database();
     $db = $database->getConnection();
-    $messageController = new MessageController($db);
+    $messageController = new \Controllers\MessageController($db);
 
     if ($messageController->sendMessageToStudent($senderId, $receiverId, $message)) {
         echo json_encode(['status' => 'success', 'message' => 'Message envoyé avec succès.']);

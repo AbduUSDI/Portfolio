@@ -8,7 +8,7 @@ $sessionLifetime = 1800;
 $allowedRoles = [1, 2, 3];
 
 if (!isset($_SESSION['user']) || !in_array($_SESSION['user']['role_id'], $allowedRoles)) {
-    header('Location: ../../login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -16,7 +16,7 @@ if (!isset($_SESSION['user']) || !in_array($_SESSION['user']['role_id'], $allowe
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -24,23 +24,15 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-use App\Controllers\ThreadController;
-use App\Controllers\ProfileController;
-use App\Controllers\FriendController;
-use App\Controllers\MessageController;
-use App\Config\MongoDBForum;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$userController = new UserController($db);
-$threadController = new ThreadController($db);
-$profileController = new ProfileController($db);
-$friendController = new FriendController($db);
-$messageController = new MessageController($db);
-$mongoClient = new MongoDBForum();
+$userController = new \Controllers\UserController($db);
+$threadController = new \Controllers\ThreadController($db);
+$profileController = new \Controllers\ProfileController($db);
+$friendController = new \Controllers\FriendController($db);
+$messageController = new \Controllers\MessageController($db);
+$mongoClient = new \Database\MongoDBForum();
 
 $threads = $threadController->getAllThreads();
 
@@ -72,151 +64,10 @@ include_once '../../../public/templates/header.php';
 include_once 'templates/navbar_forum.php';
 ?>
 
-<style>
-    body {
-        background: url('../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .hero {
-        background: url('../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        text-align: center;
-        padding: 40px 20px;
-        border-radius: 10px;
-        margin-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-
-    .card {
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 10px 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-    }
-
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
-    }
-
-    .card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .card-text {
-        color: #555;
-    }
-
-    .card-footer {
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-top: none;
-        border-radius: 0 0 8px 8px;
-        text-align: right;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .list-group-item {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        margin-bottom: 10px;
-        border-radius: 4px;
-    }
-
-    .navbar-toggler {
-        background-color: #fff;
-        border: none;
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-
-    .dropdown-menu {
-        background-image: url(../../../public/image_and_video/gif/anim_background.gif);
-    }
-
-    .all-threads .card-header {
-        background-color: #007bff;
-        color: white;
-    }
-</style>
-
 <div class="container mt-5">
-    <div class="hero">
+    <div class="containerr rounded">
         <h1 class="my-4">Toutes les discussions du forum</h1>
-        <p>Bienvenue dans le forum, explorez les discussions ou démarrez votre propre thread.</p>
+        <p class="text-white text-center">Bienvenue dans le forum, explorez les discussions ou démarrez votre propre thread.</p>
     </div>
 
     <div class="row">
@@ -232,7 +83,7 @@ include_once 'templates/navbar_forum.php';
                             <?php foreach (array_slice($threads, 0, 2) as $thread): ?>
                                 <li class="list-group-item">
                                     <h5 class="card-title">
-                                        <a href="thread.php?id=<?php echo $thread['id']; ?>">
+                                        <a href="/Portfolio/e_learning/forum/thread/<?php echo $thread['id']; ?>">
                                             <?php echo htmlspecialchars($thread['title']); ?>
                                         </a>
                                     </h5>
@@ -264,7 +115,7 @@ include_once 'templates/navbar_forum.php';
                             <?php foreach ($activeThreads as $activeThread): ?>
                                 <li class="list-group-item">
                                     <h5 class="card-title">
-                                        <a href="thread.php?id=<?php echo $activeThread['thread_id']; ?>">
+                                        <a href="/Portfolio/e_learning/forum/thread/<?php echo $activeThread['thread_id']; ?>">
                                             <?php echo htmlspecialchars($threadTitles[$activeThread['thread_id']] ?? 'Titre inconnu'); ?>
                                         </a>
                                     </h5>
@@ -290,7 +141,7 @@ include_once 'templates/navbar_forum.php';
                         <?php foreach ($threads as $thread): ?>
                             <li class="list-group-item">
                                 <h5 class="card-title">
-                                    <a href="thread.php?id=<?php echo $thread['id']; ?>">
+                                    <a href="/Portfolio/e_learning/forum/thread/<?php echo $thread['id']; ?>">
                                         <?php echo htmlspecialchars($thread['title']); ?>
                                     </a>
                                 </h5>
@@ -344,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             var userId = this.getAttribute('data-user-id');
 
-            fetch('ajax/get_user_profile.php?user_id=' + userId)
+            fetch('/Portfolio/e_learning/forum/profile/' + userId)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('user-profile-content').innerHTML = data;
@@ -352,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Ajouter les actions aux boutons
             document.getElementById('addFriendButton').onclick = function() {
-                fetch('ajax/send_friend_request.php', {
+                fetch('/Portfolio/e_learning/forum/send_friend', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -372,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('sendMessageButton').onclick = function() {
                 var message = prompt('Entrez votre message :');
                 if (message) {
-                    fetch('ajax/send_message.php', {
+                    fetch('/Portfolio/e_learning/forum/message', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'

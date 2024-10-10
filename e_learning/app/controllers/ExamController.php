@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Exam;
+use Models\Exam;
 
 class ExamController
 {

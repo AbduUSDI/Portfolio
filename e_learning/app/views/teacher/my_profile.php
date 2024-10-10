@@ -4,9 +4,9 @@ session_start();
 // Durée de vie de la session en secondes (30 minutes)
 $sessionLifetime = 1800;
 
-// Vérification que l'utilisateur est connecté et est un formateur
+// Vérification que l'utilisateur est connecté et est un étudiant
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 2) {
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 2) {
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -22,40 +22,22 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-use App\Controllers\ProfileController;
-use App\Controllers\FriendController;
-use App\Controllers\ThreadController;
-use App\Controllers\ResponseController;
-use App\Controllers\AuthController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
-// Déconnexion si le bouton est cliqué
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
-    $authController = new AuthController($db);
-    $authController->logoutAdmin();
-}
-
 if (!isset($_SESSION['user'])) {
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
-// Connexion à la base de données
-$database = new Database();
-$db = $database->getConnection();
-
 // Initialisation des contrôleurs
-$userController = new UserController($db);
-$profileController = new ProfileController($db);
-$friendController = new FriendController($db);
-$threadController = new ThreadController($db);
-$responseController = new ResponseController($db);
+$userController = new \Controllers\UserController($db);
+$profileController = new \Controllers\ProfileController($db);
+$friendController = new \Controllers\FriendController($db);
+$threadController = new \Controllers\ThreadController($db);
+$responseController = new \Controllers\ResponseController($db);
 
 $userId = $_SESSION['user']['id'];
 $currentUser = $userController->getUserById($userId);
@@ -204,7 +186,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     break;
                     
-                // Ajout de cases pour gérer les actions supplémentaires...
             }
         } catch (Exception $e) {
             $message = "Une erreur est survenue : " . $e->getMessage();
@@ -217,354 +198,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Récupération des données nécessaires pour l'affichage
 $friendRequests = $friendController->getFriendRequests($userId);
 $friends = $friendController->getFriends($userId);
 $userThreads = $threadController->getThreadsByUserId($userId);
 $userResponses = $responseController->getResponsesByUserId($userId);
 
 include_once '../../../public/templates/header.php';
+include_once 'navbar_teacher.php';
 ?>
-
-<style>
-    body {
-        background: url('../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-    .profile-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .profile-header img {
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-    }
-
-    .profile-header h1 {
-        font-size: 2rem;
-        margin-top: 10px;
-    }
-
-    .profile-header p {
-        color: #555;
-    }
-
-    .left-sidebar, .right-sidebar, .main-content {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    .sidebar-item h3, .content-item h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-    }
-
-    .list-group-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        background-color: #f8f9fa;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .table-responsive {
-        margin-bottom: 50px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #218838;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .btn-secondary:hover {
-        background-color: #5a6268;
-        border-color: #5a6268;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        border-color: #ffc107;
-    }
-
-    .btn-warning:hover {
-        background-color: #e0a800;
-        border-color: #d39e00;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-    .modal-header, .modal-footer {
-        background-color: #f0f2f5;
-    }
-
-    .modal-title {
-        font-weight: bold;
-        color: #333;
-    }
-    /* Ajout de la section "hero" pour donner une touche professionnelle */
-    .hero {
-        background: url('../../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-    .navbar-toggler {
-        background-color: #fff; /* Changer la couleur de fond du bouton */
-        border: none; /* Supprimer les bordures */
-        outline: none; /* Supprimer l'outline */
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        /* Remplacer la couleur de l'icône par une couleur plus foncée */
-        /* Vous pouvez ajuster la couleur rgba(0, 0, 0, 0.5) pour un contraste différent */
-    }
-
-    .navbar-toggler:focus {
-        outline: none; /* Assurez-vous que le bouton ne montre pas d'outline au focus */
-    }
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-    .bio {
-        background-color: white;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-        opacity: 75%;
-        border-radius: 12px;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-        .left-sidebar, .right-sidebar, .main-content {
-            margin-bottom: 15px;
-        }
-
-        .profile-header img {
-            width: 100px;
-            height: 100px;
-        }
-
-        .profile-header h1 {
-            font-size: 1.75rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-
-        .hero p {
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .profile-header h1 {
-            font-size: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-        }
-
-        .hero p {
-            font-size: 0.875rem;
-        }
-
-        .profile-header img {
-            width: 80px;
-            height: 80px;
-        }
-
-        .profile-header h1 {
-            font-size: 1.25rem;
-        }
-
-        .profile-header p {
-            font-size: 0.875rem;
-        }
-
-        .btn {
-            font-size: 12px;
-            padding: 8px 15px;
-        }
-    }
-</style>
-<nav class="navbar navbar-expand-lg navbar bg">
-    <a class="navbar-brand" href="teacher_dashboard.php">Espace enseignant</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="my_profile.php">Mon profil</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="evaluationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Évaluations
-                </a>
-                <div class="dropdown-menu" aria-labelledby="evaluationDropdown">
-                    <a class="dropdown-item text-dark" href="exams/manage_exams.php">Gérer les examens</a>
-                    <a class="dropdown-item text-dark" href="exams/correction_exam.php">Corriger les examens</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="students/manage_students.php">Gérer les élèves</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="quiz/manage_quizzes.php">Gérer les quiz</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="live/manage_lives.php">Gérer les lives</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="messages.php">Messagerie</a>
-            </li>
-            <li>
-                <form method="POST" class="form-inline ml-auto">
-                    <button type="submit" name="logout" class="btn btn-outline-danger">Déconnexion</button>
-                </form>
-            </li>
-        </ul>
-        
-    </div>
-</nav>
 
 <div class="container mt-5">
     <div class="profile-header">
-        <img src="../../../public/uploads/profil_picture/<?php echo htmlspecialchars($userProfile['photo_profil'] ?? 'default.jpg'); ?>" alt="Photo de profil">
+        <img src="/Portfolio/e_learning/public/uploads/profil_picture/<?php echo htmlspecialchars($userProfile['photo_profil'] ?? 'default.jpg'); ?>" alt="Photo de profil">
         <h1><?php echo htmlspecialchars($userProfile['prenom'] . ' ' . $userProfile['nom']); ?></h1>
         <p class="bio"><?php echo htmlspecialchars($userProfile['biographie'] ?? ''); ?></p>
         <button class="btn btn-primary btn-modifier-profile" type="button" data-toggle="modal" data-target="#editProfileModal">Modifier le profil</button>
@@ -591,7 +236,7 @@ include_once '../../../public/templates/header.php';
                                     <a href="#" class="friend-profile-link" data-toggle="modal" data-target="#friendProfileModal" data-user-id="<?php echo $friend['friend_id']; ?>">
                                         <?php echo htmlspecialchars($friend['username']); ?>
                                     </a>
-                                    <form action="my_profile.php" method="POST" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet ami ?');">
+                                    <form action="/Portfolio/e_learning/teacher/profile" method="POST" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet ami ?');">
                                         <input type="hidden" name="action" value="remove_friend">
                                         <input type="hidden" name="friend_id" value="<?php echo $friend['friend_id']; ?>">
                                         <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
@@ -624,7 +269,7 @@ include_once '../../../public/templates/header.php';
                                         </form>
                                     </div>
                                     <div class="collapse" id="editThreadForm<?php echo $thread['id']; ?>">
-                                        <form action="my_profile.php" method="POST">
+                                        <form action="/Portfolio/e_learning/teacher/profile" method="POST">
                                             <input type="hidden" name="action" value="update_thread">
                                             <input type="hidden" name="id" value="<?php echo $thread['id']; ?>">
                                             <div class="form-group">
@@ -661,7 +306,7 @@ include_once '../../../public/templates/header.php';
                                         </form>
                                     </div>
                                     <div class="collapse" id="editResponseForm<?php echo $response['id']; ?>">
-                                        <form action="my_profile.php" method="POST">
+                                        <form action="/Portfolio/e_learning/teacher/profile" method="POST">
                                             <input type="hidden" name="action" value="update_response">
                                             <input type="hidden" name="id" value="<?php echo $response['id']; ?>">
                                             <div class="form-group">
@@ -690,13 +335,13 @@ include_once '../../../public/templates/header.php';
                             <?php foreach ($friendRequests as $request): ?>
                                 <li class="list-group-item">
                                     <span>Demande de <?php echo htmlspecialchars($request['sender_username']); ?></span>
-                                    <form action="my_profile.php" method="POST" class="d-inline">
+                                    <form action="/Portfolio/e_learning/teacher/profile" method="POST" class="d-inline">
                                         <input type="hidden" name="action" value="respond_friend_request">
                                         <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
                                         <input type="hidden" name="status" value="accepted">
                                         <button type="submit" class="btn btn-sm btn-success">Accepter</button>
                                     </form>
-                                    <form action="my_profile.php" method="POST" class="d-inline">
+                                    <form action="/Portfolio/e_learning/teacher/profile" method="POST" class="d-inline">
                                         <input type="hidden" name="action" value="respond_friend_request">
                                         <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
                                         <input type="hidden" name="status" value="declined">
@@ -743,7 +388,7 @@ include_once '../../../public/templates/header.php';
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="my_profile.php" method="POST" enctype="multipart/form-data">
+                <form action="/Portfolio/e_learning/teacher/profile" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="update_profile">
                     <div class="mb-3">
                         <label for="prenom" class="form-label">Prénom</label>
@@ -780,7 +425,7 @@ include_once '../../../public/templates/header.php';
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="my_profile.php" method="POST" enctype="multipart/form-data">
+                <form action="/Portfolio/e_learning/teacher/profile" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="update_user_profile">
 
                     <div class="mb-3">
@@ -852,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             var userId = this.getAttribute('data-user-id');
 
-            fetch('ajax/get_user_profile.php?friend_id=' + userId)
+            fetch('/Portfolio/e_learning/teacher/get_profile/' + userId)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('friend-profile-content').innerHTML = data;

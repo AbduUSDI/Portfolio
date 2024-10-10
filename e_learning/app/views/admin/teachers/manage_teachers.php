@@ -7,7 +7,7 @@ $sessionLifetime = 1800;
 
 // Vérification que l'utilisateur est connecté et est un administrateur
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 1) {
-    header('Location: ../../../../app/auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -15,7 +15,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 1) {
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: ../../../../app/auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -23,17 +23,12 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-use App\Controllers\MessageController;
-use App\Controllers\ScheduleController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$userController = new UserController($db);
-$messageController = new MessageController($db);
-$scheduleController = new ScheduleController($db);
+$userController = new \Controllers\UserController($db);
+$messageController = new \Controllers\MessageController($db);
+$scheduleController = new \Controllers\ScheduleController($db);
 
 // Récupération des formateurs
 $teachers = $userController->getUsersByRole(2);
@@ -42,210 +37,47 @@ include_once '../../../../public/templates/header.php';
 include_once '../navbar_admin.php';
 ?>
 
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .hero {
-        background: url('../../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1, h2 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .card, .form-container {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    .table-responsive {
-        margin-bottom: 20px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #218838;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-    .navbar-toggler {
-    background-color: #fff; /* Changer la couleur de fond du bouton */
-    border: none; /* Supprimer les bordures */
-    outline: none; /* Supprimer l'outline */
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        /* Remplacer la couleur de l'icône par une couleur plus foncée */
-        /* Vous pouvez ajuster la couleur rgba(0, 0, 0, 0.5) pour un contraste différent */
-    }
-
-    .navbar-toggler:focus {
-        outline: none; /* Assurez-vous que le bouton ne montre pas d'outline au focus */
-    }
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
-
 <div class="container mt-5">
     <h1 class="text-center">Gérer les Enseignants</h1>
 
     <div class="row">
-        <!-- Liste des Formateurs -->
-        <div class="col-md-6">
-            <h2 class="text-white">Liste des Formateurs</h2>
-            <div class="card hero">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Nom d'utilisateur</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($teachers as $teacher): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($teacher['username']); ?></td>
-                                    <td><?php echo htmlspecialchars($teacher['email']); ?></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm btn-profile" data-id="<?php echo $teacher['id']; ?>" data-toggle="modal" data-target="#profileModal">Voir le Profil</button>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+    <div class="col-md-6">
+    <h2 class="text-center">Liste des Formateurs</h2>
+    <div id="teachersCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <?php foreach ($teachers as $index => $teacher): ?>
+                <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                    <div class="card hero">
+                        <div class="card-body">
+                            <h3 class="card-title" style="color: black;"><?php echo htmlspecialchars($teacher['username']); ?></h3>
+                            <p class="card-text"><strong>Email :</strong> <?php echo htmlspecialchars($teacher['email']); ?></p>
+                            <!-- Ajoutez d'autres informations du formateur ici -->
+                            <p class="card-text"><strong>Bio :</strong> <?php echo htmlspecialchars($teacher['biographie'] ?? 'Non disponible'); ?></p>
+                            <p class="card-text"><strong>Spécialité :</strong> <?php echo htmlspecialchars($teacher['specialty'] ?? 'Non disponible'); ?></p>
+                            <button class="btn btn-primary btn-sm btn-profile" data-id="<?php echo $teacher['id']; ?>" data-toggle="modal" data-target="#profileModal">Voir le Profil</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
+
+        <!-- Contrôles du carrousel -->
+        <a class="carousel-control-prev" href="#teachersCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#teachersCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+        </a>
+    </div>
+</div>
+
         
         <!-- Contacter un Formateur -->
         <div class="col-md-6">
             <h2 class="text-white">Contacter un Formateur</h2>
-            <div class="form-container hero">
+            <div class="form-container">
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="contactTeacherId">Formateur</label>
@@ -265,29 +97,46 @@ include_once '../navbar_admin.php';
         </div>
     </div>
 
-    <div class="row mt-5">
-        <!-- Emploi du Temps -->
-        <div class="col-md-12">
-            <h2 class="text-white">Attribuer un Emploi du Temps</h2>
-            <div class="form-container hero">
-                <form id="scheduleForm">
-                    <div class="form-group">
-                        <label for="scheduleTeacherId">Formateur</label>
-                        <select id="scheduleTeacherId" class="form-control" name="teacher_id">
-                            <?php foreach ($teachers as $teacher): ?>
-                                <option value="<?php echo $teacher['id']; ?>"><?php echo htmlspecialchars($teacher['username']); ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="schedule">Emploi du Temps</label>
-                        <textarea id="schedule" class="form-control" name="schedule" rows="10" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Attribuer</button>
-                </form>
-            </div>
+    <div class="container mt-5">
+    <h2 class="text-white">Attribuer un Emploi du Temps</h2>
+    <form id="scheduleForm" method="POST">
+        <div class="form-group">
+            <label for="scheduleTeacherId" class="text-white">Veuillez sélectionner le formateur :</label>
+            <select id="scheduleTeacherId" class="form-control" name="teacher_id">
+                <?php foreach ($teachers as $teacher): ?>
+                    <option value="<?php echo $teacher['id']; ?>"><?php echo htmlspecialchars($teacher['username']); ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
+    <div class="table-responsive">
+        <table class="table table-bordered text-black mt-3">
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>08:00 - 10:00</th>
+                    <th>10:00 - 12:00</th>
+                    <th>14:00 - 16:00</th>
+                    <th>16:00 - 18:00</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi' , 'Samedi' , 'Dimanche'];
+                foreach ($days as $day):
+                ?>
+                <tr>
+                    <td><?php echo $day; ?></td>
+                    <td><input type="checkbox" name="schedule[<?php echo $day; ?>][]" value="08:00-10:00"></td>
+                    <td><input type="checkbox" name="schedule[<?php echo $day; ?>][]" value="10:00-12:00"></td>
+                    <td><input type="checkbox" name="schedule[<?php echo $day; ?>][]" value="14:00-16:00"></td>
+                    <td><input type="checkbox" name="schedule[<?php echo $day; ?>][]" value="16:00-18:00"></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+        <button type="submit" class="btn btn-primary">Attribuer</button>
+    </form>
 </div>
 
 <!-- Modals pour Voir le Profil -->
@@ -309,10 +158,11 @@ include_once '../navbar_admin.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    // Charger le profil du formateur dans le modal
     document.querySelectorAll('.btn-profile').forEach(button => {
         button.addEventListener('click', function () {
             const teacherId = this.getAttribute('data-id');
-            fetch(`get_teacher_profile.php?id=${teacherId}`)
+            fetch(`/Portfolio/e_learning/admin/teachers/profile/${teacherId}`)
                 .then(response => response.text())
                 .then(data => {
                     document.querySelector('#profileModal .modal-body').innerHTML = data;
@@ -326,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(contactForm);
-        fetch('contact_teacher.php', {
+        fetch('/Portfolio/e_learning/admin/teachers/contact', {
             method: 'POST',
             body: formData
         })
@@ -344,8 +194,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const scheduleForm = document.getElementById('scheduleForm');
     scheduleForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const formData = new FormData(scheduleForm);
-        fetch('assign_schedule.php', {
+        const formData = new FormData(this);
+
+        fetch('/Portfolio/e_learning/admin/teachers/schedule', {
             method: 'POST',
             body: formData
         })
@@ -353,12 +204,13 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             alert(data.message);
             if (data.status === 'success') {
-                scheduleForm.reset();
+                this.reset(); // Réinitialiser le formulaire
             }
         })
         .catch(error => console.error('Erreur:', error));
     });
 });
+
 </script>
 
 <?php include '../../../../public/templates/footer.php'; ?>

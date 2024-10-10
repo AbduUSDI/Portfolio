@@ -1,13 +1,10 @@
 <?php
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\FormationController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$formationController = new FormationController($db);
+$formationController = new \Controllers\FormationController($db);
 
 $userId = (int)$_POST['user_id'] ?? null;
 $formationId = (int)$_POST['formation_id'] ?? null;

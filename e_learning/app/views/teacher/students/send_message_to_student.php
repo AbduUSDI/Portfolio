@@ -1,13 +1,10 @@
 <?php
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\MessageController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$messageController = new MessageController($db);
+$messageController = new \Controllers\MessageController($db);
 
 $senderId = $_SESSION['user']['id'];
 $receiverId = $_POST['student_id'];

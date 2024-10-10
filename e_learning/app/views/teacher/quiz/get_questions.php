@@ -3,9 +3,6 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\QuizController;
-
 // Vérification que l'utilisateur est authentifié et a les droits nécessaires
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 2) {
     echo json_encode(['status' => 'error', 'message' => 'Unauthorized']);
@@ -20,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET' || !isset($_GET['quiz_id'])) {
 
 $quizId = $_GET['quiz_id'];
 
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$quizController = new QuizController($db);
+$quizController = new \Controllers\QuizController($db);
 
 try {
     // Récupération des questions du quiz

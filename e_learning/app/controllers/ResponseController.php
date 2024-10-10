@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Response;
-use PDO;
+use Models\Response;
 
 class ResponseController
 {

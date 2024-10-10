@@ -2,13 +2,10 @@
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\PageController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$pageController = new PageController($db);
+$pageController = new \Controllers\PageController($db);
 
 if (isset($_POST['id'])) {
     $pageId = $_POST['id'];

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\User;
+use Models\User;
 
 class AuthController
 {
@@ -27,16 +27,16 @@ class AuthController
                 $_SESSION['user'] = $userData;
                 switch ($userData['role_id']) {
                     case 1:
-                        header('Location: ../views/admin/admin_dashboard.php');
+                        header('Location: /Portfolio/e_learning/admin');
                         break;
                     case 2:
-                        header('Location: ../views/teacher/teacher_dashboard.php');
+                        header('Location: /Portfolio/e_learning/teacher');
                         break;
                     case 3:
-                        header('Location: ../views/student/student_dashboard.php');
+                        header('Location: /Portfolio/e_learning/student');
                         break;
                     default:
-                        header('Location: login.php');
+                        header('Location: /Portfolio/e_learning/login');
                         break;
                 }
                 exit;
@@ -67,7 +67,7 @@ class AuthController
     
                 if ($result) {
                     $success = "Inscription réussie. Vous pouvez maintenant vous connecter.";
-                    header("Location: login.php?success=" . urlencode($success));
+                    header("Location: /Portfolio/e_learning/login?success=" . urlencode($success));
                     exit();
                 } else {
                     return "Erreur lors de l'inscription. Veuillez réessayer.";
@@ -99,7 +99,7 @@ class AuthController
         session_destroy();
 
         // Rediriger l'utilisateur vers la page de connexion
-        header("Location: login.php");
+        header("Location: /Portfolio/e_learning/login");
         exit();
     }
     public function logoutAdmin()
@@ -125,7 +125,7 @@ class AuthController
         session_destroy();
 
         // Rediriger l'utilisateur vers la page de connexion
-        header("Location: ../../auth/login.php");
+        header("Location: /Portfolio/e_learning/login");
         exit();
     }
     public function logoutInFolder()
@@ -151,7 +151,7 @@ class AuthController
         session_destroy();
 
         // Rediriger l'utilisateur vers la page de connexion
-        header("Location: ../../../../app/auth/login.php");
+        header("Location: /Portfolio/e_learning/login");
         exit();
     }
 }

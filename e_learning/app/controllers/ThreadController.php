@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Thread;
+use Models\Thread;
 use PDO;
 
 class ThreadController

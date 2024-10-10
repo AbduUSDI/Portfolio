@@ -1,8 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\Message;
-use Exception;
+use Models\Message;
 
 class MessageController
 {
@@ -34,5 +33,8 @@ class MessageController
     }
     public function markAllMessagesAsRead($userId) {
         return $this->message->markAllMessagesAsRead($userId);
+    }
+    public function deleteMessage($id) {
+        return $this->message->deleteMessage($id);
     }
 }

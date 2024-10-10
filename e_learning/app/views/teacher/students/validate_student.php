@@ -1,13 +1,10 @@
 <?php
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$userController = new UserController($db);
+$userController = new \Controllers\UserController($db);
 
 $studentId = $_POST['student_id'];
 $validationStatus = $_POST['validation_status'];

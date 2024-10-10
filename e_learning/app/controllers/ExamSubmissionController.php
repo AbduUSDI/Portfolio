@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Models\ExamSubmission;
-use PDO;
+use Models\ExamSubmission;
 
 class ExamSubmissionController {
     private $db;

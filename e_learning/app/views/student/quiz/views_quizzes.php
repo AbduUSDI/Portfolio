@@ -1,20 +1,31 @@
 <?php
 session_start();
 
+// Durée de vie de la session en secondes (30 minutes)
+$sessionLifetime = 1800;
+
+// Vérification que l'utilisateur est connecté et est un étudiant
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 3) {
-    header('Location: ../../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
+// Gestion de la durée de la session
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
+    session_unset();
+    session_destroy();
+    header('Location: /Portfolio/e_learning/login');
+    exit;
+}
+
+$_SESSION['LAST_ACTIVITY'] = time();
+
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\QuizController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$quizController = new QuizController($db);
+$quizController = new \Controllers\QuizController($db);
 
 // Récupérer tous les quiz pour l'utilisateur
 $userId = $_SESSION['user']['id'];
@@ -24,82 +35,6 @@ $previousResults = $quizController->getPreviousResults($userId);
 include_once '../../../../public/templates/header.php';
 include_once '../navbar_student.php';
 ?>
-
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .card {
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 10px 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-    }
-
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
-    }
-
-    .list-group-item {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        margin-bottom: 10px;
-        border-radius: 4px;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-</style>
 
 <div class="container mt-5">
     <h1 class="text-center mb-4">Mes Quiz</h1>
@@ -117,9 +52,9 @@ include_once '../navbar_student.php';
                             <p><?php echo htmlspecialchars($quiz['description']); ?></p>
                             <?php if (isset($previousResults[$quiz['id']])): ?>
                                 <p class="text-success">Score précédent : <?php echo $previousResults[$quiz['id']]['score']; ?>%</p>
-                                <a href="take_quiz.php?quiz_id=<?php echo $quiz['id']; ?>&resume=true" class="btn btn-warning">Reprendre le quiz</a>
+                                <a href="/Portfolio/e_learning/student/quiz/take_quiz/<?php echo $quiz['id']; ?>&resume=true" class="btn btn-warning">Reprendre le quiz</a>
                             <?php else: ?>
-                                <a href="take_quiz.php?quiz_id=<?php echo $quiz['id']; ?>" class="btn btn-primary">Commencer le quiz</a>
+                                <a href="/Portfolio/e_learning/student/quiz/take_quiz/<?php echo $quiz['id']; ?>" class="btn btn-primary">Commencer le quiz</a>
                             <?php endif; ?>
                         </div>
                     </div>

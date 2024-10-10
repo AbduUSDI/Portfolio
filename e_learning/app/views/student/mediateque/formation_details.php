@@ -1,26 +1,34 @@
 <?php
 session_start();
 
+// Durée de vie de la session en secondes (30 minutes)
+$sessionLifetime = 1800;
+
+// Vérification que l'utilisateur est connecté et est un étudiant
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_id'] != 3) {
-    header('Location: ../../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
+// Gestion de la durée de la session
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
+    session_unset();
+    session_destroy();
+    header('Location: /Portfolio/e_learning/login');
+    exit;
+}
+
+$_SESSION['LAST_ACTIVITY'] = time();
+
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\FormationController;
-use App\Controllers\CategoryController;
-use App\Controllers\SubCategoryController;
-use App\Controllers\PageController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$formationController = new FormationController($db);
-$categoryController = new CategoryController($db);
-$subCategoryController = new SubCategoryController($db);
-$pageController = new PageController($db);
+$formationController = new \Controllers\FormationController($db);
+$categoryController = new \Controllers\CategoryController($db);
+$subCategoryController = new \Controllers\SubCategoryController($db);
+$pageController = new \Controllers\PageController($db);
 
 // Récupérer l'ID de la formation depuis l'URL
 $formationId = isset($_GET['formation_id']) ? $_GET['formation_id'] : null;
@@ -37,95 +45,48 @@ $categories = $categoryController->getCategoriesByFormation($formationId);
 include_once '../../../../public/templates/header.php';
 include_once '../navbar_student.php';
 ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
+    #scrollToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 170px;
+        right: 20px;
+        z-index: 99;
+        font-size: 18px;
+        background-color: #4CAF50;
         color: white;
-    }
-
-    .card {
-        margin-bottom: 20px;
         border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
+        border-radius: 50%;
         padding: 10px 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
+    #scrollToTopBtn:hover {
+        background-color: #333;
     }
-
-    .list-group-item {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        margin-bottom: 10px;
-        border-radius: 4px;
-    }
-
-    iframe {
-        width: 100%;
-        height: 315px;
+    #scrollToBottomBtn {
+        display: none;
+        position: fixed;
+        bottom: 170px;
+        right: 80px;
+        z-index: 99;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
         border: none;
-        margin-top: 15px;
+        border-radius: 50%;
+        padding: 10px 15px;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .filter-buttons {
-        text-align: right;
-        margin-bottom: 10px;
-    }
-
-    .filter-buttons button {
-        margin-left: 10px;
-    }
-
-    .progress-status {
-        margin-top: 10px;
-        text-align: right;
-        font-weight: bold;
+    #scrollToBottomBtn:hover {
+        background-color: #333;
     }
 </style>
-
 <div class="container mt-5">
     <h1 class="text-center mb-4"><?php echo htmlspecialchars_decode($formation['name']); ?></h1>
     <p class="text-center text-white"><?php echo htmlspecialchars_decode($formation['description']); ?></p>
@@ -184,7 +145,7 @@ include_once '../navbar_student.php';
                                                         <div class="card-body">
                                                             <p><?php echo $page['content']; ?></p>
                                                             <?php if (!empty($page['video_url'])): ?>
-                                                                <div class="flowplayer" data-splash="true"><video data-title="titre" controls="controls" wmode="transparent" type="video/mp4" src="<?php echo htmlspecialchars_decode($page['video_url']); ?>" height="200" width="100%"></video></div>
+                                                                <div class="flowplayer" data-splash="true"><video data-title="titre" controls="controls" wmode="transparent" type="video/mp4" src="/Portfolio/e_learning<?php echo htmlspecialchars_decode($page['video_url']); ?>" height="200" width="100%"></video></div>
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
@@ -202,11 +163,20 @@ include_once '../navbar_student.php';
     <?php endif; ?>
 </div>
 
+<button onclick="topFunction()" id="scrollToTopBtn" title="Retour en haut">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<button onclick="bottomFunction()" id="scrollToBottomBtn" title="Aller en bas">
+    <i class="fas fa-arrow-down"></i>
+</button>
+
+<!-- Inclusion de jQuery (version complète, pas la version 'slim' qui ne supporte pas AJAX) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function updateCategoryStatus(categoryId, status) {
         $.ajax({
-            url: 'update_category_status.php',
+            url: '/Portfolio/e_learning/student/mediateque/update_status',
             type: 'POST',
             data: {
                 category_id: categoryId,
@@ -232,9 +202,9 @@ include_once '../navbar_student.php';
         var pageId = $(this).attr('data-id');
         if (pageId) {
             $.ajax({
-                url: 'update_view_count.php',
+                url: '/Portfolio/e_learning/student/mediateque/update_count',
                 type: 'POST',
-                data: { id: pageId }, // Assurez-vous d'envoyer 'id' si c'est le nom de votre colonne
+                data: { id: pageId },
                 success: function(response) {
                     response = JSON.parse(response);
                     if (response.success) {
@@ -250,6 +220,37 @@ include_once '../navbar_student.php';
         }
     });
 });
+window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        // Montrer le bouton "Retour en haut" si l'utilisateur a défilé plus de 20px
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollToTopBtn").style.display = "block";
+        } else {
+            document.getElementById("scrollToTopBtn").style.display = "none";
+        }
+
+        // Montrer le bouton "Aller en bas" si l'utilisateur n'est pas encore en bas
+        if ((window.innerHeight + window.scrollY) < document.body.offsetHeight) {
+            document.getElementById("scrollToBottomBtn").style.display = "block";
+        } else {
+            document.getElementById("scrollToBottomBtn").style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    function bottomFunction() {
+        window.scrollTo({
+            top: document.body.scrollHeight, // Aller à la hauteur totale de la page
+            behavior: 'smooth'
+        });
+    }
 
 </script>
 

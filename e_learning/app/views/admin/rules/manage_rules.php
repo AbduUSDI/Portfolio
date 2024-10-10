@@ -3,21 +3,17 @@ session_start();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\RuleController;
-use App\Controllers\AuthController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$ruleController = new RuleController($db);
-$authController = new AuthController($db);
+$ruleController = new \Controllers\RuleController($db);
+$authController = new \Controllers\AuthController($db);
 
 // Vérifiez que l'utilisateur est connecté et qu'il est un administrateur
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 
 if (!$user || $user['role_id'] != 1) {
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit();
 }
 
@@ -68,111 +64,6 @@ include_once '../../../../public/templates/header.php';
 include_once '../navbar_admin.php';
 ?>
 
-<style>
-    /* Responsive styles */
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h2 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .card {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-bottom: 20px;
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .card:hover {
-        transform: scale(1.02);
-    }
-
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #343a40;
-    }
-
-    .card-description {
-        font-size: 1rem;
-        color: #555;
-        margin-bottom: 15px;
-    }
-
-    .card-actions {
-        text-align: right;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-    .navbar-toggler {
-        background-color: #fff;
-        border: none;
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
-
-    .navbar-toggler:focus {
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-    @media (max-width: 768px) {
-        .btn {
-            font-size: 12px;
-            padding: 8px 15px;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .btn {
-            font-size: 10px;
-            padding: 6px 10px;
-        }
-    }
-</style>
-
 <div class="container mt-5">
     <h2 class="text-white">Gérer les règles</h2>
     
@@ -196,8 +87,8 @@ include_once '../navbar_admin.php';
         <?php while ($row = $rules->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="col-md-4">
                 <div class="card" data-id="<?php echo $row['id']; ?>">
-                    <h5 class="card-title rule-title"><?php echo htmlspecialchars($row['title']); ?></h5>
-                    <p class="card-description rule-description"><?php echo htmlspecialchars($row['description']); ?></p>
+                    <h5 class="card-title rule-title" style="color: black;"><?php echo htmlspecialchars_decode($row['title']); ?></h5>
+                    <p class="card-description rule-description"><?php echo htmlspecialchars_decode($row['description']); ?></p>
                     <div class="card-actions">
                         <button class="btn btn-warning edit-rule-btn">Modifier</button>
                         <button class="btn btn-danger delete-rule-btn">Supprimer</button>
@@ -211,7 +102,8 @@ include_once '../navbar_admin.php';
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-    // Create rule via AJAX
+
+    // Creation d'une règle avec AJAX en récupérant le POST
     $('#createRuleForm').on('submit', function(e) {
         e.preventDefault();
 
@@ -220,7 +112,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'manage_rules.php',
+            url: '/Portfolio/e_learning/admin/rules',
             data: {
                 action: 'create',
                 title: titleValue,
@@ -235,7 +127,7 @@ $(document).ready(function() {
                     $('#rulesContainer').append(`
                         <div class="col-md-4">
                             <div class="card" data-id="${rule.id}">
-                                <h5 class="card-title rule-title">${rule.title}</h5>
+                                <h5 class="card-title rule-title" style="color: black;">${rule.title}</h5>
                                 <p class="card-description rule-description">${rule.description}</p>
                                 <div class="card-actions">
                                     <button class="btn btn-warning edit-rule-btn">Modifier</button>
@@ -274,7 +166,7 @@ $(document).ready(function() {
         if (newTitle && newDescription) {
             $.ajax({
                 type: 'POST',
-                url: 'manage_rules.php',
+                url: '/Portfolio/e_learning/admin/rules',
                 data: {
                     action: 'update',
                     id: id,
@@ -297,7 +189,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: 'manage_rules.php',
+                url: '/Portfolio/e_learning/admin/rules',
                 data: {
                     action: 'delete',
                     id: id

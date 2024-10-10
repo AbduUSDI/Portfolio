@@ -1,7 +1,7 @@
-<footer class="bg text-center text-lg-start mt-4">
-        <div class="container p-4">
+<footer class="bg text-center text-lg-start mt-4 fixed-bottom">
+        <div class="containerr p-4">
             <p class="text-white">&copy; 2024 E-learning Abdu. Tous droits réservés.</p>
-            <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+            <p><a href="/Portfolio/e_learning/privacy">Politique de confidentialité</a> | <a href="/Portfolio/e_learning/terms">Conditions d'utilisation</a></p>
         </div>
     </footer>
     <!-- Inclusion de jQuery (version complète, pas la version 'slim' qui ne supporte pas AJAX) -->
@@ -16,6 +16,6 @@
     <!-- Inclusion de AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="js/scripts.js"></script>
+    <script src="/Portfolio/e_learning/public/js/scripts.js"></script>
 </body>
 </html>

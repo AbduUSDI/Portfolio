@@ -8,7 +8,7 @@ $sessionLifetime = 1800;
 $allowedRoles = [1, 2, 3];
 
 if (!isset($_SESSION['user']) || !in_array($_SESSION['user']['role_id'], $allowedRoles)) {
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -16,7 +16,7 @@ if (!isset($_SESSION['user']) || !in_array($_SESSION['user']['role_id'], $allowe
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $sessionLifetime)) {
     session_unset();
     session_destroy();
-    header('Location: ../../auth/login.php');
+    header('Location: /Portfolio/e_learning/login');
     exit;
 }
 
@@ -24,15 +24,11 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\ThreadController;
-use App\Config\MongoDBForum;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
+$mongoClient = new \Database\MongoDBForum();
 
-$threadController = new ThreadController($db);
-$mongoClient = new MongoDBForum();
+$threadController = new \Controllers\ThreadController($db);
 
 $userId = $_SESSION['user']['id']; // ID de l'utilisateur connecté
 $userThreads = $threadController->getThreadsByUserId($userId);
@@ -90,164 +86,12 @@ include '../../../public/templates/header.php';
 include 'templates/navbar_forum.php';
 ?>
 
-<style>
-    body {
-        background: url('../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .threads-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .threads-list, .active-threads {
-        width: 48%;
-    }
-
-    .card {
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 10px 15px;
-        border-bottom: none;
-        border-radius: 8px 8px 0 0;
-        font-weight: bold;
-    }
-
-    .card-body {
-        padding: 20px;
-        background-color: #f8f9fa;
-    }
-
-    .card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .card-text {
-        color: #555;
-    }
-
-    .card-footer {
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-top: none;
-        border-radius: 0 0 8px 8px;
-        text-align: right;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-warning, .btn-danger {
-        margin-left: 5px;
-    }
-
-    .list-group-item {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        margin-bottom: 10px;
-        border-radius: 4px;
-    }
-
-    .hero {
-        background: url('../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        text-align: center;
-        padding: 40px 20px;
-        border-radius: 10px;
-        margin-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-
-    .navbar-toggler {
-        background-color: #fff;
-        border: none;
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-
-    .dropdown-menu {
-        background-image: url(../../../public/image_and_video/gif/anim_background.gif);
-    }
-    .table {
-        background: whitesmoke;
-    }
-</style>
-
 <div class="container mt-5">
     <h1>Mes Threads</h1>
     <?php if (empty($userThreads)): ?>
         <p class="text-white">Vous n'avez pas encore créé de thread.</p>
     <?php else: ?>
+        <a href="/Portfolio/e_learning/forum/threads/add" class="btn btn-info mt-3">Créer un nouveau thread</a>
         <div class="table-responsive">
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
@@ -276,7 +120,7 @@ include 'templates/navbar_forum.php';
                 <tr>
                     <td colspan="3">
                         <div class="collapse" id="editThreadForm<?php echo $thread['id']; ?>">
-                            <form action="my_threads.php" method="POST">
+                            <form action="/Portfolio/e_learning/forum/my_threads" method="POST">
                                 <input type="hidden" name="action" value="update_thread">
                                 <input type="hidden" name="id" value="<?php echo $thread['id']; ?>">
                                 <div class="form-group">
@@ -297,7 +141,6 @@ include 'templates/navbar_forum.php';
         </table>
         </div>
     <?php endif; ?>
-    <a href="add_thread.php" class="btn btn-info mt-3">Créer un nouveau thread</a>
 </div>
 
 <?php include '../../../public/templates/footer.php'; ?>

@@ -1,3 +1,3 @@
 <?php
-header('Location: app/auth/index.html');
+header('Location: /Portfolio/e_learning/home');
 exit;

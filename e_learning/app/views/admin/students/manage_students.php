@@ -23,17 +23,12 @@ $_SESSION['LAST_ACTIVITY'] = time();
 
 require_once '../../../../vendor/autoload.php';
 
-use App\Config\Database;
-use App\Controllers\UserController;
-use App\Controllers\FormationController;
-use App\Controllers\MessageController;
-
-$database = new Database();
+$database = new \Database\Database();
 $db = $database->getConnection();
 
-$userController = new UserController($db);
-$formationController = new FormationController($db);
-$messageController = new MessageController($db);
+$userController = new \Controllers\UserController($db);
+$formationController = new \Controllers\FormationController($db);
+$messageController = new \Controllers\MessageController($db);
 
 // Récupération des apprenants
 $students = $userController->getUsersByRole(3);
@@ -43,211 +38,20 @@ include_once '../../../../public/templates/header.php';
 include_once '../navbar_admin.php';
 ?>
 
-<style>
-    body {
-        background: url('../../../../public/image_and_video/gif/anim_background2.gif');
-        font-family: Arial, sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        background-color: #343a40;
-        padding: 10px 0;
-    }
-
-    .navbar a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-    }
-
-    .navbar a:hover {
-        text-decoration: underline;
-    }
-
-    .container {
-        margin-top: 50px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: white;
-    }
-
-    .table-responsive {
-        margin-bottom: 50px;
-    }
-
-    .table {
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table th {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 15px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .table td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #218838;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .btn-secondary:hover {
-        background-color: #5a6268;
-        border-color: #5a6268;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        border-color: #ffc107;
-    }
-
-    .btn-warning:hover {
-        background-color: #e0a800;
-        border-color: #d39e00;
-    }
-
-    .modal-content {
-        border-radius: 8px;
-    }
-
-    .form-control {
-        border-radius: 4px;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    footer {
-        background-color: #343a40;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    footer a {
-        color: #adb5bd;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-
-    /* Ajout de la section "hero" pour donner une touche professionnelle */
-    .hero {
-        background: url('../../../../public/image_and_video/webp/background_image_index.webp') no-repeat center center;
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-    .navbar-toggler {
-        background-color: #fff;
-        border: none;
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
-
-    .navbar-toggler:focus {
-        outline: none;
-    }
-
-    .navbar-toggler-icon {
-        width: 25px;
-        height: 25px;
-    }
-</style>
-
 <div class="container mt-5">
-    <br>
-    <hr>
     <h1 class="text-center">Gérer les Étudiants</h1>
-    <hr>
-    <br>
     <div class="row">
         <h2 class="text-white">Liste des Étudiants</h2>
-        <!-- Liste des Étudiants -->
-        <div class="container hero">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Nom d'utilisateur</th>
-                            <th>Email</th>
-                            <th>Cours Assignés</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($students as $student): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($student['username']); ?></td>
-                                <td><?php echo htmlspecialchars($student['email']); ?></td>
-                                <td>
+        <div class="container">
+            <div class="row">
+                <?php foreach ($students as $student): ?>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: black;"><?php echo htmlspecialchars($student['username']); ?></h5>
+                                <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($student['email']); ?></h6>
+                                <p class="card-text">
+                                    <strong>Cours Assignés:</strong><br>
                                     <?php
                                     $assignedFormation = $formationController->getFormationsByUser($student['id']);
                                     if (!empty($assignedFormation)) {
@@ -258,21 +62,22 @@ include_once '../navbar_admin.php';
                                         echo 'Aucun cours assigné';
                                     }
                                     ?>
-                                </td>
-                                <td>
+                                </p>
+                                <div class="btn-group" role="group">
                                     <button class="btn btn-primary btn-sm btn-profile" data-id="<?php echo $student['id']; ?>" data-toggle="modal" data-target="#profileModal">Voir le Profil</button>
                                     <button class="btn btn-secondary btn-sm btn-message" data-id="<?php echo $student['id']; ?>" data-toggle="modal" data-target="#messageModal">Envoyer un Message</button>
                                     <button class="btn btn-success btn-sm btn-formation" data-id="<?php echo $student['id']; ?>" data-toggle="modal" data-target="#formationModal">Ajouter une Formation</button>
                                     <button class="btn btn-warning btn-sm btn-validate" data-id="<?php echo $student['id']; ?>" data-toggle="modal" data-target="#validateModal">Valider le Cursus</button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Modals pour Voir le Profil, Envoyer un Message, Ajouter une Formation, Valider le Cursus -->
 <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
@@ -396,7 +201,7 @@ include_once '../navbar_admin.php';
         var userId = $(this).data('id');
 
         $.ajax({
-            url: 'get_profile.php',  // Fichier PHP qui va traiter la requête AJAX
+            url: '/Portfolio/e_learning/admin/students/get_profile',  // Fichier PHP qui va traiter la requête AJAX
             type: 'GET',
             data: { user_id: userId },
             success: function(response) {
@@ -415,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     messageForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(messageForm);
-        fetch('send_message_to_student.php', {
+        fetch('/Portfolio/e_learning/admin/students/message', {
             method: 'POST',
             body: formData
         })
@@ -436,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
     formationForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(formationForm);
-        fetch('assign_course_to_student.php', {
+        fetch('/Portfolio/e_learning/admin/students/assign_course', {
             method: 'POST',
             body: formData
         })
@@ -457,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
     validateForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(validateForm);
-        fetch('validate_student.php', {
+        fetch('/Portfolio/e_learning/admin/students/validate', {
             method: 'POST',
             body: formData
         })
