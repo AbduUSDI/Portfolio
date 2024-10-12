@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plateforme E-Learning</title>
-    <link rel="stylesheet" href="/Portfolio/e_learning/public/css/styles_public.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-    <!-- Section Héro -->
+<?php
+        include_once '../../public/templates/header_visitor.php';
+        include_once '../../public/templates/navbar.php';
+?>
+<style>
+    body {
+        background: white;
+    }
+</style>
+<!-- Section Héro -->
     <div class="hero">
         <div>
-            <h1>Bienvenue sur la Plateforme E-Learning</h1>
-            <p>Boostez votre avenir avec les meilleurs cours en ligne</p>
-            <a href="/Portfolio/e_learning/login" class="btn btn-info btn-lg mt-4">Connecte-toi !</a>
+            <h1 style="color: white;">Bienvenue sur la plateforme E-Learning</h1>
+            <p style="color: white;">Boostez votre avenir avec les meilleurs cours en ligne</p>
+            <a href="/Portfolio/e_learning/login" class="btn btn-info btn-lg">Connecte-toi !</a>
         </div>
     </div>
 
@@ -48,32 +46,24 @@
 
     <!-- Section Caractéristiques -->
     <div class="features container mt-5">
-        <h2>Nos Principales Caractéristiques</h2>
+        <h2>Nos principales caractéristiques</h2>
         <div class="row">
             <div class="col-md-4 feature-item">
                 <img src="/Portfolio/e_learning/public/image_and_video/webp/HighQuality.webp" alt="Caractéristique 1">
-                <h4>Cours de Haute Qualité</h4>
+                <h4>Cours de haute qualité</h4>
                 <p>Accédez à une vaste gamme de cours de haute qualité dispensés par des experts du secteur.</p>
             </div>
             <div class="col-md-4 feature-item">
                 <img src="/Portfolio/e_learning/public/image_and_video/webp/Flexible.webp" alt="Caractéristique 2">
-                <h4>Apprentissage Flexible</h4>
+                <h4>Apprentissage flexible</h4>
                 <p>Apprenez à votre rythme, à tout moment, n'importe où, sur n'importe quel appareil.</p>
             </div>
             <div class="col-md-4 feature-item">
                 <img src="/Portfolio/e_learning/public/image_and_video/webp/Interactive.webp" alt="Caractéristique 3">
-                <h4>Contenu Interactif</h4>
+                <h4>Contenu interactif</h4>
                 <p>Engagez-vous avec du contenu interactif et participez à des discussions animées.</p>
             </div>
         </div>
     </div>
 
-    <!-- Pied de page -->
-    <footer class="mt-5">
-        <p>&copy; 2024 Plateforme E-Learning. Tous droits réservés.</p>
-        <p><a href="/Portfolio/e_learning/privacy">Politique de confidentialité</a> | <a href="/Portfolio/e_learning/terms">Conditions d'utilisation</a></p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?php include_once '../../public/templates/footer_visitor.php'; ?>

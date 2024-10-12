@@ -7,16 +7,16 @@ RewriteRule ^home$ index.html [L]
 # 2. Redirections pour chaque projet
 
 # Zoo-Arcadia
-RewriteRule ^zoo-arcadia-new/(.*)$ /zoo-arcadia-new/$1 [L]
-RewriteRule ^zoo-arcadia-new$ /zoo-arcadia-new/index.php [L]
+RewriteRule ^Zoo-Arcadia-New/(.*)$ /Zoo-Arcadia-New/$1 [L]
+RewriteRule ^Zoo-Arcadia-New/$ /Zoo-Arcadia-New/index.php [L]
 
 # Tout pour un nouveau né
 RewriteRule ^toutpourunnouveaune/(.*)$ /toutpourunnouveaune/$1 [L]
 RewriteRule ^toutpourunnouveaune$ /toutpourunnouveaune/index.php [L]
 
 # E-learning
-RewriteRule ^e-learning/(.*)$ /e-learning/$1 [L]
-RewriteRule ^e-learning$ /e-learning/index.php [L]
+RewriteRule ^e_learning/(.*)$ /e_learning/$1 [L]
+RewriteRule ^e_learning$ /e_learning/index.php [L]
 
 # 3. Gestion des erreurs 404 (personnalisée)
 ErrorDocument 404 /404.html

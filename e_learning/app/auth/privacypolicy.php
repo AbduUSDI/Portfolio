@@ -1,37 +1,28 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité - E-Learning Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<?php
+include_once '../../public/templates/header.php';
+include_once '../../public/templates/navbar.php';
+
+?>
     <style>
         body {
-            background-image: url('../../public/image_and_video/gif/anim_background.gif');
-            font-family: Arial, sans-serif;
-            padding-top: 60px;
-            position: relative;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            padding-top: 190px;
         }
         h1, h2, h3 {
-            margin-bottom: 20px;
+            text-align: center;
+            color: white;
         }
-        p {
-            margin-bottom: 20px;
+        p,
+        ul,
+        li {
+            text-align: justify;
             line-height: 1.6;
+            color:floralwhite;
         }
         .back-to-home {
             position: fixed;
-            bottom: 20px;
+            bottom: 200px;
             right: 20px;
             z-index: 1000;
-            background-color: #007bff;
             color: white;
             border-radius: 50%;
             width: 100px;
@@ -46,11 +37,9 @@
         .back-to-home:hover {
             background-color: #0056b3;
         }
-    </style>
-</head>
-<body>
 
-    <div class="container">
+    </style>
+    <div class="container containerr rounded">
         <h1>Politique de Confidentialité</h1>
         <p>Bienvenue sur notre plateforme de e-learning. La protection de vos données personnelles est une priorité pour nous. Cette politique de confidentialité explique quelles informations nous collectons, pourquoi nous les collectons, et comment nous les utilisons.</p>
 
@@ -94,14 +83,11 @@
         <p>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Toute modification sera publiée sur cette page, et nous vous en informerons par e-mail ou via notre plateforme.</p>
 
         <h2>7. Contactez-nous</h2>
-        <p>Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité, veuillez nous contacter à <a href="mailto:support@elearning-platform.com">support@elearning-platform.com</a>.</p>
+        <p>Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité, veuillez nous contacter à <a href="mailto:e_learningabdu@hotmail.com">e_learningabdu@hotmail.com</a>.</p>
 
         <p>Dernière mise à jour : 16 août 2024</p>
     </div>
 
-    <a href="index.html" class="btn btn-primary back-to-home"><img class="back-to-home" src="../../public/image_and_video/webp/HighQuality.webp" width="64px" height="64px"></img></a>
+    <a href="/Portfolio/e_learning/home" class="btn btn-primary back-to-home"><img class="back-to-home" src="/Portfolio/e-learning/public/image_and_video/webp/HighQuality.webp" width="64px" height="64px"></img></a>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php include_once '../../public/templates/footer_visitor.php';

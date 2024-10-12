@@ -1,59 +1,22 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditions d'utilisation - E-Learning Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-            padding-top: 60px;
-            background-image: url('../../public/image_and_video/gif/anim_background.gif');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
+<?php 
+include_once '../../public/templates/header_visitor.php';
+include_once '../../public/templates/navbar.php'; 
+?>
+<style>
         h1, h2, h3 {
             text-align: center;
+            color: white;
         }
         p {
             text-align: justify;
             line-height: 1.6;
-        }
-        .back-to-home {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background-color: #007bff;
-            color: white;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-        .back-to-home:hover {
-            background-color: #0056b3;
+            color:floralwhite;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="containerr container rounded">
     <h1 class="my-4">Conditions d'utilisation</h1>
     <p>Bienvenue sur notre plateforme e-learning. En accédant à notre site et en utilisant nos services, vous acceptez de respecter les conditions d'utilisation suivantes :</p>
 
@@ -84,8 +47,4 @@
     <h3>Merci d'utiliser notre plateforme e-learning.</h3>
 </div>
 
-<a href="index.html" class="btn btn-primary back-to-home"><img class="back-to-home" src="../../public/image_and_video/webp/HighQuality.webp" width="64px" height="64px"></img></a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?php include_once '../../public/templates/footer_visitor.php'; ?>

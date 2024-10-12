@@ -402,3 +402,56 @@ body {
     .progress-bar {
         line-height: 20px;
     }
+    .forum-section {
+        padding: 60px 0;
+    }
+    .forum-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+    }
+    .forum-card img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+    .forum-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .forum-description {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    .forum-btn {
+        text-align: right;
+    }
+    .course-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, white, grey);
+    }
+    .course-card img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+    .course-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .course-description {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    .course-btn {
+        text-align: right;
+    }

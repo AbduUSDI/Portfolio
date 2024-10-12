@@ -13,11 +13,7 @@ include_once '../../public/templates/navbar.php';
 ?>
 
 <div class="container mt-5 custom-container">
-    <br>
-    <hr>
     <h1 class="my-4">Connexion</h1>
-    <hr>
-    <br>
     <?php if (isset($error)): ?>
         <div class="alert alert-danger"><?php echo $error; ?></div>
     <?php endif; ?>
