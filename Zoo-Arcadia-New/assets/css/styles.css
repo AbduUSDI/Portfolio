@@ -10,11 +10,13 @@ h1, h2, h3 {
     text-align: center;
     color: #006400;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 p {
     font-size: 1.1em;
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* Classes générales */
@@ -23,6 +25,7 @@ p {
     overflow-y: auto;
     background: whitesmoke;
     border-radius: 15px;
+    text-align: justify;
 }
 
 .breadcrumb-custom {

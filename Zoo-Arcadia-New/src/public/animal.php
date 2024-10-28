@@ -20,38 +20,27 @@ if (empty($_SESSION['csrf_token'])) {
 
 require '../../vendor/autoload.php';
 
-use Database\DatabaseConnection;
-use Database\MongoDBConnection;
-use Repositories\AnimalRepository;
-use Repositories\HabitatRepository;
-use Repositories\ClickRepository;
-use Services\AnimalService;
-use Services\HabitatService;
-use Services\ClickService;
-use Controllers\AnimalController;
-use Controllers\HabitatController;
-
 // Connexion à la base de données
-$databaseConnection = new DatabaseConnection();
+$databaseConnection = new \Database\DatabaseConnection();
 $db = $databaseConnection->connect();
 
 // Connexion à la base de données MongoDB
-$mongoConnection = new MongoDBConnection();
+$mongoConnection = new \Database\MongoDBConnection();
 $clickCollection = $mongoConnection->getCollection('clicks');
 
 // Initialisation des repositories
-$animalRepository = new AnimalRepository($db);
-$habitatRepository = new HabitatRepository($db);
-$clickRepository = new ClickRepository($clickCollection);
+$animalRepository = new \Repositories\AnimalRepository($db);
+$habitatRepository = new \Repositories\HabitatRepository($db);
+$clickRepository = new \Repositories\ClickRepository($clickCollection);
 
 // Initialisation des services
-$animalService = new AnimalService($animalRepository, $clickRepository);
-$habitatService = new HabitatService($habitatRepository);
-$clickService = new ClickService($clickRepository);
+$animalService = new \Services\AnimalService($animalRepository, $clickRepository);
+$habitatService = new \Services\HabitatService($habitatRepository);
+$clickService = new \Services\ClickService($clickRepository);
 
 // Initialisation des contrôleurs
-$animalController = new AnimalController($animalService, $clickService);
-$habitatController = new HabitatController($habitatService);
+$animalController = new \Controllers\AnimalController($animalService, $clickService);
+$habitatController = new \Controllers\HabitatController($habitatService);
 
 $animal_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
@@ -85,8 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $animalController->addLike($animal_id);
         $animal['likes']++;
     } elseif (isset($_POST['comment'])) {
-        $visitorName = filter_input(INPUT_POST, 'visitor_name', FILTER_SANITIZE_STRING);
-        $reviewText = filter_input(INPUT_POST, 'review_text', FILTER_SANITIZE_STRING);
+        $visitorName = filter_input(INPUT_POST, 'visitor_name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $reviewText = filter_input(INPUT_POST, 'review_text', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if ($visitorName && $reviewText) {
             $animalController->addReview($visitorName, $reviewText, $animal_id);

@@ -788,12 +788,12 @@ function toggleClosed(checkbox, id) {
         ';
     }
     public function vetReportScript() {
-        // Créez une variable pour le token CSRF en dehors de la chaîne JavaScript
+        // Création d'une variable pour le token CSRF en dehors de la chaîne JavaScript
         $csrfToken = htmlspecialchars($_SESSION["csrf_token"], ENT_QUOTES);
     
         return '<script>
     $(document).ready(function() {
-        // Utilisez la variable PHP pour le token CSRF dans JavaScript
+        // Utilisation de la variable PHP pour le token CSRF dans JavaScript
         var csrfToken = "' . $csrfToken . '";
     
         function refreshReportsTable() {
@@ -813,7 +813,7 @@ function toggleClosed(checkbox, id) {
         $("#addReportForm").on("submit", function(event) {
             event.preventDefault();
             var formData = $(this).serialize();
-            formData += "&csrf_token=" + csrfToken; // Ajoutez le token CSRF dans les données du formulaire
+            formData += "&csrf_token=" + csrfToken; // Ajout de la variable token CSRF dans les données du formulaire
     
             $.ajax({
                 url: "/Portfolio/Zoo-Arcadia-New/vet/reports?action=add",
@@ -832,7 +832,7 @@ function toggleClosed(checkbox, id) {
             });
         });
     
-        // Réinitialiser le formulaire d\'ajout lors de l\'ouverture du modal
+        // Vide le modal pour que quand on réouvre le modal il soit vide
         $("#addReportModal").on("show.bs.modal", function () {
             $(this).find("form")[0].reset();
             $("#addResponseMessage").html("");
@@ -842,7 +842,7 @@ function toggleClosed(checkbox, id) {
         $("#editReportForm").on("submit", function(event) {
             event.preventDefault();
             var formData = $(this).serialize();
-            formData += "&csrf_token=" + csrfToken; // Ajoutez le token CSRF dans les données du formulaire
+            formData += "&csrf_token=" + csrfToken;
     
             $.ajax({
                 url: "/Portfolio/Zoo-Arcadia-New/vet/reports?action=edit",
@@ -861,7 +861,7 @@ function toggleClosed(checkbox, id) {
             });
         });
     
-        // Charger les données dans le formulaire de modification
+        // Chargement des données dans le formulaire de modification
         $(document).on("click", ".btn-edit", function() {
             var reportId = $(this).data("id");
             $.ajax({
@@ -905,7 +905,7 @@ function toggleClosed(checkbox, id) {
             }
         });
     
-        // Initialiser le tableau des rapports
+        // Initialisation du tableau des rapports
         refreshReportsTable();
     
         // Gestion du filtrage des rapports

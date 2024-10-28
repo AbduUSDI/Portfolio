@@ -51,9 +51,8 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb" style="background-color: #ccedb6; border-radius: 5px;">
+                    <ol class="breadcrumb" style="background-color: #ccedb6; border-radius: 5px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                         <?php
-                        // Breadcrumbs dynamiques basés sur le paramètre 'page'
                         $breadcrumbs = [['Accueil', '/Portfolio/Zoo-Arcadia-New/home']];
 
                         if (isset($_GET['page'])) {

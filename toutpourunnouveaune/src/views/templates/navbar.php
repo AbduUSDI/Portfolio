@@ -6,36 +6,36 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/home">Accueil</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/home">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/food_presentations">Conseils de nutrition</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/food_presentations">Conseils de nutrition</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/quizzes">Nos quizz</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/quizzes">Nos quizz</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/guides">Nos guides pour les parents</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/guides">Nos guides pour les parents</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/recipes">Diversification alimentaire / Recettes</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/recipes">Diversification alimentaire / Recettes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/contact">Nous contacter</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/contact">Nous contacter</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/medicaladvices">Les avis médicaux</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/medicaladvices">Les avis médicaux</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Portfolio/toutpourunnouveaune/forum">Le forum</a>
+                <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/forum">Le forum</a>
             </li>
             <?php if (isset($_SESSION['user'])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Portfolio/toutpourunnouveaune/logout">Déconnexion</a>
+                    <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/logout">Déconnexion</a>
                 </li>
             <?php else: ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Portfolio/toutpourunnouveaune/login">Connexion</a>
+                    <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/login">Connexion</a>
                 </li>
             <?php endif; ?>
 
@@ -43,19 +43,19 @@
             
             <?php if (isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 1): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Portfolio/toutpourunnouveaune/admin">Mon espace administrateur</a>
+                    <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/admin">Mon espace administrateur</a>
                 </li>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 2): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Portfolio/toutpourunnouveaune/doctor">Mon espace docteur</a>
+                    <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/doctor">Mon espace docteur</a>
                 </li>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['user']) && $_SESSION['user']['role_id'] == 3): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Portfolio/toutpourunnouveaune/parent">Mon espace parent</a>
+                    <a id="nav-link" class="nav-link" href="/Portfolio/toutpourunnouveaune/parent">Mon espace parent</a>
                 </li>
             <?php endif; ?>
         </ul>

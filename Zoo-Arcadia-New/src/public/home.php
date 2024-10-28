@@ -127,11 +127,14 @@ include '../../src/views/templates/navbar_visitor.php';
         <?php foreach ($topAnimals as $animal): ?>
             <div class="col-md-4">
                 <div class="card-rounded mb-4 shadow-sm">
-                    <img class="card-img-top img-fluid" src="/Zoo-Arcadia-New/assets/uploads/<?php echo htmlspecialchars($animal['image']); ?>" alt="<?php echo htmlspecialchars($animal['name']); ?>">
+                    <img class="card-img-top img-fluid" src="/Zoo-Arcadia-New/assets/uploads/<?php echo htmlspecialchars($animal['image']); ?>"
+                         alt="<?php echo htmlspecialchars($animal['name']); ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($animal['name']); ?></h5>
                         <p class="card-text">Nombre de clics : <?php echo htmlspecialchars($animal['clicks']); ?></p>
-                        <a href="/Portfolio/Zoo-Arcadia-New/animal/<?php echo $animal['id']; ?>" class="btn btn-success btn-block" onclick="registerClick(<?php echo $animal['id']; ?>)">En savoir plus</a>
+                        <a href="/Portfolio/Zoo-Arcadia-New/animal/<?php echo $animal['id']; ?>"
+                           class="btn btn-success btn-block"
+                           onclick="registerClick(<?php echo $animal['id']; ?>)">En savoir plus</a>
                         </div>
                 </div>
             </div>

@@ -37,19 +37,19 @@ use Controllers\AnimalController;
 
 // Connexion à la base de données MySQL
 $dbConnection = new DatabaseConnection();
-$pdo = $dbConnection->connect();
+$db = $dbConnection->connect();
 
 // Connexion à la base de données MongoDB
 $mongoDBConnection = new MongoDBConnection();
 $clicksCollection = $mongoDBConnection->getCollection('clicks');
 
 // Création des instances des dépôts
-$animalRepository = new AnimalRepository($pdo);
+$animalRepository = new AnimalRepository($db);
 $clickRepository = new ClickRepository($clicksCollection);
-$clickService = new ClickService($clickRepository);
 
 // Création des instances des services
 $animalService = new AnimalService($animalRepository, $clickRepository);
+$clickService = new ClickService($clickRepository);
 
 // Création du contrôleur
 $animalController = new AnimalController($animalService, $clickService);
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
         if ($action === 'list') {
             $animals = $animalController->getAllAnimals();
 
-            // Grouper les animaux par habitat
+            // Animaux par groupe d'habitat
             $animalsByHabitat = [];
             foreach ($animals as $animal) {
                 $habitatName = htmlspecialchars($animal['habitat_name']);
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
                 $animalsByHabitat[$habitatName][] = $animal;
             }
 
-            // Afficher les animaux par habitat dans un menu de sélection horizontal
+            // Affichage des animaux par habitat en format horizontal pour une meilleur visibilité
             foreach ($animalsByHabitat as $habitatName => $animals) {
                 echo '<h3 class="my-4">' . $habitatName . '</h3>';
                 echo '<div class="animal-selection-container">';
@@ -91,8 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
                     echo '</div>';
                 }
 
-                echo '</div>'; // Fin de la liste d'animaux
-                echo '</div>'; // Fin du conteneur de sélection
+                echo '</div>'; 
+                echo '</div>';
             }
 
             exit;
