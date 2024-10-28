@@ -383,4 +383,59 @@ p {
 .visual-box:nth-child(3) {
     background-color: #ffeeba; /* Jaune clair */
 }
+.intro-text {
+    font-size: 1.2em;
+    color: #333; /* Couleur sombre pour le texte */
+}
+
+.intro-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa; /* Couleur de fond léger */
+    border-left: 5px solid #007bff; /* Bordure colorée pour mettre en évidence */
+}
+
+.highlight {
+    background-color: #e2f0ff; /* Couleur de fond douce pour le texte en surbrillance */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.icon {
+    color: #007bff; /* Couleur de l'icône */
+    margin-right: 10px;
+}
+.importance-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f1f1f1; /* Couleur de fond léger */
+    border-left: 5px solid #28a745; /* Bordure verte */
+}
+
+.importance-list {
+    list-style-type: none; /* Supprime les puces par défaut */
+    padding-left: 0; /* Supprime le padding */
+}
+
+.importance-list li {
+    margin: 10px 0; /* Espacement entre les éléments */
+    font-size: 1.1em; /* Taille de police légèrement plus grande */
+}
+.types-erreurs-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9; /* Couleur de fond léger */
+    border-left: 5px solid #007bff; /* Bordure bleue */
+}
+
+.types-list {
+    list-style-type: none; /* Supprime les puces par défaut */
+    padding-left: 0; /* Supprime le padding */
+}
+
+.types-list li {
+    margin: 10px 0; /* Espacement entre les éléments */
+    font-size: 1.1em; /* Taille de police légèrement plus grande */
+}
+
 

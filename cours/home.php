@@ -55,7 +55,7 @@
     <a href="index.php?page=cours_postgresql">PostgreSQL</a>
     <a href="index.php?page=cours_redis">Redis</a>
     
-    <h4>Méthodologies</h>
+    <h4>Méthodologies</h4>
     <a href="index.php?page=cours_scrum">Scrum</a>
     <a href="index.php?page=cours_kanban">Kanban</a>
     <a href="index.php?page=cours_agile">Méthodologie Agile</a>
