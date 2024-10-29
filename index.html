@@ -130,10 +130,54 @@
                     <div class="card">
                         <img src="assets/image/hero-bg.webp" class="card-img-top" alt="Projet Cours - Plateforme de révision personelle">
                         <div class="card-body">
-                            <h5 class="card-title">Cours</h5>
+                            <h5 class="card-title">Plateforme de cours dédiée à la révision et à la veille techno</h5>
                             <p class="card-text">
-                                Ceci est un projet qui sera l'illustration de plusieurs pages me permettant de réviser les langages de programmation et leurs frameworks.
+                                Ce projet est une interface d’apprentissage complète et interactive, regroupant plusieurs domaines essentiels pour réviser vos compétences en développement web et technologies associées :
                             </p>
+                            
+                            <ul class="text-dark">
+                                <!-- HTML et CSS -->
+                                <li>
+                                    <i class="fas fa-code" style="color: #e34f26;"></i> <span style="color: #e34f26; font-weight: bold;">HTML et CSS</span> : Fondamentaux du web, avec des cours sur HTML, CSS et Bootstrap pour des interfaces modernes.
+                                </li>
+                            
+                                <!-- UX/UI -->
+                                <li>
+                                    <i class="fas fa-pencil-ruler" style="color: #ffcc00;"></i> <span style="color: #ffcc00; font-weight: bold;">UX/UI</span> : Conception orientée utilisateur, incluant l’UX, l’UI, l’accessibilité et le prototypage.
+                                </li>
+                            
+                                <!-- Langages de Programmation -->
+                                <li>
+                                    <i class="fas fa-laptop-code" style="color: #3498db;"></i> <span style="color: #3498db; font-weight: bold;">Langages de Programmation</span> : JavaScript, PHP, Python, Java, Rust et Go, pour développer en profondeur dans plusieurs langages populaires.
+                                </li>
+                            
+                                <!-- Frameworks et Bibliothèques -->
+                                <li>
+                                    <i class="fas fa-cubes" style="color: #9b59b6;"></i> <span style="color: #9b59b6; font-weight: bold;">Frameworks et Bibliothèques</span> : Modules sur React, Vue.js, Angular, Django, Laravel et Tailwind CSS pour des projets robustes.
+                                </li>
+                            
+                                <!-- Containerisation et DevOps -->
+                                <li>
+                                    <i class="fas fa-server" style="color: #1abc9c;"></i> <span style="color: #1abc9c; font-weight: bold;">Containerisation et DevOps</span> : Technologies modernes comme Docker, Kubernetes, CI/CD, Ansible et Terraform pour une gestion efficace des environnements.
+                                </li>
+                            
+                                <!-- Bases de Données -->
+                                <li>
+                                    <i class="fas fa-database" style="color: #f39c12;"></i> <span style="color: #f39c12; font-weight: bold;">Bases de Données</span> : Apprentissage des bases de données SQL, MySQL, MongoDB, PostgreSQL et Redis pour une maîtrise complète de la gestion des données.
+                                </li>
+                            
+                                <!-- Méthodologies -->
+                                <li>
+                                    <i class="fas fa-lightbulb" style="color: #e67e22;"></i> <span style="color: #e67e22; font-weight: bold;">Méthodologies</span> : Techniques de gestion de projets avec Scrum, Kanban, Agile et le TDD (Développement Dirigé par les Tests).
+                                </li>
+                            
+                                <!-- Sécurité et Bonnes Pratiques -->
+                                <li>
+                                    <i class="fas fa-shield-alt" style="color: #c0392b;"></i> <span style="color: #c0392b; font-weight: bold;">Sécurité et Bonnes Pratiques</span> : Sécurité Web, bonnes pratiques de code, gestion des erreurs, tests unitaires et optimisation de la performance.
+                                </li>
+                            </ul>
+                            
+                            
                             <a href="cours/index.php?page=home" class="btn btn-primary">Plus de détails</a>
                         </div>
                     </div>
@@ -148,7 +192,7 @@
             <h2 class="text-center mb-5" data-aos="fade-up">Me contacter</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-6" data-aos="fade-up">
-                    <form id="contactForm">
+                    <form id="contactForm" method="POST" action="contact.php">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nom</label>
                             <input type="text" class="form-control" id="name" placeholder="Votre nom">

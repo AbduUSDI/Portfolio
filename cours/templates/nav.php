@@ -1,5 +1,5 @@
 <!-- Bouton pour ouvrir le modal avec icône de menu burger -->
-<button id="menu-btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#navigationModal">
+<button id="menu-btn" type="button" class="btn btn-primary custom-btn" data-bs-toggle="modal" data-bs-target="#navigationModal">
     <i class="fas fa-bars"></i>
 </button>
 
@@ -125,10 +125,13 @@
         align-items: center;
         justify-content: center;
         z-index: 1050;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce au survol */
     }
 
     #menu-btn:hover {
         background-color: #0056b3;
+        transform: translateY(-5px); /* Déplace la carte légèrement vers le haut au survol */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmente l'ombre au survol */
     }
 </style>
 

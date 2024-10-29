@@ -348,6 +348,7 @@ p {
     }
     .sidebar-toggle-btn {
         display: block;
+        border-radius: 50%;
     }
     .content {
         margin-left: 0; /* Supprime le décalage de la sidebar pour le contenu */
