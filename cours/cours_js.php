@@ -29,6 +29,15 @@
                     <a href="#boucles">Boucles</a>
                     <a href="#fonctions">Fonctions</a>
         </div>
+        <button class="dropdown-btn"><i class="fas fa-desktop"></i>  Exercices JavaScript de base <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-container">
+                    <a href="exercices_js/variable.php">Variable</a>
+                    <a href="exercices_js/type_donnee.php">Types de données</a>
+                    <a href="exercices_js/operateurs.php">Opérateurs</a>
+                    <a href="exercices_js/conditions.php">Conditions</a>
+                    <a href="exercices_js/boucles.php">Boucles</a>
+                    <a href="exercices_js/fonctions.php">Fonctions</a>
+                </div>
         <button class="dropdown-btn"><i class="fas fa-rocket"></i> JavaScript Avancé  <i class="fas fa-caret-down"></i></button>
         <div class="dropdown-container">
                     <a href="#promises">Promises</a>
@@ -38,6 +47,15 @@
                     <a href="#dom-modification">Modification du DOM</a>
                     <a href="#events">Gestion des événements</a>
         </div>
+        <button class="dropdown-btn"><i class="fas fa-pen-nib"></i>  Exercices JavaScript avancé <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-container">
+                    <a href="exercices_js/promise.php">Promise</a>
+                    <a href="exercices_js/async_await.php">Async/Await</a>
+                    <a href="exercices_js/classes.php">Classes</a>
+                    <a href="exercices_js/selection_dom.php">Sélection DOM</a>
+                    <a href="exercices_js/modify_dom.php">Modification du DOM</a>
+                    <a href="exercices_js/events.php">Gestion des événements</a>
+                </div>
             <button class="dropdown-btn"><i class="fas fa-laptop-code"></i> JavaScript Pro  <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-container">
                     <a href="#modules">Modules</a>
@@ -53,6 +71,22 @@
                     <a href="#service-workers-pwa">Service Workers & PWA</a>
                     <a href="#es6">Syntaxe Moderne ES6+</a>
                     <a href="#testing">Tests Unitaires</a>
+                </div>  
+            <button class="dropdown-btn"><i class="fas fa-handshake"></i>  Exercices JavaScript Pro <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-container">
+                    <a href="exercices_js/modules-exercice/modules.php">Modules</a>
+                    <a href="exercices_js/fetch-exercice/fetch.php">API Fetch</a>
+                    <a href="exercices_js/web-storage/web_storage.php">Web Storage</a>
+                    <a href="exercices_js/json/json.php">JSON</a>
+                    <a href="exercices_js/poo/poo.php">Programmation Orientée Objet</a>
+                    <a href="exercices_js/manip-dom/manip_dom.php">Manipulation Avancée du DOM</a>
+                    <a href="exercices_js/callback-closures/callback_closures.php">Callbacks & Closures</a>
+                    <a href="exercices_js/manip-json/manip_json.php">Manipulation de JSON</a>
+                    <a href="exercices_js/web-workers/web_workers.php">Web Workers</a>
+                    <a href="exercices_js/gestion-erreurs/gestion_erreurs.php">Gestion des Erreurs & Debugging</a>
+                    <a href="exercices_js/service-workers/service_workers.php">Service Workers & PWA</a>
+                    <a href="exercices_js/es6/es6.php">Syntaxe Moderne ES6+</a>
+                    <a href="exercices_js/unit-test/unit_test.php">Tests Unitaires</a>
                 </div>
     </div>
 
@@ -1135,15 +1169,56 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
 
                 <div class="row">
                 <div class="col-md-12">
-    <h3 id="webstorage">Web Storage</h3>
-    <p>
-        Le <strong>Web Storage</strong> est une API permettant de stocker des données côté client dans le navigateur. 
-        Il inclut deux mécanismes principaux :
-    </p>
-    <ul>
-        <li><strong>localStorage</strong> : Stocke les données sans date d'expiration, même après la fermeture du navigateur.</li>
-        <li><strong>sessionStorage</strong> : Stocke les données pendant la session de navigation en cours. Les données sont supprimées une fois la session fermée.</li>
-    </ul>
+                <h3 id="webstorage">Web Storage</h3>
+<p>
+    Le <strong>Web Storage</strong> est une API permettant de stocker des données côté client dans le navigateur. 
+    Il inclut deux mécanismes principaux :
+</p>
+<ul>
+    <li><strong>localStorage</strong> : Stocke les données sans date d'expiration, même après la fermeture du navigateur.</li>
+    <li><strong>sessionStorage</strong> : Stocke les données pendant la session de navigation en cours. Les données sont supprimées une fois la session fermée.</li>
+</ul>
+
+<h4>Méthodes Principales de Web Storage</h4>
+<p>Les méthodes suivantes permettent d'interagir avec <code>localStorage</code> et <code>sessionStorage</code> :</p>
+
+<ul>
+    <li>
+        <strong>setItem(key, value)</strong> : Cette méthode permet de stocker une donnée dans <code>localStorage</code> ou <code>sessionStorage</code>. Elle prend deux paramètres :
+        <ul>
+            <li><code>key</code> : la clé sous laquelle la donnée sera stockée.</li>
+            <li><code>value</code> : la valeur de la donnée à stocker.</li>
+        </ul>
+        <p><em>Exemple :</em></p>
+        <pre><code class="language-javascript">// Stocker une donnée
+localStorage.setItem('nom', 'Alice'); // Stocke 'Alice' sous la clé 'nom'
+sessionStorage.setItem('sessionUser', 'John'); // Stocke 'John' pour la session active</code></pre>
+    </li>
+
+    <li>
+        <strong>getItem(key)</strong> : Récupère une donnée stockée en utilisant la clé. Retourne <code>null</code> si aucune donnée n'est trouvée pour la clé donnée.
+        <p><em>Exemple :</em></p>
+        <pre><code class="language-javascript">// Récupérer une donnée
+let nom = localStorage.getItem('nom'); // Récupère 'Alice'
+console.log(nom); // Affiche "Alice"</code></pre>
+    </li>
+
+    <li>
+        <strong>removeItem(key)</strong> : Supprime un élément spécifique du stockage en utilisant la clé fournie, ce qui permet de libérer de l'espace pour d'autres données.
+        <p><em>Exemple :</em></p>
+        <pre><code class="language-javascript">// Supprimer une donnée
+localStorage.removeItem('nom'); // Supprime l'élément avec la clé 'nom'</code></pre>
+    </li>
+
+    <li>
+        <strong>clear()</strong> : Supprime toutes les données stockées dans <code>localStorage</code> ou <code>sessionStorage</code>, en fonction de l'API utilisée.
+        <p><em>Exemple :</em></p>
+        <pre><code class="language-javascript">// Effacer tout le stockage
+localStorage.clear(); // Supprime toutes les données de localStorage
+sessionStorage.clear(); // Supprime toutes les données de sessionStorage</code></pre>
+    </li>
+</ul>
+
 
     <div class="example-box">
         <h4>Exemple : Utilisation de <code>localStorage</code></h4>
@@ -1180,39 +1255,116 @@ sessionStorage.removeItem('sessionUser');
         <button onclick="utiliserSessionStorage()" class="btn btn-primary">Tester sessionStorage</button>
         <div id="resultat-sessionStorage" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
+
+    <!-- Section ajoutée pour la gestion complète de Web Storage -->
+    <div class="example-box mt-5">
+        <h4>Gestion Complète : Sauvegarder, Charger et Effacer</h4>
+
+        <!-- Formulaire pour entrer les informations -->
+        <div class="mb-3">
+            <label for="userName" class="form-label">Nom d'utilisateur :</label>
+            <input type="text" id="userName" class="form-control" placeholder="Entrez votre nom">
+        </div>
+        <div class="mb-3">
+            <label for="userColor" class="form-label">Couleur préférée :</label>
+            <input type="color" id="userColor" class="form-control">
+        </div>
+
+        <button class="btn btn-danger" onclick="saveToLocalStorage()">Sauvegarder dans localStorage</button>
+        <button class="btn btn-secondary" onclick="saveToSessionStorage()">Sauvegarder dans sessionStorage</button>
+        <button class="btn btn-warning" onclick="clearStorage()">Effacer le stockage</button>
+
+        <div id="storageResult" class="mt-4"></div>
+    </div>
 </div>
 
 <script>
-    function utiliserLocalStorage() {
-        // Stockage de données
-        localStorage.setItem('nom', 'Alice');
+// Fonction pour tester l'utilisation de localStorage
+function utiliserLocalStorage() {
+    // Stockage de données
+    localStorage.setItem('nom', 'Alice');
 
-        // Récupération de données
-        let nom = localStorage.getItem('nom');
+    // Récupération de données
+    let nom = localStorage.getItem('nom');
 
-        // Affichage du résultat
-        document.getElementById('resultat-localStorage').innerHTML = 
-            "Stocké dans localStorage : Nom = " + nom;
+    // Affichage du résultat
+    document.getElementById('resultat-localStorage').innerHTML = 
+        "Stocké dans localStorage : Nom = " + nom;
 
-        // Suppression de données
-        localStorage.removeItem('nom');
+    // Suppression de données
+    localStorage.removeItem('nom');
+}
+
+// Fonction pour tester l'utilisation de sessionStorage
+function utiliserSessionStorage() {
+    // Stockage de données
+    sessionStorage.setItem('sessionUser', 'John Doe');
+
+    // Récupération de données
+    let sessionUser = sessionStorage.getItem('sessionUser');
+
+    // Affichage du résultat
+    document.getElementById('resultat-sessionStorage').innerHTML = 
+        "Stocké dans sessionStorage : Utilisateur = " + sessionUser;
+
+    // Suppression de données
+    sessionStorage.removeItem('sessionUser');
+}
+
+// Fonction pour sauvegarder dans localStorage
+function saveToLocalStorage() {
+    const userName = document.getElementById("userName").value;
+    const userColor = document.getElementById("userColor").value;
+
+    if (userName && userColor) {
+        localStorage.setItem("userName", userName);
+        localStorage.setItem("userColor", userColor);
+        displayResult("Données sauvegardées dans localStorage !");
+    } else {
+        displayResult("Veuillez entrer toutes les informations.", "danger");
     }
+}
 
-    function utiliserSessionStorage() {
-        // Stockage de données
-        sessionStorage.setItem('sessionUser', 'John Doe');
+// Fonction pour sauvegarder dans sessionStorage
+function saveToSessionStorage() {
+    const userName = document.getElementById("userName").value;
+    const userColor = document.getElementById("userColor").value;
 
-        // Récupération de données
-        let sessionUser = sessionStorage.getItem('sessionUser');
-
-        // Affichage du résultat
-        document.getElementById('resultat-sessionStorage').innerHTML = 
-            "Stocké dans sessionStorage : Utilisateur = " + sessionUser;
-
-        // Suppression de données
-        sessionStorage.removeItem('sessionUser');
+    if (userName && userColor) {
+        sessionStorage.setItem("userName", userName);
+        sessionStorage.setItem("userColor", userColor);
+        displayResult("Données sauvegardées dans sessionStorage !");
+    } else {
+        displayResult("Veuillez entrer toutes les informations.", "danger");
     }
+}
+
+// Fonction pour afficher un message de résultat
+function displayResult(message, type = "success") {
+    const resultDiv = document.getElementById("storageResult");
+    resultDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+}
+
+// Fonction pour effacer les données du stockage
+function clearStorage() {
+    localStorage.clear();
+    sessionStorage.clear();
+    displayResult("Les données ont été effacées.");
+}
+
+// Chargement des données lors de l'ouverture de la page
+document.addEventListener("DOMContentLoaded", () => {
+    const userName = localStorage.getItem("userName") || sessionStorage.getItem("userName");
+    const userColor = localStorage.getItem("userColor") || sessionStorage.getItem("userColor");
+
+    if (userName && userColor) {
+        document.getElementById("userName").value = userName;
+        document.getElementById("userColor").value = userColor;
+        displayResult("Données chargées depuis le stockage.");
+    }
+});
 </script>
+
 
 
 <div class="col-md-12">
@@ -2010,15 +2162,27 @@ promesse.then(result => console.log(result)); // Affiche "Résolu !" après 1 se
         <li><strong>Automatisation :</strong> Les tests peuvent être automatisés et exécutés à chaque mise à jour de code, garantissant la stabilité du code.</li>
     </ul>
 
+    <h4>Utilisation de Jest pour les Tests Unitaires</h4>
+    <p>
+        <strong>Jest</strong> est un framework de test JavaScript largement utilisé pour créer et exécuter des tests unitaires. Il propose des méthodes simples comme <code>test</code> et <code>expect</code>, facilitant l'écriture de tests.
+        Voici les étapes pour installer et utiliser Jest :
+    </p>
+    <ol>
+        <li>Installer Jest : <code>npm install --save-dev jest</code></li>
+        <li>Créer un fichier de test, par exemple <code>addition.test.js</code></li>
+        <li>Exécuter les tests : <code>npx jest</code></li>
+    </ol>
+    <p>Un exemple de test en Jest :</p>
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemple de test unitaire avec Jest (framework de test JavaScript)
-
-// Fonction à tester
+        <pre><code class="language-javascript">// addition.js - Fonction à tester
 function addition(a, b) {
     return a + b;
 }
+module.exports = addition;
 
-// Test unitaire
+// addition.test.js - Test unitaire avec Jest
+const addition = require('./addition');
+
 test('addition de 5 et 10 donne 15', () => {
     expect(addition(5, 10)).toBe(15);
 });
@@ -2053,7 +2217,6 @@ test('addition de 5 et 10 donne 15', () => {
         }
     }
 </script>
-
 
                 </div>
             </div>

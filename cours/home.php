@@ -35,6 +35,7 @@
     <a href="index.php?page=cours_go">Go</a>
     
     <h4>Frameworks et Bibliothèques</h4>
+    <a href="index.php?page=cours_ajax">AJAX</a>
     <a href="index.php?page=cours_react">React</a>
     <a href="index.php?page=cours_vue">Vue.js</a>
     <a href="index.php?page=cours_angular">Angular</a>
@@ -223,13 +224,22 @@
                     <a href="index.php?page=cours_go" class="btn btn-primary">Voir le cours</a>
                 </div>
             </div>
-        </div>>
+        </div>
 
         <!-- Section Frameworks et Bibliothèques -->
         <div class="col-12 mt-5">
             <h3 class="text-secondary mb-3">Frameworks et Bibliothèques</h3>
         </div>
-
+        <!-- Ajax -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">AJAX</h5>
+                    <p class="card-text">Créez des pages asynchrones et sans rechargement de pages avec AJAX.</p>
+                    <a href="index.php?page=cours_ajax" class="btn btn-primary">Voir le cours</a>
+                </div>
+            </div>
+        </div>
         <!-- React -->
         <div class="col-md-6 mb-4">
             <div class="card">

@@ -2,10 +2,7 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
     padding-top: 10%;
-    background-image: linear-gradient(135deg, #f7f9fc 25%, #e9edf3 25%, #e9edf3 50%, #f7f9fc 50%, #f7f9fc 75%, #e9edf3 75%, #e9edf3);
-    background-size: 20px 20px; /* Répétition de petits carrés pour un effet subtil */
-    background-attachment: fixed; /* Le fond reste fixe au défilement */
-    background-color: #f4f6f8; /* Couleur de fond douce */
+    background-image: url("../image/hero-bg2.webp");
 }
 /* Style pour le bouton de la sidebar */
 .sidebar-toggle-btn {
@@ -26,7 +23,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 300px;
     background-color: #007bff;
     padding-top: 20px;
     overflow-y: auto;
@@ -88,12 +85,32 @@ body {
     margin: 20px auto;
     animation: fadeInUp 1s;
 }
+@keyframes clignoter {
+    0% {
+        color: #912222;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: #912222;
+    }
+}
+
+h1 .fas {
+    color: #912222;
+    animation: clignoter 1s infinite;
+}
 
 .row {
     margin-bottom: 20px;
 }
-
-h1, h2 {
+h1 {
+    color: #912222;
+    font-weight: bold;
+    padding-left: 15px;
+}
+h2 {
     color: #007bff;
     font-weight: bold;
     padding-left: 15px;
@@ -341,10 +358,10 @@ p {
         position: fixed;
         top: 0;
         left: 0;
-        width: 250px;
+        width: 300px;
         height: 100%;
         z-index: 999;
-        transform: translateX(-250px);
+        transform: translateX(-300px);
     }
     .sidebar-toggle-btn {
         display: block;
@@ -433,5 +450,41 @@ p {
     margin: 10px 0; /* Espacement entre les éléments */
     font-size: 1.1em; /* Taille de police légèrement plus grande */
 }
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 110px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+#scrollToTopBtn:hover {
+    background-color: #333;
+}
+#scrollToBottomBtn {
+    display: none;
+    position: fixed;
+    bottom: 110px;
+    right: 80px;
+    z-index: 99;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+#scrollToBottomBtn:hover {
+    background-color: #333;
+}

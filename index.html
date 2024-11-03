@@ -50,6 +50,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Me contacter</a>
                     </li>
+                    <!-- Liens de réseaux sociaux -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/AbduUSDI" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/abdu-usdi-553877268" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://x.com/AbduUsdi" target="_blank" aria-label="X">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -78,139 +94,110 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5" data-aos="fade-up">Mes projets</h2>
-            <div class="row">
+<section id="projects" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Mes projets</h2>
+        
+        <!-- Bootstrap Carousel -->
+        <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+            <div class="carousel-inner">
                 <!-- Project 1 -->
-                <div class="col-md-4 mb-4" data-aos="fade-right">
-                    <div class="card">
+                <div class="carousel-item active">
+                    <div class="card h-100">
                         <img src="assets/image/zoo1.png" class="card-img-top" alt="Projet Zoo Arcadia - Application Web pour un Zoo">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Zoo Arcadia</h5>
-                            <p class="card-text">
-                                Ce projet est une application web développée dans le cadre de ma formation, où j'ai appliqué des instructions précises et les bonnes pratiques du développement. En suivant les principes SOLID pour une architecture solide et maintenable, j'ai construit cette application principalement en <strong>PHP</strong>, intégrant des technologies modernes telles que <strong>AJAX, Fetch API, Axios</strong> et du <strong>JavaScript Vanilla</strong>.
+                            <p class="card-text flex-grow-1">
+                                Ce projet est une application web développée dans le cadre de ma formation, où j'ai appliqué des instructions précises et les bonnes pratiques du développement. En suivant les principes SOLID pour une architecture solide et maintenable, j'ai construit cette application principalement en <strong>PHP</strong>.
                             </p>
-                            <p class="card-text">
-                                Bien que ce projet soit fictif, il représente un excellent exemple de mes compétences en développement web. Les images et vidéos intégrées sont générées par l'intelligence artificielle <strong>DALL-E</strong>, démontrant également mon intérêt pour les outils innovants. Ce projet illustre ma capacité à créer des solutions complètes et interactives dans un cadre professionnel.
-                            </p>
-                            
-                            <a href="/Portfolio/Zoo-Arcadia-New/home" class="btn btn-primary">Plus de détails</a>
+                            <a href="/Portfolio/Zoo-Arcadia-New/home" class="btn btn-primary mt-auto">Plus de détails</a>
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <div class="card">
-                        <img src="assets/image/TPUNN.png" class="card-img-top" alt="Projet Tout pour un nouveau-né - Site d'accompagnement des nouveaux parents">
-                        <div class="card-body">
-                            <h5 class="card-title">Tout pour un nouveau né</h5>
-                            <p class="card-text">
-                                Projet réalisé sous <strong>PHP</strong> avec une structure <strong>MVC</strong>, « Tout pour un nouveau-né » est un site que j’ai conçu personnellement pour développer mes compétences. Ce site utilise à la fois des bases de données <strong>relationnelles et non relationnelles</strong>, ainsi que des <strong>styles avancés en CSS</strong> avec Bootstrap. Il propose de nombreuses fonctionnalités, notamment des guides nutritionnels, des avis médicaux, trois espaces dédiés, un forum de discussions, et un système d'amis.
-                            </p>
-                            <a href="/Portfolio/toutpourunnouveaune/home" class="btn btn-primary">Plus de détails</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-md-4 mb-4" data-aos="fade-left">
-                    <div class="card">
-                        <img src="assets/image/E-Learning.png" class="card-img-top" alt="Projet E-Learning - Plateforme de formation en ligne">
-                        <div class="card-body">
-                            <h5 class="card-title">E-Learning</h5>
-                            <p class="card-text">
-                                Mon projet de site de formation en ligne, conçu pour permettre à tout organisme de créer des formations et d’organiser des sessions live. Réalisé avec <strong>PHP</strong>, <strong>MySQL</strong>, et <strong>MongoDB</strong>, le site utilise largement <strong>JavaScript</strong> pour une expérience utilisateur dynamique. Structuré en MVC, il offre un style unique adapté à toutes les pages, avec une interface flexible et pratique.
-                            </p>
-                            <a href="/Portfolio/e_learning/home" class="btn btn-primary">Plus de détails</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 4 -->
-                <div class="col-md-4 mb-4" data-aos="fade-left"></div>
-                    <div class="card">
-                        <img src="assets/image/hero-bg.webp" class="card-img-top" alt="Projet Cours - Plateforme de révision personelle">
-                        <div class="card-body">
-                            <h5 class="card-title">Plateforme de cours dédiée à la révision et à la veille techno</h5>
-                            <p class="card-text">
-                                Ce projet est une interface d’apprentissage complète et interactive, regroupant plusieurs domaines essentiels pour réviser vos compétences en développement web et technologies associées :
-                            </p>
-                            
-                            <ul class="text-dark">
-                                <!-- HTML et CSS -->
-                                <li>
-                                    <i class="fas fa-code" style="color: #e34f26;"></i> <span style="color: #e34f26; font-weight: bold;">HTML et CSS</span> : Fondamentaux du web, avec des cours sur HTML, CSS et Bootstrap pour des interfaces modernes.
-                                </li>
-                            
-                                <!-- UX/UI -->
-                                <li>
-                                    <i class="fas fa-pencil-ruler" style="color: #ffcc00;"></i> <span style="color: #ffcc00; font-weight: bold;">UX/UI</span> : Conception orientée utilisateur, incluant l’UX, l’UI, l’accessibilité et le prototypage.
-                                </li>
-                            
-                                <!-- Langages de Programmation -->
-                                <li>
-                                    <i class="fas fa-laptop-code" style="color: #3498db;"></i> <span style="color: #3498db; font-weight: bold;">Langages de Programmation</span> : JavaScript, PHP, Python, Java, Rust et Go, pour développer en profondeur dans plusieurs langages populaires.
-                                </li>
-                            
-                                <!-- Frameworks et Bibliothèques -->
-                                <li>
-                                    <i class="fas fa-cubes" style="color: #9b59b6;"></i> <span style="color: #9b59b6; font-weight: bold;">Frameworks et Bibliothèques</span> : Modules sur React, Vue.js, Angular, Django, Laravel et Tailwind CSS pour des projets robustes.
-                                </li>
-                            
-                                <!-- Containerisation et DevOps -->
-                                <li>
-                                    <i class="fas fa-server" style="color: #1abc9c;"></i> <span style="color: #1abc9c; font-weight: bold;">Containerisation et DevOps</span> : Technologies modernes comme Docker, Kubernetes, CI/CD, Ansible et Terraform pour une gestion efficace des environnements.
-                                </li>
-                            
-                                <!-- Bases de Données -->
-                                <li>
-                                    <i class="fas fa-database" style="color: #f39c12;"></i> <span style="color: #f39c12; font-weight: bold;">Bases de Données</span> : Apprentissage des bases de données SQL, MySQL, MongoDB, PostgreSQL et Redis pour une maîtrise complète de la gestion des données.
-                                </li>
-                            
-                                <!-- Méthodologies -->
-                                <li>
-                                    <i class="fas fa-lightbulb" style="color: #e67e22;"></i> <span style="color: #e67e22; font-weight: bold;">Méthodologies</span> : Techniques de gestion de projets avec Scrum, Kanban, Agile et le TDD (Développement Dirigé par les Tests).
-                                </li>
-                            
-                                <!-- Sécurité et Bonnes Pratiques -->
-                                <li>
-                                    <i class="fas fa-shield-alt" style="color: #c0392b;"></i> <span style="color: #c0392b; font-weight: bold;">Sécurité et Bonnes Pratiques</span> : Sécurité Web, bonnes pratiques de code, gestion des erreurs, tests unitaires et optimisation de la performance.
-                                </li>
-                            </ul>
-                            
-                            
-                            <a href="cours/index.php?page=home" class="btn btn-primary">Plus de détails</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-5" data-aos="fade-up">Me contacter</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-6" data-aos="fade-up">
-                    <form id="contactForm" method="POST" action="contact.php">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="name" placeholder="Votre nom">
+                <!-- Project 2 -->
+                <div class="carousel-item">
+                    <div class="card h-100">
+                        <img src="assets/image/TPUNN.png" class="card-img-top" alt="Projet Tout pour un nouveau-né - Site d'accompagnement des nouveaux parents">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Tout pour un nouveau né</h5>
+                            <p class="card-text flex-grow-1">
+                                Projet réalisé sous <strong>PHP</strong> avec une structure <strong>MVC</strong>, « Tout pour un nouveau-né » est un site que j’ai conçu personnellement pour développer mes compétences.
+                            </p>
+                            <a href="/Portfolio/toutpourunnouveaune/home" class="btn btn-primary mt-auto">Plus de détails</a>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Votre email">
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="carousel-item">
+                    <div class="card h-100">
+                        <img src="assets/image/E-Learning.png" class="card-img-top" alt="Projet E-Learning - Plateforme de formation en ligne">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">E-Learning</h5>
+                            <p class="card-text flex-grow-1">
+                                Mon projet de site de formation en ligne, conçu pour permettre à tout organisme de créer des formations et d’organiser des sessions live.
+                            </p>
+                            <a href="/Portfolio/e_learning/home" class="btn btn-primary mt-auto">Plus de détails</a>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Votre message"></textarea>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="carousel-item">
+                    <div class="card h-100">
+                        <img src="assets/image/cours.webp" class="card-img-top img-fluid" alt="Projet Cours - Plateforme de révision personelle">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Plateforme de cours dédiée à la révision et à la veille techno</h5>
+                            <p class="card-text flex-grow-1">
+                                Ce projet est une interface d’apprentissage complète et interactive, regroupant plusieurs domaines essentiels pour réviser vos compétences en développement web et technologies associées.
+                            </p>
+                            <a href="cours/index.php?page=home" class="btn btn-primary mt-auto">Plus de détails</a>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
+                    </div>
                 </div>
             </div>
+
+            <!-- Carousel controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
         </div>
-    </section>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Me contacter</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6" data-aos="fade-up">
+                <form id="contactForm" action="contact.php" method="POST" class="p-4 rounded shadow-sm" style="background-color: #f9f9f9;">
+                    <div class="mb-4">
+                        <label for="name" class="form-label text-muted">Nom</label>
+                        <input type="text" class="form-control form-control-lg border-0 shadow-sm" id="name" name="name" placeholder="Votre nom" required style="border-radius: 8px;">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="form-label text-muted">Email</label>
+                        <input type="email" class="form-control form-control-lg border-0 shadow-sm" id="email" name="email" placeholder="Votre email" required style="border-radius: 8px;">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="form-label text-muted">Message</label>
+                        <textarea class="form-control form-control-lg border-0 shadow-sm" id="message" name="message" rows="5" placeholder="Votre message" required style="border-radius: 8px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 shadow" style="border-radius: 8px;">Envoyer</button>
+                </form>                    
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer id="footerId" class="bg-dark text-white text-center py-4">

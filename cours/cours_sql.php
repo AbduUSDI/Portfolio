@@ -18,7 +18,7 @@
     <a href="#introduction-sql"><i class="fas fa-book-open"></i> Introduction à SQL</a>
     
     <!-- Concepts de Base -->
-    <button class="dropdown-btn"><i class="fas fa-database"></i> Concepts de Base</button>
+    <button class="dropdown-btn"><i class="fas fa-database"></i> Concepts de Base  <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#tables">Tables et Relations</a>
         <a href="#requete">Requêtes SQL de Base</a>
@@ -28,7 +28,7 @@
     </div>
     
     <!-- Manipulation de Données -->
-    <button class="dropdown-btn"><i class="fas fa-cogs"></i> Manipulation de Données</button>
+    <button class="dropdown-btn"><i class="fas fa-cogs"></i> Manipulation de Données  <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#insert">INSERT</a>
         <a href="#update">UPDATE</a>
@@ -37,7 +37,7 @@
     </div>
     
     <!-- Requêtes Avancées -->
-    <button class="dropdown-btn"><i class="fas fa-filter"></i> Requêtes Avancées</button>
+    <button class="dropdown-btn"><i class="fas fa-filter"></i> Requêtes Avancées  <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#jointures">Jointures (INNER, LEFT, RIGHT, FULL)</a>
         <a href="#groupby">GROUP BY</a>
@@ -47,7 +47,7 @@
     </div>
     
     <!-- Fonctions SQL -->
-    <button class="dropdown-btn"><i class="fas fa-calculator"></i> Fonctions SQL</button>
+    <button class="dropdown-btn"><i class="fas fa-calculator"></i> Fonctions SQL  <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#fonctions-aggregats">Fonctions d’Agrégats (COUNT, SUM, AVG)</a>
         <a href="#fonctions-texte">Fonctions Texte (UPPER, LOWER, CONCAT)</a>
@@ -56,7 +56,7 @@
     </div>
     
     <!-- Gestion des Bases de Données -->
-    <button class="dropdown-btn"><i class="fas fa-server"></i> Gestion des Bases de Données</button>
+    <button class="dropdown-btn"><i class="fas fa-server"></i> Gestion des Bases de Données  <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#creation-db">Création et Suppression de Base de Données</a>
         <a href="#creation-tables">Création et Suppression de Tables</a>
@@ -68,11 +68,65 @@
     </div>
     
     <!-- Sécurité et Optimisation -->
-    <button class="dropdown-btn"><i class="fas fa-shield-alt"></i> Sécurité et Optimisation</button>
+    <button class="dropdown-btn"><i class="fas fa-shield-alt"></i> Sécurité et Optimisation  <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#securite">Sécurité (Permissions, Rôles)</a>
         <a href="#optimisation-requetes">Optimisation des Requêtes</a>
         <a href="#injections-sql">Protection contre les Injections SQL</a>
+    </div>
+    <button class="dropdown-btn"><i class="fas fa-desktop"></i> Exercices  <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <button class="dropdown-btn">Exercices Concept de base  <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="exercice_sql/exercice_sql_tables_relations.php">Exercice Tables et Relations</a>
+            <a href="exercice_sql/exercice_sql_requetes.php">Exercice Requêtes de base</a>
+            <a href="exercice_sql/exercice_sql_types_donnees.php">Exercice Type de données</a>
+            <a href="exercice_sql/exercice_sql_cles.php">Exercice Clés primaires et Etrangères</a>
+            <a href="exercice_sql/exercice_sql_contraintes.php">Exercice Contraintes</a>
+        </div>
+
+        <button class="dropdown-btn">Exercices Manipulation de données  <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="exercice_sql/exercice_sql_insert.php">Exercice INSERT</a>
+            <a href="exercice_sql/exercice_sql_update.php">Exercice UPDATE</a>
+            <a href="exercice_sql/exercice_sql_delete.php">Exercice DELETE</a>
+            <a href="exercice_sql/exercice_sql_select.php">Exercice SELECT</a>
+        </div>
+
+        <button class="dropdown-btn">Exercices Requêtes Avancées  <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="exercice_sql/exercice_sql_jointures.php">Exercice Jointures (INNER, LEFT, RIGHT, FULL)</a>
+            <a href="exercice_sql/exercice_sql_groupeby.php">Exercice GROUP BY</a>
+            <a href="exercice_sql/exercice_sql_orderby.php">Exercice ORDER BY</a>
+            <a href="exercice_sql/exercice_sql_having.php">Exercice HAVING</a>
+            <a href="exercice_sql/exercice_sql_sous-requetes.php">Exercice Sous-requêtes</a>
+        </div>
+
+        <button class="dropdown-btn">Exercices Fonctions SQL  <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+        <a href="exercice_sql/exercice_fonctions_aggregats.php">Exercice Fonctions d’Agrégats (COUNT, SUM, AVG)</a>
+        <a href="exercice_sql/exercice_fonctions_texte.php">Exercice Fonctions Texte (UPPER, LOWER, CONCAT)</a>
+        <a href="exercice_sql/exercice_fonctions_date.php">Exercice Fonctions de Date (NOW, DATEADD, DATEDIFF)</a>
+        <a href="exercice_sql/exercice_fonctions_conversion.php">Exercice Fonctions de Conversion (CAST, CONVERT)</a>
+        </div>
+
+        <button class="dropdown-btn">Exercices Gestion des Bases de Données  <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+        <a href="exercice_sql/creation-db.php">Exercice création et suppression de base de données</a>
+        <a href="exercice_sql/creation-tables.php">Exercice création et suppression de tables</a>
+        <a href="exercice_sql/indexation.php">Exercice indexation</a>
+        <a href="exercice_sql/transactions.php">Exercice transactions (COMMIT, ROLLBACK)</a>
+        <a href="exercice_sql/vues.php">Exercice vues</a>
+        <a href="exercice_sql/procedures.php">Exercice procédures stockées</a>
+        <a href="exercice_sql/triggers.php">Exercice triggers</a>
+        </div>
+
+        <button class="dropdown-btn">Exercices Sécurité et Optimisation  <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="exercice_sql/securite.php">Exercice Sécurité (Permissions, Rôles)</a>
+        <a href="exercice_sql/optimisation-requetes.php">Exercice Optimisation des Requêtes</a>
+        <a href="exercice_sql/injections-sql.php">Exercice Protection contre les Injections SQL</a>
+    </div>
     </div>
 </div>
 
