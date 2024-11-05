@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+#gameContainer {
+    width: 90vmin; /* Utilisation de l'unité vmin pour que la carte soit carrée et adapte sa taille */
+    height: 90vmin;
+    position: relative;
+    border: 2px solid #333;
+    background-color: #e0e0e0;
+    overflow: hidden;
+}
+
+.character {
+    width: 5%;
+    height: 5%;
+    background-color: #4CAF50;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.enemy {
+    width: 6%;
+    height: 6%;
+    background-color: #ff4d4d;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+
+/* Ajout d'yeux */
+.enemy::before,
+.enemy::after {
+    content: '';
+    width: 20%;
+    height: 20%;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 20%;
+}
+
+.enemy::before {
+    left: 15%;
+}
+
+.enemy::after {
+    right: 15%;
+}
+
+/* Ajout d'une bouche */
+.enemy .mouth {
+    width: 40%;
+    height: 20%;
+    background-color: black;
+    border-radius: 0 0 50% 50%;
+    position: absolute;
+    top: 60%;
+}
+
+.projectile {
+    width: 3%;
+    height: 3%;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+    z-index: 3;
+}
+
+/* Map de tuiles */
+#tileMap {
+    display: grid;
+    grid-template-columns: repeat(30, 1fr); /* 30 colonnes de largeur égale */
+    grid-template-rows: repeat(30, 1fr); /* 30 lignes de hauteur égale */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Styles de base pour les tuiles */
+.tile {
+    width: 100%;
+    height: 100%;
+}
+
+/* Différents types de tuiles */
+.grass {
+    background-color: #8bc34a;
+}
+
+.water {
+    background-color: #2196f3;
+    z-index: 2;
+}
+
+.tree.obstacle {
+    background-color: #4caf50;
+    background-image: url('tree.png');
+    background-size: cover;
+    z-index: 2;
+}
+
+.house.obstacle {
+    background-color: #d4a373;
+    background-image: url('house.png');
+    background-size: cover;
+    z-index: 2;
+}
+
+.path {
+    background-color: #d3b8ae;
+    z-index: 1;
+}

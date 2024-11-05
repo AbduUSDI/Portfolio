@@ -97,7 +97,8 @@ body {
     }
 }
 
-h1 .fas {
+h1 .fas,
+h1 .fab {
     color: #912222;
     animation: clignoter 1s infinite;
 }
@@ -157,7 +158,7 @@ p {
     padding: 20px;
     background-color: #f1f1f1;
     margin-top: 15px;
-    text-align: center;
+    text-align: justify;
 }
 
 .modal-header {
@@ -487,4 +488,39 @@ p {
 
 #scrollToBottomBtn:hover {
     background-color: #333;
+}
+.example-box pre {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    line-height: 1.5;
+    font-size: 1em;
+    overflow-x: auto;
+}
+.example-box pre .variable { color: #9cdcfe; }
+.example-box pre .string { color: #ce9178; }
+.example-box pre .number { color: #b5cea8; }
+.example-box pre .comment { color: #6a9955; font-style: italic; }
+.example-box pre .keyword { color: #569cd6; font-weight: bold; }
+.example-box pre .operator { color: #d4d4d4; }
+
+.kanban-introduction, .kanban-advantages, .kanban-benefits, .kanban-usage {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #F4F6F7;
+}
+.kanban-advantages ul, .kanban-benefits ul {
+    list-style-type: none;
+    padding: 0;
+}
+.kanban-advantages ul li::before, .kanban-benefits ul li::before {
+    content: "•";
+    color: #2E86C1;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
