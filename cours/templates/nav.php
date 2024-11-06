@@ -78,6 +78,9 @@
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_gestion_erreurs">Gestion des Erreurs</a>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_tests_unitaires">Tests Unitaires</a>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_performance">Optimisation de la Performance</a>
+
+                    <h3 class="mt-3 category-title" style="background: #0056b3;">Mes fiches de révisions</h3>
+                    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=memo">Memo</a>
                 </nav>
             </div>
         </div>

@@ -1,7 +1,6 @@
 /* Styles globaux */
 body {
     background-image: url("../image/background.jpg");
-    padding-top: 48px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     padding-top: 8%;
 }
@@ -10,7 +9,6 @@ h1, h2, h3 {
     text-align: center;
     color: #006400;
     margin-bottom: 20px;
-    text-align: justify;
 }
 
 p {
@@ -19,30 +17,14 @@ p {
     text-align: justify;
 }
 
-/* Classes générales */
+
+/* Style classes générales : images, container et custom */
 .mt-4 {
     max-height: 500px;
     overflow-y: auto;
     background: whitesmoke;
     border-radius: 15px;
     text-align: justify;
-}
-
-.breadcrumb-custom {
-    background: linear-gradient(to right, #ffffff, #ccedb6) !important;
-    border-radius: 5px !important;
-    padding: 10px !important;
-    margin-bottom: 20px !important;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1) !important;
-}
-
-.breadcrumb-custom .breadcrumb-item a {
-    color: #006400 !important;
-}
-
-.breadcrumb-custom .breadcrumb-item.active {
-    color: #333333 !important;
-    font-weight: bold !important;
 }
 
 .img-fluid {
@@ -66,6 +48,26 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
 }
+
+
+/* Style pour les breadcrumbs */
+.breadcrumb-custom {
+    background: linear-gradient(to right, #ffffff, #ccedb6) !important;
+    border-radius: 5px !important;
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.breadcrumb-custom .breadcrumb-item a {
+    color: #006400 !important;
+}
+
+.breadcrumb-custom .breadcrumb-item.active {
+    color: #333333 !important;
+    font-weight: bold !important;
+}
+
 
 /* Styles spécifiques pour les formulaires */
 .form-group label {
@@ -100,7 +102,8 @@ p {
     color: #0056b3;
 }
 
-/* Styles spécifiques pour les cartes */
+
+/* Styles spécifiques pour les cartes en général*/
 .card, .report-card {
     margin-bottom: 20px;
     border-radius: 10px;
@@ -136,6 +139,7 @@ p {
     font-size: 1.1em;
     margin-bottom: 10px;
 }
+
 
 /* Style pour les cartes de la pages de gestion des animaux - espace admin */
 .animal-selection-container {
@@ -191,6 +195,8 @@ p {
     object-fit: cover;
     border-radius: 5px;
 }
+
+
 
 /* Styles personnalisés pour la page des horaires du zoo */
 .zoo-hours-container {
@@ -281,6 +287,8 @@ p {
 .zoo-hours-update-button:hover {
     background-color: #218838;
 }
+
+
 /* Styles personnalisés pour la page de gestion des utilisateurs */
 .user-management-container {
     background: linear-gradient(to right, #ffffff, #ccedb6);

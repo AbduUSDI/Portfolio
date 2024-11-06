@@ -66,6 +66,7 @@ $pages = [
     'cours_gestion_erreurs',
     'cours_tests_unitaires',
     'cours_performance',
+    'memo',
     '404'
 ];
 
