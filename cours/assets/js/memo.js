@@ -72,28 +72,31 @@ function validateSlide(currentSlideNumber) {
 }
 
 function resetSlides() {
-    // Masquer toutes les diapositives sauf la première et réinitialiser tous les champs et messages
-    for (let i = 1; i <= 17; i++) {
+    for (let i = 2; i <= 17; i++) {
         const slide = document.querySelector(`#slide${i}`);
         if (slide) {
-            slide.style.display = i === 1 ? 'block' : 'none';
-            slide.classList.remove('fade-out', 'fade-in'); // Supprimer les animations en cours
-        }
-
-        const messageContainer = document.getElementById(`message${i}`);
-        if (messageContainer) {
-            messageContainer.innerHTML = ""; // Effacer les messages
+            slide.style.display = 'none';
         }
     }
 
-    // Effacer le contenu de chaque champ de saisie et retirer les styles de validation
+    const firstSlide = document.querySelector('#slide1');
+    if (firstSlide) {
+        firstSlide.style.display = 'block';
+        firstSlide.classList.remove('fade-out', 'fade-in');
+    }
+
+    const messageContainer = document.getElementById('message1');
+    if (messageContainer) {
+        messageContainer.innerHTML = "";
+    }
+
     const allInputs = document.querySelectorAll('.fill-in');
     allInputs.forEach(input => {
-        input.value = ""; // Réinitialiser le texte
-        input.classList.remove('correct', 'incorrect'); // Retirer les styles de validation
+        input.value = "";
+        input.classList.remove('correct', 'incorrect');
     });
 
-    hideAllAnswerContainers(); // Masquer tous les conteneurs d'indices
+    hideAllAnswerContainers();
 }
 
 function hideAllAnswerContainers() {
@@ -105,6 +108,31 @@ function hideAllAnswerContainers() {
             container.classList.remove('fade-out');
         }, 1000);
     });
+}
+
+// Fonction pour afficher toutes les diapositives avec les bonnes réponses remplies
+function showAllSlidesWithAnswers() {
+    for (let i = 1; i <= 17; i++) {
+        const slide = document.querySelector(`#slide${i}`);
+        if (slide) {
+            slide.style.display = 'block'; // Affiche toutes les slides
+        }
+
+        // Remplir les champs avec les réponses correctes et ajouter les styles corrects
+        const inputs = slide.querySelectorAll('.fill-in');
+        inputs.forEach(input => {
+            const answer = input.getAttribute('data-answer');
+            input.value = answer; // Remplir avec la bonne réponse
+            input.classList.add('correct'); // Ajouter le style de réponse correcte
+            input.classList.remove('incorrect'); // Retirer le style incorrect au besoin
+        });
+
+        // Effacer tous les messages de validation
+        const messageContainer = document.getElementById(`message${i}`);
+        if (messageContainer) {
+            messageContainer.innerHTML = "";
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

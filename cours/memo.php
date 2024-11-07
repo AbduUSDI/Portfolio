@@ -18,7 +18,10 @@
         <p>Un projet écoresponsable pour une gestion complète et optimisée des ressources du zoo</p>
     </header>
     <br>
-    <div class="container"><button onclick="resetSlides()">Retour au début</button></div>
+    <div class="container">
+        <button onclick="resetSlides()">Réinitialiser l'exercice</button>
+        <button onclick="showAllSlidesWithAnswers()">Afficher toutes les diapositives avec réponses</button>
+    </div>
     
 
     <!-- Container for Cards -->
