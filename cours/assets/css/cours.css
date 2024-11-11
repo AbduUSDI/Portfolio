@@ -489,6 +489,7 @@ p {
 #scrollToBottomBtn:hover {
     background-color: #333;
 }
+/* Améliorations pour les blocs de code */
 .example-box pre {
     background-color: #1e1e1e;
     color: #dcdcdc;
@@ -498,13 +499,19 @@ p {
     line-height: 1.5;
     font-size: 1em;
     overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-.example-box pre .variable { color: #9cdcfe; }
-.example-box pre .string { color: #ce9178; }
-.example-box pre .number { color: #b5cea8; }
-.example-box pre .comment { color: #6a9955; font-style: italic; }
-.example-box pre .keyword { color: #569cd6; font-weight: bold; }
-.example-box pre .operator { color: #d4d4d4; }
+
+/* Couleurs spécifiques de syntaxe */
+.example-box pre .variable { color: #9cdcfe; }  /* Variables - bleu clair */
+.example-box pre .string { color: #ce9178; }    /* Chaînes de caractères - orange */
+.example-box pre .number { color: #b5cea8; }    /* Nombres - vert clair */
+.example-box pre .comment { color: #6a9955; font-style: italic; }  /* Commentaires - vert foncé */
+.example-box pre .keyword { color: #569cd6; font-weight: bold; }  /* Mots-clés - bleu */
+.example-box pre .operator { color: #d4d4d4; } /* Opérateurs - blanc */
+.example-box pre .function { color: #dcdcaa; }  /* Fonctions - jaune pâle */
+.example-box pre .constant { color: #4ec9b0; }  /* Constantes - vert turquoise */
+.example-box pre .class-name { color: #b8d7ff; font-weight: bold; }  /* Noms de classes - bleu ciel */
 
 .kanban-introduction, .kanban-advantages, .kanban-benefits, .kanban-usage {
     padding: 15px;

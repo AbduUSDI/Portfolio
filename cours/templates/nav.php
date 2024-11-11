@@ -14,7 +14,8 @@
             <div class="modal-body text-center">
 
                 <nav class="nav flex-column">
-                    <a class="nav-link btn btn-outline-primary my-1". href="index.php?page=home">Accueil</a>
+                    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=home">Accueil</a>
+                    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_complet">Cours complet du développeur moderne</a>
 
                     <!-- HTML et CSS -->
                     <h3 class="mt-3 category-title" style="background: #0056b3;">HTML et CSS</h3>

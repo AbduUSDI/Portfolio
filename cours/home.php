@@ -15,7 +15,9 @@
 <div class="sidebar">
     <h2>Menu</h2>
     <a href="index.php?page=home">Accueil</a>
-    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=memo">Memo</a>
+    <a href="index.php?page=memo">Memo</a>
+    <a href="index.php?page=cours_complet">Cours complet du développeur moderne</a>
+
     <h4>HTML et CSS</h4>
     <a href="index.php?page=cours_html">Cours HTML</a>
     <a href="index.php?page=cours_css">Cours CSS</a>
