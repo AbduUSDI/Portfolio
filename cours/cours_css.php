@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="assets/css/cours.css"/>
 
 </head>
-<d>
 <?php include 'templates/nav.php' ?>
  <!-- Sidebar -->
 <div class="sidebar">
