@@ -25,3 +25,4 @@ function calculateScore() {
     // Display score
     document.getElementById('score').innerText = `Votre score est de ${score} sur 3.`;
 }
+
