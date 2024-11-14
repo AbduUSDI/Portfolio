@@ -12,13 +12,16 @@ class UserController {
 
     // --- Méthodes CRUD pour les administrateurs ---
 
-    // Créer un nouvel utilisateur
+    // Créer un nouvel utilisateur local
     public function createUser($username, $email, $password) {
         $this->userModel->setUsername($username);
         $this->userModel->setEmail($email);
-        $this->userModel->setPassword($password);
-        
-        return $this->userModel->createUser(
+
+        if ($password) {
+            $this->userModel->setPassword($password);
+        }
+
+        return $this->userModel->register(
             $this->userModel->getUsername(),
             $this->userModel->getEmail(),
             $this->userModel->getPassword()
@@ -77,8 +80,28 @@ class UserController {
     // --- Méthode pour changer le mot de passe de l'utilisateur ---
 
     // Changer le mot de passe d'un utilisateur
-    public function changePassword($userId, $oldPassword, $newPassword) {
+    public function updatePasswordAbduclip($userId, $oldPassword, $newPassword) {
         $this->userModel->setId($userId);
         return $this->userModel->changePassword($this->userModel->getId(), $oldPassword, $newPassword);
     }
+        // Mise à jour du nom d'utilisateur
+    public function updateUsername($userId, $newUsername) {
+        $this->userModel->setId($userId);
+        $this->userModel->setUsername($newUsername);
+        $this->userModel->updateUsername($this->userModel->getId(), $this->userModel->getUsername());
+            
+        // Mettez à jour le nom d'utilisateur dans la session
+        $_SESSION['user']['username'] = $newUsername;
+    }
+
+    // Mise à jour de l'adresse e-mail
+    public function updateEmail($userId, $newEmail) {
+        $this->userModel->setId($userId);
+        $this->userModel->setEmail($newEmail);
+        $this->userModel->updateEmail($this->userModel->getId(), $this->userModel->getEmail());
+    
+        // Mettez à jour l'adresse e-mail dans la session
+        $_SESSION['user']['email'] = $newEmail;
+    }
+    
 }

@@ -10,7 +10,7 @@ class AuthController {
         $this->userModel = new User();
     }
 
-    // Inscription d'un utilisateur
+    // Inscription d'un utilisateur local
     public function register($username, $email, $password) {
         $this->userModel->setUsername($username);
         $this->userModel->setEmail($email);
@@ -24,26 +24,32 @@ class AuthController {
         );
     }
 
-// Connexion d'un utilisateur
-public function login($email, $password) {
-    $user = $this->userModel->login($email, $password);
-
-    if ($user) {
-        $this->userModel->setId($user['id']);
-
-        // Démarre ou met à jour la session existante avec IP et user agent
-        $sessionId = $this->userModel->startOrUpdateSession($this->userModel->getId());
-        
-        // Stocke l'ID de session et l'ID de l'utilisateur dans la session PHP
-        $_SESSION['session_id'] = $sessionId;
-        $_SESSION['user_id'] = $this->userModel->getId();
-
-        return $user;
-    } else {
-        throw new \Exception("Email ou mot de passe incorrect.");
+    // Connexion pour utilisateurs locaux
+    public function login($email, $password) {
+        $user = $this->userModel->login($email, $password);
+    
+        if ($user) {
+            $this->initializeSession($user['id']);
+            
+            // Stocke les informations utilisateur dans la session
+            $_SESSION['user'] = [
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'email' => $user['email']
+            ];
+    
+            return $user;
+        } else {
+            throw new \Exception("Email ou mot de passe incorrect.");
+        }
     }
-}
 
+    // Démarre la session pour un utilisateur
+    private function initializeSession($userId) {
+        $sessionId = $this->userModel->startOrUpdateSession($userId);
+        $_SESSION['session_id'] = $sessionId;
+        $_SESSION['user_id'] = $userId;
+    }
 
     // Déconnexion d'un utilisateur
     public function logout() {

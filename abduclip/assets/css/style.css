@@ -14,7 +14,8 @@ body {
     z-index: 1000;
     transition: background-color 0.6s ease;
 }
-.navbar a {
+.navbar a,
+.navbar button {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
@@ -23,7 +24,8 @@ body {
     transition: color 0.6s ease;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar button:hover {
     color: #1100ff;
 }
 
@@ -96,3 +98,74 @@ footer a:hover {
 .game-link:hover {
     text-decoration: underline;
 }
+    /* Style général pour le modal profil */
+    #profileModal .modal-dialog {
+        max-width: 800px;
+    }
+
+    #profileModal .modal-content {
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        background-color: #f5f7fa;
+    }
+
+    /* En-tête du profil */
+    #profileModal .profile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+
+    #profileModal .profile-header h5 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* Bouton de modification de section */
+    #profileModal .btn-edit {
+        font-size: 0.9rem;
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    /* Sections de profil */
+    .profile-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #e2e5ec;
+    }
+
+    .profile-section h6 {
+        margin-bottom: 1rem;
+        color: #555;
+    }
+
+    .profile-section p {
+        margin-bottom: 0.5rem;
+        color: #666;
+    }
+
+    /* Favoris, derniers jeux, et trophées */
+    .list-item {
+        background-color: #f9fafb;
+        border: 1px solid #e2e5ec;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .scrollable-games-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 1rem 0;
+        gap: 1rem;
+    }
+    .scrollable-games-container .card {
+        flex: 0 0 auto;
+    }

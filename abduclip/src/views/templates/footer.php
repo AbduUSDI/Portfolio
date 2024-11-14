@@ -99,17 +99,18 @@
         const toggleFooterBtn = document.getElementById("toggleFooterBtn");
         const footerContent = document.querySelector(".footer-content");
         const footerIcon = document.getElementById("footerIcon");
-        let isFooterCollapsed = false;
+        let isFooterCollapsed = true; // Défini à true pour être fermé par défaut
 
-        // Initialiser la hauteur maximale du footer (hauteur fermée)
-        footerContent.style.maxHeight = "300px"; // ajustez cette valeur selon la hauteur de votre contenu
+        // Initialiser la hauteur maximale du footer en position fermée
+        footerContent.style.maxHeight = "0"; // Fermé par défaut
 
         toggleFooterBtn.addEventListener("click", function() {
             isFooterCollapsed = !isFooterCollapsed;
-            footerContent.style.maxHeight = isFooterCollapsed ? "0" : "300px";
+            footerContent.style.maxHeight = isFooterCollapsed ? "0" : "300px"; // Ajustez 300px selon votre contenu
             footerIcon.className = isFooterCollapsed ? "fas fa-chevron-down" : "fas fa-chevron-up";
         });
     });
 </script>
+
 </body>
 </html>
