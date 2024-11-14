@@ -1,91 +1,65 @@
 <?php
-
 namespace Controllers;
 
 use Models\User;
 
-class AuthController
-{
+class AuthController {
     private $userModel;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->userModel = new User();
     }
 
-    // Inscription d'un nouvel utilisateur
-    public function register($username, $email, $password)
-    {
-        // Vérifier si l'utilisateur existe déjà
-        if ($this->userModel->findByEmail($email)) {
-            return "Cet email est déjà utilisé.";
-        }
-
-        // Hash du mot de passe avant de l'enregistrer
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-        // Création de l'utilisateur
+    // Inscription d'un utilisateur
+    public function register($username, $email, $password) {
         $this->userModel->setUsername($username);
         $this->userModel->setEmail($email);
-        $this->userModel->setPassword($hashedPassword);
+        $this->userModel->setPassword($password);
 
-        if ($this->userModel->create()) {
-            return "Inscription réussie.";
-        } else {
-            return "Erreur lors de l'inscription.";
+        // Appelle la méthode d'inscription du modèle User
+        return $this->userModel->register(
+            $this->userModel->getUsername(),
+            $this->userModel->getEmail(),
+            $this->userModel->getPassword()
+        );
+    }
+
+// Connexion d'un utilisateur
+public function login($email, $password) {
+    $user = $this->userModel->login($email, $password);
+
+    if ($user) {
+        $this->userModel->setId($user['id']);
+
+        // Démarre ou met à jour la session existante avec IP et user agent
+        $sessionId = $this->userModel->startOrUpdateSession($this->userModel->getId());
+        
+        // Stocke l'ID de session et l'ID de l'utilisateur dans la session PHP
+        $_SESSION['session_id'] = $sessionId;
+        $_SESSION['user_id'] = $this->userModel->getId();
+
+        return $user;
+    } else {
+        throw new \Exception("Email ou mot de passe incorrect.");
+    }
+}
+
+
+    // Déconnexion d'un utilisateur
+    public function logout() {
+        if (isset($_SESSION['session_id'])) {
+            // Termine la session en base de données
+            $this->userModel->endSession($_SESSION['session_id']);
+
+            // Supprime les informations de session
+            unset($_SESSION['session_id'], $_SESSION['user_id']);
+            session_destroy();
         }
     }
 
-    // Connexion de l'utilisateur
-    public function login($email, $password)
-    {
-        // Rechercher l'utilisateur par email
-        $user = $this->userModel->findByEmail($email);
-
-        if ($user) {
-            // Vérifier le mot de passe
-            if (password_verify($password, $user['password'])) {
-                // Démarrer une session et stocker les informations de l'utilisateur
-                session_start();
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                return "Connexion réussie.";
-            } else {
-                return "Mot de passe incorrect.";
-            }
-        } else {
-            return "Aucun utilisateur trouvé avec cet email.";
-        }
-    }
-
-    // Déconnexion de l'utilisateur
-    public function logout()
-    {
-        // Démarrer la session et la détruire
-        session_start();
-        session_unset();
-        session_destroy();
-        return "Déconnexion réussie.";
-    }
-
-    // Vérifier si l'utilisateur est connecté
-    public function isLoggedIn()
-    {
-        session_start();
-        return isset($_SESSION['user_id']);
-    }
-
-    // Obtenir les informations de l'utilisateur connecté
-    public function getUser()
-    {
-        session_start();
-        if ($this->isLoggedIn()) {
-            return [
-                'user_id' => $_SESSION['user_id'],
-                'username' => $_SESSION['username']
-            ];
-        } else {
-            return null;
-        }
+    // Vérifier si l'utilisateur est administrateur
+    public function isAdmin($userId) {
+        $this->userModel->setId($userId); // Utilise le setter pour configurer l'ID de l'utilisateur
+        return $this->userModel->isAdmin($this->userModel->getId());
     }
 }

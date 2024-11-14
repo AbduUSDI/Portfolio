@@ -1,81 +1,84 @@
 <?php
-
 namespace Controllers;
 
 use Models\User;
-use PDO;
 
-class UserController
-{
-    private $db;
+class UserController {
     private $userModel;
 
-    // Constructeur pour initialiser le modèle User avec la connexion à la base de données
-    public function __construct(PDO $db)
-    {
-        $this->db = $db;
+    public function __construct() {
         $this->userModel = new User();
     }
 
+    // --- Méthodes CRUD pour les administrateurs ---
+
     // Créer un nouvel utilisateur
-    public function createUser($username, $email, $password)
-    {
+    public function createUser($username, $email, $password) {
         $this->userModel->setUsername($username);
         $this->userModel->setEmail($email);
         $this->userModel->setPassword($password);
-
-        if ($this->userModel->create()) {
-            return "Utilisateur créé avec succès.";
-        } else {
-            return "Erreur lors de la création de l'utilisateur.";
-        }
+        
+        return $this->userModel->createUser(
+            $this->userModel->getUsername(),
+            $this->userModel->getEmail(),
+            $this->userModel->getPassword()
+        );
     }
 
-    // Récupérer les détails d'un utilisateur (sans afficher)
-    public function getUser($id)
-    {
-        if ($this->userModel->read($id)) {
-            return [
-                'username' => $this->userModel->getUsername(),
-                'email' => $this->userModel->getEmail(),
-                'created_at' => $this->userModel->getCreatedAt(),
-            ];
-        } else {
-            return null;  // Si l'utilisateur n'est pas trouvé
-        }
+    // Lire un utilisateur par ID
+    public function readUser($id) {
+        $this->userModel->setId($id);
+        return $this->userModel->readUser($this->userModel->getId());
     }
 
     // Mettre à jour un utilisateur
-    public function updateUser($id, $username, $email, $password)
-    {
-        if ($this->userModel->read($id)) {
-            $this->userModel->setUsername($username);
-            $this->userModel->setEmail($email);
+    public function updateUser($id, $username, $email, $password = null) {
+        $this->userModel->setId($id);
+        $this->userModel->setUsername($username);
+        $this->userModel->setEmail($email);
+        if ($password) {
             $this->userModel->setPassword($password);
-
-            if ($this->userModel->update()) {
-                return "Utilisateur mis à jour avec succès.";
-            } else {
-                return "Erreur lors de la mise à jour de l'utilisateur.";
-            }
-        } else {
-            return "Utilisateur non trouvé.";
         }
+
+        $this->userModel->updateUser(
+            $this->userModel->getId(),
+            $this->userModel->getUsername(),
+            $this->userModel->getEmail(),
+            $password ? $this->userModel->getPassword() : null
+        );
     }
 
     // Supprimer un utilisateur
-    public function deleteUser($id)
-    {
-        if ($this->userModel->delete($id)) {
-            return "Utilisateur supprimé avec succès.";
-        } else {
-            return "Erreur lors de la suppression de l'utilisateur.";
-        }
+    public function deleteUser($id) {
+        $this->userModel->setId($id);
+        $this->userModel->deleteUser($this->userModel->getId());
     }
 
-    // Récupérer une liste d'utilisateurs (sans afficher)
-    public function listUsers($limit = 10, $offset = 0)
-    {
-        return $this->userModel->readAll($limit, $offset);
+    // --- Méthodes pour la gestion des préférences et des scores ---
+
+    // Récupérer les scores d'un utilisateur
+    public function getUserScores($userId) {
+        $this->userModel->setId($userId);
+        return $this->userModel->getUserScores($this->userModel->getId());
+    }
+
+    // Mettre à jour les préférences utilisateur
+    public function updatePreferences($userId, $preferences) {
+        $this->userModel->setId($userId);
+        $this->userModel->updatePreferences($this->userModel->getId(), $preferences);
+    }
+
+    // Récupérer les préférences utilisateur
+    public function getPreferences($userId) {
+        $this->userModel->setId($userId);
+        return $this->userModel->getPreferences($this->userModel->getId());
+    }
+
+    // --- Méthode pour changer le mot de passe de l'utilisateur ---
+
+    // Changer le mot de passe d'un utilisateur
+    public function changePassword($userId, $oldPassword, $newPassword) {
+        $this->userModel->setId($userId);
+        return $this->userModel->changePassword($this->userModel->getId(), $oldPassword, $newPassword);
     }
 }

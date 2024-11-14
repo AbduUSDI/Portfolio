@@ -4,12 +4,10 @@ namespace Database;
 use PDO;
 
 class DatabaseConnection {
-    // Singleton pour la connexion à la base de données
     private static $instance = null;
     private $connection;
 
     private function __construct() {
-        // Connexion à la base de données
         $host = 'localhost';
         $db = 'mini_jeux';
         $user = 'Abdurahman';

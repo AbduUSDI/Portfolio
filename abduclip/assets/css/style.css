@@ -1,0 +1,98 @@
+body {
+    padding-top: 8%;
+    padding-bottom: 15%;
+}
+
+.navbar {
+    background-image: url("../image/webp/hero-section.webp");
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.6s ease;
+}
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    transition: color 0.6s ease;
+}
+
+.navbar a:hover {
+    color: #1100ff;
+}
+
+footer {
+    background-image: url("../image/webp/hero-section.webp");
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transition: background-color 0.6s ease;
+}
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    transition: color 0.6s ease;
+}
+footer a:hover {
+    color: #1100ff;
+}
+.btn-primary,
+.btn-secondary,
+.btn-success {
+    background-color: #000000d8;
+    border: none;
+    transition: background-color 0.8s ease, transform 1s ease;
+    animation: shiny 1.5s infinite;
+}
+@keyframes shiny {
+    0% {
+        box-shadow: 0 8px 20px rgb(255, 255, 255);
+    }
+    50% {
+        box-shadow: 0 8px 10px rgba(126, 96, 113, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 20px rgb(255, 255, 255);
+    }
+}
+.btn-light {
+    background-color: #000000d8;
+    color: white;
+    border: none;
+    transition: background-color 0.8s ease, transform 1s ease;
+    animation: shiny 1.5s infinite;
+}
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-light:hover {
+    background-color: #1100ff;
+    transform: scale(1.05);
+    color: rgb(0, 0, 0);
+}
+.sidebar-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.category-title {
+    font-weight: 600;
+}
+
+.game-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.game-link:hover {
+    text-decoration: underline;
+}
