@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Abduclip</a>
+        <a class="navbar-brand" href="index.php">Abduclip</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -150,10 +150,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                         Les jeux
                     </a>
                     <ul class="dropdown-menu bg-dark">
-                        <li><a class="dropdown-item" href="#">Jeux de course</a></li>
-                        <li><a class="dropdown-item" href="#">Jeux de rôles</a></li>
+                        <li><a class="dropdown-item" href="games.php#racing-games">Jeux de course</a></li>
+                        <li><a class="dropdown-item" href="games.php#roleplay-games">Jeux de rôles</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Jeux de simulation</a></li>
+                        <li><a class="dropdown-item" href="games.php#somulation-games">Jeux de simulation</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

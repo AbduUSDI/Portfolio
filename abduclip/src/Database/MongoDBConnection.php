@@ -10,7 +10,7 @@ class MongoDBConnection {
 
     private function __construct() {
         $uri = 'mongodb://localhost:27017';
-        $databaseName = 'abduclip_leaderboard';
+        $databaseName = 'abduclip';
 
         $this->client = new Client($uri);
         $this->database = $this->client->selectDatabase($databaseName);

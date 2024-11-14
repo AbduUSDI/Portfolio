@@ -5,7 +5,6 @@ include_once '../views/templates/header.php';
 include_once '../views/templates/navbar.php';
 ?>
 
-<!-- Contenu de la page d'accueil : la sidear à gauche affichant la liste de jeux par catégories ; au centre il y a les 3 jeux les plus joués ; en descendant nous pouvons trouver d'autres fonctionnalités tels que le classements , etc -->
 <div class="container-fluid">
     <div class="row">
 <!-- Sidebar -->
@@ -18,10 +17,11 @@ include_once '../views/templates/navbar.php';
                 <ul class="list-unstyled ms-3">
                     <?php if (!empty($category['games'])): ?>
                         <?php foreach ($category['games'] as $game): ?>
-                            <li>
-                                <a href="#" class="btn btn-primary mb-1"><?= htmlspecialchars($game['title']); ?></a>
-                            </li>
-                        <?php endforeach; ?>
+                        <li>
+                            <!-- Ajout de `game_id=` avant l'ID pour passer correctement le paramètre -->
+                            <a href="game.php?id=<?= $game['id'] ?>" class="btn btn-primary mb-1"><?= htmlspecialchars($game['title']); ?></a>
+                        </li>
+                    <?php endforeach; ?>
                     <?php else: ?>
                         <li><em>Aucun jeu disponible dans cette catégorie</em></li>
                     <?php endif; ?>
@@ -47,9 +47,3 @@ include_once '../views/templates/navbar.php';
         </main>
     </div>
 </div>
-
-
-
-
-
-<?php include_once '../views/templates/footer.php' ?>

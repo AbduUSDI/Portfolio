@@ -109,4 +109,19 @@ class CategoryAbduclip {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    // Récupérer tous les jeux associés à une catégorie spécifique
+    public function getGamesByCategory($categoryId) {
+        $sql = "
+            SELECT 
+                games.* 
+            FROM 
+                games 
+            WHERE 
+                games.category_id = :categoryId
+        ";
+        $stmt = $this->getSqlConnection()->prepare($sql);
+        $stmt->bindParam(':categoryId', $categoryId, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

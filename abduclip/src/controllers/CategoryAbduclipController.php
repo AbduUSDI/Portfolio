@@ -54,4 +54,8 @@ class CategoryAbduclipController {
 
         return $categories;
     }
+        // Méthode pour récupérer tous les jeux d'une catégorie spécifique
+    public function getGamesByCategory($categoryId) {
+        return $this->categoryModel->getGamesByCategory($categoryId);
+    }
 }
