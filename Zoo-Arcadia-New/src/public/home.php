@@ -34,7 +34,6 @@ $zooHoursRepository = new Repositories\ZooHoursRepository($db);
 $animalRepository = new Repositories\AnimalRepository($db);
 $clickRepository = new Repositories\ClickRepository($clickCollection);
 $clickService = new Services\ClickService($clickRepository);
-$styleRepository = new Repositories\StyleRepository();
 $scriptRepository = new Repositories\ScriptRepository();
 
 // Initialisation des services

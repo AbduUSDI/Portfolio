@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
                 foreach ($animals as $animal) {
                     echo '<div class="animal-card">';
                     if (!empty($animal['image'])) {
-                        echo '<img src="/Zoo-Arcadia-New/assets/uploads/' . htmlspecialchars($animal['image']) . '" alt="Image de l\'animal" class="animal-image">';
+                        echo '<img src="/Portfolio/Zoo-Arcadia-New/assets/uploads/' . htmlspecialchars($animal['image']) . '" alt="Image de l\'animal" class="animal-image">';
                     }
                     echo '<div class="animal-info">';
                     echo '<h5>' . htmlspecialchars($animal['name']) . '</h5>';

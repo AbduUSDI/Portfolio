@@ -29,7 +29,7 @@ $habitatsList = $habitatController->getAllHabitats();
 foreach ($habitatsList as $habitat): ?>
     <div class="col-md-6">
         <div class="card mb-4 shadow-sm">
-            <img src="/Zoo-Arcadia-New/assets/uploads/<?php echo htmlspecialchars($habitat['image']); ?>" class="card-img-top" alt="Image de l'habitat">
+            <img src="/Portfolio/Zoo-Arcadia-New/assets/uploads/<?php echo htmlspecialchars($habitat['image']); ?>" class="card-img-top" alt="Image de l'habitat">
             <div class="card-body">
                 <h5 class="card-title"><?php echo htmlspecialchars($habitat['name']); ?></h5>
                 <p class="card-text"><?php echo htmlspecialchars_decode($habitat['description']); ?></p>
