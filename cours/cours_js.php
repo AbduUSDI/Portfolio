@@ -16,79 +16,93 @@
 <?php include 'templates/nav.php' ?>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+<div class="sidebar">
 
-        <a href="#intro">Introduction</a>
+    <!-- Introduction -->
+    <a href="#intro">Introduction</a>
 
-        <button class="dropdown-btn"><i class="fas fa-code"></i> JavaScript de Base  <i class="fas fa-caret-down"></i></button>
-        <div class="dropdown-container">
-                    <a href="#variables">Variables</a>
-                    <a href="#types-donnees">Types de données</a>
-                    <a href="#operateurs">Opérateurs</a>
-                    <a href="#conditions">Conditions</a>       
-                    <a href="#boucles">Boucles</a>
-                    <a href="#fonctions">Fonctions</a>
-        </div>
-        <button class="dropdown-btn"><i class="fas fa-desktop"></i>  Exercices JavaScript de base <i class="fas fa-caret-down"></i></button>
-                <div class="dropdown-container">
-                    <a href="exercices_js/variable.php">Variable</a>
-                    <a href="exercices_js/type_donnee.php">Types de données</a>
-                    <a href="exercices_js/operateurs.php">Opérateurs</a>
-                    <a href="exercices_js/conditions.php">Conditions</a>
-                    <a href="exercices_js/boucles.php">Boucles</a>
-                    <a href="exercices_js/fonctions.php">Fonctions</a>
-                </div>
-        <button class="dropdown-btn"><i class="fas fa-rocket"></i> JavaScript Avancé  <i class="fas fa-caret-down"></i></button>
-        <div class="dropdown-container">
-                    <a href="#promises">Promises</a>
-                    <a href="#async-await">Async/Await</a>
-                    <a href="#classes">Classes</a>
-                    <a href="#dom-selection">Sélection DOM</a>
-                    <a href="#dom-modification">Modification du DOM</a>
-                    <a href="#events">Gestion des événements</a>
-        </div>
-        <button class="dropdown-btn"><i class="fas fa-pen-nib"></i>  Exercices JavaScript avancé <i class="fas fa-caret-down"></i></button>
-                <div class="dropdown-container">
-                    <a href="exercices_js/promise.php">Promise</a>
-                    <a href="exercices_js/async_await.php">Async/Await</a>
-                    <a href="exercices_js/classes.php">Classes</a>
-                    <a href="exercices_js/selection_dom.php">Sélection DOM</a>
-                    <a href="exercices_js/modify_dom.php">Modification du DOM</a>
-                    <a href="exercices_js/events.php">Gestion des événements</a>
-                </div>
-            <button class="dropdown-btn"><i class="fas fa-laptop-code"></i> JavaScript Pro  <i class="fas fa-caret-down"></i></button>
-                <div class="dropdown-container">
-                    <a href="#modules">Modules</a>
-                    <a href="#fetch">API Fetch</a>
-                    <a href="#webstorage">Web Storage</a>
-                    <a href="#json">JSON</a>
-                    <a href="#poo">Programmation Orientée Objet</a>
-                    <a href="#dom-advanced">Manipulation Avancée du DOM</a>
-                    <a href="#callbacks-closures">Callbacks & Closures</a>
-                    <a href="#langage-json">Manipulation de JSON</a>
-                    <a href="#web-workers">Web Workers</a>
-                    <a href="#gestion-erreurs-debugging">Gestion des Erreurs & Debugging</a>
-                    <a href="#service-workers-pwa">Service Workers & PWA</a>
-                    <a href="#es6">Syntaxe Moderne ES6+</a>
-                    <a href="#testing">Tests Unitaires</a>
-                </div>  
-            <button class="dropdown-btn"><i class="fas fa-handshake"></i>  Exercices JavaScript Pro <i class="fas fa-caret-down"></i></button>
-                <div class="dropdown-container">
-                    <a href="exercices_js/modules-exercice/modules.php">Modules</a>
-                    <a href="exercices_js/fetch-exercice/fetch.php">API Fetch</a>
-                    <a href="exercices_js/web-storage/web_storage.php">Web Storage</a>
-                    <a href="exercices_js/json/json.php">JSON</a>
-                    <a href="exercices_js/poo/poo.php">Programmation Orientée Objet</a>
-                    <a href="exercices_js/manip-dom/manip_dom.php">Manipulation Avancée du DOM</a>
-                    <a href="exercices_js/callback-closures/callback_closures.php">Callbacks & Closures</a>
-                    <a href="exercices_js/manip-json/manip_json.php">Manipulation de JSON</a>
-                    <a href="exercices_js/web-workers/web_workers.php">Web Workers</a>
-                    <a href="exercices_js/gestion-erreurs/gestion_erreurs.php">Gestion des Erreurs & Debugging</a>
-                    <a href="exercices_js/service-workers/service_workers.php">Service Workers & PWA</a>
-                    <a href="exercices_js/es6/es6.php">Syntaxe Moderne ES6+</a>
-                    <a href="exercices_js/unit-test/unit_test.php">Tests Unitaires</a>
-                </div>
+    <!-- Section : Fondamentaux -->
+    <button class="dropdown-btn"><i class="fas fa-code"></i> JavaScript : Les Fondamentaux <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="#variables">Variables</a>
+        <a href="#types-donnees">Types de données</a>
+        <a href="#operateurs">Opérateurs</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#boucles">Boucles</a>
+        <a href="#fonctions">Fonctions</a>
     </div>
+    <button class="dropdown-btn"><i class="fas fa-desktop"></i> Exercices : Fondamentaux <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="exercices_js/variable.php">Variables</a>
+        <a href="exercices_js/type_donnee.php">Types de données</a>
+        <a href="exercices_js/operateurs.php">Opérateurs</a>
+        <a href="exercices_js/conditions.php">Conditions</a>
+        <a href="exercices_js/boucles.php">Boucles</a>
+        <a href="exercices_js/fonctions.php">Fonctions</a>
+    </div>
+
+    <!-- Section : Manipulation DOM et Événements -->
+    <button class="dropdown-btn"><i class="fas fa-rocket"></i> JavaScript : Manipulation du DOM et Événements <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="#dom-selection">Sélection DOM</a>
+        <a href="#dom-modification">Modification du DOM</a>
+        <a href="#events">Gestion des événements</a>
+    </div>
+    <button class="dropdown-btn"><i class="fas fa-pen-nib"></i> Exercices : DOM et Événements <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="exercices_js/selection_dom.php">Sélection DOM</a>
+        <a href="exercices_js/modify_dom.php">Modification du DOM</a>
+        <a href="exercices_js/events.php">Gestion des événements</a>
+    </div>
+
+    <!-- Section : Concepts Avancés -->
+    <button class="dropdown-btn"><i class="fas fa-laptop-code"></i> JavaScript : Concepts Avancés <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="#classes">Classes</a>
+        <a href="#poo">Programmation orientée objet</a>
+        <a href="#promises">Promises</a>
+        <a href="#async-await">Async/Await</a>
+        <a href="#callbacks-closures">Callbacks & Closures</a>
+        <a href="#json">JSON</a>
+        <a href="#modules">Modules</a>
+        <a href="#fetch">API Fetch</a>
+    </div>
+    <button class="dropdown-btn"><i class="fas fa-handshake"></i> Exercices : Concepts Avancés <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="exercices_js/classes.php">Classes</a>
+        <a href="exercices_js/poo_js.php">Classes</a>
+        <a href="exercices_js/promise.php">Promises</a>
+        <a href="exercices_js/async_await.php">Async/Await</a>
+        <a href="exercices_js/callback-closures/callback_closures.php">Callbacks & Closures</a>
+        <a href="exercices_js/json/json.php">JSON</a>
+        <a href="exercices_js/modules-exercice/modules.php">Modules</a>
+        <a href="exercices_js/fetch-exercice/fetch.php">API Fetch</a>
+    </div>
+
+    <!-- Section : Expert et Pro -->
+    <button class="dropdown-btn"><i class="fas fa-code-branch"></i> JavaScript : Techniques Expert <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="#webstorage">Web Storage</a>
+        <a href="#poo-expert">Programmation Orientée Objet</a>
+        <a href="#web-workers">Web Workers</a>
+        <a href="#gestion-erreurs-debugging">Gestion des Erreurs & Debugging</a>
+        <a href="#service-workers-pwa">Service Workers & PWA</a>
+        <a href="#es6">Syntaxe Moderne ES6+</a>
+        <a href="#testing">Tests Unitaires</a>
+    </div>
+    <button class="dropdown-btn"><i class="fas fa-tasks"></i> Exercices : Expert <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-container">
+        <a href="exercices_js/web-storage/web_storage.php">Web Storage</a>
+        <a href="exercices_js/poo/poo_expert.php">Programmation Orientée Objet</a>
+        <a href="exercices_js/web-workers/web_workers.php">Web Workers</a>
+        <a href="exercices_js/gestion-erreurs/gestion_erreurs.php">Gestion des Erreurs</a>
+        <a href="exercices_js/service-workers/service_workers.php">Service Workers & PWA</a>
+        <a href="exercices_js/es6/es6.php">Syntaxe Moderne ES6+</a>
+        <a href="exercices_js/unit-test/unit_test.php">Tests Unitaires</a>
+    </div>
+
+</div>
+
 
     <!-- Page Content -->
     <div class="content">
@@ -137,274 +151,297 @@ En résumé, JavaScript est essentiel pour le développement web, car il offre d
                 <div class="col-md-6">
     <h3 id="variables">Variables</h3>
     <p>
-        Les variables sont utilisées pour stocker des données en mémoire et faciliter leur réutilisation. En JavaScript, on utilise les mots-clés 
-        <code>var</code>, <code>let</code>, ou <code>const</code> pour déclarer des variables, chacune ayant des caractéristiques spécifiques :
+        Les variables sont essentielles pour stocker et manipuler des données dans un programme. En JavaScript, on utilise trois types de déclaration :
+        <code>var</code>, <code>let</code>, et <code>const</code>. Voici une explication de chaque mot-clé et des exemples concrets.
     </p>
     <ul>
-        <li><strong>var :</strong> Déclare une variable avec une portée globale ou fonctionnelle, mais sa portée est moins précise que celle de <code>let</code> ou <code>const</code>.</li>
-        <li><strong>let :</strong> Permet de déclarer une variable avec une portée limitée au bloc dans lequel elle est définie. Recommandée pour les variables dont la valeur peut changer.</li>
-        <li><strong>const :</strong> Utilisée pour les constantes, ou variables qui ne seront pas réassignées après leur déclaration.</li>
+        <li>
+            <strong>var :</strong> 
+            Déclare une variable avec une portée fonctionnelle ou globale. Utilisé dans des versions plus anciennes de JavaScript, mais il est moins précis que <code>let</code> ou <code>const</code>.
+        </li>
+        <li>
+            <strong>let :</strong> 
+            Déclare une variable avec une portée limitée au bloc où elle est définie. Idéal pour des valeurs qui peuvent changer.
+        </li>
+        <li>
+            <strong>const :</strong> 
+            Déclare une constante, c'est-à-dire une valeur qui ne peut pas être réassignée après sa déclaration. Utilisé pour des données fixes.
+        </li>
     </ul>
 
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemple d'utilisation de var, let, et const
-var age = 25;          // Variable globale ou fonctionnelle
-let nom = "Alice";     // Variable locale au bloc
-const pays = "France"; // Constante, ne peut être réassignée</code></pre>
-        
-        <p>Utilisez les boutons pour voir les valeurs et tester la réassignation des variables :</p>
-        <button onclick="afficherValeurs()" class="btn btn-primary">Afficher les Valeurs</button>
-        <button onclick="modifierValeurs()" class="btn btn-secondary">Réassigner les Valeurs</button>
-        
-        <div id="resultat" style="margin-top: 10px; font-weight: bold;"></div>
+        <pre><code class="language-javascript">// Exemple : Gestion d'un panier d'achat
+<span class="keyword">var</span> produit = <span class="string">"Ordinateur"</span>;  <span class="comment">// Variable globale</span>
+<span class="keyword">let</span> quantite = <span class="number">1</span>;             <span class="comment">// Variable de bloc</span>
+<span class="keyword">const</span> prixUnitaire = <span class="number">899.99</span>;  <span class="comment">// Constante</span>
+
+<span class="keyword">function</span> afficherPanier() {
+    <span class="keyword">console</span>.log(<span class="string">`Produit : ${produit}, Quantité : ${quantite}, Total : ${quantite * prixUnitaire}€`</span>);
+}
+
+<span class="keyword">function</span> ajouterProduit() {
+    quantite += <span class="number">1</span>;
+    afficherPanier();
+}
+
+<span class="keyword">function</span> changerProduit(<span class="variable">nouveauProduit</span>) {
+    produit = nouveauProduit; <span class="comment">// Réassignation avec var</span>
+    afficherPanier();
+}</code></pre>
+
+        <p>Testez les fonctionnalités du panier :</p>
+        <button onclick="afficherPanier()" class="btn btn-primary">Afficher Panier</button>
+        <button onclick="ajouterProduit()" class="btn btn-success">Ajouter un Produit</button>
+        <button onclick="changerProduit('Tablette')" class="btn btn-warning">Changer Produit</button>
+
+        <div id="resultat" style="margin-top: 10px; font-weight: bold; color: #333;"></div>
     </div>
 </div>
 
 <script>
-    var age = 25;          // Variable globale
-    let nom = "Alice";     // Variable de bloc
-    const pays = "France"; // Constante
+    // Déclarations
+    var produit = "Ordinateur";
+    let quantite = 1;
+    const prixUnitaire = 899.99;
 
-    function afficherValeurs() {
-        document.getElementById("resultat").innerText = 
-            "Âge : " + age + ", Nom : " + nom + ", Pays : " + pays;
+    // Afficher le panier
+    function afficherPanier() {
+        document.getElementById("resultat").innerText =
+            `Produit : ${produit}, Quantité : ${quantite}, Total : ${(quantite * prixUnitaire).toFixed(2)}€`;
     }
 
-    function modifierValeurs() {
-        age = 30;          // Modification de la variable var
-        nom = "Bob";       // Modification de la variable let
-        try {
-            pays = "Italie";  // Tentative de modification de la constante (génère une erreur)
-        } catch (error) {
-            document.getElementById("resultat").innerText = 
-                "Erreur : Impossible de modifier 'pays' déclaré en const.";
-        }
-        afficherValeurs(); // Réaffiche les valeurs après tentative de réassignation
+    // Ajouter un produit
+    function ajouterProduit() {
+        quantite += 1; // Incrémente la quantité
+        afficherPanier();
+    }
+
+    // Changer le produit (exemple avec var)
+    function changerProduit(nouveauProduit) {
+        produit = nouveauProduit; // Réassignation
+        afficherPanier();
     }
 </script>
+
 
 <div class="col-md-6">
     <h3 id="types-donnees">Types de Données</h3>
     <p>
-        En JavaScript, les types de données sont les fondements des opérations de programmation. Ils permettent de stocker et de manipuler différentes sortes de valeurs :
+        En JavaScript, les types de données permettent de stocker et manipuler différents types de valeurs. Voici une présentation de leurs caractéristiques avec des exemples pratiques.
     </p>
     <ul>
-        <li><strong>Number</strong> : Représente les valeurs numériques, incluant les entiers et les flottants.</li>
-        <li><strong>String</strong> : Représente du texte, encapsulé entre des guillemets simples ou doubles.</li>
-        <li><strong>Boolean</strong> : Valeur logique qui peut être <code>true</code> ou <code>false</code>.</li>
-        <li><strong>Object</strong> : Structure complexe pour regrouper plusieurs valeurs en paires clé-valeur.</li>
-        <li><strong>Undefined</strong> : Type attribué à une variable non initialisée.</li>
-        <li><strong>Null</strong> : Type pour les valeurs spécifiquement vides ou nulles.</li>
-        <li><strong>Symbol</strong> : Type unique et immuable, souvent utilisé comme identifiant.</li>
+        <li><strong>Number</strong> : Représente les valeurs numériques, comme les entiers (<code>42</code>) ou les décimales (<code>3.14</code>).</li>
+        <li><strong>String</strong> : Représente des textes, encadrés par des guillemets simples ou doubles (<code>"Bonjour"</code>).</li>
+        <li><strong>Boolean</strong> : Valeurs logiques, soit <code>true</code> (vrai) soit <code>false</code> (faux).</li>
+        <li><strong>Object</strong> : Structure complexe regroupant des valeurs en paires clé-valeur (<code>{ nom: "Alice", age: 30 }</code>).</li>
+        <li><strong>Undefined</strong> : Attribué à une variable qui n’a pas encore reçu de valeur.</li>
+        <li><strong>Null</strong> : Représente une valeur intentionnellement vide.</li>
+        <li><strong>Symbol</strong> : Identifiant unique utilisé pour des cas particuliers, souvent comme clé dans des objets.</li>
     </ul>
-    
+
     <div class="example-box">
-        <pre><code class="language-javascript">// Déclaration de différents types de données
-let nombre = 42;                      // number
-let texte = "Bonjour, monde!";         // string
-let estVrai = true;                    // boolean
-let personne = { nom: "Alice", age: 30 }; // object
-let valeurIndefinie;                   // undefined
-let valeurNull = null;                 // null
-let identifiantUnique = Symbol("id");  // symbol</code></pre>
+        <pre><code class="language-javascript">// Exemples de types de données
+<span class="keyword">let</span> nombre = <span class="number">42</span>;                      <span class="comment">// Number</span>
+<span class="keyword">let</span> texte = <span class="string">"Bonjour, monde!"</span>;        <span class="comment">// String</span>
+<span class="keyword">let</span> estVrai = <span class="keyword">true</span>;                  <span class="comment">// Boolean</span>
+<span class="keyword">let</span> personne = { nom: <span class="string">"Alice"</span>, age: <span class="number">30</span> }; <span class="comment">// Object</span>
+<span class="keyword">let</span> valeurIndefinie;                       <span class="comment">// Undefined</span>
+<span class="keyword">let</span> valeurNull = <span class="keyword">null</span>;               <span class="comment">// Null</span>
+<span class="keyword">let</span> identifiantUnique = <span class="keyword">Symbol</span>(<span class="string">"id"</span>);  <span class="comment">// Symbol</span>
+</code></pre>
 
         <button onclick="afficherTypes()" class="btn btn-primary">Afficher Types et Valeurs</button>
+        <button onclick="modifierValeurs()" class="btn btn-secondary">Modifier Certaines Valeurs</button>
         
-        <div id="resultat-types" style="margin-top: 10px; font-weight: bold;"></div>
+        <div id="resultat-types" style="margin-top: 10px; font-weight: bold; color: #333;"></div>
     </div>
 </div>
 
-    <script>
-        let nombre = 42;
-        let texte = "Bonjour, monde!";
-        let estVrai = true;
-        let personne = { nom: "Alice", age: 30 };
-        let valeurIndefinie;
-        let valeurNull = null;
-        let identifiantUnique = Symbol("id");
+<script>
+    // Déclaration des types de données
+    let nombre = 42;
+    let texte = "Bonjour, monde!";
+    let estVrai = true;
+    let personne = { nom: "Alice", age: 30 };
+    let valeurIndefinie;
+    let valeurNull = null;
+    let identifiantUnique = Symbol("id");
 
-        function afficherTypes() {
-            document.getElementById("resultat-types").innerHTML = 
-                "Nombre : " + nombre + " (" + typeof nombre + ")<br>" +
-                "Texte : " + texte + " (" + typeof texte + ")<br>" +
-                "Booléen : " + estVrai + " (" + typeof estVrai + ")<br>" +
-                "Objet : " + JSON.stringify(personne) + " (" + typeof personne + ")<br>" +
-                "Indéfini : " + valeurIndefinie + " (" + typeof valeurIndefinie + ")<br>" +
-                "Null : " + valeurNull + " (" + (valeurNull === null ? "null" : typeof valeurNull) + ")<br>" +
-                "Symbole : " + identifiantUnique.toString() + " (" + typeof identifiantUnique + ")";
-        }
-    </script>
+    // Afficher les types et les valeurs
+    function afficherTypes() {
+        document.getElementById("resultat-types").innerHTML =
+            `<strong>Nombre :</strong> ${nombre} (${typeof nombre})<br>` +
+            `<strong>Texte :</strong> ${texte} (${typeof texte})<br>` +
+            `<strong>Booléen :</strong> ${estVrai} (${typeof estVrai})<br>` +
+            `<strong>Objet :</strong> ${JSON.stringify(personne)} (${typeof personne})<br>` +
+            `<strong>Indéfini :</strong> ${valeurIndefinie} (${typeof valeurIndefinie})<br>` +
+            `<strong>Null :</strong> ${valeurNull} (${valeurNull === null ? "null" : typeof valeurNull})<br>` +
+            `<strong>Symbole :</strong> ${identifiantUnique.toString()} (${typeof identifiantUnique})`;
+    }
+
+    // Modifier certaines valeurs pour illustrer le comportement
+    function modifierValeurs() {
+        nombre += 10; // Ajout à une valeur numérique
+        texte = texte.replace("monde", "JavaScript"); // Modification d'une chaîne de caractères
+        estVrai = !estVrai; // Inverse la valeur booléenne
+        personne.nom = "Bob"; // Modification d'une propriété de l'objet
+        valeurIndefinie = "Maintenant définie"; // Affectation d'une valeur
+        afficherTypes(); // Mise à jour des résultats
+    }
+</script>
+
 </div>
 
 <div class="row">
 <div class="col-md-6">
     <h3 id="operateurs">Opérateurs</h3>
     <p>
-        Les opérateurs en JavaScript permettent d’effectuer des opérations sur des valeurs, qu’il s’agisse de calculs mathématiques, de comparaisons, ou de logique. 
-        Voici les principaux types d'opérateurs :
+        Les opérateurs en JavaScript sont essentiels pour effectuer des calculs, comparer des valeurs, ou évaluer des conditions. Voici les principaux types d'opérateurs :
     </p>
     <ul>
-        <li><strong>Opérateurs mathématiques</strong> : Utilisés pour effectuer des calculs.
-            <ul>
-                <li><code>+</code> : Additionne deux nombres. Exemple : <code>a + b</code> (10 + 5 = 15)</li>
-                <li><code>-</code> : Soustrait le second nombre du premier. Exemple : <code>a - b</code> (10 - 5 = 5)</li>
-                <li><code>*</code> : Multiplie deux nombres. Exemple : <code>a * b</code> (10 * 5 = 50)</li>
-                <li><code>/</code> : Divise le premier nombre par le second. Exemple : <code>a / b</code> (10 / 5 = 2)</li>
-                <li><code>%</code> : Renvoie le reste d'une division (modulo). Exemple : <code>a % b</code> (10 % 5 = 0)</li>
-            </ul>
-        </li>
-        <li><strong>Opérateurs de comparaison</strong> : Utilisés pour comparer deux valeurs et renvoient un résultat booléen (<code>true</code> ou <code>false</code>).
-            <ul>
-                <li><code>==</code> : Vérifie si les valeurs sont égales (peut ignorer le type). Exemple : <code>a == b</code> (faux si <code>a</code> est 10 et <code>b</code> est 5)</li>
-                <li><code>!=</code> : Vérifie si les valeurs sont différentes. Exemple : <code>a != b</code> (vrai si <code>a</code> est 10 et <code>b</code> est 5)</li>
-                <li><code>&gt;</code> : Vérifie si la première valeur est supérieure. Exemple : <code>a &gt; b</code> (vrai si <code>a</code> est 10 et <code>b</code> est 5)</li>
-                <li><code>&lt;</code> : Vérifie si la première valeur est inférieure. Exemple : <code>a &lt; b</code> (faux si <code>a</code> est 10 et <code>b</code> est 5)</li>
-                <li><code>&gt;=</code> : Vérifie si la première valeur est supérieure ou égale. Exemple : <code>a &gt;= b</code></li>
-                <li><code>&lt;=</code> : Vérifie si la première valeur est inférieure ou égale. Exemple : <code>a &lt;= b</code></li>
-            </ul>
-        </li>
-        <li><strong>Opérateurs logiques</strong> : Utilisés pour combiner plusieurs conditions.
-            <ul>
-                <li><code>&&</code> : ET logique. Renvoie <code>true</code> uniquement si les deux conditions sont vraies. Exemple : <code>(a &gt; b) && (b &gt; 0)</code></li>
-                <li><code>||</code> : OU logique. Renvoie <code>true</code> si au moins une des conditions est vraie. Exemple : <code>(a &gt; b) || (b == 0)</code></li>
-                <li><code>!</code> : NON logique. Inverse la valeur booléenne. Exemple : <code>!(a &gt; b)</code> (renvoie <code>false</code> si <code>a &gt; b</code> est vrai)</li>
-            </ul>
-        </li>
+        <li><strong>Mathématiques</strong> : Addition, soustraction, multiplication, division, et modulo.</li>
+        <li><strong>Comparaison</strong> : Comparer deux valeurs (égalité, supériorité, etc.).</li>
+        <li><strong>Logique</strong> : Combiner ou inverser des conditions.</li>
     </ul>
 
     <div class="example-box">
         <pre><code class="language-javascript">// Déclaration des variables
-let a = 10;
-let b = 5;
+<span class="keyword">let</span> a = <span class="number">10</span>; <span class="comment">// Nombre 1</span>
+<span class="keyword">let</span> b = <span class="number">5</span>;  <span class="comment">// Nombre 2</span>
 
-// Opérateurs mathématiques
-let addition = a + b;
-let soustraction = a - b;
-let multiplication = a * b;
-let division = a / b;
-let modulo = a % b;
+// Opérateurs Mathématiques
+<span class="keyword">let</span> addition = a + b;
+<span class="keyword">let</span> multiplication = a * b;
 
-// Opérateurs de comparaison
-let egalite = (a == b);          // false
-let difference = (a != b);       // true
-let superieur = (a > b);         // true
-let inferieurOuEgal = (a <= b);  // false</code></pre>
+// Opérateurs de Comparaison
+<span class="keyword">let</span> egalite = (a == b);
+<span class="keyword">let</span> superieur = (a > b);
 
-        <button onclick="afficherResultatsOperateurs()" class="btn btn-primary">Calculer et Afficher les Résultats</button>
-        
-        <div id="resultat-operateurs" style="margin-top: 10px; font-weight: bold;"></div>
+// Opérateurs Logiques
+<span class="keyword">let</span> condition = (a > b) && (b > <span class="number">0</span>);</code></pre>
+
+        <p>Testez les résultats des différents opérateurs avec des valeurs personnalisées :</p>
+        <div>
+            <label for="input-a">Valeur de <strong>a</strong> :</label>
+            <input type="number" id="input-a" value="10" class="form-control">
+            <label for="input-b" style="margin-top: 10px;">Valeur de <strong>b</strong> :</label>
+            <input type="number" id="input-b" value="5" class="form-control">
+        </div>
+        <button onclick="calculerOperateurs()" class="btn btn-primary" style="margin-top: 10px;">Calculer et Afficher les Résultats</button>
+
+        <div id="resultat-operateurs" style="margin-top: 20px; font-weight: bold; color: #333;"></div>
     </div>
 </div>
 
 <script>
-    let a = 10;
-    let b = 5;
-    let addition = a + b;
-    let soustraction = a - b;
-    let multiplication = a * b;
-    let division = a / b;
-    let modulo = a % b;
+    function calculerOperateurs() {
+        // Récupérer les valeurs des inputs
+        let a = parseFloat(document.getElementById("input-a").value);
+        let b = parseFloat(document.getElementById("input-b").value);
 
-    let egalite = (a == b);
-    let difference = (a != b);
-    let superieur = (a > b);
-    let inferieurOuEgal = (a <= b);
+        // Calculs mathématiques
+        let addition = a + b;
+        let soustraction = a - b;
+        let multiplication = a * b;
+        let division = b !== 0 ? (a / b).toFixed(2) : "Division par zéro impossible";
+        let modulo = b !== 0 ? a % b : "Modulo par zéro impossible";
 
-    function afficherResultatsOperateurs() {
-        document.getElementById("resultat-operateurs").innerHTML = 
-            "<strong>Résultats des Opérateurs Mathématiques :</strong><br>" +
-            "Addition (a + b) : " + addition + "<br>" +
-            "Soustraction (a - b) : " + soustraction + "<br>" +
-            "Multiplication (a * b) : " + multiplication + "<br>" +
-            "Division (a / b) : " + division + "<br>" +
-            "Modulo (a % b) : " + modulo + "<br><br>" +
-            
-            "<strong>Résultats des Opérateurs de Comparaison :</strong><br>" +
-            "Égalité (a == b) : " + egalite + "<br>" +
-            "Différence (a != b) : " + difference + "<br>" +
-            "Supérieur (a > b) : " + superieur + "<br>" +
-            "Inférieur ou Égal (a <= b) : " + inferieurOuEgal;
+        // Comparaison
+        let egalite = a == b;
+        let difference = a != b;
+        let superieur = a > b;
+        let inferieurOuEgal = a <= b;
+
+        // Logique
+        let etLogique = (a > 0) && (b > 0);
+        let ouLogique = (a > b) || (b === 0);
+        let nonLogique = !(a > b);
+
+        // Afficher les résultats
+        document.getElementById("resultat-operateurs").innerHTML = `
+            <strong>Opérateurs Mathématiques :</strong><br>
+            Addition (a + b) : ${addition}<br>
+            Soustraction (a - b) : ${soustraction}<br>
+            Multiplication (a * b) : ${multiplication}<br>
+            Division (a / b) : ${division}<br>
+            Modulo (a % b) : ${modulo}<br><br>
+
+            <strong>Opérateurs de Comparaison :</strong><br>
+            Égalité (a == b) : ${egalite}<br>
+            Différence (a != b) : ${difference}<br>
+            Supérieur (a > b) : ${superieur}<br>
+            Inférieur ou Égal (a <= b) : ${inferieurOuEgal}<br><br>
+
+            <strong>Opérateurs Logiques :</strong><br>
+            ET Logique (a > 0 && b > 0) : ${etLogique}<br>
+            OU Logique (a > b || b == 0) : ${ouLogique}<br>
+            NON Logique (!(a > b)) : ${nonLogique}
+        `;
     }
 </script>
-
-
-
 
 <div class="col-md-6">
     <h3 id="conditions">Conditions</h3>
     <p>
-        En JavaScript, les instructions conditionnelles permettent de diriger le flux du programme en fonction de différentes conditions.
-        Les structures conditionnelles les plus courantes sont :
+        En JavaScript, les instructions conditionnelles dirigent le programme en fonction des situations. Voici les principales structures conditionnelles :
     </p>
     <ul>
-        <li><strong>if/else</strong> : Vérifie une condition et exécute un bloc de code si elle est vraie ; sinon, exécute un autre bloc (facultatif).</li>
-        <li><strong>else if</strong> : Ajoute des conditions supplémentaires entre un bloc <code>if</code> et <code>else</code>.</li>
-        <li><strong>switch</strong> : Utilisé pour tester une variable contre plusieurs valeurs possibles et exécuter le code correspondant.</li>
-        <li><strong>Opérateur conditionnel (ternaire)</strong> : Une syntaxe compacte pour écrire des conditions <code>if/else</code>.</li>
-        <li><strong>Opérateurs logiques combinés</strong> : Combine plusieurs conditions en utilisant les opérateurs <code>&&</code> (ET) et <code>||</code> (OU).</li>
+        <li><strong>if/else</strong> : Exécute un bloc si une condition est vraie, sinon un autre.</li>
+        <li><strong>else if</strong> : Permet plusieurs conditions.</li>
+        <li><strong>switch</strong> : Compare une valeur à plusieurs cas possibles.</li>
+        <li><strong>Opérateur conditionnel (ternaire)</strong> : Simplifie les conditions <code>if/else</code>.</li>
+        <li><strong>Combinaisons logiques</strong> : Combine des conditions avec <code>&&</code> (ET) et <code>||</code> (OU).</li>
     </ul>
 
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemple d'utilisation de if/else
-let age = 20;
-if (age >= 18) {
-    console.log("Vous êtes majeur.");
-} else {
-    console.log("Vous êtes mineur.");
+        <pre><code class="language-javascript">// Test des conditions avec différentes valeurs
+<span class="keyword">let</span> age = <span class="number">20</span>;
+<span class="keyword">if</span> (age >= <span class="number">18</span>) {
+    console.log(<span class="string">"Vous êtes majeur."</span>);
+} <span class="keyword">else</span> {
+    console.log(<span class="string">"Vous êtes mineur."</span>);
 }
 
-// Exemple d'utilisation de else if
-let heure = 15;
-if (heure < 12) {
-    console.log("Bonne matinée.");
-} else if (heure < 18) {
-    console.log("Bon après-midi.");
-} else {
-    console.log("Bonne soirée.");
-}
-
-// Exemple d'utilisation de switch
-let couleur = "rouge";
-switch (couleur) {
-    case "rouge":
-        console.log("La couleur est rouge.");
-        break;
-    case "bleu":
-        console.log("La couleur est bleu.");
-        break;
-    default:
-        console.log("Couleur non reconnue.");
-}
-
-// Exemple d'opérateur conditionnel (ternaire)
-let resultat = (age >= 18) ? "Majeur" : "Mineur";
-console.log(resultat);
-
-// Combinaison de conditions avec && et ||
-let permis = true;
-if (age >= 18 && permis) {
-    console.log("Vous pouvez conduire.");
-} else {
-    console.log("Vous ne pouvez pas conduire.");
+// Switch : Tester une couleur
+<span class="keyword">let</span> couleur = <span class="string">"rouge"</span>;
+<span class="keyword">switch</span> (couleur) {
+    <span class="keyword">case</span> <span class="string">"rouge"</span>:
+        console.log(<span class="string">"La couleur est rouge."</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        console.log(<span class="string">"Couleur inconnue."</span>);
 }</code></pre>
 
-        <button onclick="testerConditions()" class="btn btn-primary">Afficher les Résultats des Conditions</button>
+        <div>
+            <label for="input-age">Âge :</label>
+            <input type="number" id="input-age" value="20" class="form-control">
+            
+            <label for="input-couleur" style="margin-top: 10px;">Couleur :</label>
+            <input type="text" id="input-couleur" value="rouge" class="form-control">
+            
+            <label for="input-permis" style="margin-top: 10px;">Avez-vous un permis de conduire ?</label>
+            <select id="input-permis" class="form-control">
+                <option value="true">Oui</option>
+                <option value="false">Non</option>
+            </select>
+        </div>
+
+        <button onclick="testerConditions()" class="btn btn-primary" style="margin-top: 10px;">Tester les Conditions</button>
         
-        <div id="resultat-conditions" style="margin-top: 10px; font-weight: bold;"></div>
+        <div id="resultat-conditions" style="margin-top: 20px; font-weight: bold; color: #333;"></div>
     </div>
 </div>
 
 <script>
     function testerConditions() {
-        let age = 20;
-        let heure = 15;
-        let couleur = "rouge";
-        let resultat = (age >= 18) ? "Majeur" : "Mineur";
-        let permis = true;
+        // Récupérer les valeurs des inputs
+        let age = parseInt(document.getElementById("input-age").value);
+        let couleur = document.getElementById("input-couleur").value.toLowerCase();
+        let permis = document.getElementById("input-permis").value === "true";
 
-        // Messages de condition
+        // Conditions
         let messageAge = age >= 18 ? "Vous êtes majeur." : "Vous êtes mineur.";
-        let messageHeure = (heure < 12) ? "Bonne matinée." : (heure < 18 ? "Bon après-midi." : "Bonne soirée.");
+        let messageHeure = (new Date().getHours() < 12) ? "Bonne matinée." : "Bonne journée.";
         let messageCouleur;
         switch (couleur) {
             case "rouge":
@@ -413,68 +450,75 @@ if (age >= 18 && permis) {
             case "bleu":
                 messageCouleur = "La couleur est bleu.";
                 break;
+            case "vert":
+                messageCouleur = "La couleur est vert.";
+                break;
             default:
-                messageCouleur = "Couleur non reconnue.";
+                messageCouleur = "Couleur inconnue.";
         }
         let messageConduite = (age >= 18 && permis) ? "Vous pouvez conduire." : "Vous ne pouvez pas conduire.";
 
-        // Affichage des résultats
-        document.getElementById("resultat-conditions").innerHTML = 
-            messageAge + "<br>" +
-            messageHeure + "<br>" +
-            messageCouleur + "<br>" +
-            "Résultat Ternaire : " + resultat + "<br>" +
-            messageConduite;
+        // Résultat
+        document.getElementById("resultat-conditions").innerHTML = `
+            <strong>Résultats :</strong><br>
+            ${messageAge}<br>
+            ${messageHeure}<br>
+            ${messageCouleur}<br>
+            ${messageConduite}
+        `;
     }
 </script>
-
-                </div>
+</div>
 
                 <div class="row">
                 <div class="col-md-6">
     <h3 id="boucles">Boucles</h3>
     <p>
-        Les boucles permettent de répéter des sections de code plusieurs fois en fonction d’une condition. Les principales boucles en JavaScript sont :
+        Les boucles permettent de répéter des sections de code en fonction d’une condition. Voici les principales boucles en JavaScript avec des exemples :
     </p>
     <ul>
-        <li><strong>for</strong> : Répète le code un nombre fixe de fois, selon un compteur initial, une condition et un incrément.</li>
-        <li><strong>while</strong> : Exécute le code tant qu’une condition est vraie. La condition est vérifiée avant chaque exécution.</li>
-        <li><strong>do...while</strong> : Similaire à <code>while</code>, mais la boucle est exécutée au moins une fois, car la condition est vérifiée après chaque itération.</li>
-        <li><strong>for...of</strong> : Itère sur les éléments d’objets itérables, comme les tableaux.</li>
+        <li><strong>for</strong> : Répète le code un nombre déterminé de fois, avec un compteur.</li>
+        <li><strong>while</strong> : Répète tant qu’une condition est vraie, vérifiée avant chaque itération.</li>
+        <li><strong>do...while</strong> : Identique à <code>while</code>, mais s’exécute au moins une fois.</li>
+        <li><strong>for...of</strong> : Parcourt les éléments d’un tableau ou d’un objet itérable.</li>
         <li><strong>for...in</strong> : Parcourt les propriétés énumérables d’un objet.</li>
     </ul>
 
     <div class="example-box">
-        <pre><code class="language-javascript">// Boucle for
-for (let i = 0; i < 5; i++) {
-    console.log("for - Itération : " + i);
+        <pre><code class="language-javascript"><span class="keyword">let</span> table = <span class="number">3</span>;
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i <= <span class="number">10</span>; i++) {
+    console.log(<span class="string">`${table} x ${i} = ${table * i}`</span>);
 }
 
-// Boucle while
-let compteur = 0;
-while (compteur < 3) {
-    console.log("while - Compteur : " + compteur);
-    compteur++;
+<span class="keyword">let</span> somme = <span class="number">0</span>;
+<span class="keyword">let</span> n = <span class="number">1</span>;
+<span class="keyword">while</span> (n <= <span class="number">5</span>) {
+    somme += n;
+    n++;
+}
+console.log(<span class="string">"Somme : "</span> + somme);
+
+<span class="keyword">let</span> motDePasse;
+<span class="keyword">do</span> {
+    motDePasse = prompt(<span class="string">"Entrez le mot de passe (indice : 1234) :"</span>);
+} <span class="keyword">while</span> (motDePasse !== <span class="string">"1234"</span>);
+console.log(<span class="string">"Mot de passe correct !"</span>);
+
+<span class="keyword">let</span> produits = [
+    { <span class="variable">nom</span>: <span class="string">"Ordinateur"</span>, <span class="variable">prix</span>: <span class="number">1000</span> },
+    { <span class="variable">nom</span>: <span class="string">"Téléphone"</span>, <span class="variable">prix</span>: <span class="number">500</span> },
+    { <span class="variable">nom</span>: <span class="string">"Tablette"</span>, <span class="variable">prix</span>: <span class="number">300</span> }
+];
+<span class="keyword">for</span> (<span class="keyword">let</span> produit <span class="keyword">of</span> produits) {
+    console.log(<span class="string">`Produit : ${produit.nom}, Prix : ${produit.prix}€`</span>);
 }
 
-// Boucle do...while
-let num = 0;
-do {
-    console.log("do...while - Num : " + num);
-    num++;
-} while (num < 3);
-
-// Boucle for...of
-let fruits = ["pomme", "banane", "cerise"];
-for (let fruit of fruits) {
-    console.log("for...of - Fruit : " + fruit);
+<span class="keyword">let</span> personne = { <span class="variable">nom</span>: <span class="string">"Alice"</span>, <span class="variable">age</span>: <span class="number">30</span>, <span class="variable">ville</span>: <span class="string">"Paris"</span> };
+<span class="keyword">let</span> compteurProprietes = <span class="number">0</span>;
+<span class="keyword">for</span> (<span class="keyword">let</span> propriete <span class="keyword">in</span> personne) {
+    compteurProprietes++;
 }
-
-// Boucle for...in
-let personne = { nom: "Alice", age: 30 };
-for (let propriete in personne) {
-    console.log("for...in - " + propriete + " : " + personne[propriete]);
-}</code></pre>
+console.log(<span class="string">"Nombre de propriétés : "</span> + compteurProprietes);</code></pre>
 
         <button onclick="afficherResultatsBoucles()" class="btn btn-primary">Afficher les Résultats des Boucles</button>
         
@@ -486,448 +530,288 @@ for (let propriete in personne) {
     function afficherResultatsBoucles() {
         let resultats = "";
 
-        // Boucle for
-        for (let i = 0; i < 5; i++) {
-            resultats += "for - Itération : " + i + "<br>";
+        // Boucle for : Table de multiplication
+        let table = 3;
+        resultats += `<strong>Boucle for :</strong> Table de multiplication pour ${table}<br>`;
+        for (let i = 1; i <= 10; i++) {
+            resultats += `${table} x ${i} = ${table * i}<br>`;
         }
 
-        // Boucle while
-        let compteur = 0;
-        while (compteur < 3) {
-            resultats += "while - Compteur : " + compteur + "<br>";
-            compteur++;
+        // Boucle while : Somme des nombres jusqu'à 5
+        let somme = 0;
+        let n = 1;
+        while (n <= 5) {
+            somme += n;
+            n++;
+        }
+        resultats += `<br><strong>Boucle while :</strong> Somme des nombres de 1 à 5 : ${somme}<br>`;
+
+        // Boucle for...of : Liste d'objets
+        let produits = [
+            { nom: "Ordinateur", prix: 1000 },
+            { nom: "Téléphone", prix: 500 },
+            { nom: "Tablette", prix: 300 }
+        ];
+        resultats += `<br><strong>Boucle for...of :</strong> Parcourir des produits<br>`;
+        for (let produit of produits) {
+            resultats += `Produit : ${produit.nom}, Prix : ${produit.prix}€<br>`;
         }
 
-        // Boucle do...while
-        let num = 0;
-        do {
-            resultats += "do...while - Num : " + num + "<br>";
-            num++;
-        } while (num < 3);
-
-        // Boucle for...of
-        let fruits = ["pomme", "banane", "cerise"];
-        for (let fruit of fruits) {
-            resultats += "for...of - Fruit : " + fruit + "<br>";
-        }
-
-        // Boucle for...in
-        let personne = { nom: "Alice", age: 30 };
+        // Boucle for...in : Compter les propriétés d'un objet
+        let personne = { nom: "Alice", age: 30, ville: "Paris" };
+        let compteurProprietes = 0;
         for (let propriete in personne) {
-            resultats += "for...in - " + propriete + " : " + personne[propriete] + "<br>";
+            compteurProprietes++;
         }
+        resultats += `<br><strong>Boucle for...in :</strong> Nombre de propriétés dans l'objet personne : ${compteurProprietes}<br>`;
 
         document.getElementById("resultat-boucles").innerHTML = resultats;
     }
 </script>
 
-
 <div class="col-md-6">
     <h3 id="fonctions">Fonctions</h3>
     <p>
-        Les fonctions sont des blocs de code réutilisables, permettant d'exécuter des tâches spécifiques. Elles se définissent avec le mot-clé <code>function</code> et peuvent accepter des paramètres et retourner des valeurs.
+        Les fonctions sont des blocs de code réutilisables, permettant d'exécuter des tâches spécifiques. Elles peuvent recevoir des paramètres et retourner des résultats.
     </p>
     <ul>
-        <li><strong>Fonction déclarée</strong> : Une fonction nommée qui peut être appelée depuis n'importe où dans le code.</li>
-        <li><strong>Fonction anonyme</strong> : Une fonction sans nom, souvent utilisée comme argument ou dans une variable.</li>
-        <li><strong>Fonction fléchée</strong> : Une syntaxe compacte introduite en ES6, particulièrement utile pour les fonctions anonymes.</li>
+        <li><strong>Fonction déclarée</strong> : Une fonction nommée, accessible partout après sa déclaration.</li>
+        <li><strong>Fonction anonyme</strong> : Une fonction sans nom, souvent assignée à une variable.</li>
+        <li><strong>Fonction fléchée</strong> : Une syntaxe concise introduite en ES6, utile pour des fonctions anonymes.</li>
     </ul>
 
     <div class="example-box">
         <pre><code class="language-javascript">// Fonction déclarée
-function saluer(nom) {
-    return "Bonjour, " + nom + "!";
+<span class="keyword">function</span> saluer(<span class="variable">nom</span>) {
+    <span class="keyword">return</span> <span class="string">`Bonjour, ${nom}!`</span>;
 }
-let message1 = saluer("Alice");
 
-// Fonction anonyme affectée à une variable
-const multiplier = function(x, y) {
-    return x * y;
+// Fonction anonyme
+<span class="keyword">const</span> multiplier = <span class="keyword">function</span>(<span class="variable">x</span>, <span class="variable">y</span>) {
+    <span class="keyword">return</span> <span class="variable">x</span> * <span class="variable">y</span>;
 };
-let resultatMultiplication = multiplier(5, 3);
 
 // Fonction fléchée
-const carre = (nombre) => nombre * nombre;
-let resultatCarre = carre(4);
+<span class="keyword">const</span> carre = (<span class="variable">nombre</span>) => <span class="variable">nombre</span> * <span class="variable">nombre</span>;
 
-console.log(message1);           // Bonjour, Alice!
-console.log(resultatMultiplication); // 15
-console.log(resultatCarre);       // 16</code></pre>
+// Fonction avec valeur par défaut
+<span class="keyword">function</span> direAge(<span class="variable">age</span> = <span class="number">18</span>) {
+    <span class="keyword">return</span> <span class="string">`Vous avez ${age} ans.`</span>;
+}
 
-        <button onclick="executerFonctions()" class="btn btn-primary">Exécuter les Fonctions</button>
+// Fonction récursive
+<span class="keyword">function</span> factorielle(<span class="variable">n</span>) {
+    <span class="keyword">if</span> (<span class="variable">n</span> === <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">return</span> <span class="variable">n</span> * factorielle(<span class="variable">n</span> - <span class="number">1</span>);
+}</code></pre>
+
+        <div>
+            <label for="input-nom">Nom :</label>
+            <input type="text" id="input-nom" value="Alice" class="form-control">
+            
+            <label for="input-age" style="margin-top: 10px;">Âge :</label>
+            <input type="number" id="input-age" value="25" class="form-control">
+            
+            <label for="input-nombre" style="margin-top: 10px;">Nombre pour carré :</label>
+            <input type="number" id="input-nombre" value="4" class="form-control">
+            
+            <label for="input-factorielle" style="margin-top: 10px;">Calculer la factorielle de :</label>
+            <input type="number" id="input-factorielle" value="5" class="form-control">
+        </div>
         
-        <div id="resultat-fonctions" style="margin-top: 10px; font-weight: bold;"></div>
+        <button onclick="executerFonctions()" class="btn btn-primary" style="margin-top: 10px;">Exécuter les Fonctions</button>
+        
+        <div id="resultat-fonctions" style="margin-top: 20px; font-weight: bold;"></div>
     </div>
 </div>
 
 <script>
+    // Fonction déclarée
     function saluer(nom) {
-        return "Bonjour, " + nom + "!";
+        return `Bonjour, ${nom}!`;
     }
-    
+
+    // Fonction anonyme
     const multiplier = function(x, y) {
         return x * y;
     };
-    
+
+    // Fonction fléchée
     const carre = (nombre) => nombre * nombre;
 
+    // Fonction avec valeur par défaut
+    function direAge(age = 18) {
+        return `Vous avez ${age} ans.`;
+    }
+
+    // Fonction récursive
+    function factorielle(n) {
+        if (n === 0) return 1;
+        return n * factorielle(n - 1);
+    }
+
     function executerFonctions() {
-        let message1 = saluer("Alice");
-        let resultatMultiplication = multiplier(5, 3);
-        let resultatCarre = carre(4);
+        let nom = document.getElementById("input-nom").value;
+        let age = parseInt(document.getElementById("input-age").value);
+        let nombre = parseInt(document.getElementById("input-nombre").value);
+        let factorielleNombre = parseInt(document.getElementById("input-factorielle").value);
 
-        document.getElementById("resultat-fonctions").innerHTML = 
-            "Fonction déclarée (saluer) : " + message1 + "<br>" +
-            "Fonction anonyme (multiplier) : " + resultatMultiplication + "<br>" +
-            "Fonction fléchée (carre) : " + resultatCarre;
+        let messageSaluer = saluer(nom);
+        let messageAge = direAge(age);
+        let resultatCarre = carre(nombre);
+        let resultatFactorielle = factorielle(factorielleNombre);
+
+        document.getElementById("resultat-fonctions").innerHTML = `
+            <strong>Résultats des Fonctions :</strong><br>
+            Fonction déclarée (saluer) : ${messageSaluer}<br>
+            Fonction avec valeur par défaut (direAge) : ${messageAge}<br>
+            Fonction fléchée (carre) : Carré de ${nombre} = ${resultatCarre}<br>
+            Fonction récursive (factorielle) : Factorielle de ${factorielleNombre} = ${resultatFactorielle}
+        `;
     }
 </script>
+
+
                 </div>
     </div>
-
-            <!-- JavaScript Avancé -->
-            <div class="content-section" id="js-avance">
-                <h1><i class="fas fa-rocket icon"></i>JavaScript Avancé</h1>
-                <p>JavaScript avancé implique l'utilisation de techniques plus complexes et d'une meilleure gestion des fonctionnalités.</p>
-
-                <div class="row">
-                <div class="col-md-6">
-    <h3 id="promises">Promises</h3>
+<!-- Manipulation du DOM et Événements -->
+<div class="content-section" id="manip-dom-evenements">
+    <h1><i class="fas fa-mouse-pointer icon"></i> Manipulation du DOM et Événements</h1>
     <p>
-        Les Promises en JavaScript permettent de gérer des opérations asynchrones, comme les appels de données à des serveurs. Une Promise est un objet représentant la réussite ou l'échec d'une opération asynchrone.
+        La manipulation du DOM (Document Object Model) et la gestion des événements sont des compétences fondamentales pour rendre vos pages web interactives et dynamiques. 
+        Ces concepts vous permettent de contrôler et de modifier les éléments HTML et CSS en temps réel en réponse aux actions des utilisateurs.
     </p>
+    <p>
+        Dans cette section, vous apprendrez à naviguer dans la structure du DOM, à manipuler les éléments de manière performante, et à utiliser des écouteurs d'événements pour capturer les interactions des utilisateurs.
+        Vous découvrirez également des techniques avancées pour optimiser vos interactions avec le DOM et améliorer l'expérience utilisateur.
+    </p>
+    <h2>Contenu des cours</h2>
     <ul>
-        <li><strong>Etat "Pending" (En attente)</strong> : La Promise est en cours d’exécution, mais son résultat n’est pas encore disponible.</li>
-        <li><strong>Etat "Fulfilled" (Résolue)</strong> : La Promise a réussi, et le résultat est disponible.</li>
-        <li><strong>Etat "Rejected" (Rejetée)</strong> : La Promise a échoué et retourne une erreur.</li>
+        <li>
+            <strong>Sélection des éléments DOM :</strong> Utilisation de méthodes comme <code>querySelector</code>, <code>getElementById</code>, et <code>getElementsByClassName</code> pour cibler des éléments spécifiques.
+        </li>
+        <li>
+            <strong>Modification du DOM :</strong> Ajout, suppression et modification d'éléments HTML, d'attributs et de classes CSS dynamiquement.
+        </li>
+        <li>
+            <strong>Création et insertion d'éléments :</strong> Génération d'éléments HTML en JavaScript et insertion dans la structure existante.
+        </li>
+        <li>
+            <strong>Gestion des événements utilisateur :</strong> Compréhension et utilisation des événements comme <code>click</code>, <code>mouseover</code>, <code>keydown</code>, et bien d'autres.
+        </li>
+        <li>
+            <strong>Écouteurs d'événements :</strong> Ajout d’événements à des éléments à l'aide de <code>addEventListener</code> pour une gestion centralisée et performante.
+        </li>
+        <li>
+            <strong>Bubbling et Capture :</strong> Maîtrise de la propagation des événements pour mieux contrôler les interactions complexes.
+        </li>
+        <li>
+            <strong>Gestion dynamique des formulaires :</strong> Validation et capture des données des formulaires en JavaScript.
+        </li>
+        <li>
+            <strong>Animation et transitions via JavaScript :</strong> Manipulation des propriétés CSS et utilisation de JavaScript pour créer des animations dynamiques.
+        </li>
+        <li>
+            <strong>Optimisation des manipulations DOM :</strong> Techniques pour limiter le reflow/repaint et améliorer les performances des pages web interactives.
+        </li>
     </ul>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Exemple de Promise avec délai variable
-function delay(ms) {
-    return new Promise((resolve, reject) => {
-        if (ms < 1000) {
-            reject("Délai trop court !");
-        } else {
-            setTimeout(() => resolve(`Temps écoulé après ${ms} ms !`), ms);
-        }
-    });
-}
-
-// Exemple de chaîne de Promises
-delay(1500)
-    .then(message => {
-        console.log(message);
-        return delay(2000);  // Chaine une deuxième Promise
-    })
-    .then(message => console.log("Deuxième délai : " + message))
-    .catch(error => console.error("Erreur : " + error));
-
-// Utilisation de Promise.all pour gérer plusieurs Promises
-Promise.all([delay(1000), delay(2000), delay(3000)])
-    .then(messages => console.log("Tous les délais sont passés :", messages))
-    .catch(error => console.error("Une des Promises a échoué :", error));
-</code></pre>
-
-        <button onclick="executerPromiseChain()" class="btn btn-primary">Exécuter les Exemples de Promises</button>
-        
-        <div id="resultat-promises" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-</div>
-
-<script>
-    function delay(ms) {
-        return new Promise((resolve, reject) => {
-            if (ms < 1000) {
-                reject("Délai trop court !");
-            } else {
-                setTimeout(() => resolve(`Temps écoulé après ${ms} ms !`), ms);
-            }
-        });
-    }
-
-    function executerPromiseChain() {
-        // Exécution de la première chaîne de Promises
-        delay(1500)
-            .then(message => {
-                document.getElementById("resultat-promises").innerHTML = "Premier délai : " + message;
-                return delay(2000);  // Chaine une deuxième Promise
-            })
-            .then(message => {
-                document.getElementById("resultat-promises").innerHTML += "<br>Deuxième délai : " + message;
-            })
-            .catch(error => {
-                document.getElementById("resultat-promises").innerHTML = "Erreur dans la chaîne : " + error;
-            });
-
-        // Exécution de Promise.all pour plusieurs délais simultanés
-        Promise.all([delay(1000), delay(2000), delay(3000)])
-            .then(messages => {
-                document.getElementById("resultat-promises").innerHTML += "<br><br>Tous les délais sont passés :<br>" + messages.join("<br>");
-            })
-            .catch(error => {
-                document.getElementById("resultat-promises").innerHTML += "<br>Erreur avec Promise.all : " + error;
-            });
-    }
-</script>
-
-
-<div class="col-md-6">
-    <h3 id="async-await">Async/Await</h3>
     <p>
-        Les mots-clés <code>async</code> et <code>await</code> permettent d'écrire du code asynchrone en JavaScript de manière plus lisible et structurée, sans avoir à chaîner les <code>then</code> des Promises.
+        Chaque cours comprend des exemples interactifs et des exercices pratiques pour vous permettre de manipuler efficacement le DOM et de gérer les événements utilisateur. 
+        À la fin de cette section, vous serez capable de créer des interfaces dynamiques et réactives pour vos projets web.
     </p>
-    <ul>
-        <li><strong>Async</strong> : Ajouté devant une fonction, <code>async</code> indique que cette fonction retourne toujours une Promise, même si elle ne contient pas directement de Promise.</li>
-        <li><strong>Await</strong> : Utilisé uniquement à l'intérieur d'une fonction <code>async</code>, il suspend l'exécution de la fonction jusqu'à ce que la Promise soit résolue ou rejetée.</li>
-    </ul>
+    <div class="row">
 
-    <div class="example-box">
-        <pre><code class="language-javascript">// Exemple d'utilisation de async/await
-async function attendre(millis) {
-    return new Promise(resolve => setTimeout(() => resolve(`Attendu ${millis} ms`), millis));
-}
-
-// Fonction async pour gérer l'attente avec await
-async function executerAsync() {
-    let message1 = await attendre(1000);
-    console.log(message1);
-    let message2 = await attendre(2000);
-    console.log(message2);
-    return "Opérations terminées";
-}
-
-// Appel de la fonction async
-executerAsync().then(result => console.log(result));
-</code></pre>
-
-        <button onclick="executerAsyncAvecAffichage()" class="btn btn-primary">Exécuter Async/Await</button>
-        
-        <div id="resultat-async-await" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-</div>
-
-<script>
-    async function attendre(millis) {
-        return new Promise(resolve => setTimeout(() => resolve(`Attendu ${millis} ms`), millis));
-    }
-
-    async function executerAsyncAvecAffichage() {
-        let message1 = await attendre(1000);
-        document.getElementById("resultat-async-await").innerHTML = message1 + "<br>";
-        
-        let message2 = await attendre(2000);
-        document.getElementById("resultat-async-await").innerHTML += message2 + "<br>";
-        
-        document.getElementById("resultat-async-await").innerHTML += "Opérations terminées";
-    }
-</script>
-
-                </div>
-
-                <div class="row">
-                <div class="col-md-6">
-    <h3 id="classes">Classes</h3>
-    <p>
-        Les classes en JavaScript permettent de structurer le code de manière organisée en suivant le paradigme de la Programmation Orientée Objet (POO).
-        Elles définissent des objets avec des propriétés et des méthodes pour créer des instances avec des caractéristiques et des comportements similaires.
-    </p>
-    <ul>
-        <li><strong>Constructeur</strong> : Une fonction spéciale qui initialise les propriétés de l’objet lors de la création d’une instance.</li>
-        <li><strong>Propriétés</strong> : Variables attachées à l'objet (comme <code>nom</code> ou <code>age</code> dans l'exemple ci-dessous).</li>
-        <li><strong>Méthodes</strong> : Fonctions liées à l'objet pour définir son comportement (comme <code>parler</code>).</li>
-    </ul>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Définition d'une classe
-class Animal {
-    constructor(nom, age) {
-        this.nom = nom;  // Propriété nom
-        this.age = age;  // Propriété age
-    }
-
-    parler() {  // Méthode parler
-        return `${this.nom} fait un bruit !`;
-    }
-}
-
-// Création d'instances de la classe
-let chien = new Animal("Chien", 5);
-let chat = new Animal("Chat", 3);
-
-// Affichage des résultats
-console.log(chien.parler());  // "Chien fait un bruit !"
-console.log(chat.parler());   // "Chat fait un bruit !"
-</code></pre>
-
-        <button onclick="afficherResultatsClasses()" class="btn btn-primary">Créer et Afficher des Objets</button>
-        
-        <div id="resultat-classes" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-</div>
-
-<script>
-    class Animal {
-        constructor(nom, age) {
-            this.nom = nom;
-            this.age = age;
-        }
-
-        parler() {
-            return `${this.nom} fait un bruit !`;
-        }
-    }
-
-    function afficherResultatsClasses() {
-        let chien = new Animal("Chien", 5);
-        let chat = new Animal("Chat", 3);
-        
-        document.getElementById("resultat-classes").innerHTML =
-            chien.parler() + "<br>" + chat.parler();
-    }
-</script>
-<div class="col-md-6">
-    <h3 id="events">Événements</h3>
-    <p>
-        En JavaScript, les événements sont des actions déclenchées par l'utilisateur (comme un clic, un survol, ou une frappe) ou par le navigateur. Les événements permettent d'interagir avec la page et de créer des interactions dynamiques.
-    </p>
-    <ul>
-        <li><strong>click</strong> : Se déclenche lorsqu'un élément est cliqué.</li>
-        <li><strong>mouseover</strong> : Se déclenche lorsque la souris passe au-dessus d'un élément.</li>
-        <li><strong>keydown</strong> : Se déclenche lorsqu'une touche est pressée sur le clavier.</li>
-    </ul>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Exemple d'événements JavaScript
-// Fonction pour changer de couleur lors du clic
-function changerCouleur() {
-    document.getElementById("element").style.color = "blue";
-}
-
-// Fonction pour afficher un message lors du survol
-function afficherMessage() {
-    document.getElementById("resultat-events").textContent = "Vous avez survolé l'élément !";
-}
-</code></pre>
-
-        <button onclick="changerCouleur()" class="btn btn-primary">Changer la Couleur</button>
-        <div id="element" onmouseover="afficherMessage()" style="margin-top: 10px; font-weight: bold;">
-            Survolez-moi pour un message !
-        </div>
-        <div id="resultat-events" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-</div>
-
-<script>
-    function changerCouleur() {
-        document.getElementById("element").style.color = "blue";
-    }
-
-    function afficherMessage() {
-        document.getElementById("resultat-events").textContent = "Vous avez survolé l'élément !";
-    }
-</script>
-<div class="col-md-6">
-    <h3 id="dom-modification">Modification du DOM</h3>
-    <p>
-        La modification du DOM (Document Object Model) permet de changer le contenu, les styles, et la structure de la page web en réponse aux actions de l'utilisateur.
-        Cela inclut l'ajout, la suppression, ou la modification d'éléments HTML.
-    </p>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Exemple de modification du DOM
-// Changer le contenu d'un élément
-function changerTexte() {
-    document.getElementById("texte-modifiable").textContent = "Texte modifié avec JavaScript!";
-}
-
-// Ajouter un nouvel élément
-function ajouterElement() {
-    let nouvelElement = document.createElement("p");
-    nouvelElement.textContent = "Ceci est un nouvel élément ajouté.";
-    document.getElementById("conteneur").appendChild(nouvelElement);
-}
-
-// Supprimer un élément
-function supprimerElement() {
-    let elementASupprimer = document.getElementById("texte-modifiable");
-    elementASupprimer.remove();
-}
-</code></pre>
-
-        <button onclick="changerTexte()" class="btn btn-primary">Changer le Texte</button>
-        <button onclick="ajouterElement()" class="btn btn-secondary">Ajouter un Élément</button>
-        <button onclick="supprimerElement()" class="btn btn-danger">Supprimer l'Élément</button>
-
-        <div id="conteneur" style="margin-top: 10px;">
-            <p id="texte-modifiable">Cliquez sur les boutons pour modifier ce texte, ajouter ou supprimer un élément.</p>
-        </div>
-    </div>
-</div>
-
-<script>
-    function changerTexte() {
-        document.getElementById("texte-modifiable").textContent = "Texte modifié avec JavaScript!";
-    }
-
-    function ajouterElement() {
-        let nouvelElement = document.createElement("p");
-        nouvelElement.textContent = "Ceci est un nouvel élément ajouté.";
-        document.getElementById("conteneur").appendChild(nouvelElement);
-    }
-
-    function supprimerElement() {
-        let elementASupprimer = document.getElementById("texte-modifiable");
-        elementASupprimer.remove();
-    }
-</script>
-<div class="col-md-6">
+    <div class="col-md-12">
     <h3 id="dom-selection">Sélection du DOM</h3>
     <p>
-        En JavaScript, la sélection d'éléments du DOM permet d'accéder et de manipuler les éléments HTML de la page.
-        Voici les méthodes courantes pour sélectionner des éléments :
+        La sélection d'éléments du DOM est une étape fondamentale pour manipuler une page web. 
+        Elle permet d’accéder aux éléments HTML et de les modifier dynamiquement. En JavaScript, plusieurs méthodes permettent de sélectionner des éléments selon leurs identifiants, classes, balises ou sélecteurs CSS.
     </p>
+    <h4>Méthodes principales</h4>
     <ul>
-        <li><strong>document.getElementById(id)</strong> : Sélectionne un élément par son identifiant.</li>
-        <li><strong>document.getElementsByClassName(class)</strong> : Sélectionne tous les éléments avec une classe donnée.</li>
+        <li><strong>document.getElementById(id)</strong> : Sélectionne un élément unique par son identifiant (<code>id</code>).</li>
+        <li><strong>document.getElementsByClassName(class)</strong> : Sélectionne une collection d’éléments avec une classe donnée.</li>
         <li><strong>document.getElementsByTagName(tag)</strong> : Sélectionne tous les éléments avec une balise spécifique.</li>
-        <li><strong>document.querySelector(selector)</strong> : Sélectionne le premier élément qui correspond au sélecteur CSS donné.</li>
-        <li><strong>document.querySelectorAll(selector)</strong> : Sélectionne tous les éléments qui correspondent au sélecteur CSS donné.</li>
+        <li><strong>document.querySelector(selector)</strong> : Sélectionne le premier élément qui correspond à un sélecteur CSS donné.</li>
+        <li><strong>document.querySelectorAll(selector)</strong> : Sélectionne tous les éléments qui correspondent à un sélecteur CSS donné.</li>
     </ul>
 
+    <h4>Exemples pratiques</h4>
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemple de sélection d'éléments
-// Sélection par ID
-let elementParID = document.getElementById("exemple-id");
-elementParID.style.color = "blue";  // Change la couleur de texte
+        <pre><code class="language-javascript"><span class="comment">// Exemple de sélection d'éléments</span>
 
-// Sélection par classe
-let elementsParClasse = document.getElementsByClassName("exemple-classe");
-for (let elem of elementsParClasse) {
-    elem.style.fontWeight = "bold";
+// 1. Sélection par ID
+<span class="keyword">let</span> elementParID = document.getElementById(<span class="string">"exemple-id"</span>);
+elementParID.style.color = <span class="string">"blue"</span>;  <span class="comment">// Change la couleur de texte</span>
+
+// 2. Sélection par classe
+<span class="keyword">let</span> elementsParClasse = document.getElementsByClassName(<span class="string">"exemple-classe"</span>);
+<span class="keyword">for</span> (<span class="keyword">let</span> elem <span class="keyword">of</span> elementsParClasse) {
+    elem.style.fontWeight = <span class="string">"bold"</span>;  <span class="comment">// Change le poids du texte</span>
 }
 
-// Sélection par tag
-let elementsParTag = document.getElementsByTagName("p");
-elementsParTag[0].style.fontSize = "18px";
+// 3. Sélection par balise
+<span class="keyword">let</span> elementsParTag = document.getElementsByTagName(<span class="string">"p"</span>);
+elementsParTag[<span class="number">0</span>].style.fontSize = <span class="string">"18px"</span>;  <span class="comment">// Change la taille du texte du premier élément</span>
 
-// Sélection avec querySelector
-let premierElement = document.querySelector(".exemple-classe");
-premierElement.style.textDecoration = "underline";
+// 4. Sélection avec querySelector
+<span class="keyword">let</span> premierElement = document.querySelector(<span class="string">".exemple-classe"</span>);
+premierElement.style.textDecoration = <span class="string">"underline"</span>;  <span class="comment">// Souligne le premier élément trouvé</span>
 
-// Sélection avec querySelectorAll
-let tousLesElements = document.querySelectorAll("p");
-tousLesElements.forEach(el => el.style.margin = "10px 0");
+// 5. Sélection avec querySelectorAll
+<span class="keyword">let</span> tousLesElements = document.querySelectorAll(<span class="string">"p"</span>);
+tousLesElements.forEach(el => el.style.margin = <span class="string">"10px 0"</span>);  <span class="comment">// Ajoute une marge à chaque élément</span>
 </code></pre>
+    </div>
 
-        <button onclick="selectionnerElements()" class="btn btn-primary">Appliquer la Sélection</button>
-        
-        <div id="selection-exemple" style="margin-top: 10px;">
-            <p id="exemple-id">Cet élément est sélectionné par ID.</p>
-            <p class="exemple-classe">Cet élément est sélectionné par classe.</p>
-            <p class="exemple-classe">Un autre élément avec la même classe.</p>
-            <p>Élément sélectionné par balise.</p>
-        </div>
+    <h4>Cas d'utilisation courants</h4>
+    <p>Voici quelques exemples concrets de sélection d'éléments et leurs applications :</p>
+    <ul>
+        <li>
+            <strong>Modification de contenu dynamique :</strong> Sélectionnez un élément pour mettre à jour son texte, par exemple une notification utilisateur.
+        </li>
+        <li>
+            <strong>Application de styles :</strong> Changez dynamiquement les couleurs, tailles ou autres propriétés CSS des éléments.
+        </li>
+        <li>
+            <strong>Ajout ou suppression de classes :</strong> Ajoutez ou supprimez des classes pour activer/désactiver des styles CSS prédéfinis.
+        </li>
+        <li>
+            <strong>Gestion des formulaires :</strong> Accédez aux champs de formulaire pour valider ou capturer les données saisies par l'utilisateur.
+        </li>
+        <li>
+            <strong>Parcours d’une liste :</strong> Sélectionnez tous les éléments d’un tableau ou d’une liste et appliquez des modifications uniformes.
+        </li>
+    </ul>
+
+    <h4>Exemples supplémentaires</h4>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple supplémentaire : Ajout et suppression de classes CSS</span>
+
+// Ajouter une classe à un élément
+<span class="keyword">let</span> element = document.querySelector(<span class="string">"#exemple-id"</span>);
+element.classList.add(<span class="string">"nouvelle-classe"</span>);
+
+// Supprimer une classe
+element.classList.remove(<span class="string">"ancienne-classe"</span>);
+
+// Vérifier si une classe existe
+<span class="keyword">if</span> (element.classList.contains(<span class="string">"active"</span>)) {
+    console.log(<span class="string">"L'élément est actif."</span>);
+}
+
+// Basculer une classe
+element.classList.toggle(<span class="string">"highlight"</span>);
+</code></pre>
+    </div>
+
+    <h4>Exemple interactif</h4>
+    <div id="selection-exemple" style="margin-top: 10px;">
+        <p id="exemple-id">Cet élément est sélectionné par ID.</p>
+        <p class="exemple-classe">Cet élément est sélectionné par classe.</p>
+        <p class="exemple-classe">Un autre élément avec la même classe.</p>
+        <p>Élément sélectionné par balise.</p>
+        <button onclick="selectionnerElements()" class="btn btn-primary" style="margin-top: 10px;">Appliquer la Sélection</button>
     </div>
 </div>
 
@@ -940,1289 +824,2141 @@ tousLesElements.forEach(el => el.style.margin = "10px 0");
         // Sélection par classe
         let elementsParClasse = document.getElementsByClassName("exemple-classe");
         for (let elem of elementsParClasse) {
-            elem.style.fontWeight = "bold";
+            elem.style.fontWeight = "bold"; // Change le poids du texte
         }
 
-        // Sélection par tag
+        // Sélection par balise
         let elementsParTag = document.getElementsByTagName("p");
-        elementsParTag[0].style.fontSize = "18px";
+        elementsParTag[0].style.fontSize = "18px"; // Change la taille du texte du premier élément
 
         // Sélection avec querySelector
         let premierElement = document.querySelector(".exemple-classe");
-        premierElement.style.textDecoration = "underline";
+        premierElement.style.textDecoration = "underline"; // Souligne le premier élément trouvé
 
         // Sélection avec querySelectorAll
         let tousLesElements = document.querySelectorAll("p");
-        tousLesElements.forEach(el => el.style.margin = "10px 0");
+        tousLesElements.forEach(el => el.style.margin = "10px 0"); // Ajoute une marge à chaque élément
     }
 </script>
 
-                </div>
-            </div>
-
-            <!-- JavaScript Pro -->
-            <div class="content-section" id="js-pro">
-                <h1><i class="fas fa-laptop-code icon"></i>JavaScript Pro</h1>
-                <p>Les fonctionnalités avancées de JavaScript sont essentielles pour les développeurs expérimentés qui cherchent à optimiser leurs applications web.</p>
-
-                <div class="row">
-                <div class="col-md-12">
-    <h3 id="modules">Modules en JavaScript</h3>
+<div class="col-md-12">
+    <h3 id="dom-modification">Modification du DOM</h3>
     <p>
-        Les modules en JavaScript permettent de structurer le code en le divisant en plusieurs fichiers, chacun ayant une fonctionnalité spécifique. 
-        Cette approche améliore la maintenabilité, la réutilisation, et la clarté du code. Avec l'ES6, JavaScript introduit des mots-clés pour exporter 
-        et importer des éléments d’un module.
+        La modification du DOM permet de manipuler dynamiquement les éléments HTML, leurs contenus, leurs styles et même leur structure. 
+        Elle est essentielle pour rendre vos pages web interactives et réactives en réponse aux actions des utilisateurs.
     </p>
-    
+    <h4>Exemples courants</h4>
     <ul>
-        <li><strong>export</strong> : Permet de rendre des fonctions, objets ou variables accessibles depuis d'autres fichiers.</li>
-        <li><strong>import</strong> : Utilisé pour intégrer des éléments d'un module exporté dans un autre fichier.</li>
+        <li>Changer le texte ou le HTML d'un élément.</li>
+        <li>Modifier ou ajouter des styles CSS.</li>
+        <li>Créer, insérer, ou supprimer des éléments HTML.</li>
+        <li>Ajouter ou retirer des classes CSS pour activer des styles dynamiques.</li>
     </ul>
 
-    <h4>Avantages des Modules</h4>
-    <ul>
-        <li><strong>Encapsulation</strong> : Les modules permettent de limiter la portée des variables et fonctions, évitant les conflits globaux.</li>
-        <li><strong>Réutilisabilité</strong> : En organisant les fonctionnalités par fichier, on peut facilement réutiliser des modules.</li>
-        <li><strong>Maintenabilité</strong> : La structure modulaire rend le code plus lisible et plus simple à maintenir.</li>
-    </ul>
-
+    <h4>Exemples interactifs</h4>
     <div class="example-box">
-        <h4>Exemple : Création d'un Module JavaScript</h4>
-        <p>Imaginons que nous avons un fichier appelé <code>mathUtils.js</code> qui contient des fonctions mathématiques. Nous allons exporter des fonctions pour les utiliser ailleurs.</p>
-        
-        <pre><code class="language-javascript">// mathUtils.js
-export function addition(a, b) {
-    return a + b;
+        <pre><code class="language-javascript"><span class="comment">// Exemple de modification du DOM avancée</span>
+
+// Modifier le contenu texte d'un élément
+<span class="keyword">function</span> modifierTexte() {
+    document.getElementById(<span class="string">"texte-modifiable"</span>).textContent = <span class="string">"Texte mis à jour dynamiquement !"</span>;
 }
 
-export function soustraction(a, b) {
-    return a - b;
+// Modifier le contenu HTML d'un élément
+<span class="keyword">function</span> modifierHTML() {
+    document.getElementById(<span class="string">"conteneur-html"</span>).innerHTML = <span class="string">`
+        <h3>Nouvel HTML ajouté dynamiquement</h3>
+        <p>Ceci est un contenu dynamique avec des balises.</p>
+    `</span>;
 }
 
-// Export par défaut
-export default function multiplier(a, b) {
-    return a * b;
+// Ajouter un nouvel élément avec un style spécifique
+<span class="keyword">function</span> ajouterElementStylé() {
+    <span class="keyword">let</span> nouvelElement = document.createElement(<span class="string">"p"</span>);
+    nouvelElement.textContent = <span class="string">"Nouvel élément avec un style personnalisé."</span>;
+    nouvelElement.style.color = <span class="string">"purple"</span>;
+    nouvelElement.style.fontStyle = <span class="string">"italic"</span>;
+    document.getElementById(<span class="string">"conteneur"</span>).appendChild(nouvelElement);
+}
+
+// Supprimer tous les enfants d'un élément
+<span class="keyword">function</span> viderConteneur() {
+    <span class="keyword">let</span> conteneur = document.getElementById(<span class="string">"conteneur"</span>);
+    conteneur.innerHTML = <span class="string">""</span>;
+}
+
+// Alterner une classe CSS
+<span class="keyword">function</span> toggleClasse() {
+    document.getElementById(<span class="string">"texte-modifiable"</span>).classList.toggle(<span class="string">"highlight"</span>);
 }
 </code></pre>
 
-        <h4>Importer le Module dans un autre Fichier</h4>
-        <p>Dans un autre fichier, par exemple <code>main.js</code>, nous pouvons importer ces fonctions pour les utiliser.</p>
-        
-        <pre><code class="language-javascript">// main.js
-import multiplier, { addition, soustraction } from './mathUtils.js';
+        <button onclick="modifierTexte()" class="btn btn-primary">Modifier le Texte</button>
+        <button onclick="modifierHTML()" class="btn btn-secondary">Modifier le HTML</button>
+        <button onclick="ajouterElementStylé()" class="btn btn-success">Ajouter un Élément Stylé</button>
+        <button onclick="viderConteneur()" class="btn btn-danger">Vider le Conteneur</button>
+        <button onclick="toggleClasse()" class="btn btn-warning">Alterner une Classe CSS</button>
 
-console.log(addition(5, 3));         // 8
-console.log(soustraction(5, 3));     // 2
-console.log(multiplier(5, 3));       // 15
-</code></pre>
-        
-        <h4>Explications</h4>
-        <ul>
-            <li><code>export</code> rend les fonctions accessibles à l'extérieur du fichier <code>mathUtils.js</code>.</li>
-            <li><code>import</code> permet d'inclure les fonctions dans <code>main.js</code>.</li>
-            <li>La fonction <code>multiplier</code> est exportée par défaut, ce qui signifie que son importation n’exige pas de la nommer entre accolades.</li>
-        </ul>
-        
-        <h4>Autres Fonctions Avancées des Modules</h4>
-        <ul>
-            <li><strong>Renommer les Importations</strong> : Vous pouvez renommer les éléments importés pour éviter des conflits de nom.</li>
-            <li><strong>Réexporter depuis d'autres Modules</strong> : Utilisez <code>export * from './module'</code> pour réexporter tous les éléments d'un module existant.</li>
-            <li><strong>Chargement dynamique de Modules</strong> : Avec <code>import()</code>, vous pouvez charger des modules de manière dynamique, par exemple, en fonction de certaines conditions.</li>
-        </ul>
-
-        <h4>Exemple : Renommer les Importations</h4>
-        <pre><code class="language-javascript">// main.js avec renommer
-import { addition as add, soustraction as subtract } from './mathUtils.js';
-
-console.log(add(5, 3));             // 8
-console.log(subtract(5, 3));        // 2
-</code></pre>
-
-        <h4>Exemple : Chargement Dynamique de Modules</h4>
-        <p>Le chargement dynamique permet de charger des modules uniquement si nécessaire, ce qui peut optimiser les performances.</p>
-        <pre><code class="language-javascript">// Chargement dynamique
-async function chargerMultiplication() {
-    const { default: multiplier } = await import('./mathUtils.js');
-    console.log(multiplier(5, 3));   // 15
-}
-
-chargerMultiplication();
-</code></pre>
-
-        <p>Ce cours couvre les bases ainsi que les techniques avancées pour une utilisation professionnelle des modules en JavaScript.</p>
+        <div id="conteneur" style="margin-top: 20px;">
+            <p id="texte-modifiable">Cliquez sur les boutons pour voir les modifications.</p>
+            <div id="conteneur-html"></div>
+        </div>
     </div>
+
+    <h4>Cas d'utilisation pratiques</h4>
+    <p>Voici des exemples réels de modification du DOM pour des applications web :</p>
+    <ul>
+        <li>
+            <strong>Notifications dynamiques :</strong> Affichez ou masquez des messages d'erreur ou de succès après une action utilisateur.
+        </li>
+        <li>
+            <strong>Formulaires interactifs :</strong> Validez et mettez en évidence les champs d'un formulaire en fonction des données saisies.
+        </li>
+        <li>
+            <strong>Interface utilisateur réactive :</strong> Créez ou mettez à jour dynamiquement des tableaux, listes ou cartes de contenu en fonction des données récupérées.
+        </li>
+        <li>
+            <strong>Mode sombre :</strong> Alternez entre des thèmes clairs et sombres en basculant des classes CSS.
+        </li>
+        <li>
+            <strong>Animations CSS :</strong> Activez des animations en ajoutant ou supprimant des classes dynamiquement.
+        </li>
+    </ul>
 </div>
+
+<script>
+    // Modification du contenu texte
+    function modifierTexte() {
+        document.getElementById("texte-modifiable").textContent = "Texte mis à jour dynamiquement !";
+    }
+
+    // Modification du contenu HTML
+    function modifierHTML() {
+        document.getElementById("conteneur-html").innerHTML = `
+            <h3>Nouvel HTML ajouté dynamiquement</h3>
+            <p>Ceci est un contenu dynamique avec des balises.</p>
+        `;
+    }
+
+    // Ajouter un nouvel élément avec un style spécifique
+    function ajouterElementStylé() {
+        let nouvelElement = document.createElement("p");
+        nouvelElement.textContent = "Nouvel élément avec un style personnalisé.";
+        nouvelElement.style.color = "purple";
+        nouvelElement.style.fontStyle = "italic";
+        document.getElementById("conteneur").appendChild(nouvelElement);
+    }
+
+    // Supprimer tous les enfants d'un élément
+    function viderConteneur() {
+        let conteneur = document.getElementById("conteneur");
+        conteneur.innerHTML = "";
+    }
+
+    // Alterner une classe CSS
+    function toggleClasse() {
+        document.getElementById("texte-modifiable").classList.toggle("highlight");
+    }
+</script>
+
+<style>
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+        padding: 5px;
+    }
+</style>
 
 
 <div class="col-md-12">
-    <h3 id="fetch">API Fetch</h3>
+    <h3 id="events">Événements</h3>
     <p>
-        L'API <code>fetch</code> est une méthode moderne et puissante en JavaScript pour effectuer des requêtes HTTP et interagir avec des API. 
-        Elle utilise des Promises, rendant le code asynchrone plus lisible et facile à gérer.
+        Les événements en JavaScript permettent de capturer les actions des utilisateurs (clics, frappes au clavier, soumissions de formulaires) ou du navigateur 
+        (chargement de la page, redimensionnement de la fenêtre, etc.). Ils sont essentiels pour rendre une page web interactive.
     </p>
-
+    <h4>Types d'événements courants</h4>
     <ul>
-        <li><strong>Méthode GET</strong> : Utilisée pour récupérer des données depuis un serveur.</li>
-        <li><strong>Méthode POST</strong> : Utilisée pour envoyer des données au serveur, souvent dans des opérations de création.</li>
-        <li><strong>Méthodes PUT et DELETE</strong> : Utilisées respectivement pour mettre à jour et supprimer des ressources.</li>
+        <li><strong>click</strong> : Déclenché lorsqu'un élément est cliqué.</li>
+        <li><strong>mouseover</strong> : Déclenché lorsque la souris passe au-dessus d'un élément.</li>
+        <li><strong>keydown</strong> : Déclenché lorsqu'une touche du clavier est pressée.</li>
+        <li><strong>submit</strong> : Déclenché lorsqu’un formulaire est soumis.</li>
+        <li><strong>resize</strong> : Déclenché lorsqu’une fenêtre est redimensionnée.</li>
     </ul>
 
+    <h4>Exemples interactifs</h4>
     <div class="example-box">
-        <h4>Exemple : Effectuer une Requête GET</h4>
-        <p>Dans cet exemple, nous effectuons une requête pour obtenir des données d'un exemple d'API.</p>
-        
-        <pre><code class="language-javascript">// Exemple de requête GET
-fetch('https://jsonplaceholder.typicode.com/posts/1')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erreur de réseau');
-        }
-        return response.json();
-    })
-    .then(data => console.log(data))
-    .catch(error => console.error('Erreur:', error));
-</code></pre>
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'événements JavaScript</span>
 
-        <p>
-            <strong>Explications :</strong> La méthode <code>fetch</code> retourne une Promise. Une fois la réponse reçue, 
-            nous utilisons <code>response.json()</code> pour transformer la réponse en format JSON, qui est ensuite traité.
-        </p>
-
-        <h4>Exemple : Requête POST pour Envoyer des Données</h4>
-        <p>Dans cet exemple, nous envoyons des données au serveur en utilisant une requête POST.</p>
-        
-        <pre><code class="language-javascript">// Exemple de requête POST
-fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        title: 'Mon titre',
-        body: 'Contenu de l\'article',
-        userId: 1
-    })
-})
-    .then(response => response.json())
-    .then(data => console.log('Données envoyées:', data))
-    .catch(error => console.error('Erreur:', error));
-</code></pre>
-
-        <p>
-            <strong>Explications :</strong> La requête POST utilise les options <code>method</code>, <code>headers</code>, 
-            et <code>body</code>. Nous définissons <code>Content-Type</code> pour indiquer que nous envoyons des données au format JSON.
-        </p>
-
-        <h4>Utilisation de <code>async/await</code> pour Simplifier l'Utilisation de Fetch</h4>
-        <p>L'utilisation de <code>async/await</code> permet de rendre le code encore plus lisible.</p>
-        
-        <pre><code class="language-javascript">// Exemple avec async/await
-async function obtenirArticle() {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-        if (!response.ok) throw new Error('Erreur de réseau');
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error('Erreur:', error);
-    }
+// Changer la couleur d'un élément au clic
+<span class="keyword">function</span> changerCouleur() {
+    document.getElementById(<span class="string">"element"</span>).style.color = <span class="string">"blue"</span>;
 }
 
-obtenirArticle();
+// Afficher un message au survol
+<span class="keyword">function</span> afficherMessage() {
+    document.getElementById(<span class="string">"resultat-events"</span>).textContent = <span class="string">"Vous avez survolé l'élément !"</span>;
+}
+
+// Capturer une touche pressée
+<span class="keyword">function</span> afficherTouche(event) {
+    document.getElementById(<span class="string">"resultat-keydown"</span>).textContent = <span class="string">`Touche pressée : ${event.key}`</span>;
+}
+
+// Capturer la soumission d'un formulaire
+<span class="keyword">function</span> gererSoumission(event) {
+    event.preventDefault(); <span class="comment">// Empêche le comportement par défaut de la soumission</span>
+    document.getElementById(<span class="string">"resultat-submit"</span>).textContent = <span class="string">"Formulaire soumis !"</span>;
+}
+
+// Réagir au redimensionnement de la fenêtre
+<span class="keyword">function</span> afficherDimensions() {
+    <span class="keyword">let</span> largeur = window.innerWidth;
+    <span class="keyword">let</span> hauteur = window.innerHeight;
+    document.getElementById(<span class="string">"resultat-resize"</span>).textContent = <span class="string">`Dimensions : ${largeur}x${hauteur}`</span>;
+}
 </code></pre>
 
-        <h4>Requête PUT pour Mettre à Jour une Ressource</h4>
-        <pre><code class="language-javascript">// Exemple de requête PUT
-fetch('https://jsonplaceholder.typicode.com/posts/1', {
-    method: 'PUT',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        id: 1,
-        title: 'Titre mis à jour',
-        body: 'Contenu mis à jour',
-        userId: 1
-    })
-})
-    .then(response => response.json())
-    .then(data => console.log('Données mises à jour:', data))
-    .catch(error => console.error('Erreur:', error));
-</code></pre>
-
-        <h4>Requête DELETE pour Supprimer une Ressource</h4>
-        <pre><code class="language-javascript">// Exemple de requête DELETE
-fetch('https://jsonplaceholder.typicode.com/posts/1', {
-    method: 'DELETE'
-})
-    .then(response => {
-        if (response.ok) console.log('Ressource supprimée');
-    })
-    .catch(error => console.error('Erreur:', error));
-</code></pre>
-        
-        <p>Ces exemples couvrent les opérations HTTP de base en utilisant <code>fetch</code>, et présentent des bonnes pratiques pour gérer les erreurs.</p>
-    </div>
-</div>
-
-                </div>
-
-                <div class="row">
-                <div class="col-md-12">
-                <h3 id="webstorage">Web Storage</h3>
-<p>
-    Le <strong>Web Storage</strong> est une API permettant de stocker des données côté client dans le navigateur. 
-    Il inclut deux mécanismes principaux :
-</p>
-<ul>
-    <li><strong>localStorage</strong> : Stocke les données sans date d'expiration, même après la fermeture du navigateur.</li>
-    <li><strong>sessionStorage</strong> : Stocke les données pendant la session de navigation en cours. Les données sont supprimées une fois la session fermée.</li>
-</ul>
-
-<h4>Méthodes Principales de Web Storage</h4>
-<p>Les méthodes suivantes permettent d'interagir avec <code>localStorage</code> et <code>sessionStorage</code> :</p>
-
-<ul>
-    <li>
-        <strong>setItem(key, value)</strong> : Cette méthode permet de stocker une donnée dans <code>localStorage</code> ou <code>sessionStorage</code>. Elle prend deux paramètres :
-        <ul>
-            <li><code>key</code> : la clé sous laquelle la donnée sera stockée.</li>
-            <li><code>value</code> : la valeur de la donnée à stocker.</li>
-        </ul>
-        <p><em>Exemple :</em></p>
-        <pre><code class="language-javascript">// Stocker une donnée
-localStorage.setItem('nom', 'Alice'); // Stocke 'Alice' sous la clé 'nom'
-sessionStorage.setItem('sessionUser', 'John'); // Stocke 'John' pour la session active</code></pre>
-    </li>
-
-    <li>
-        <strong>getItem(key)</strong> : Récupère une donnée stockée en utilisant la clé. Retourne <code>null</code> si aucune donnée n'est trouvée pour la clé donnée.
-        <p><em>Exemple :</em></p>
-        <pre><code class="language-javascript">// Récupérer une donnée
-let nom = localStorage.getItem('nom'); // Récupère 'Alice'
-console.log(nom); // Affiche "Alice"</code></pre>
-    </li>
-
-    <li>
-        <strong>removeItem(key)</strong> : Supprime un élément spécifique du stockage en utilisant la clé fournie, ce qui permet de libérer de l'espace pour d'autres données.
-        <p><em>Exemple :</em></p>
-        <pre><code class="language-javascript">// Supprimer une donnée
-localStorage.removeItem('nom'); // Supprime l'élément avec la clé 'nom'</code></pre>
-    </li>
-
-    <li>
-        <strong>clear()</strong> : Supprime toutes les données stockées dans <code>localStorage</code> ou <code>sessionStorage</code>, en fonction de l'API utilisée.
-        <p><em>Exemple :</em></p>
-        <pre><code class="language-javascript">// Effacer tout le stockage
-localStorage.clear(); // Supprime toutes les données de localStorage
-sessionStorage.clear(); // Supprime toutes les données de sessionStorage</code></pre>
-    </li>
-</ul>
-
-
-    <div class="example-box">
-        <h4>Exemple : Utilisation de <code>localStorage</code></h4>
-        <p>Dans cet exemple, nous stockons, récupérons et supprimons un élément depuis le <code>localStorage</code>.</p>
-
-        <pre><code class="language-javascript">// Stockage de données
-localStorage.setItem('nom', 'Alice');
-
-// Récupération de données
-let nom = localStorage.getItem('nom');
-console.log('Nom:', nom); // Affiche "Nom: Alice"
-
-// Suppression de données
-localStorage.removeItem('nom');
-</code></pre>
-
-        <button onclick="utiliserLocalStorage()" class="btn btn-primary">Tester localStorage</button>
-        <div id="resultat-localStorage" style="margin-top: 10px; font-weight: bold;"></div>
-
-        <h4>Exemple : Utilisation de <code>sessionStorage</code></h4>
-        <p>Dans cet exemple, nous stockons, récupérons et supprimons un élément depuis le <code>sessionStorage</code>.</p>
-
-        <pre><code class="language-javascript">// Stockage de données
-sessionStorage.setItem('sessionUser', 'John Doe');
-
-// Récupération de données
-let sessionUser = sessionStorage.getItem('sessionUser');
-console.log('Session User:', sessionUser); // Affiche "Session User: John Doe"
-
-// Suppression de données
-sessionStorage.removeItem('sessionUser');
-</code></pre>
-
-        <button onclick="utiliserSessionStorage()" class="btn btn-primary">Tester sessionStorage</button>
-        <div id="resultat-sessionStorage" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-
-    <!-- Section ajoutée pour la gestion complète de Web Storage -->
-    <div class="example-box mt-5">
-        <h4>Gestion Complète : Sauvegarder, Charger et Effacer</h4>
-
-        <!-- Formulaire pour entrer les informations -->
-        <div class="mb-3">
-            <label for="userName" class="form-label">Nom d'utilisateur :</label>
-            <input type="text" id="userName" class="form-control" placeholder="Entrez votre nom">
+        <button onclick="changerCouleur()" class="btn btn-primary">Changer la Couleur</button>
+        <div id="element" onmouseover="afficherMessage()" style="margin-top: 10px; font-weight: bold;">
+            Survolez-moi pour un message !
         </div>
-        <div class="mb-3">
-            <label for="userColor" class="form-label">Couleur préférée :</label>
-            <input type="color" id="userColor" class="form-control">
+        <div id="resultat-events" style="margin-top: 10px; font-weight: bold;"></div>
+        <div style="margin-top: 10px;">
+            <input type="text" placeholder="Tapez quelque chose..." onkeydown="afficherTouche(event)" class="form-control">
+            <div id="resultat-keydown" style="margin-top: 10px; font-weight: bold;"></div>
         </div>
-
-        <button class="btn btn-danger" onclick="saveToLocalStorage()">Sauvegarder dans localStorage</button>
-        <button class="btn btn-secondary" onclick="saveToSessionStorage()">Sauvegarder dans sessionStorage</button>
-        <button class="btn btn-warning" onclick="clearStorage()">Effacer le stockage</button>
-
-        <div id="storageResult" class="mt-4"></div>
+        <form onsubmit="gererSoumission(event)" style="margin-top: 10px;">
+            <label for="input-form">Saisissez quelque chose :</label>
+            <input type="text" id="input-form" class="form-control" required>
+            <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Soumettre</button>
+        </form>
+        <div id="resultat-submit" style="margin-top: 10px; font-weight: bold;"></div>
+        <div style="margin-top: 10px;">
+            <p>Redimensionnez la fenêtre pour voir les dimensions :</p>
+            <div id="resultat-resize" style="font-weight: bold;"></div>
+        </div>
     </div>
 </div>
 
 <script>
-// Fonction pour tester l'utilisation de localStorage
-function utiliserLocalStorage() {
-    // Stockage de données
-    localStorage.setItem('nom', 'Alice');
-
-    // Récupération de données
-    let nom = localStorage.getItem('nom');
-
-    // Affichage du résultat
-    document.getElementById('resultat-localStorage').innerHTML = 
-        "Stocké dans localStorage : Nom = " + nom;
-
-    // Suppression de données
-    localStorage.removeItem('nom');
-}
-
-// Fonction pour tester l'utilisation de sessionStorage
-function utiliserSessionStorage() {
-    // Stockage de données
-    sessionStorage.setItem('sessionUser', 'John Doe');
-
-    // Récupération de données
-    let sessionUser = sessionStorage.getItem('sessionUser');
-
-    // Affichage du résultat
-    document.getElementById('resultat-sessionStorage').innerHTML = 
-        "Stocké dans sessionStorage : Utilisateur = " + sessionUser;
-
-    // Suppression de données
-    sessionStorage.removeItem('sessionUser');
-}
-
-// Fonction pour sauvegarder dans localStorage
-function saveToLocalStorage() {
-    const userName = document.getElementById("userName").value;
-    const userColor = document.getElementById("userColor").value;
-
-    if (userName && userColor) {
-        localStorage.setItem("userName", userName);
-        localStorage.setItem("userColor", userColor);
-        displayResult("Données sauvegardées dans localStorage !");
-    } else {
-        displayResult("Veuillez entrer toutes les informations.", "danger");
+    // Changer la couleur d'un élément au clic
+    function changerCouleur() {
+        document.getElementById("element").style.color = "blue";
     }
-}
 
-// Fonction pour sauvegarder dans sessionStorage
-function saveToSessionStorage() {
-    const userName = document.getElementById("userName").value;
-    const userColor = document.getElementById("userColor").value;
-
-    if (userName && userColor) {
-        sessionStorage.setItem("userName", userName);
-        sessionStorage.setItem("userColor", userColor);
-        displayResult("Données sauvegardées dans sessionStorage !");
-    } else {
-        displayResult("Veuillez entrer toutes les informations.", "danger");
+    // Afficher un message au survol
+    function afficherMessage() {
+        document.getElementById("resultat-events").textContent = "Vous avez survolé l'élément !";
     }
-}
 
-// Fonction pour afficher un message de résultat
-function displayResult(message, type = "success") {
-    const resultDiv = document.getElementById("storageResult");
-    resultDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
-}
-
-// Fonction pour effacer les données du stockage
-function clearStorage() {
-    localStorage.clear();
-    sessionStorage.clear();
-    displayResult("Les données ont été effacées.");
-}
-
-// Chargement des données lors de l'ouverture de la page
-document.addEventListener("DOMContentLoaded", () => {
-    const userName = localStorage.getItem("userName") || sessionStorage.getItem("userName");
-    const userColor = localStorage.getItem("userColor") || sessionStorage.getItem("userColor");
-
-    if (userName && userColor) {
-        document.getElementById("userName").value = userName;
-        document.getElementById("userColor").value = userColor;
-        displayResult("Données chargées depuis le stockage.");
+    // Capturer une touche pressée
+    function afficherTouche(event) {
+        document.getElementById("resultat-keydown").textContent = `Touche pressée : ${event.key}`;
     }
-});
+
+    // Capturer la soumission d'un formulaire
+    function gererSoumission(event) {
+        event.preventDefault(); // Empêche la soumission par défaut
+        document.getElementById("resultat-submit").textContent = "Formulaire soumis !";
+    }
+
+    // Réagir au redimensionnement de la fenêtre
+    function afficherDimensions() {
+        let largeur = window.innerWidth;
+        let hauteur = window.innerHeight;
+        document.getElementById("resultat-resize").textContent = `Dimensions : ${largeur}x${hauteur}`;
+    }
+
+    // Ajouter un écouteur pour l'événement de redimensionnement
+    window.addEventListener("resize", afficherDimensions);
 </script>
 
-
-
-<div class="col-md-12">
-    <h3 id="json">JSON</h3>
-    <p>
-        JSON, ou JavaScript Object Notation, est un format léger et lisible de représentation de données en texte structuré. 
-        Il est largement utilisé pour échanger des informations entre le client et le serveur.
-    </p>
-    <ul>
-        <li><strong>Simplicité</strong> : JSON est facile à lire et à écrire pour les humains et simple à interpréter pour les machines.</li>
-        <li><strong>Structure</strong> : JSON utilise des paires clé-valeur, similaires aux objets JavaScript.</li>
-        <li><strong>Compatibilité</strong> : JSON est indépendant du langage et peut être utilisé avec de nombreux langages de programmation.</li>
-    </ul>
-
-    <div class="example-box">
-        <h4>Exemple : Conversion d'un objet JavaScript en JSON</h4>
-        <pre><code class="language-javascript">// Objet JavaScript
-const utilisateur = {
-    nom: "Alice",
-    age: 25,
-    pays: "France"
-};
-
-// Conversion de l'objet en JSON
-const jsonUtilisateur = JSON.stringify(utilisateur);
-console.log(jsonUtilisateur); // Affiche le JSON sous forme de texte
-</code></pre>
-
-        <button onclick="convertirEnJSON()" class="btn btn-primary">Convertir en JSON</button>
-        <div id="resultat-json" style="margin-top: 10px; font-weight: bold;"></div>
-
-        <h4>Exemple : Conversion de JSON en Objet JavaScript</h4>
-        <pre><code class="language-javascript">// Chaîne JSON
-const dataJSON = '{"nom": "Bob", "age": 30, "pays": "Canada"}';
-
-// Conversion du JSON en objet JavaScript
-const objetUtilisateur = JSON.parse(dataJSON);
-console.log(objetUtilisateur); // Affiche l'objet JavaScript
-</code></pre>
-
-        <button onclick="convertirEnObjet()" class="btn btn-primary">Convertir en Objet JavaScript</button>
-        <div id="resultat-objet" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
 </div>
 
-<script>
-    function convertirEnJSON() {
-        const utilisateur = {
-            nom: "Alice",
-            age: 25,
-            pays: "France"
-        };
-
-        // Conversion de l'objet en JSON
-        const jsonUtilisateur = JSON.stringify(utilisateur);
-
-        // Affichage du résultat
-        document.getElementById("resultat-json").innerHTML = "Objet en JSON : " + jsonUtilisateur;
-    }
-
-    function convertirEnObjet() {
-        const dataJSON = '{"nom": "Bob", "age": 30, "pays": "Canada"}';
-
-        // Conversion du JSON en objet JavaScript
-        const objetUtilisateur = JSON.parse(dataJSON);
-
-        // Affichage du résultat
-        document.getElementById("resultat-objet").innerHTML = 
-            "JSON en Objet : Nom = " + objetUtilisateur.nom + ", Age = " + objetUtilisateur.age + ", Pays = " + objetUtilisateur.pays;
-    }
-</script>
-<div class="col-md-12">
-    <h3 id="poo">Programmation Orientée Objet (POO) en JavaScript</h3>
+<!-- JavaScript Avancé -->
+<div class="content-section" id="js-avance">
+    <h1><i class="fas fa-rocket icon"></i> JavaScript Avancé</h1>
     <p>
-        La <strong>Programmation Orientée Objet (POO)</strong> est un paradigme de programmation basé sur la notion d’<strong>objets</strong>, lesquels représentent des entités ayant des caractéristiques (propriétés) et des comportements (méthodes).
-        En JavaScript, bien qu’étant à l’origine un langage orienté prototype, la POO est maintenant pleinement intégrée grâce aux <strong>classes</strong> depuis la spécification ECMAScript 6 (ES6).
+        Le JavaScript avancé est une étape essentielle pour les développeurs souhaitant maîtriser pleinement ce langage. 
+        Il va au-delà des bases pour se concentrer sur des concepts, outils et techniques qui permettent de créer des applications plus dynamiques, performantes et maintenables.
     </p>
-
-    <h4>Concepts Fondamentaux de la POO</h4>
+    <p>
+        Dans cette section, vous apprendrez à utiliser des fonctionnalités modernes de JavaScript, à manipuler le DOM de manière avancée, 
+        et à gérer des interactions complexes avec des serveurs, des API et des données asynchrones. Vous serez également initié aux meilleures pratiques de développement pour produire un code propre, efficace et évolutif.
+    </p>
+    <h2>Contenu des cours</h2>
     <ul>
-        <li><strong>Objet</strong> : Instance d’une classe regroupant des données et des fonctionnalités.</li>
-        <li><strong>Classe</strong> : Modèle définissant les propriétés et comportements d’un objet. Définie avec le mot-clé <code>class</code>.</li>
-        <li><strong>Constructeur</strong> : Méthode spéciale <code>constructor</code> appelée automatiquement lors de la création d'un objet.</li>
-        <li><strong>Méthode</strong> : Fonction définie dans une classe pour interagir avec l’objet.</li>
-        <li><strong>Héritage</strong> : Mécanisme permettant de créer une classe basée sur une autre.</li>
-        <li><strong>Encapsulation</strong> : Restreindre l'accès aux propriétés pour un meilleur contrôle.</li>
-        <li><strong>Polymorphisme</strong> : Traitement uniforme d'objets de types différents.</li>
+        <li>
+            <strong>Promises et Async/Await :</strong> Gestion du code asynchrone pour effectuer des opérations comme les requêtes API sans bloquer l'exécution.
+        </li>
+        <li>
+            <strong>Classes et Programmation Orientée Objet (POO) :</strong> Structure de votre code avec des concepts avancés d’héritage et d’encapsulation.
+        </li>
+        <li>
+            <strong>Manipulation Avancée du DOM :</strong> Techniques pour sélectionner, modifier et manipuler les éléments HTML de manière performante.
+        </li>
+        <li>
+            <strong>Événements et Listeners :</strong> Gestion efficace des événements utilisateur pour améliorer l'interactivité.
+        </li>
+        <li>
+            <strong>Modules JavaScript :</strong> Organisation et réutilisation du code avec l'import/export de fonctionnalités.
+        </li>
+        <li>
+            <strong>Fetch API et Gestion des Données :</strong> Communication avec des serveurs pour récupérer et envoyer des données.
+        </li>
+        <li>
+            <strong>JSON et Web Storage :</strong> Manipulation des données JSON et stockage local avec LocalStorage ou SessionStorage.
+        </li>
+        <li>
+            <strong>Service Workers et Progressive Web Apps (PWA) :</strong> Création d’applications web modernes avec des fonctionnalités hors ligne.
+        </li>
+        <li>
+            <strong>Gestion des Erreurs et Debugging :</strong> Techniques pour identifier, prévenir et résoudre les erreurs efficacement.
+        </li>
+    </ul>
+    <p>
+        Chaque cours inclut des exemples pratiques, des exercices interactifs, et des projets pour appliquer vos nouvelles compétences. 
+        À la fin de cette section, vous serez capable de développer des applications JavaScript avancées et professionnelles.
+    </p>
+    <div class="row">
+    <div class="col-md-12">
+    <h3 id="classes">Classes</h3>
+    <p>
+        En JavaScript, les classes sont une fonctionnalité introduite avec ES6. Elles permettent de créer des modèles réutilisables 
+        pour structurer le code et organiser des fonctionnalités communes. Bien que les classes soient une abstraction, elles facilitent la gestion des données 
+        et des comportements liés à ces données.
+    </p>
+    <h4>Caractéristiques principales</h4>
+    <ul>
+        <li><strong>Création de classes :</strong> Déclaration d'une classe avec le mot-clé <code>class</code>.</li>
+        <li><strong>Constructeur :</strong> Une méthode spéciale appelée automatiquement lors de l'instanciation d'une classe.</li>
+        <li><strong>Méthodes :</strong> Fonctionnalités définies à l'intérieur des classes pour effectuer des actions spécifiques.</li>
+        <li><strong>Propriétés statiques :</strong> Propriétés directement accessibles via la classe, sans créer une instance.</li>
     </ul>
 
-    <h4>Exemple de Code avec Explications</h4>
-    <p>Ce code utilise plusieurs concepts de POO : création de classes, héritage, méthodes et surcharge de méthodes.</p>
-
+    <h4>Exemples pratiques</h4>
     <div class="example-box">
-        <pre><code class="language-javascript">// Définition de la classe de base Animal
-class Animal {
-    constructor(nom, age) {
-        this.nom = nom; // Propriété publique
+        <pre><code class="language-javascript"><span class="comment">// Définir une classe</span>
+<span class="keyword">class</span> Voiture {
+    <span class="comment">// Le constructeur initialise les propriétés</span>
+    <span class="keyword">constructor</span>(marque, modele, annee) {
+        this.marque = marque;
+        this.modele = modele;
+        this.annee = annee;
+    }
+
+    <span class="comment">// Méthode pour afficher les détails de la voiture</span>
+    afficherDetails() {
+        <span class="keyword">return</span> <span class="string">`Voiture : ${this.marque} ${this.modele}, Année : ${this.annee}`</span>;
+    }
+
+    <span class="comment">// Propriété statique</span>
+    <span class="keyword">static</span> categorie = <span class="string">"Véhicule"</span>;
+
+    <span class="comment">// Méthode statique</span>
+    <span class="keyword">static</span> comparer(voiture1, voiture2) {
+        <span class="keyword">return</span> voiture1.annee > voiture2.annee ? voiture1 : voiture2;
+    }
+}
+
+<span class="comment">// Instanciation d'une classe</span>
+<span class="keyword">let</span> voiture1 = <span class="keyword">new</span> Voiture(<span class="string">"Toyota"</span>, <span class="string">"Corolla"</span>, <span class="number">2020</span>);
+<span class="keyword">let</span> voiture2 = <span class="keyword">new</span> Voiture(<span class="string">"Honda"</span>, <span class="string">"Civic"</span>, <span class="number">2018</span>);
+
+<span class="comment">// Utiliser une méthode</span>
+console.log(voiture1.afficherDetails()); <span class="comment">// Voiture : Toyota Corolla, Année : 2020</span>
+
+<span class="comment">// Accéder à une propriété statique</span>
+console.log(Voiture.categorie); <span class="comment">// Véhicule</span>
+
+<span class="comment">// Utiliser une méthode statique</span>
+<span class="keyword">let</span> plusRecente = Voiture.comparer(voiture1, voiture2);
+console.log(plusRecente.afficherDetails()); <span class="comment">// Voiture : Toyota Corolla, Année : 2020</span>
+</code></pre>
+    </div>
+
+    <h4>Cas d'utilisation pratiques</h4>
+    <p>Les classes peuvent être utilisées pour :</p>
+    <ul>
+        <li><strong>Modéliser des entités :</strong> Créer des modèles simples pour structurer les données, comme des produits, des utilisateurs ou des véhicules.</li>
+        <li><strong>Créer des collections réutilisables :</strong> Définir des fonctionnalités standardisées pour des groupes similaires d'objets.</li>
+        <li><strong>Ajouter des méthodes spécifiques :</strong> Faciliter les opérations fréquentes sur des ensembles de données.</li>
+        <li><strong>Centraliser des propriétés ou méthodes :</strong> Utiliser des méthodes ou propriétés statiques pour des valeurs communes.</li>
+    </ul>
+</div>
+<div class="col-md-12">
+    <h3 id="poo">Programmation Orientée Objet (POO)</h3>
+    <p>
+        Après avoir exploré les classes, il est important de comprendre leur rôle dans un paradigme plus large : la Programmation Orientée Objet (POO).
+        Les classes sont un outil de la POO, mais la POO va bien au-delà en proposant une manière de penser et de structurer votre code en JavaScript.
+    </p>
+
+    <h4>Différence entre les Classes et la POO</h4>
+    <ul>
+        <li>
+            <strong>Classes :</strong> Une abstraction qui permet de créer des modèles d'objets. Elles se concentrent sur la création et la gestion de structures spécifiques.
+        </li>
+        <li>
+            <strong>POO :</strong> Un paradigme de programmation qui repose sur des concepts comme l'encapsulation, l'héritage, et le polymorphisme. 
+            La POO utilise les classes et les objets pour structurer le code, favoriser la réutilisation et faciliter la maintenance.
+        </li>
+    </ul>
+
+    <h4>Principes fondamentaux de la POO</h4>
+    <p>La POO repose sur quatre piliers principaux :</p>
+    <ul>
+        <li><strong>Encapsulation :</strong> Regrouper les données (propriétés) et les comportements (méthodes) dans une entité appelée objet.</li>
+        <li><strong>Héritage :</strong> Créer des relations entre les classes pour partager des propriétés et des méthodes communes.</li>
+        <li><strong>Polymorphisme :</strong> Permettre à des méthodes ou des objets de prendre plusieurs formes, souvent en redéfinissant ou en surchargeant des méthodes.</li>
+        <li><strong>Abstraction :</strong> Cacher les détails complexes pour ne montrer que l'essentiel à l'utilisateur.</li>
+    </ul>
+
+    <h4>Exemples pratiques</h4>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple de POO en JavaScript</span>
+
+<span class="comment">// Classe de base (Encapsulation)</span>
+<span class="keyword">class</span> Animal {
+    <span class="keyword">constructor</span>(nom, type) {
+        this.nom = nom;
+        this.type = type;
+    }
+
+    <span class="comment">// Méthode générique</span>
+    decrire() {
+        <span class="keyword">return</span> <span class="string">`${this.nom} est un ${this.type}.`</span>;
+    }
+}
+
+<span class="comment">// Héritage : Classe spécifique qui hérite de la classe Animal</span>
+<span class="keyword">class</span> Chien <span class="keyword">extends</span> Animal {
+    <span class="comment">// Ajout d'une méthode spécifique</span>
+    aboyer() {
+        <span class="keyword">return</span> <span class="string">`Woof! Je suis ${this.nom}.`</span>;
+    }
+}
+
+<span class="comment">// Polymorphisme : Redéfinition de la méthode decrire</span>
+<span class="keyword">class</span> Chat <span class="keyword">extends</span> Animal {
+    decrire() {
+        <span class="keyword">return</span> <span class="string">`${this.nom} est un chat très mignon.`</span>;
+    }
+}
+
+<span class="comment">// Instanciation d'objets</span>
+<span class="keyword">let</span> animal1 = <span class="keyword">new</span> Animal(<span class="string">"Daisy"</span>, <span class="string">"oiseau"</span>);
+<span class="keyword">let</span> chien1 = <span class="keyword">new</span> Chien(<span class="string">"Max"</span>, <span class="string">"chien"</span>);
+<span class="keyword">let</span> chat1 = <span class="keyword">new</span> Chat(<span class="string">"Milo"</span>, <span class="string">"chat"</span>);
+
+<span class="comment">// Utilisation des méthodes</span>
+console.log(animal1.decrire()); <span class="comment">// Daisy est un oiseau.</span>
+console.log(chien1.decrire());  <span class="comment">// Max est un chien.</span>
+console.log(chien1.aboyer());  <span class="comment">// Woof! Je suis Max.</span>
+console.log(chat1.decrire());  <span class="comment">// Milo est un chat très mignon.</span>
+</code></pre>
+    </div>
+
+    <h4>Concepts avancés</h4>
+    <ul>
+        <li><strong>Constructeurs parent et super :</strong> Utilisation du mot-clé <code>super</code> pour accéder au constructeur ou aux méthodes d’une classe parente.</li>
+        <li><strong>Getters et Setters :</strong> Méthodes pour accéder ou modifier des propriétés tout en encapsulant la logique.</li>
+        <li><strong>Composition :</strong> Utilisation d'autres objets au lieu d'hériter d'une classe (concept <em>has-a</em>).</li>
+    </ul>
+
+    <h4>Exemples supplémentaires</h4>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple avec super et getters/setters</span>
+
+<span class="keyword">class</span> Personne {
+    <span class="keyword">constructor</span>(nom, age) {
+        this.nom = nom;
         this.age = age;
     }
 
-    // Méthode de base
-    sePresenter() {
-        return `Je suis un ${this.nom} et j'ai ${this.age} ans.`;
+    <span class="comment">// Getter pour le nom complet</span>
+    get nomComplet() {
+        <span class="keyword">return</span> <span class="string">`Nom complet : ${this.nom}`</span>;
+    }
+
+    <span class="comment">// Setter pour changer le nom</span>
+    set changerNom(nouveauNom) {
+        this.nom = nouveauNom;
     }
 }
 
-// Sous-classe Chat qui hérite de Animal
-class Chat extends Animal {
-    constructor(nom, age, couleur) {
-        super(nom, age); // Appel du constructeur parent
-        this.couleur = couleur;
+<span class="comment">// Héritage et utilisation de super</span>
+<span class="keyword">class</span> Etudiant <span class="keyword">extends</span> Personne {
+    <span class="keyword">constructor</span>(nom, age, programme) {
+        <span class="keyword">super</span>(nom, age); <span class="comment">// Appelle le constructeur parent</span>
+        this.programme = programme;
     }
 
-    // Surcharge de méthode
-    sePresenter() {
-        return `Je suis un chat de couleur ${this.couleur}, mon nom est ${this.nom}.`;
-    }
-
-    miauler() {
-        return `${this.nom} fait "Miaou !"`;
+    decrire() {
+        <span class="keyword">return</span> <span class="string">`${this.nom}, ${this.age} ans, étudie ${this.programme}.`</span>;
     }
 }
 
-// Exécution des exemples
-function creerExemplesPOO() {
-    const animal = new Animal("Chien", 5);
-    const chat = new Chat("Whiskers", 3, "gris");
+<span class="comment">// Instanciation</span>
+<span class="keyword">let</span> etudiant1 = <span class="keyword">new</span> Etudiant(<span class="string">"Alice"</span>, <span class="number">22</span>, <span class="string">"Informatique"</span>);
 
-    document.getElementById("resultat-poo").innerHTML = 
-        animal.sePresenter() + "<br>" + 
-        chat.sePresenter() + "<br>" + 
-        chat.miauler();
-}</code></pre>
-        <button onclick="creerExemplesPOO()" class="btn btn-primary">Exécuter l'Exemple POO</button>
-        <div id="resultat-poo" style="margin-top: 10px; font-weight: bold;"></div>
+<span class="comment">// Utilisation</span>
+console.log(etudiant1.decrire());  <span class="comment">// Alice, 22 ans, étudie Informatique.</span>
+etudiant1.changerNom = <span class="string">"Alicia"</span>;
+console.log(etudiant1.nomComplet); <span class="comment">// Nom complet : Alicia</span>
+</code></pre>
     </div>
 </div>
-
-<script>
-    // Classe de base Animal
-    class Animal {
-        constructor(nom, age) {
-            this.nom = nom;
-            this.age = age;
-        }
-
-        sePresenter() {
-            return `Je suis un ${this.nom} et j'ai ${this.age} ans.`;
-        }
-    }
-
-    // Sous-classe Chat
-    class Chat extends Animal {
-        constructor(nom, age, couleur) {
-            super(nom, age);
-            this.couleur = couleur;
-        }
-
-        sePresenter() {
-            return `Je suis un chat de couleur ${this.couleur}, mon nom est ${this.nom}.`;
-        }
-
-        miauler() {
-            return `${this.nom} fait "Miaou !"`;
-        }
-    }
-
-    // Fonction d'exécution
-    function creerExemplesPOO() {
-        const animal = new Animal("Chien", 5);
-        const chat = new Chat("Whiskers", 3, "gris");
-
-        document.getElementById("resultat-poo").innerHTML = 
-            animal.sePresenter() + "<br>" + 
-            chat.sePresenter() + "<br>" + 
-            chat.miauler();
-    }
-</script>
 <div class="col-md-12">
-    <h3 id="dom-advanced">Manipulation Avancée du DOM en JavaScript</h3>
+    <h3 id="promises">Promises</h3>
     <p>
-        La manipulation du DOM (Document Object Model) permet d'interagir avec les éléments d'une page HTML via JavaScript, 
-        en modifiant leur contenu, style ou comportement. Cette section explore des techniques avancées pour une manipulation 
-        plus dynamique et interactive.
+        Les Promises en JavaScript sont un mécanisme pour gérer les opérations asynchrones. Elles permettent d’exécuter du code après l’achèvement d’une tâche, 
+        en évitant les fameux "callbacks hell" et en rendant le code plus lisible et maintenable.
     </p>
 
-    <h4>Concepts et Techniques Avancées de Manipulation du DOM</h4>
+    <h4>Pourquoi utiliser les Promises ?</h4>
     <ul>
-        <li><strong>Création et Suppression d’Éléments</strong> : Ajouter ou supprimer dynamiquement des éléments du DOM.</li>
-        <li><strong>Attributs et Propriétés</strong> : Manipuler les attributs et propriétés d’un élément, comme les classes, id, et autres attributs HTML.</li>
-        <li><strong>Écouteurs d'Événements Dynamiques</strong> : Ajouter des événements aux éléments dynamiquement créés dans le DOM.</li>
-        <li><strong>Clonage d'Éléments</strong> : Dupliquer des éléments existants dans le DOM.</li>
+        <li>
+            <strong>Simplifier les opérations asynchrones :</strong> Les Promises permettent de chaîner des opérations asynchrones de manière claire.
+        </li>
+        <li>
+            <strong>Éviter les callbacks imbriqués :</strong> En remplaçant les callbacks imbriqués par des méthodes comme <code>then</code> et <code>catch</code>.
+        </li>
+        <li>
+            <strong>Gestion efficace des erreurs :</strong> Les Promises capturent les erreurs sur tout le chaînage via <code>catch</code>.
+        </li>
     </ul>
 
-    <h4>Exemples de Code avec Explications</h4>
-    <p>Ces exemples montrent comment utiliser ces techniques pour manipuler le DOM de manière avancée.</p>
+    <h4>Structure d’une Promise</h4>
+    <p>Une Promise est un objet qui représente une valeur qui peut être disponible maintenant, dans le futur, ou jamais. Elle a trois états possibles :</p>
+    <ul>
+        <li><strong>Pending :</strong> La Promise est en attente (opération en cours).</li>
+        <li><strong>Fulfilled :</strong> La Promise est résolue avec succès.</li>
+        <li><strong>Rejected :</strong> La Promise a échoué.</li>
+    </ul>
 
-    <!-- Exemple de code avec explications -->
+    <h4>Création et utilisation de Promises</h4>
     <div class="example-box">
-        <pre><code class="language-javascript">// 1. Création et ajout d'un nouvel élément
-const liste = document.getElementById("ma-liste");
-const nouvelElement = document.createElement("li");
-nouvelElement.textContent = "Nouvel élément";
-liste.appendChild(nouvelElement);
+        <pre><code class="language-javascript"><span class="comment">// Création d'une Promise</span>
+<span class="keyword">const</span> maPromise = <span class="keyword">new</span> Promise((resolve, reject) => {
+    <span class="comment">// Simule une opération asynchrone</span>
+    <span class="keyword">let</span> operationReussie = <span class="boolean">true</span>;
 
-// 2. Modification d'attributs et propriétés
-nouvelElement.classList.add("nouvelle-classe");   // Ajoute une classe
-nouvelElement.id = "element-special";             // Définit un id
-
-// 3. Ajout d'un événement à un élément nouvellement créé
-nouvelElement.addEventListener("click", () => {
-    alert("Élément cliqué !");
+    <span class="comment">// Après 2 secondes, on décide du résultat</span>
+    setTimeout(() => {
+        <span class="keyword">if</span> (operationReussie) {
+            resolve(<span class="string">"Opération réussie !"</span>);
+        } <span class="keyword">else</span> {
+            reject(<span class="string">"Erreur lors de l'opération."</span>);
+        }
+    }, <span class="number">2000</span>);
 });
 
-// 4. Clonage d'un élément existant
-const cloneElement = nouvelElement.cloneNode(true);
-liste.appendChild(cloneElement); // Ajoute le clone à la liste
-
-// 5. Suppression d'un élément
-setTimeout(() => {
-    liste.removeChild(cloneElement); // Supprime le clone après 3 secondes
-}, 3000);</code></pre>
-
-        <button onclick="executerDOMManipulation()" class="btn btn-primary">Exécuter les Manipulations DOM</button>
-
-        <ul id="ma-liste" style="margin-top: 10px;">
-            <li>Élément existant 1</li>
-            <li>Élément existant 2</li>
-        </ul>
-
-        <div id="resultat-dom" style="margin-top: 10px; font-weight: bold;"></div>
+<span class="comment">// Consommer une Promise</span>
+maPromise
+    .then((resultat) => {
+        console.log(resultat); <span class="comment">// "Opération réussie !"</span>
+    })
+    .catch((erreur) => {
+        console.error(erreur); <span class="comment">// "Erreur lors de l'opération."</span>
+    })
+    .finally(() => {
+        console.log(<span class="string">"Opération terminée."</span>);
+    });
+</code></pre>
     </div>
+
+    <h4>Méthodes principales des Promises</h4>
+    <ul>
+        <li>
+            <strong><code>then</code> :</strong> Exécute une fonction lorsque la Promise est résolue.
+        </li>
+        <li>
+            <strong><code>catch</code> :</strong> Exécute une fonction lorsque la Promise est rejetée.
+        </li>
+        <li>
+            <strong><code>finally</code> :</strong> Exécute une fonction une fois que la Promise est terminée, qu'elle soit résolue ou rejetée.
+        </li>
+        <li>
+            <strong><code>Promise.all</code> :</strong> Attend que toutes les Promises passées soient résolues ou qu’une échoue.
+        </li>
+        <li>
+            <strong><code>Promise.race</code> :</strong> Renvoie la première Promise résolue ou rejetée.
+        </li>
+        <li>
+            <strong><code>Promise.allSettled</code> :</strong> Attend que toutes les Promises soient terminées, quelle que soit leur issue.
+        </li>
+        <li>
+            <strong><code>Promise.any</code> :</strong> Renvoie la première Promise résolue, ignore les rejets.
+        </li>
+    </ul>
+
+    <h4>Exemples avancés</h4>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple avec Promise.all</span>
+<span class="keyword">const</span> promesse1 = <span class="keyword">new</span> Promise((resolve) => setTimeout(resolve, <span class="number">1000</span>, <span class="string">"Promise 1 résolue"</span>));
+<span class="keyword">const</span> promesse2 = <span class="keyword">new</span> Promise((resolve) => setTimeout(resolve, <span class="number">2000</span>, <span class="string">"Promise 2 résolue"</span>));
+<span class="keyword">const</span> promesse3 = <span class="keyword">new</span> Promise((resolve, reject) => setTimeout(reject, <span class="number">1500</span>, <span class="string">"Promise 3 rejetée"</span>));
+
+Promise.all([promesse1, promesse2, promesse3])
+    .then((resultats) => {
+        console.log(resultats); <span class="comment">// ["Promise 1 résolue", "Promise 2 résolue"]</span>
+    })
+    .catch((erreur) => {
+        console.error(erreur); <span class="comment">// "Promise 3 rejetée"</span>
+    });
+
+<span class="comment">// Exemple avec Promise.race</span>
+Promise.race([promesse1, promesse2, promesse3])
+    .then((resultat) => {
+        console.log(resultat); <span class="comment">// "Promise 1 résolue"</span>
+    })
+    .catch((erreur) => {
+        console.error(erreur); <span class="comment">// Si la première est rejetée</span>
+    });
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <p>Les Promises sont utilisées dans divers scénarios asynchrones :</p>
+    <ul>
+        <li><strong>Requêtes API :</strong> Récupération de données depuis un serveur avec <code>fetch</code>.</li>
+        <li><strong>Chargement de ressources :</strong> Téléchargement d'images ou de fichiers.</li>
+        <li><strong>Animations :</strong> Attente de la fin d’une animation ou d’une transition.</li>
+        <li><strong>Opérations complexes :</strong> Exécution de plusieurs tâches asynchrones en parallèle.</li>
+    </ul>
 </div>
 
-<script>
-    function executerDOMManipulation() {
-        const liste = document.getElementById("ma-liste");
-
-        // 1. Création et ajout d'un nouvel élément
-        const nouvelElement = document.createElement("li");
-        nouvelElement.textContent = "Nouvel élément";
-        liste.appendChild(nouvelElement);
-
-        // 2. Modification d'attributs et propriétés
-        nouvelElement.classList.add("nouvelle-classe");   // Ajoute une classe
-        nouvelElement.id = "element-special";             // Définit un id
-
-        // 3. Ajout d'un événement à un élément nouvellement créé
-        nouvelElement.addEventListener("click", () => {
-            alert("Élément cliqué !");
-        });
-
-        // 4. Clonage d'un élément existant
-        const cloneElement = nouvelElement.cloneNode(true);
-        liste.appendChild(cloneElement); // Ajoute le clone à la liste
-
-        // 5. Suppression d'un élément après 3 secondes
-        setTimeout(() => {
-            liste.removeChild(cloneElement); // Supprime le clone après 3 secondes
-        }, 3000);
-    }
-</script>
 <div class="col-md-12">
-    <h3 id="callbacks-closures">Callbacks et Closures en JavaScript</h3>
+    <h3 id="async-await">Async/Await</h3>
     <p>
-        Les <strong>callbacks</strong> et <strong>closures</strong> sont des concepts fondamentaux en JavaScript, 
-        surtout pour la programmation asynchrone et la gestion de la portée des variables. Ils sont essentiels pour 
-        écrire un code efficace, modulaire et dynamique.
+        <strong>Async/Await</strong> est une syntaxe introduite avec ES8 (ECMAScript 2017) pour simplifier la gestion des opérations asynchrones. 
+        Elle repose sur les Promises, mais rend le code plus lisible et facile à écrire, semblable à du code synchrone.
     </p>
 
-    <h4>1. Callbacks</h4>
-    <p>
-        Un <strong>callback</strong> est une fonction passée en argument à une autre fonction, qui est ensuite appelée 
-        à un moment précis. Les callbacks sont très utilisés pour gérer des opérations asynchrones, telles que les 
-        requêtes HTTP ou les timers.
-    </p>
+    <h4>Pourquoi utiliser Async/Await ?</h4>
+    <ul>
+        <li><strong>Lisibilité :</strong> Simplifie les chaînes de <code>.then</code> et évite les imbrications complexes.</li>
+        <li><strong>Gestion des erreurs :</strong> Permet de capturer les erreurs avec un bloc <code>try/catch</code>, facilitant le débogage.</li>
+        <li><strong>Code synchrone-like :</strong> Écrit des fonctions asynchrones de manière séquentielle, ce qui est intuitif.</li>
+    </ul>
 
+    <h4>Concepts fondamentaux</h4>
+    <ul>
+        <li>
+            <strong><code>async</code> :</strong> Déclare une fonction asynchrone. Une fonction asynchrone renvoie toujours une Promise.
+        </li>
+        <li>
+            <strong><code>await</code> :</strong> Suspend l’exécution d’une fonction asynchrone jusqu'à ce qu'une Promise soit résolue ou rejetée.
+        </li>
+    </ul>
+
+    <h4>Structure d’Async/Await</h4>
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemple d'utilisation de callback
-function saluer(nom, callback) {
-    console.log("Bonjour, " + nom + " !");
-    callback();
+        <pre><code class="language-javascript"><span class="comment">// Définir une fonction asynchrone</span>
+<span class="keyword">async</span> <span class="keyword">function</span> exempleAsync() {
+    <span class="comment">// Simuler une opération asynchrone avec une Promise</span>
+    <span class="keyword">let</span> resultat = <span class="keyword">await</span> <span class="keyword">new</span> Promise((resolve) => {
+        setTimeout(() => resolve(<span class="string">"Opération terminée !"</span>), <span class="number">2000</span>);
+    });
+
+    console.log(resultat); <span class="comment">// "Opération terminée !"</span>
 }
 
-function auRevoir() {
-    console.log("Au revoir !");
-}
-
-// Appel avec un callback
-saluer("Alice", auRevoir);</code></pre>
-
-        <p>Dans cet exemple, la fonction <code>auRevoir</code> est passée en tant que callback à <code>saluer</code> et est exécutée après l'affichage du message de bienvenue.</p>
+<span class="comment">// Appeler une fonction asynchrone</span>
+exempleAsync();
+</code></pre>
     </div>
 
-    <h4>2. Closures</h4>
+    <h4>Gestion des erreurs avec Async/Await</h4>
+    <p>Les erreurs dans les fonctions asynchrones peuvent être capturées avec un bloc <code>try/catch</code> :</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple de gestion d'erreur</span>
+<span class="keyword">async</span> <span class="keyword">function</span> operationAvecErreur() {
+    <span class="keyword">try</span> {
+        <span class="keyword">let</span> resultat = <span class="keyword">await</span> <span class="keyword">new</span> Promise((_, reject) => {
+            setTimeout(() => reject(<span class="string">"Une erreur est survenue."</span>), <span class="number">2000</span>);
+        });
+
+        console.log(resultat); <span class="comment">// Ne sera pas exécuté</span>
+    } <span class="keyword">catch</span> (erreur) {
+        console.error(erreur); <span class="comment">// "Une erreur est survenue."</span>
+    }
+}
+
+operationAvecErreur();
+</code></pre>
+    </div>
+
+    <h4>Combinaison d’Async/Await avec des boucles</h4>
+    <p>Async/Await peut être utilisé dans des boucles pour gérer des opérations répétées de manière séquentielle :</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exécution séquentielle avec une boucle</span>
+<span class="keyword">async</span> <span class="keyword">function</span> traiterTableau() {
+    <span class="keyword">let</span> elements = [<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>];
+
+    <span class="keyword">for</span> (<span class="keyword">let</span> element <span class="keyword">of</span> elements) {
+        <span class="keyword">await</span> <span class="keyword">new</span> Promise((resolve) => {
+            setTimeout(() => {
+                console.log(<span class="string">`Traitement de ${element}`</span>);
+                resolve();
+            }, <span class="number">1000</span>);
+        });
+    }
+
+    console.log(<span class="string">"Tous les éléments ont été traités."</span>);
+}
+
+traiterTableau();
+</code></pre>
+    </div>
+
+    <h4>Exemples avancés</h4>
+    <p>Async/Await peut être combiné avec des Promises pour exécuter des tâches simultanées et séquentielles :</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exécution parallèle avec Promise.all</span>
+<span class="keyword">async</span> <span class="keyword">function</span> executionParallele() {
+    <span class="keyword">let</span> promesse1 = <span class="keyword">new</span> Promise((resolve) => setTimeout(resolve, <span class="number">1000</span>, <span class="string">"Tâche 1 terminée"</span>));
+    <span class="keyword">let</span> promesse2 = <span class="keyword">new</span> Promise((resolve) => setTimeout(resolve, <span class="number">2000</span>, <span class="string">"Tâche 2 terminée"</span>));
+
+    <span class="keyword">let</span> resultats = <span class="keyword">await</span> Promise.all([promesse1, promesse2]);
+
+    console.log(resultats); <span class="comment">// ["Tâche 1 terminée", "Tâche 2 terminée"]</span>
+}
+
+executionParallele();
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Requêtes API :</strong> Utilisation de <code>fetch</code> pour récupérer des données de manière asynchrone.</li>
+        <li><strong>Animations :</strong> Synchronisation d'animations ou de transitions.</li>
+        <li><strong>Flux de traitement :</strong> Exécution de plusieurs étapes dépendantes de manière séquentielle.</li>
+        <li><strong>Opérations parallèles :</strong> Gérer plusieurs tâches simultanées avec <code>Promise.all</code>.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="callbacks-closures">
+    <h3>Callbacks</h3>
     <p>
-        Une <strong>closure</strong> est une fonction qui se souvient de l'environnement dans lequel elle a été créée, 
-        même après que cet environnement a cessé d'exister. Les closures permettent de créer des variables "privées" 
-        et de les garder accessibles dans des fonctions internes.
+        Les <strong>callbacks</strong> sont des fonctions passées en argument à une autre fonction, qui sont ensuite exécutées à l’intérieur de cette fonction. 
+        Ils permettent d’exécuter du code de manière asynchrone ou en réponse à un événement.
     </p>
 
+    <h4>Pourquoi utiliser des callbacks ?</h4>
+    <ul>
+        <li><strong>Flexibilité :</strong> Vous pouvez passer différentes fonctions pour modifier le comportement d'une fonction principale.</li>
+        <li><strong>Asynchronisme :</strong> Les callbacks sont souvent utilisés pour gérer des opérations asynchrones, comme les requêtes API.</li>
+    </ul>
+
+    <h4>Exemple simple</h4>
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemple de closure
-function creerCompteur() {
-    let compteur = 0;
-    return function() {
+        <pre><code class="language-javascript"><span class="comment">// Exemple de callback simple</span>
+<span class="keyword">function</span> afficherMessage(message, callback) {
+    console.log(<span class="string">"Message principal :"</span>, message);
+    callback(); <span class="comment">// Appelle la fonction callback</span>
+}
+
+<span class="comment">// Fonction callback</span>
+<span class="keyword">function</span> afficherFin() {
+    console.log(<span class="string">"Opération terminée."</span>);
+}
+
+<span class="comment">// Appel de la fonction avec un callback</span>
+afficherMessage(<span class="string">"Bonjour, monde !"</span>, afficherFin);
+</code></pre>
+    </div>
+
+    <h4>Gestion des opérations asynchrones</h4>
+    <p>Les callbacks sont souvent utilisés pour gérer des opérations comme des délais ou des requêtes asynchrones :</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple asynchrone avec setTimeout</span>
+<span class="keyword">function</span> executerAvecDelai(callback) {
+    console.log(<span class="string">"Début de l'opération..."</span>);
+    setTimeout(() => {
+        callback(); <span class="comment">// Exécute le callback après 2 secondes</span>
+    }, <span class="number">2000</span>);
+}
+
+<span class="comment">// Callback</span>
+<span class="keyword">function</span> finDelai() {
+    console.log(<span class="string">"Opération terminée après 2 secondes."</span>);
+}
+
+executerAvecDelai(finDelai);
+</code></pre>
+    </div>
+</div>
+<div class="col-md-12">
+    <h3>Closures</h3>
+    <p>
+        Une <strong>closure</strong> est une fonction qui se souvient de son environnement lexical, même lorsque la fonction est exécutée en dehors de cet environnement. 
+        Cela signifie qu’une fonction interne peut accéder aux variables de sa fonction parente, même après que la fonction parente ait terminé son exécution.
+    </p>
+
+    <h4>Pourquoi utiliser les closures ?</h4>
+    <ul>
+        <li><strong>Encapsulation :</strong> Permet de créer des fonctions avec des variables privées.</li>
+        <li><strong>Mémoire persistante :</strong> Les closures permettent de conserver l’état des variables entre plusieurs appels.</li>
+    </ul>
+
+    <h4>Exemple de base</h4>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple simple de closure</span>
+<span class="keyword">function</span> creerCompteur() {
+    <span class="keyword">let</span> compteur = <span class="number">0</span>;
+
+    <span class="comment">// Retourne une fonction qui utilise la variable compteur</span>
+    <span class="keyword">return</span> <span class="keyword">function</span>() {
         compteur++;
-        console.log("Compteur : " + compteur);
+        console.log(<span class="string">`Compteur : ${compteur}`</span>);
     };
 }
 
-const incrementer = creerCompteur();
-incrementer(); // Affiche : Compteur : 1
-incrementer(); // Affiche : Compteur : 2</code></pre>
-
-        <p>Dans cet exemple, la variable <code>compteur</code> reste accessible à la fonction interne, même après que <code>creerCompteur</code> a terminé son exécution.</p>
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> incrementer = creerCompteur();
+incrementer(); <span class="comment">// Compteur : 1</span>
+incrementer(); <span class="comment">// Compteur : 2</span>
+incrementer(); <span class="comment">// Compteur : 3</span>
+</code></pre>
     </div>
 
-    <h4>Explications Détaillées des Concepts</h4>
-
-    <h5>Callbacks : Fonctionnement et Utilisation</h5>
-    <p>
-        Les callbacks permettent d'exécuter une fonction après qu'une autre a terminé, ce qui est crucial pour les opérations asynchrones. 
-        Par exemple, lors de la récupération de données depuis une API, un callback est exécuté après que les données sont prêtes.
-    </p>
-
-    <ul>
-        <li><strong>Simplicité</strong> : Facile à comprendre pour des opérations séquentielles.</li>
-        <li><strong>Flexibilité</strong> : Permet de gérer la suite d'opérations après une tâche asynchrone.</li>
-        <li><strong>Problème de callback hell</strong> : Un inconvénient des callbacks est la difficulté de lire le code lorsque de nombreux callbacks sont imbriqués (appelé "callback hell").</li>
-    </ul>
-
-    <h5>Closures : Portée et Avantages</h5>
-    <p>
-        Les closures créent un environnement où les variables locales de la fonction parente restent accessibles dans les fonctions internes, 
-        même après la fin de la fonction parente. Elles sont souvent utilisées pour créer des variables "privées".
-    </p>
-
-    <ul>
-        <li><strong>Encapsulation</strong> : Permet de créer des données privées, accessibles uniquement via des fonctions de contrôle.</li>
-        <li><strong>Mémoire</strong> : Garde les données en mémoire tant que la closure est accessible.</li>
-    </ul>
-
-    <h6>Exemples Interactifs</h6>
-    
-    <button onclick="exempleCallback()" class="btn btn-primary">Exécuter Callback</button>
-    <button onclick="exempleClosure()" class="btn btn-primary">Exécuter Closure</button>
-    
-    <div id="resultat-callback-closure" style="margin-top: 10px; font-weight: bold;"></div>
-</div>
-
-<script>
-    // Exemple de Callback
-    function exempleCallback() {
-        function saluer(nom, callback) {
-            document.getElementById("resultat-callback-closure").innerHTML = "Bonjour, " + nom + " !";
-            callback();
-        }
-
-        function auRevoir() {
-            document.getElementById("resultat-callback-closure").innerHTML += "<br>Au revoir !";
-        }
-
-        saluer("Alice", auRevoir);
-    }
-
-    // Exemple de Closure
-    function exempleClosure() {
-        function creerCompteur() {
-            let compteur = 0;
-            return function() {
-                compteur++;
-                document.getElementById("resultat-callback-closure").innerHTML = "Compteur : " + compteur;
-            };
-        }
-
-        const incrementer = creerCompteur();
-        incrementer();
-        setTimeout(incrementer, 1000); // Affiche le compteur incrémenté après 1 seconde
-    }
-</script>
-<div class="col-md-12">
-    <h3 id="langage-json">Manipulation de JSON</h3>
-    <p>
-    <i class="fas fa-database"></i> **JSON (JavaScript Object Notation)**<br>
-    JSON est un format léger pour l’échange de données structuré entre un client et un serveur. 🌐 Il est particulièrement apprécié pour sa <strong>lisibilité</strong> et <strong>simplicité</strong>, car :
-    <ul>
-        <li><i class="fas fa-eye"></i> **Facile à lire et à écrire :** Le format JSON est intuitif pour les humains, avec une structure similaire aux objets JavaScript.</li>
-        <li><i class="fas fa-robot"></i> **Facile à analyser et à générer :** Les machines, comme les navigateurs ou serveurs, peuvent traiter rapidement le JSON en utilisant des méthodes comme <code>JSON.parse()</code> pour convertir en objet et <code>JSON.stringify()</code> pour convertir en chaîne.</li>
-    </ul>
-    JSON est couramment utilisé pour transmettre des données de manière efficace et standardisée entre des applications, des API ou lors de l'échange d'informations en temps réel. 🚀
-</p>
-
-
-    <h4>1. Structure de JSON</h4>
-    <p>Les objets JSON sont composés de paires clé-valeur. Voici un exemple de structure JSON :</p>
+    <h4>Encapsulation avec closures</h4>
+    <p>Les closures sont souvent utilisées pour encapsuler des données dans un environnement privé :</p>
     <div class="example-box">
-        <pre><code class="language-json">
-{
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'encapsulation avec une closure</span>
+<span class="keyword">function</span> banqueCompte(initial) {
+    <span class="keyword">let</span> solde = initial;
+
+    <span class="comment">// Retourne des fonctions pour gérer le compte</span>
+    <span class="keyword">return</span> {
+        deposer(montant) {
+            solde += montant;
+            console.log(<span class="string">`Solde après dépôt : ${solde}€`</span>);
+        },
+        retirer(montant) {
+            <span class="keyword">if</span> (montant > solde) {
+                console.log(<span class="string">"Fonds insuffisants."</span>);
+            } <span class="keyword">else</span> {
+                solde -= montant;
+                console.log(<span class="string">`Solde après retrait : ${solde}€`</span>);
+            }
+        },
+        consulter() {
+            console.log(<span class="string">`Solde actuel : ${solde}€`</span>);
+        }
+    };
+}
+
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> monCompte = banqueCompte(<span class="number">100</span>);
+monCompte.deposer(<span class="number">50</span>); <span class="comment">// Solde après dépôt : 150€</span>
+monCompte.retirer(<span class="number">30</span>); <span class="comment">// Solde après retrait : 120€</span>
+monCompte.consulter(); <span class="comment">// Solde actuel : 120€</span>
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation des closures</h4>
+    <ul>
+        <li><strong>Fonctions mémorisées :</strong> Créer des fonctions avec un état persistant (par ex. compteurs).</li>
+        <li><strong>Encapsulation :</strong> Protéger les données en limitant leur accès via des méthodes.</li>
+        <li><strong>Gestion d'événements :</strong> Utiliser des closures pour conserver des valeurs dans des gestionnaires d’événements.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="json">
+    <h3>JSON (JavaScript Object Notation)</h3>
+    <p>
+        <strong>JSON</strong> (JavaScript Object Notation) est un format de données léger, facile à lire et à écrire pour les humains, 
+        et facile à analyser et générer pour les machines. JSON est largement utilisé pour échanger des données entre un client (navigateur) 
+        et un serveur.
+    </p>
+
+    <h4>Pourquoi utiliser JSON ?</h4>
+    <ul>
+        <li><strong>Interopérabilité :</strong> JSON est pris en charge par presque tous les langages de programmation.</li>
+        <li><strong>Format léger :</strong> JSON est compact et facile à transporter sur le réseau.</li>
+        <li><strong>Facilité de lecture :</strong> Sa structure est intuitive et proche de celle des objets JavaScript.</li>
+        <li><strong>Standard web :</strong> JSON est devenu un standard pour l’échange de données dans les API RESTful.</li>
+    </ul>
+
+    <h4>Structure de JSON</h4>
+    <p>JSON est constitué de paires clé-valeur, et il peut contenir :</p>
+    <ul>
+        <li><strong>Objets :</strong> Représentés par des accolades <code>{}</code>.</li>
+        <li><strong>Tableaux :</strong> Représentés par des crochets <code>[]</code>.</li>
+        <li><strong>Types de données :</strong> String, Number, Boolean, Array, Object, <code>null</code>.</li>
+    </ul>
+
+    <h4>Exemple d’un fichier JSON</h4>
+    <div class="example-box">
+        <pre><code class="language-json">{
     "nom": "Alice",
-    "age": 25,
-    "ville": "Paris",
-    "interets": ["lecture", "voyages", "musique"],
-    "emploi": {
-        "poste": "développeur",
-        "entreprise": "TechCorp"
+    "age": 30,
+    "estAdmin": false,
+    "hobbies": ["lecture", "voyage", "cuisine"],
+    "adresse": {
+        "ville": "Paris",
+        "codePostal": 75001
     }
 }</code></pre>
     </div>
 
-    <h4>2. Conversion entre JSON et JavaScript</h4>
-    <p>
-        Pour manipuler JSON en JavaScript, nous utilisons les méthodes <code>JSON.stringify()</code> pour convertir un objet JavaScript en JSON,
-        et <code>JSON.parse()</code> pour convertir une chaîne JSON en objet JavaScript.
-    </p>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Conversion d'un objet JavaScript en JSON
-const personne = {
-    nom: "Alice",
-    age: 25,
-    ville: "Paris"
-};
-const json = JSON.stringify(personne);
-console.log(json); // Résultat : {"nom":"Alice","age":25,"ville":"Paris"}
-
-// Conversion d'une chaîne JSON en objet JavaScript
-const jsonString = '{"nom":"Alice","age":25,"ville":"Paris"}';
-const objet = JSON.parse(jsonString);
-console.log(objet.nom); // Résultat : Alice</code></pre>
-    </div>
-
-    <h4>3. Manipulation de Données JSON Issues d'une API</h4>
-    <p>
-        Souvent, on récupère des données JSON depuis une API en utilisant <code>fetch</code>. Voici comment récupérer et afficher des données JSON depuis une API.
-    </p>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Exemple de requête API avec fetch
-fetch('https://jsonplaceholder.typicode.com/users/1')
-    .then(response => response.json()) // Conversion JSON
-    .then(data => {
-        console.log("Nom:", data.name);
-        console.log("Ville:", data.address.city);
-    })
-    .catch(error => console.error('Erreur:', error));</code></pre>
-
-        <button onclick="exempleFetch()" class="btn btn-primary">Exécuter Fetch JSON</button>
-        <div id="resultat-fetch" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-
-    <h4>4. Modifier et Afficher des Données JSON en JavaScript</h4>
-    <p>Une fois les données converties en objet JavaScript, vous pouvez les manipuler comme n’importe quel autre objet.</p>
-
-    <div class="example-box">
-        <pre><code class="language-javascript">// Manipulation des données JSON
-let utilisateur = {
-    nom: "Bob",
-    age: 30,
-    interets: ["sport", "cinéma"]
-};
-
-// Ajout d'un nouveau champ
-utilisateur.email = "bob@example.com";
-
-// Suppression d'un champ
-delete utilisateur.age;
-
-// Affichage des données modifiées
-console.log(utilisateur);</code></pre>
-
-        <button onclick="afficherDonneesJson()" class="btn btn-primary">Afficher les Données JSON</button>
-        <div id="resultat-json" style="margin-top: 10px; font-weight: bold;"></div>
-    </div>
-</div>
-
-<script>
-    // Fonction pour l'exemple de Fetch
-    function exempleFetch() {
-        fetch('https://jsonplaceholder.typicode.com/users/1')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("resultat-fetch").innerHTML = 
-                    "Nom : " + data.name + "<br>" +
-                    "Ville : " + data.address.city;
-            })
-            .catch(error => {
-                document.getElementById("resultat-fetch").innerHTML = "Erreur : " + error;
-            });
-    }
-
-    // Fonction pour afficher et manipuler JSON
-    function afficherDonneesJson() {
-        let utilisateur = {
-            nom: "Bob",
-            age: 30,
-            interets: ["sport", "cinéma"]
-        };
-
-        // Modification des données
-        utilisateur.email = "bob@example.com";
-        delete utilisateur.age;
-
-        // Affichage dans l'interface
-        document.getElementById("resultat-json").innerHTML = JSON.stringify(utilisateur, null, 2);
-    }
-</script>
-<div class="col-md-12">
-    <h3 id="web-workers">Web Workers</h3>
-    <p>
-    <i class="fas fa-tachometer-alt"></i> **Qu'est-ce qu'un Web Worker ?**<br>
-    Les <strong>Web Workers</strong> en JavaScript permettent d'exécuter des tâches en arrière-plan dans un <strong>thread séparé</strong> de celui de l'interface utilisateur (UI). Cela aide à maintenir l'UI fluide tout en effectuant des tâches lourdes, comme des calculs intensifs ou des opérations de traitement de données. 📈<br><br>
-
-    <i class="fas fa-check-circle"></i> **Pourquoi utiliser les Web Workers ?**<br>
+    <h4>Manipulation de JSON en JavaScript</h4>
+    <p>JavaScript offre deux méthodes principales pour travailler avec JSON :</p>
     <ul>
-        <li><strong>Amélioration des performances :</strong> Exécuter des tâches lourdes en arrière-plan empêche de bloquer l'UI, la rendant plus fluide et réactive. 🚀</li>
-        <li><strong>Prévention des blocages :</strong> En isolant les calculs ou manipulations de données importantes, on évite les ralentissements et erreurs dans le navigateur. 🛠️</li>
-        <li><strong>Multitâche en JavaScript :</strong> Les Web Workers apportent un aspect multitâche, permettant de diviser les tâches dans une application. 🖥️</li>
+        <li>
+            <strong><code>JSON.stringify(objet)</code> :</strong> Convertit un objet JavaScript en chaîne JSON.
+        </li>
+        <li>
+            <strong><code>JSON.parse(jsonString)</code> :</strong> Convertit une chaîne JSON en objet JavaScript.
+        </li>
     </ul>
 
-    <i class="fas fa-layer-group"></i> **Types de Web Workers**<br>
-    <strong>1. Dedicated Workers :</strong> Les plus courants, ces Workers sont créés pour une page spécifique et s'arrêtent lorsque l'on quitte cette page.<br>
-    <strong>2. Shared Workers :</strong> Permettent plusieurs connexions à partir de différentes pages, partageant les mêmes données. 🧩<br>
-</p>
-
-
+    <h4>Exemple d’utilisation</h4>
     <div class="example-box">
-        <pre><code class="language-javascript">// Création et lancement d'un Web Worker
-function startWorker() {
-    if (window.Worker) {
-        // Création du Worker avec le fichier worker.js
-        const worker = new Worker('worker.js');
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'utilisation de JSON.stringify et JSON.parse</span>
 
-        // Envoi d'un message au Worker (par exemple, 5 millions pour un calcul de somme)
-        worker.postMessage(5000000);
+<span class="comment">// Un objet JavaScript</span>
+<span class="keyword">const</span> utilisateur = {
+    nom: <span class="string">"Alice"</span>,
+    age: <span class="number">30</span>,
+    hobbies: [<span class="string">"lecture"</span>, <span class="string">"voyage"</span>],
+    estAdmin: <span class="boolean">false</span>
+};
 
-        // Réception du résultat du Worker
-        worker.onmessage = function(event) {
-            document.getElementById("resultat-worker").innerHTML = "Résultat : " + event.data;
-            console.log("Résultat reçu du Worker :", event.data);
-        };
+<span class="comment">// Convertir l'objet en JSON</span>
+<span class="keyword">const</span> jsonString = JSON.stringify(utilisateur);
+console.log(jsonString);
+/*
+    {"nom":"Alice","age":30,"hobbies":["lecture","voyage"],"estAdmin":false}
+*/
 
-        // Gestion des erreurs
-        worker.onerror = function(error) {
-            document.getElementById("resultat-worker").innerHTML = "Erreur : " + error.message;
-            console.error("Erreur dans le Worker :", error.message);
-        };
-    } else {
-        document.getElementById("resultat-worker").innerHTML = "Les Web Workers ne sont pas pris en charge dans ce navigateur.";
+<span class="comment">// Convertir une chaîne JSON en objet</span>
+<span class="keyword">const</span> jsonObjet = JSON.parse(jsonString);
+console.log(jsonObjet);
+/*
+    {
+        nom: "Alice",
+        age: 30,
+        hobbies: ["lecture", "voyage"],
+        estAdmin: false
     }
+*/
+</code></pre>
+    </div>
+
+    <h4>Requêtes HTTP et JSON</h4>
+    <p>JSON est fréquemment utilisé dans les requêtes API pour envoyer et recevoir des données. Voici un exemple avec <code>fetch</code> :</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'utilisation de JSON avec fetch</span>
+<span class="keyword">async</span> <span class="keyword">function</span> obtenirUtilisateurs() {
+    <span class="keyword">try</span> {
+        <span class="comment">// Effectuer une requête GET</span>
+        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">"https://jsonplaceholder.typicode.com/users"</span>);
+        <span class="comment">// Convertir la réponse en JSON</span>
+        <span class="keyword">const</span> utilisateurs = <span class="keyword">await</span> response.json();
+        console.log(utilisateurs);
+    } <span class="keyword">catch</span> (erreur) {
+        console.error(<span class="string">"Erreur lors de la récupération des utilisateurs :"</span>, erreur);
+    }
+}
+
+obtenirUtilisateurs();
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>APIs :</strong> Échanger des données entre un client et un serveur.</li>
+        <li><strong>Stockage local :</strong> Stocker des données dans <code>localStorage</code> ou <code>sessionStorage</code>.</li>
+        <li><strong>Configuration :</strong> Utiliser JSON pour des fichiers de configuration.</li>
+        <li><strong>Mock de données :</strong> Simuler des réponses de serveur pour les tests.</li>
+    </ul>
+
+    <h4>Bonnes pratiques avec JSON</h4>
+    <ul>
+        <li>Vérifiez toujours la validité de votre JSON avec des outils comme <a href="https://jsonlint.com" target="_blank">JSONLint</a>.</li>
+        <li>Utilisez <code>try/catch</code> pour gérer les erreurs lors du parsing JSON.</li>
+        <li>Évitez les références circulaires dans vos objets, car elles provoquent des erreurs avec <code>JSON.stringify</code>.</li>
+        <li>Minimisez vos données pour réduire la taille de vos requêtes réseau.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="modules">
+    <h3>Modules en JavaScript</h3>
+    <p>
+        Les <strong>modules</strong> en JavaScript permettent de mieux organiser le code en le divisant en plusieurs fichiers. Cela permet de maintenir un code plus propre, 
+        réutilisable et facile à déboguer. Les modules facilitent l’importation et l’exportation de fonctionnalités entre différentes parties de l’application.
+    </p>
+
+    <h4>Pourquoi utiliser des modules ?</h4>
+    <ul>
+        <li><strong>Modularité :</strong> Divisez le code en blocs réutilisables pour éviter la duplication.</li>
+        <li><strong>Maintenance :</strong> Facilite la gestion du code à long terme en le rendant plus lisible et organisé.</li>
+        <li><strong>Scalabilité :</strong> Permet de développer des applications plus complexes avec une architecture bien structurée.</li>
+        <li><strong>Réutilisation :</strong> Permet de partager du code entre différents projets ou modules.</li>
+    </ul>
+
+    <h4>Les types de modules en JavaScript</h4>
+    <p>En JavaScript, il existe deux principaux systèmes pour gérer les modules :</p>
+    <ul>
+        <li><strong>Modules ES6 :</strong> La syntaxe native de JavaScript pour l'importation et l'exportation de modules.</li>
+        <li><strong>CommonJS :</strong> Un système de modules principalement utilisé côté serveur (Node.js).</li>
+    </ul>
+
+    <h4>Modules ES6</h4>
+    <p>Les modules ES6 sont maintenant la norme pour la gestion des modules en JavaScript, notamment dans les navigateurs modernes et les outils de bundling comme Webpack.</p>
+    <ul>
+        <li><strong><code>export</code> :</strong> Permet d'exporter une fonction, un objet, ou une variable d'un module.</li>
+        <li><strong><code>import</code> :</strong> Permet d'importer des fonctions, objets ou variables depuis un autre module.</li>
+    </ul>
+
+    <h4>Exemple d’utilisation des Modules ES6</h4>
+    <p>Imaginons que vous avez deux fichiers : <code>calcul.js</code> et <code>app.js</code>.</p>
+
+    <h5>Fichier <code>calcul.js</code></h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Fichier calcul.js - Contient des fonctions pour des calculs</span>
+
+// Exportation d'une fonction
+<span class="keyword">export</span> <span class="keyword">function</span> addition(a, b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="keyword">export</span> <span class="keyword">function</span> soustraction(a, b) {
+    <span class="keyword">return</span> a - b;
+}
+
+<span class="keyword">export</span> <span class="keyword">const</span> pi = <span class="number">3.14</span>;
+</code></pre>
+    </div>
+
+    <h5>Fichier <code>app.js</code></h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Fichier app.js - Utilise les fonctions du module calcul.js</span>
+
+// Importation des fonctions et variables depuis calcul.js
+<span class="keyword">import</span> { addition, soustraction, pi } <span class="keyword">from</span> <span class="string">"./calcul.js"</span>;
+
+console.log(addition(<span class="number">5</span>, <span class="number">3</span>));  <span class="comment">// 8</span>
+console.log(soustraction(<span class="number">5</span>, <span class="number">3</span>));  <span class="comment">// 2</span>
+console.log(pi);  <span class="comment">// 3.14</span>
+</code></pre>
+    </div>
+
+    <h4>Importation et exportation par défaut</h4>
+    <p>Un module peut également exporter un seul élément par défaut à l'aide de <code>export default</code>. Cela simplifie l'importation d'un module avec un seul export.</p>
+
+    <h5>Exemple d'exportation par défaut</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Fichier calcul.js - Exportation par défaut</span>
+<span class="keyword">export default</span> <span class="keyword">function</span> multiplication(a, b) {
+    <span class="keyword">return</span> a * b;
 }
 </code></pre>
+    </div>
 
-        <button onclick="startWorker()" class="btn btn-primary">Démarrer le Web Worker</button>
-        <div id="resultat-worker" style="margin-top: 10px; font-weight: bold;"></div>
+    <h5>Importation par défaut</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Fichier app.js - Importation de la fonction par défaut</span>
+<span class="keyword">import</span> multiplication <span class="keyword">from</span> <span class="string">"./calcul.js"</span>;
+
+console.log(multiplication(<span class="number">5</span>, <span class="number">3</span>));  <span class="comment">// 15</span>
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation des Modules</h4>
+    <ul>
+        <li><strong>Organiser le code :</strong> Diviser un code complexe en plusieurs fichiers pour améliorer la lisibilité et la maintenance.</li>
+        <li><strong>Réutilisation :</strong> Créer des modules réutilisables pour partager du code entre plusieurs projets.</li>
+        <li><strong>Gestion des dépendances :</strong> Utiliser des modules pour gérer des bibliothèques externes avec des outils comme NPM.</li>
+        <li><strong>Scalabilité :</strong> Développer des applications complexes en répartissant les responsabilités entre différents modules.</li>
+    </ul>
+
+    <h4>Utilisation des Modules avec un Bundler (Webpack)</h4>
+    <p>Les modules ES6 sont très efficaces dans un environnement de développement avec un bundler comme Webpack. 
+        Ce dernier permet de regrouper plusieurs fichiers JavaScript en un seul fichier pour optimiser les performances du site.
+    </p>
+    <ul>
+        <li><strong>Installation :</strong> Vous pouvez installer Webpack et ses dépendances via <code>npm</code> ou <code>yarn</code>.</li>
+        <li><strong>Configuration :</strong> Utilisez un fichier de configuration pour définir les points d’entrée et de sortie des fichiers modules.</li>
+        <li><strong>Utilisation :</strong> Après avoir configuré Webpack, vous pouvez importez vos fichiers JavaScript et ils seront automatiquement regroupés.</li>
+    </ul>
+
+    <h4>Conclusion</h4>
+    <p>Les modules JavaScript permettent de structurer et de maintenir efficacement des applications complexes. Utiliser la syntaxe des modules ES6, 
+    combinée à des outils modernes comme Webpack, rend le code plus modulaire, réutilisable et optimisé.</p>
+</div>
+
+
     </div>
 </div>
-<script>
-    function startWorker() {
-    if (window.Worker) {
-        // Création du Worker avec le fichier worker.js
-        const worker = new Worker('assets/js/worker.js');
+<div class="col-md-12" id="fetch">
+    <h3>API Fetch</h3>
+    <p>
+        <strong>Fetch</strong> est une interface moderne introduite avec ES6 pour effectuer des requêtes HTTP. 
+        Elle remplace l'ancienne méthode <code>XMLHttpRequest</code>, offrant une syntaxe plus simple et intuitive basée sur des Promises.
+    </p>
 
-        // Envoi d'un message au Worker (par exemple, 5 millions pour un calcul de somme)
-        worker.postMessage(5000000);
+    <h4>Pourquoi utiliser l'API Fetch ?</h4>
+    <ul>
+        <li><strong>Simplicité :</strong> Syntaxe claire et lisible pour effectuer des requêtes asynchrones.</li>
+        <li><strong>Basée sur des Promises :</strong> Compatible avec <code>then</code>, <code>catch</code>, et <code>async/await</code>.</li>
+        <li><strong>Supporte les options avancées :</strong> En-têtes personnalisés, méthodes HTTP (GET, POST, PUT, DELETE, etc.), gestion des corps de requêtes.</li>
+    </ul>
 
-        // Réception du résultat du Worker
-        worker.onmessage = function(event) {
-            document.getElementById("resultat-worker").innerHTML = "Résultat : " + event.data;
-            console.log("Résultat reçu du Worker :", event.data);
-        };
+    <h4>Syntaxe de base</h4>
+    <p>La méthode <code>fetch()</code> retourne une Promise qui se résout avec une réponse HTTP (ou est rejetée en cas d'erreur réseau).</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple simple avec fetch</span>
+<span class="keyword">fetch</span>(<span class="string">"https://jsonplaceholder.typicode.com/posts"</span>)
+    .<span class="keyword">then</span>((response) => {
+        <span class="comment">// Vérifie si la réponse est OK</span>
+        <span class="keyword">if</span> (!response.ok) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">`Erreur HTTP ! Statut : ${response.status}`</span>);
+        }
+        <span class="keyword">return</span> response.json(); <span class="comment">// Convertit en JSON</span>
+    })
+    .<span class="keyword">then</span>((data) => {
+        console.log(data); <span class="comment">// Affiche les données reçues</span>
+    })
+    .<span class="keyword">catch</span>((error) => {
+        console.error(<span class="string">"Erreur lors de la requête :"</span>, error);
+    });
+</code></pre>
+    </div>
 
-        // Gestion des erreurs
-        worker.onerror = function(error) {
-            document.getElementById("resultat-worker").innerHTML = "Erreur : " + error.message;
-            console.error("Erreur dans le Worker :", error.message);
-        };
-    } else {
-        document.getElementById("resultat-worker").innerHTML = "Les Web Workers ne sont pas pris en charge dans ce navigateur.";
+    <h4>Utilisation avec <code>async/await</code></h4>
+    <p>Pour rendre le code encore plus lisible, vous pouvez utiliser <code>async/await</code> avec Fetch :</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple avec async/await</span>
+<span class="keyword">async</span> <span class="keyword">function</span> obtenirPosts() {
+    <span class="keyword">try</span> {
+        <span class="comment">// Effectuer une requête GET</span>
+        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">"https://jsonplaceholder.typicode.com/posts"</span>);
+        <span class="comment">// Vérifie si la réponse est OK</span>
+        <span class="keyword">if</span> (!response.ok) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">`Erreur HTTP ! Statut : ${response.status}`</span>);
+        }
+        <span class="comment">// Convertit la réponse en JSON</span>
+        <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
+        console.log(data); <span class="comment">// Affiche les données</span>
+    } <span class="keyword">catch</span> (erreur) {
+        console.error(<span class="string">"Erreur :"</span>, erreur);
     }
 }
-</script>
 
-<div class="col-md-12">
-    <h3 id="gestion-erreurs-debugging">Gestion des erreurs et Debugging</h3>
-    <p>
-        <i class="fas fa-bug"></i> La **gestion des erreurs** et le **debugging** en JavaScript sont essentiels pour garantir le bon fonctionnement de votre code et une meilleure expérience utilisateur. L’identification des erreurs permet de corriger les bugs et d’assurer la robustesse de l'application.
-    </p>
-    
-    <h4><i class="fas fa-tools"></i> Types d'erreurs courantes :</h4>
-    <ul>
-        <li><strong>Erreur de syntaxe :</strong> Une erreur dans l'écriture du code, par exemple un point-virgule manquant. (<code>SyntaxError</code>)</li>
-        <li><strong>Erreur de référence :</strong> Se produit lorsque le code essaie d'accéder à une variable non définie. (<code>ReferenceError</code>)</li>
-        <li><strong>Erreur de type :</strong> Arrive lorsque le code essaie d'utiliser une valeur d'une manière inappropriée. (<code>TypeError</code>)</li>
-    </ul>
-
-    <h4><i class="fas fa-shield-alt"></i> Gestion des erreurs avec <code>try...catch</code> :</h4>
-    <p>Le bloc <code>try...catch</code> est utilisé pour capturer et gérer les erreurs lors de l'exécution du code.</p>
-    <div class="example-box">
-        <pre><code class="language-javascript">// Exemple d'utilisation de try...catch
-try {
-    let resultat = 10 / 0; // Test de division par zéro
-    console.log(resultat);
-} catch (erreur) {
-    console.error("Erreur détectée : " + erreur.message);
-} finally {
-    console.log("Fin de la tentative de gestion.");
-}</code></pre>
-        <p><strong>Explication :</strong> Dans cet exemple, le code dans <code>try</code> est exécuté. Si une erreur survient, le code dans <code>catch</code> capture et affiche l'erreur sans interrompre le programme.</p>
+obtenirPosts();
+</code></pre>
     </div>
 
-    <h4><i class="fas fa-search"></i> Outils de debugging :</h4>
-    <ul>
-        <li><strong>Console JavaScript :</strong> Utilisez <code>console.log()</code>, <code>console.error()</code>, et <code>console.warn()</code> pour afficher des messages dans la console.</li>
-        <li><strong>Points d'arrêt :</strong> Dans l'inspecteur du navigateur, ajoutez des points d’arrêt pour exécuter le code ligne par ligne et repérer les erreurs.</li>
-        <li><strong>Debugger :</strong> Utilisez le mot-clé <code>debugger</code> dans votre code pour déclencher un arrêt lorsque l'inspecteur est ouvert.</li>
-    </ul>
-
-    <h4><i class="fas fa-lightbulb"></i> Bonnes pratiques de debugging :</h4>
-    <ul>
-        <li><strong>Isoler le problème :</strong> Testez des blocs de code individuellement pour identifier la source de l’erreur.</li>
-        <li><strong>Documentation des erreurs :</strong> Notez les erreurs et leurs solutions, elles peuvent réapparaître plus tard.</li>
-        <li><strong>Approche itérative :</strong> Corrigez une erreur à la fois et testez le code à chaque modification.</li>
-    </ul>
-</div>
-
-<div class="col-md-12">
-    <h3 id="service-workers-pwa"><i class="fas fa-mobile-alt"></i> Service Workers & PWA</h3>
-    <p>
-        <strong>Service Workers</strong> sont des scripts exécutés en arrière-plan par le navigateur, permettant aux applications web d'agir comme des applications natives, même hors ligne.
-        Ils jouent un rôle crucial dans les applications Web Progressives (<strong>PWA</strong>) pour fournir une expérience utilisateur plus riche et accessible. 
-    </p>
-    <p>
-        <i class="fas fa-bolt"></i> <strong>Mémoire rapide :</strong> 
-        Les Service Workers interceptent les requêtes réseau, gèrent le cache, et permettent la gestion d'événements en arrière-plan. 
-        Parfait pour des fonctions comme l'accès en mode déconnecté ou les notifications push.
-    </p>
-    <ul>
-        <li><strong>Installation :</strong> Les Service Workers doivent être installés et activés par le navigateur pour commencer à intercepter les requêtes.</li>
-        <li><strong>Cycle de Vie :</strong> Ils suivent un cycle de vie spécifique : installation, activation, puis fonctionnement.</li>
-        <li><strong>Caching :</strong> Ils permettent de stocker les fichiers statiques (comme les CSS et les images) pour un chargement rapide et un accès hors ligne.</li>
-    </ul>
-
+    <h4>Options avancées de Fetch</h4>
+    <p>Fetch permet de configurer la requête avec un deuxième argument contenant des options :</p>
     <div class="example-box">
-        <pre><code class="language-javascript">// Enregistrement d'un Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-        .then((registration) => {
-            console.log("Service Worker enregistré avec succès !", registration);
-        })
-        .catch((error) => {
-            console.error("Erreur d'enregistrement du Service Worker :", error);
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'envoi de données avec Fetch</span>
+<span class="keyword">async</span> <span class="keyword">function</span> envoyerDonnees() {
+    <span class="keyword">const</span> donnees = {
+        titre: <span class="string">"Nouveau post"</span>,
+        contenu: <span class="string">"Ceci est un exemple de contenu."</span>
+    };
+
+    <span class="keyword">try</span> {
+        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">"https://jsonplaceholder.typicode.com/posts"</span>, {
+            <span class="comment">// Configuration de la requête</span>
+            method: <span class="string">"POST"</span>,
+            headers: {
+                <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span>
+            },
+            body: JSON.stringify(donnees) <span class="comment">// Corps de la requête</span>
         });
+
+        <span class="keyword">if</span> (!response.ok) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">`Erreur HTTP : ${response.status}`</span>);
+        }
+
+        <span class="keyword">const</span> result = <span class="keyword">await</span> response.json();
+        console.log(<span class="string">"Données envoyées avec succès :"</span>, result);
+    } <span class="keyword">catch</span> (erreur) {
+        console.error(<span class="string">"Erreur :"</span>, erreur);
+    }
 }
 
-// Code dans sw.js
-self.addEventListener('install', (event) => {
-    console.log("Service Worker installé !");
+envoyerDonnees();
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Requêtes API :</strong> Communication avec un serveur pour récupérer ou envoyer des données.</li>
+        <li><strong>Chargement dynamique :</strong> Charger des contenus dynamiques sans recharger la page (AJAX).</li>
+        <li><strong>Authentification :</strong> Envoyer des identifiants utilisateur pour se connecter à un service.</li>
+        <li><strong>Opérations CRUD :</strong> Créer, lire, mettre à jour ou supprimer des ressources sur un serveur.</li>
+    </ul>
+
+    <h4>Bonnes pratiques</h4>
+    <ul>
+        <li>Vérifiez toujours le statut de la réponse avec <code>response.ok</code> avant de traiter les données.</li>
+        <li>Utilisez <code>try/catch</code> pour gérer les erreurs, notamment les problèmes de réseau ou de serveur.</li>
+        <li>Spécifiez les en-têtes nécessaires pour les requêtes POST, PUT ou DELETE.</li>
+        <li>Minimisez les requêtes réseau en regroupant les données nécessaires.</li>
+    </ul>
+</div>
+<div class="content-section" id="js-expert">
+    <h1><i class="fas fa-brain icon"></i> JavaScript Expert</h1>
+    <p>
+        Le niveau expert en JavaScript est destiné aux développeurs souhaitant maîtriser les aspects les plus avancés et les techniques professionnelles du langage. 
+        Ce niveau explore des fonctionnalités modernes et des concepts complexes pour développer des applications hautement performantes et évolutives.
+    </p>
+    <p>
+        Dans cette section, vous apprendrez à optimiser le traitement des données, gérer des opérations complexes avec les workers, utiliser des fonctionnalités avancées de JavaScript ES6+, 
+        et améliorer la robustesse de vos applications grâce aux tests unitaires et à la gestion des erreurs. Vous explorerez également des concepts essentiels pour les Progressive Web Apps (PWA) et les environnements hors ligne.
+    </p>
+
+    <h2>Contenu des cours</h2>
+    <ul>
+        <li>
+            <strong>Web Storage :</strong> Manipulation efficace des données stockées localement avec <code>localStorage</code> et <code>sessionStorage</code>, 
+            pour des fonctionnalités telles que les sauvegardes automatiques et les préférences utilisateur.
+        </li>
+        <li>
+            <strong>Programmation Orientée Objet Expert :</strong> Exploration approfondie de la POO, incluant l’héritage complexe, les mixins, et les design patterns en JavaScript.
+        </li>
+        <li>
+            <strong>Web Workers :</strong> Utilisation des threads JavaScript pour exécuter des tâches intensives en arrière-plan sans bloquer l’interface utilisateur.
+        </li>
+        <li>
+            <strong>Gestion des Erreurs et Debugging :</strong> Techniques avancées pour détecter, capturer et résoudre efficacement les erreurs dans des applications complexes.
+        </li>
+        <li>
+            <strong>Service Workers et PWA :</strong> Développement d'applications web modernes capables de fonctionner hors ligne, avec des mises à jour automatiques et des notifications push.
+        </li>
+        <li>
+            <strong>Synthaxe Moderne ES6+ :</strong> Utilisation des fonctionnalités avancées de JavaScript telles que les modules, les destructurations, les spread/rest operators, et les itérateurs.
+        </li>
+        <li>
+            <strong>Tests Unitaires :</strong> Introduction aux frameworks comme Jest ou Mocha pour écrire et automatiser des tests unitaires, garantissant la qualité du code.
+        </li>
+    </ul>
+    
+    <p>
+        Chaque cours est accompagné d'exemples pratiques, de défis interactifs, et de projets avancés pour mettre en pratique vos connaissances. 
+        À la fin de cette section, vous serez équipé pour créer des applications JavaScript professionnelles, optimisées et robustes, capables de répondre aux exigences les plus complexes.
+    </p>
+
+    <div class="row">
+
+    <div class="col-md-12" id="webstorage">
+    <h3>Web Storage</h3>
+    <p>
+        Le <strong>Web Storage</strong> est une API JavaScript qui permet de stocker des données côté client directement dans le navigateur. 
+        Il se compose de deux types principaux de stockage : <code>localStorage</code> et <code>sessionStorage</code>. 
+        Ces méthodes offrent une manière simple et efficace de conserver des informations utilisateur pour des applications web.
+    </p>
+
+    <h4>Pourquoi utiliser le Web Storage ?</h4>
+    <ul>
+        <li><strong>Persistant :</strong> Les données peuvent persister après le rechargement ou la fermeture du navigateur (avec <code>localStorage</code>).</li>
+        <li><strong>Accessible :</strong> Les données sont facilement accessibles via une simple API JavaScript.</li>
+        <li><strong>Sécurisé :</strong> Les données sont spécifiques au domaine et ne sont pas envoyées au serveur automatiquement.</li>
+        <li><strong>Rapide :</strong> Idéal pour stocker des préférences utilisateur, des jetons de session, ou des données temporaires.</li>
+    </ul>
+
+    <h4>Différences entre <code>localStorage</code> et <code>sessionStorage</code></h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Caractéristique</th>
+                <th><code>localStorage</code></th>
+                <th><code>sessionStorage</code></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Persistance</td>
+                <td>Les données persistent après la fermeture du navigateur.</td>
+                <td>Les données sont supprimées à la fermeture de l’onglet ou de la fenêtre.</td>
+            </tr>
+            <tr>
+                <td>Portée</td>
+                <td>Partagée entre tous les onglets et fenêtres du même domaine.</td>
+                <td>Spécifique à l’onglet ou la fenêtre active.</td>
+            </tr>
+            <tr>
+                <td>Taille</td>
+                <td>5 à 10 Mo (selon le navigateur).</td>
+                <td>5 à 10 Mo (selon le navigateur).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Fonctionnalités principales</h4>
+    <ul>
+        <li><code>setItem(key, value)</code> : Enregistre une donnée avec une clé.</li>
+        <li><code>getItem(key)</code> : Récupère une donnée à partir d'une clé.</li>
+        <li><code>removeItem(key)</code> : Supprime une donnée à partir d'une clé.</li>
+        <li><code>clear()</code> : Supprime toutes les données stockées.</li>
+        <li><code>length</code> : Retourne le nombre d'éléments stockés.</li>
+    </ul>
+
+    <h4>Exemples pratiques</h4>
+
+    <h5>Stocker et récupérer des données</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Stocker une donnée</span>
+localStorage.setItem(<span class="string">"utilisateur"</span>, <span class="string">"Alice"</span>);
+
+<span class="comment">// Récupérer une donnée</span>
+<span class="keyword">const</span> utilisateur = localStorage.getItem(<span class="string">"utilisateur"</span>);
+console.log(utilisateur); <span class="comment">// Alice</span>
+</code></pre>
+    </div>
+
+    <h5>Supprimer une donnée ou tout effacer</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Supprimer une donnée</span>
+localStorage.removeItem(<span class="string">"utilisateur"</span>);
+
+<span class="comment">// Supprimer toutes les données</span>
+localStorage.clear();
+</code></pre>
+    </div>
+
+    <h5>Manipuler des objets avec Web Storage</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Stocker un objet après sérialisation</span>
+<span class="keyword">const</span> utilisateur = {
+    nom: <span class="string">"Alice"</span>,
+    age: <span class="number">30</span>,
+    estAdmin: <span class="boolean">true</span>
+};
+
+localStorage.setItem(<span class="string">"utilisateur"</span>, JSON.stringify(utilisateur));
+
+<span class="comment">// Récupérer et désérialiser l'objet</span>
+<span class="keyword">const</span> utilisateurRecupere = JSON.parse(localStorage.getItem(<span class="string">"utilisateur"</span>));
+console.log(utilisateurRecupere); <span class="comment">// { nom: "Alice", age: 30, estAdmin: true }</span>
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Jetons de session :</strong> Stocker des tokens pour l’authentification (ex : OAuth).</li>
+        <li><strong>Préférences utilisateur :</strong> Sauvegarder les thèmes, langues ou paramètres de personnalisation.</li>
+        <li><strong>Panier d’achat :</strong> Conserver les articles ajoutés au panier dans une application e-commerce.</li>
+        <li><strong>Statistiques locales :</strong> Enregistrer des données non sensibles pour l’analyse hors ligne.</li>
+    </ul>
+
+    <h4>Bonnes pratiques</h4>
+    <ul>
+        <li>Utilisez <code>JSON.stringify</code> pour stocker des objets et <code>JSON.parse</code> pour les récupérer.</li>
+        <li>Évitez de stocker des données sensibles comme des mots de passe ou des informations bancaires.</li>
+        <li>Nettoyez régulièrement les données inutilisées pour optimiser l'espace.</li>
+        <li>Utilisez <code>sessionStorage</code> pour les données temporaires spécifiques à un onglet.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="poo-expert">
+    <h3>Programmation Orientée Objet (POO) Expert</h3>
+    <p>
+        La <strong>Programmation Orientée Objet (POO)</strong> au niveau expert en JavaScript consiste à maîtriser des concepts avancés tels que 
+        l’héritage complexe, les mixins, les design patterns, et l’utilisation efficace des classes dans des applications scalables et maintenables.
+        Ce niveau approfondit les bases pour concevoir des systèmes robustes avec une architecture modulaire.
+    </p>
+
+    <h4>Concepts avancés de la POO</h4>
+    <ul>
+        <li><strong>Héritage complexe :</strong> Implémentation d'héritages multiples avec des classes et des prototypes.</li>
+        <li><strong>Mixins :</strong> Ajout de fonctionnalités partagées à plusieurs classes sans héritage direct.</li>
+        <li><strong>Encapsulation avancée :</strong> Gestion des membres privés et protégés dans les classes.</li>
+        <li><strong>Polymorphisme :</strong> Permet d’utiliser une interface commune pour différentes implémentations.</li>
+        <li><strong>Design Patterns :</strong> Application de modèles comme Singleton, Factory, ou Observer.</li>
+    </ul>
+
+    <h4>Héritage complexe</h4>
+    <p>En JavaScript, l’héritage est basé sur les prototypes, mais avec les classes ES6, il est simplifié et plus intuitif.</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'héritage complexe</span>
+<span class="keyword">class</span> Animal {
+    <span class="keyword">constructor</span>(nom) {
+        <span class="keyword">this</span>.nom = nom;
+    }
+
+    parler() {
+        console.log(<span class="string">`${this.nom} fait un bruit.`</span>);
+    }
+}
+
+<span class="keyword">class</span> Chien <span class="keyword">extends</span> Animal {
+    parler() {
+        console.log(<span class="string">`${this.nom} aboie.`</span>);
+    }
+}
+
+<span class="keyword">class</span> Chat <span class="keyword">extends</span> Animal {
+    parler() {
+        console.log(<span class="string">`${this.nom} miaule.`</span>);
+    }
+}
+
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> rex = <span class="keyword">new</span> Chien(<span class="string">"Rex"</span>);
+rex.parler(); <span class="comment">// Rex aboie.</span>
+
+<span class="keyword">const</span> felix = <span class="keyword">new</span> Chat(<span class="string">"Félix"</span>);
+felix.parler(); <span class="comment">// Félix miaule.</span>
+</code></pre>
+    </div>
+
+    <h4>Mixins</h4>
+    <p>Les mixins permettent d’ajouter des fonctionnalités à plusieurs classes sans utiliser l’héritage direct.</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple de Mixin</span>
+<span class="keyword">const</span> Volant = {
+    voler() {
+        console.log(<span class="string">`${this.nom} peut voler !`</span>);
+    }
+};
+
+<span class="keyword">class</span> Oiseau {
+    <span class="keyword">constructor</span>(nom) {
+        <span class="keyword">this</span>.nom = nom;
+    }
+}
+
+<span class="keyword">Object</span>.assign(Oiseau.prototype, Volant);
+
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> aigle = <span class="keyword">new</span> Oiseau(<span class="string">"Aigle"</span>);
+aigle.voler(); <span class="comment">// Aigle peut voler !</span>
+</code></pre>
+    </div>
+
+    <h4>Encapsulation avancée</h4>
+    <p>
+        Les membres privés ou protégés sont essentiels pour contrôler l’accès aux propriétés ou méthodes d’une classe. 
+        En JavaScript, cela peut être réalisé avec des symboles ou le mot-clé <code>#</code>.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple d'encapsulation avec membres privés</span>
+<span class="keyword">class</span> CompteBancaire {
+    <span class="keyword">constructor</span>(soldeInitial) {
+        <span class="keyword">this</span>.<span class="keyword">#solde</span> = soldeInitial; <span class="comment">// Membres privés</span>
+    }
+
+    <span class="keyword">#verifierFonds</span>(montant) {
+        <span class="keyword">return</span> montant <= <span class="keyword">this</span>.<span class="keyword">#solde</span>;
+    }
+
+    retirer(montant) {
+        <span class="keyword">if</span> (<span class="keyword">this</span>.<span class="keyword">#verifierFonds</span>(montant)) {
+            <span class="keyword">this</span>.<span class="keyword">#solde</span> -= montant;
+            console.log(<span class="string">`Retrait de ${montant}€. Solde restant : ${this.#solde}€`</span>);
+        } <span class="keyword">else</span> {
+            console.log(<span class="string">"Fonds insuffisants."</span>);
+        }
+    }
+}
+
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> compte = <span class="keyword">new</span> CompteBancaire(<span class="number">1000</span>);
+compte.retirer(<span class="number">200</span>); <span class="comment">// Retrait de 200€. Solde restant : 800€</span>
+compte.retirer(<span class="number">900</span>); <span class="comment">// Fonds insuffisants.</span>
+</code></pre>
+    </div>
+
+    <h4>Polymorphisme</h4>
+    <p>Le polymorphisme permet d’appeler des méthodes sur des objets dérivés, en garantissant un comportement spécifique à chaque sous-classe.</p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple de polymorphisme</span>
+<span class="keyword">class</span> Forme {
+    aire() {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Méthode non implémentée."</span>);
+    }
+}
+
+<span class="keyword">class</span> Cercle <span class="keyword">extends</span> Forme {
+    <span class="keyword">constructor</span>(rayon) {
+        <span class="keyword">super</span>();
+        <span class="keyword">this</span>.rayon = rayon;
+    }
+
+    aire() {
+        <span class="keyword">return</span> Math.PI * <span class="keyword">this</span>.rayon ** <span class="number">2</span>;
+    }
+}
+
+<span class="keyword">class</span> Rectangle <span class="keyword">extends</span> Forme {
+    <span class="keyword">constructor</span>(largeur, hauteur) {
+        <span class="keyword">super</span>();
+        <span class="keyword">this</span>.largeur = largeur;
+        <span class="keyword">this</span>.hauteur = hauteur;
+    }
+
+    aire() {
+        <span class="keyword">return</span> <span class="keyword">this</span>.largeur * <span class="keyword">this</span>.hauteur;
+    }
+}
+
+<span class="comment">// Utilisation</span>
+<span class="keyword">const</span> formes = [
+    <span class="keyword">new</span> Cercle(<span class="number">5</span>),
+    <span class="keyword">new</span> Rectangle(<span class="number">4</span>, <span class="number">6</span>)
+];
+
+formes.forEach((forme) => {
+    console.log(<span class="string">`Aire : ${forme.aire()}`</span>);
+});
+</code></pre>
+    </div>
+
+    <h4>Design Patterns</h4>
+    <ul>
+        <li><strong>Singleton :</strong> Créer une seule instance d’une classe pour tout un projet.</li>
+        <li><strong>Factory :</strong> Générer des objets sans spécifier leur classe exacte.</li>
+        <li><strong>Observer :</strong> Permet à un objet de notifier automatiquement les changements à ses abonnés.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="web-workers">
+    <h3>Web Workers</h3>
+    <p>
+        Les <strong>Web Workers</strong> sont des scripts qui permettent d’exécuter du code JavaScript en arrière-plan, indépendamment du thread principal du navigateur. 
+        Cela empêche les tâches intensives (comme les calculs complexes ou les requêtes longues) de bloquer l’interface utilisateur, offrant une meilleure expérience utilisateur.
+    </p>
+
+    <h4>Pourquoi utiliser les Web Workers ?</h4>
+    <ul>
+        <li><strong>Performances :</strong> Exécuter des tâches lourdes sans affecter l’interactivité de la page.</li>
+        <li><strong>Multi-threading :</strong> Permet de tirer parti du traitement parallèle.</li>
+        <li><strong>Expérience utilisateur :</strong> Maintenir une interface réactive tout en exécutant des calculs ou des traitements en arrière-plan.</li>
+    </ul>
+
+    <h4>Types de Web Workers</h4>
+    <ul>
+        <li><strong>Dedicated Workers :</strong> Associés à un seul script principal, parfaits pour des tâches spécifiques.</li>
+        <li><strong>Shared Workers :</strong> Partagés entre plusieurs scripts principaux, utile pour gérer des ressources communes.</li>
+        <li><strong>Service Workers :</strong> Utilisés pour les Progressive Web Apps (PWA), permettant des fonctionnalités comme le cache hors ligne et les notifications push.</li>
+    </ul>
+
+    <h4>Créer et utiliser un Web Worker</h4>
+    <p>Un Web Worker est défini dans un fichier JavaScript séparé. Voici un exemple complet :</p>
+
+    <h5>Fichier du Worker (<code>worker.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// worker.js - Fichier exécuté en arrière-plan</span>
+
+<span class="comment">// Réception d'un message depuis le thread principal</span>
+self.addEventListener(<span class="string">"message"</span>, (event) => {
+    <span class="keyword">const</span> nombre = event.data;
+
+    <span class="comment">// Calcul intensif</span>
+    <span class="keyword">let</span> resultat = <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i <= nombre; i++) {
+        resultat += i;
+    }
+
+    <span class="comment">// Envoi du résultat au thread principal</span>
+    self.postMessage(resultat);
+});
+</code></pre>
+    </div>
+
+    <h5>Script principal (<code>main.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// main.js - Script principal</span>
+
+<span class="comment">// Création d'un Worker</span>
+<span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="string">"worker.js"</span>);
+
+<span class="comment">// Envoi d'un message au Worker</span>
+worker.postMessage(<span class="number">1000000</span>);
+
+<span class="comment">// Réception du résultat</span>
+worker.addEventListener(<span class="string">"message"</span>, (event) => {
+    console.log(<span class="string">`Résultat : ${event.data}`</span>);
 });
 
-self.addEventListener('fetch', (event) => {
+<span class="comment">// Gestion des erreurs</span>
+worker.addEventListener(<span class="string">"error"</span>, (error) => {
+    console.error(<span class="string">`Erreur dans le Worker : ${error.message}`</span>);
+});
+</code></pre>
+    </div>
+
+    <h4>Shared Workers</h4>
+    <p>Les <strong>Shared Workers</strong> peuvent être partagés entre plusieurs fenêtres ou onglets du même domaine :</p>
+    <h5>Fichier Shared Worker (<code>shared-worker.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// shared-worker.js</span>
+
+<span class="comment">// Gestion des connexions multiples</span>
+self.addEventListener(<span class="string">"connect"</span>, (event) => {
+    <span class="keyword">const</span> port = event.ports[<span class="number">0</span>];
+
+    port.addEventListener(<span class="string">"message"</span>, (e) => {
+        <span class="keyword">const</span> data = e.data;
+        port.postMessage(<span class="string">`Données reçues : ${data}`</span>);
+    });
+
+    port.start();
+});
+</code></pre>
+    </div>
+
+    <h5>Utilisation d’un Shared Worker (<code>main.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// main.js</span>
+
+<span class="comment">// Création d'un Shared Worker</span>
+<span class="keyword">const</span> sharedWorker = <span class="keyword">new</span> SharedWorker(<span class="string">"shared-worker.js"</span>);
+<span class="keyword">const</span> port = sharedWorker.port;
+
+<span class="comment">// Envoi de données</span>
+port.postMessage(<span class="string">"Hello depuis le script principal"</span>);
+
+<span class="comment">// Réception de données</span>
+port.addEventListener(<span class="string">"message"</span>, (event) => {
+    console.log(event.data); <span class="comment">// Affiche : "Données reçues : Hello depuis le script principal"</span>
+});
+
+port.start();
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Calculs intensifs :</strong> Traitement de grandes quantités de données ou algorithmes complexes.</li>
+        <li><strong>Analyse de données :</strong> Parsing de fichiers volumineux (JSON, CSV) sans ralentir l'interface utilisateur.</li>
+        <li><strong>Mises à jour en temps réel :</strong> Gérer les connexions WebSocket ou les notifications.</li>
+        <li><strong>Manipulation d’images ou vidéos :</strong> Traitement en arrière-plan avec des librairies comme <code>Canvas</code>.</li>
+    </ul>
+
+    <h4>Bonnes pratiques</h4>
+    <ul>
+        <li>Utilisez les Workers pour des tâches longues ou intensives uniquement.</li>
+        <li>Communiquez de manière efficace en limitant les messages envoyés entre le Worker et le thread principal.</li>
+        <li>Gérez les erreurs dans le Worker avec des écouteurs d'événements.</li>
+        <li>Nettoyez les Workers inutilisés en appelant <code>worker.terminate()</code> pour libérer des ressources.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="gestion-erreurs-debugging">
+    <h3>Gestion des Erreurs et Debugging</h3>
+    <p>
+        En JavaScript, la gestion des erreurs et le debugging sont essentiels pour assurer la robustesse et la fiabilité des applications. 
+        Une bonne gestion des erreurs permet d'anticiper et de traiter les problèmes, tandis que le debugging aide à localiser et corriger les bugs.
+    </p>
+
+    <h4>Pourquoi gérer les erreurs ?</h4>
+    <ul>
+        <li><strong>Prévenir les plantages :</strong> Empêche une erreur d’interrompre complètement l’exécution du programme.</li>
+        <li><strong>Améliorer l’expérience utilisateur :</strong> Fournir des messages d’erreur clairs au lieu de comportements inattendus.</li>
+        <li><strong>Faciliter le debugging :</strong> Identifier rapidement les causes des problèmes grâce à une gestion structurée.</li>
+    </ul>
+
+    <h4>Les erreurs en JavaScript</h4>
+    <ul>
+        <li><strong>SyntaxError :</strong> Erreur de syntaxe, détectée lors de l’analyse du code.</li>
+        <li><strong>ReferenceError :</strong> Variable ou fonction non définie.</li>
+        <li><strong>TypeError :</strong> Utilisation d’une valeur avec un type inapproprié.</li>
+        <li><strong>RangeError :</strong> Utilisation d'une valeur en dehors d'une plage autorisée.</li>
+        <li><strong>Custom Error :</strong> Erreurs définies par le développeur.</li>
+    </ul>
+
+    <h4>Gestion des erreurs avec <code>try...catch</code></h4>
+    <p>
+        Le bloc <code>try...catch</code> permet de capturer les erreurs et d’exécuter un code alternatif.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple simple avec try...catch</span>
+<span class="keyword">try</span> {
+    <span class="comment">// Code qui peut générer une erreur</span>
+    console.log(utilisateur.nom); <span class="comment">// ReferenceError : utilisateur n'est pas défini</span>
+} <span class="keyword">catch</span> (erreur) {
+    console.error(<span class="string">"Une erreur est survenue :"</span>, erreur.message);
+} <span class="comment">// Continue l'exécution sans plantage</span>
+</code></pre>
+    </div>
+
+    <h4>Lancer des erreurs avec <code>throw</code></h4>
+    <p>
+        Vous pouvez créer vos propres erreurs personnalisées en utilisant <code>throw</code> pour signaler des conditions spécifiques.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple avec throw</span>
+<span class="keyword">function</span> verifierAge(age) {
+    <span class="keyword">if</span> (age < <span class="number">18</span>) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"L'âge doit être supérieur ou égal à 18."</span>);
+    }
+    console.log(<span class="string">"Âge valide :"</span>, age);
+}
+
+<span class="keyword">try</span> {
+    verifierAge(<span class="number">15</span>);
+} <span class="keyword">catch</span> (erreur) {
+    console.error(erreur.message); <span class="comment">// L'âge doit être supérieur ou égal à 18.</span>
+}
+</code></pre>
+    </div>
+
+    <h4>Déboguer avec <code>console</code></h4>
+    <p>
+        L'objet <code>console</code> est un outil puissant pour afficher des informations dans la console du navigateur :
+    </p>
+    <ul>
+        <li><code>console.log()</code> : Affiche des informations générales.</li>
+        <li><code>console.error()</code> : Affiche une erreur.</li>
+        <li><code>console.warn()</code> : Affiche un avertissement.</li>
+        <li><code>console.table()</code> : Affiche des données sous forme de tableau.</li>
+    </ul>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemples de console</span>
+<span class="keyword">const</span> utilisateur = { nom: <span class="string">"Alice"</span>, age: <span class="number">30</span> };
+console.log(utilisateur); <span class="comment">// Affiche l'objet</span>
+console.table(utilisateur); <span class="comment">// Affiche l'objet sous forme de tableau</span>
+console.warn(<span class="string">"Attention : Variable non utilisée."</span>);
+console.error(<span class="string">"Erreur critique détectée."</span>);
+</code></pre>
+    </div>
+
+    <h4>Déboguer avec les outils du navigateur</h4>
+    <p>
+        Les navigateurs modernes offrent des outils de développement puissants :
+    </p>
+    <ul>
+        <li><strong>Breakpoints :</strong> Permet de mettre en pause l'exécution du code pour analyser son état.</li>
+        <li><strong>Call Stack :</strong> Affiche la pile d’appels pour retracer l’origine d’une erreur.</li>
+        <li><strong>Watch Variables :</strong> Surveillez des variables spécifiques pendant l'exécution.</li>
+        <li><strong>Network Tab :</strong> Vérifie les requêtes réseau pour identifier les erreurs côté serveur.</li>
+    </ul>
+
+    <h4>Gestion globale des erreurs</h4>
+    <p>
+        Vous pouvez capturer toutes les erreurs non gérées avec <code>window.onerror</code> ou <code>window.addEventListener('error')</code>.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Gestion globale des erreurs</span>
+window.addEventListener(<span class="string">"error"</span>, (event) => {
+    console.error(<span class="string">`Erreur capturée globalement : ${event.message}`</span>);
+});
+</code></pre>
+    </div>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Validation des entrées :</strong> Vérifiez les données utilisateur avant de les traiter.</li>
+        <li><strong>Requêtes API :</strong> Gérez les erreurs de réseau ou de réponse.</li>
+        <li><strong>Gestion des dépendances :</strong> Anticipez les erreurs causées par des modules ou scripts externes.</li>
+    </ul>
+
+    <h4>Bonnes pratiques</h4>
+    <ul>
+        <li>Utilisez <code>try...catch</code> uniquement pour les blocs susceptibles de générer des erreurs.</li>
+        <li>Écrivez des messages d'erreur clairs et descriptifs pour faciliter le debugging.</li>
+        <li>Gérez les erreurs spécifiques pour éviter des comportements imprévisibles.</li>
+        <li>Utilisez les outils de développement pour localiser et résoudre les bugs rapidement.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="service-workers-pwa">
+    <h3>Service Workers & Progressive Web Apps (PWA)</h3>
+    <p>
+        Les <strong>Service Workers</strong> sont des scripts exécutés en arrière-plan par le navigateur, indépendamment des pages web. Ils sont une composante essentielle des <strong>Progressive Web Apps (PWA)</strong>, 
+        offrant des fonctionnalités avancées comme le support hors ligne, les notifications push, et la mise en cache optimisée des ressources.
+    </p>
+
+    <h4>Pourquoi utiliser les Service Workers ?</h4>
+    <ul>
+        <li><strong>Fonctionnalité hors ligne :</strong> Permet de charger des pages même sans connexion Internet.</li>
+        <li><strong>Performances accrues :</strong> Mise en cache des ressources pour des temps de chargement plus rapides.</li>
+        <li><strong>Notifications push :</strong> Interagir avec l'utilisateur via des notifications.</li>
+        <li><strong>Fondation des PWA :</strong> Indispensables pour transformer un site web en une application progressive.</li>
+    </ul>
+
+    <h4>Les étapes pour utiliser un Service Worker</h4>
+    <ol>
+        <li>Enregistrer le Service Worker dans votre application.</li>
+        <li>Gérer l'installation et l'activation pour mettre en cache les ressources.</li>
+        <li>Intercepter les requêtes réseau pour fournir des réponses en cache ou dynamiques.</li>
+    </ol>
+
+    <h4>Exemple pratique de Service Worker</h4>
+
+    <h5>Fichier du Service Worker (<code>sw.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// sw.js - Service Worker</span>
+
+<span class="comment">// Nom du cache</span>
+<span class="keyword">const</span> CACHE_NAME = <span class="string">"v1"</span>;
+
+<span class="comment">// Ressources à mettre en cache</span>
+<span class="keyword">const</span> ressources = [
+    <span class="string">"/index.html"</span>,
+    <span class="string">"/style.css"</span>,
+    <span class="string">"/app.js"</span>,
+    <span class="string">"/images/logo.png"</span>
+];
+
+<span class="comment">// Installation du Service Worker</span>
+self.addEventListener(<span class="string">"install"</span>, (event) => {
+    console.log(<span class="string">"Service Worker : Installé"</span>);
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log(<span class="string">"Mise en cache des ressources"</span>);
+            <span class="keyword">return</span> cache.addAll(ressources);
+        })
+    );
+});
+
+<span class="comment">// Activation du Service Worker</span>
+self.addEventListener(<span class="string">"activate"</span>, (event) => {
+    console.log(<span class="string">"Service Worker : Activé"</span>);
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            <span class="keyword">return</span> Promise.all(
+                cacheNames.map((cache) => {
+                    <span class="keyword">if</span> (cache !== CACHE_NAME) {
+                        console.log(<span class="string">`Suppression de l'ancien cache : ${cache}`</span>);
+                        <span class="keyword">return</span> caches.delete(cache);
+                    }
+                })
+            );
+        })
+    );
+});
+
+<span class="comment">// Interception des requêtes réseau</span>
+self.addEventListener(<span class="string">"fetch"</span>, (event) => {
+    console.log(<span class="string">`Requête interceptée : ${event.request.url}`</span>);
     event.respondWith(
         caches.match(event.request).then((response) => {
-            return response || fetch(event.request);
+            <span class="comment">// Retourne la réponse en cache si disponible, sinon fait une requête réseau</span>
+            <span class="keyword">return</span> response || fetch(event.request);
         })
     );
 });
 </code></pre>
-
-        <button onclick="registerServiceWorker()" class="btn btn-primary">Tester Service Worker</button>
-        <div id="sw-status" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
-</div>
 
-<script>
-    function registerServiceWorker() {
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/Portfolio/cours/assets/js/sw.js')
-                .then((registration) => {
-                    document.getElementById("sw-status").innerHTML = "Service Worker enregistré avec succès!";
-                })
-                .catch((error) => {
-                    document.getElementById("sw-status").innerHTML = "Erreur d'enregistrement: " + error;
-                });
-        } else {
-            document.getElementById("sw-status").innerHTML = "Service Workers non supportés dans ce navigateur.";
-        }
-    }
-</script>
-<div class="col-md-12">
-    <h3 id="es6"><i class="fas fa-code"></i> Syntaxe Moderne ES6+</h3>
-    <p>
-        <strong>ES6+ (ECMAScript 2015 et au-delà)</strong> représente une série de mises à jour majeures au langage JavaScript, introduisant des fonctionnalités qui améliorent la lisibilité, la maintenance, et les performances du code. 
-        Ces améliorations incluent des outils comme les classes, les fonctions fléchées, et la déstructuration pour simplifier le code JavaScript moderne.
-    </p>
-    <p>
-        <i class="fas fa-bolt"></i> <strong>Mémoire rapide :</strong> 
-        ES6+ introduit de nombreuses fonctionnalités essentielles comme les modules, la syntaxe de déstructuration, et les promesses pour simplifier la gestion asynchrone.
-        Parfait pour écrire un code JavaScript plus concis, modulaire, et facile à maintenir.
-    </p>
+    <h5>Enregistrement du Service Worker (<code>app.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// app.js - Enregistrer le Service Worker</span>
+
+<span class="keyword">if</span> (<span class="keyword">"serviceWorker"</span> <span class="keyword">in</span> navigator) {
+    navigator.serviceWorker
+        .register(<span class="string">"/sw.js"</span>)
+        .then((registration) => {
+            console.log(<span class="string">"Service Worker enregistré :", registration.scope</span>);
+        })
+        .catch((error) => {
+            console.error(<span class="string">"Échec de l'enregistrement du Service Worker :", error</span>);
+        });
+}
+</code></pre>
+    </div>
+
+    <h4>Progressive Web Apps (PWA)</h4>
+    <p>Les PWA combinent des technologies web modernes pour offrir une expérience utilisateur proche des applications natives :</p>
     <ul>
-        <li><strong>Let & Const :</strong> Permettent une gestion améliorée des variables avec une portée de bloc, réduisant les erreurs liées aux variables globales.</li>
-        <li><strong>Fonctions fléchées :</strong> Syntaxe simplifiée pour écrire des fonctions, avec une liaison contextuelle simplifiée de `this`.</li>
-        <li><strong>Modules :</strong> Favorisent le découpage du code en plusieurs fichiers, facilitant la réutilisation et la maintenance.</li>
+        <li><strong>Installable :</strong> Ajout de l'application sur l'écran d'accueil du téléphone.</li>
+        <li><strong>Fonctionnalité hors ligne :</strong> Accessible même sans connexion Internet grâce au Service Worker.</li>
+        <li><strong>Performances optimisées :</strong> Chargement rapide des ressources mises en cache.</li>
     </ul>
 
+    <h5>Fichier Manifest (<code>manifest.json</code>)</h5>
+    <p>Un fichier <code>manifest.json</code> est requis pour transformer un site web en PWA :</p>
     <div class="example-box">
-        <pre><code class="language-javascript">// Exemples de syntaxe ES6+
+        <pre><code class="language-json">{
+    "name": "Ma PWA",
+    "short_name": "PWA",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "/images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}</code></pre>
+    </div>
 
-// Déclaration de variable avec let et const
-let variableModifiable = 42;
-const constanteImmuable = "ES6";
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Applications hors ligne :</strong> Sites web accessibles sans Internet.</li>
+        <li><strong>Optimisation des performances :</strong> Mise en cache des ressources pour des temps de chargement plus rapides.</li>
+        <li><strong>Notifications push :</strong> Garder les utilisateurs engagés avec des mises à jour en temps réel.</li>
+    </ul>
 
-// Fonction fléchée
-const somme = (a, b) => a + b;
-console.log(somme(5, 10)); // Affiche 15
+    <h4>Bonnes pratiques</h4>
+    <ul>
+        <li>Utilisez des stratégies de mise en cache adaptées (cache first, network first, etc.).</li>
+        <li>Testez votre PWA avec des outils comme <a href="https://web.dev/measure/" target="_blank">Lighthouse</a>.</li>
+        <li>Minimisez les ressources mises en cache pour optimiser les performances.</li>
+        <li>Assurez-vous que le fichier <code>manifest.json</code> est correct et lié à votre HTML.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="es6">
+    <h3>Syntaxe Moderne ES6+</h3>
+    <p>
+        ES6 (ECMAScript 2015) et les versions ultérieures ont introduit des fonctionnalités modernes et puissantes en JavaScript. 
+        Ces ajouts facilitent l'écriture d'un code plus propre, lisible et maintenable, tout en améliorant les performances des applications.
+    </p>
 
-// Objet avec déstructuration
-const utilisateur = { nom: "Alice", age: 25 };
-const { nom, age } = utilisateur;
-console.log(nom, age); // Affiche Alice 25
+    <h4>Pourquoi adopter la syntaxe ES6+ ?</h4>
+    <ul>
+        <li><strong>Lisibilité :</strong> Syntaxe plus concise et claire.</li>
+        <li><strong>Productivité :</strong> Réduit la quantité de code nécessaire pour accomplir des tâches complexes.</li>
+        <li><strong>Compatibilité :</strong> La plupart des navigateurs modernes et des outils comme Babel permettent une adoption large.</li>
+    </ul>
 
-// Classe avec constructeur et méthodes
-class Personne {
-    constructor(nom) {
-        this.nom = nom;
+    <h4>Principales fonctionnalités ES6+</h4>
+
+    <h5>1. Déclaration de variables avec <code>let</code> et <code>const</code></h5>
+    <p>
+        Avant ES6, toutes les variables étaient déclarées avec <code>var</code>. Désormais, <code>let</code> et <code>const</code> offrent des portées plus précises.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Différences entre var, let, et const</span>
+
+// var : portée globale ou fonctionnelle
+<span class="keyword">var</span> x = <span class="number">10</span>;
+
+// let : portée de bloc
+<span class="keyword">let</span> y = <span class="number">20</span>;
+
+// const : valeur constante, portée de bloc
+<span class="keyword">const</span> z = <span class="number">30</span>;
+
+// Exemple de portée
+<span class="keyword">if</span> (<span class="boolean">true</span>) {
+    <span class="keyword">let</span> y = <span class="number">50</span>;
+    console.log(y); <span class="comment">// 50</span>
+}
+console.log(y); <span class="comment">// 20</span>
+</code></pre>
+    </div>
+
+    <h5>2. Fonctions fléchées (<code>=></code>)</h5>
+    <p>
+        Les fonctions fléchées introduisent une syntaxe concise pour écrire des fonctions. Elles ne modifient pas la valeur de <code>this</code>, ce qui est utile dans certains contextes.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Fonction classique</span>
+<span class="keyword">function</span> addition(a, b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="comment">// Fonction fléchée</span>
+<span class="keyword">const</span> additionFl = (a, b) => a + b;
+
+console.log(additionFl(<span class="number">5</span>, <span class="number">3</span>)); <span class="comment">// 8</span>
+</code></pre>
+    </div>
+
+    <h5>3. Littéraux de gabarits (<code>`</code>)</h5>
+    <p>
+        Les littéraux de gabarits permettent d'insérer facilement des variables ou des expressions dans des chaînes de caractères.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple avec littéraux de gabarits</span>
+<span class="keyword">const</span> nom = <span class="string">"Alice"</span>;
+<span class="keyword">const</span> age = <span class="number">30</span>;
+
+<span class="keyword">const</span> message = <span class="string">`Bonjour, je m'appelle ${nom} et j'ai ${age} ans.`</span>;
+console.log(message);
+</code></pre>
+    </div>
+
+    <h5>4. Destructuration des objets et tableaux</h5>
+    <p>
+        La destructuration permet d'extraire des valeurs ou des propriétés d'objets et de tableaux.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Destructuration des objets</span>
+<span class="keyword">const</span> utilisateur = { nom: <span class="string">"Alice"</span>, age: <span class="number">30</span> };
+<span class="keyword">const</span> { nom, age } = utilisateur;
+
+console.log(nom); <span class="comment">// Alice</span>
+console.log(age); <span class="comment">// 30</span>
+
+<span class="comment">// Destructuration des tableaux</span>
+<span class="keyword">const</span> nombres = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
+<span class="keyword">const</span> [a, b] = nombres;
+
+console.log(a); <span class="comment">// 1</span>
+console.log(b); <span class="comment">// 2</span>
+</code></pre>
+    </div>
+
+    <h5>5. Opérateurs Spread et Rest (<code>...</code>)</h5>
+    <p>
+        Ces opérateurs permettent de copier, fusionner ou passer des arguments de manière flexible.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Spread</span>
+<span class="keyword">const</span> nombres = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
+<span class="keyword">const</span> nouveauxNombres = [...nombres, <span class="number">4</span>];
+
+console.log(nouveauxNombres); <span class="comment">// [1, 2, 3, 4]</span>
+
+<span class="comment">// Rest</span>
+<span class="keyword">function</span> addition(...args) {
+    <span class="keyword">return</span> args.reduce((somme, val) => somme + val);
+}
+console.log(addition(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 6</span>
+</code></pre>
+    </div>
+
+    <h5>6. Modules JavaScript</h5>
+    <p>
+        L'importation et l'exportation de modules facilitent l'organisation et la réutilisation du code.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exportation dans calcul.js</span>
+<span class="keyword">export</span> <span class="keyword">function</span> addition(a, b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="comment">// Importation dans main.js</span>
+<span class="keyword">import</span> { addition } <span class="keyword">from</span> <span class="string">"./calcul.js"</span>;
+console.log(addition(<span class="number">5</span>, <span class="number">3</span>)); <span class="comment">// 8</span>
+</code></pre>
+    </div>
+
+    <h5>7. Classes</h5>
+    <p>
+        Les classes introduisent une syntaxe simplifiée pour la Programmation Orientée Objet.
+    </p>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Exemple de classe</span>
+<span class="keyword">class</span> Animal {
+    <span class="keyword">constructor</span>(nom) {
+        <span class="keyword">this</span>.nom = nom;
     }
-    
-    direBonjour() {
-        return `Bonjour, ${this.nom}!`;
+
+    parler() {
+        console.log(<span class="string">`${this.nom} fait un bruit.`</span>);
     }
 }
 
-const personne = new Personne("Bob");
-console.log(personne.direBonjour()); // Affiche Bonjour, Bob!
-
-// Promesse pour le code asynchrone
-const promesse = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("Résolu !"), 1000);
-});
-
-promesse.then(result => console.log(result)); // Affiche "Résolu !" après 1 seconde
+<span class="keyword">const</span> chien = <span class="keyword">new</span> Animal(<span class="string">"Rex"</span>);
+chien.parler(); <span class="comment">// Rex fait un bruit.</span>
 </code></pre>
-
-        <button onclick="testES6()" class="btn btn-primary">Tester le code ES6+</button>
-        <div id="es6-status" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
-</div>
 
-<script>
-    function testES6() {
-        let result = '';
-        try {
-            // Test rapide de la syntaxe ES6+
-            let variableModifiable = 42;
-            const constanteImmuable = "ES6";
-
-            const somme = (a, b) => a + b;
-            result += `Somme : ${somme(5, 10)}<br>`;
-
-            const utilisateur = { nom: "Alice", age: 25 };
-            const { nom, age } = utilisateur;
-            result += `Utilisateur : ${nom}, ${age} ans<br>`;
-
-            class Personne {
-                constructor(nom) {
-                    this.nom = nom;
-                }
-                direBonjour() {
-                    return `Bonjour, ${this.nom}!`;
-                }
-            }
-            const personne = new Personne("Bob");
-            result += personne.direBonjour();
-
-            document.getElementById("es6-status").innerHTML = result;
-        } catch (error) {
-            document.getElementById("es6-status").innerHTML = "Erreur lors de l'exécution du code : " + error;
-        }
-    }
-</script>
-<div class="col-md-12">
-    <h3 id="testing"><i class="fas fa-vial"></i> Tests Unitaires</h3>
-    <p>
-        <strong>Les tests unitaires</strong> sont une technique de test où chaque unité de code (comme les fonctions ou méthodes) est testée individuellement pour garantir qu’elle fonctionne correctement. 
-        Ils sont essentiels pour détecter les erreurs rapidement et maintenir une base de code fiable et robuste, surtout en environnement de développement continu.
-    </p>
-    <p>
-        <i class="fas fa-bolt"></i> <strong>Mémoire rapide :</strong> 
-        Les tests unitaires permettent de s'assurer que chaque partie de code fonctionne de manière indépendante. Ils aident à identifier rapidement les bugs, facilitent la maintenance et sont essentiels pour les pratiques de développement comme le TDD (Test-Driven Development).
-    </p>
+    <h4>Cas d’utilisation courants</h4>
     <ul>
-        <li><strong>Isolation :</strong> Les tests unitaires testent des morceaux de code isolés pour s'assurer qu'ils fonctionnent sans dépendre d'autres parties du programme.</li>
-        <li><strong>Rapidité :</strong> Étant donné qu'ils testent de petites portions de code, les tests unitaires sont rapides à exécuter.</li>
-        <li><strong>Automatisation :</strong> Les tests peuvent être automatisés et exécutés à chaque mise à jour de code, garantissant la stabilité du code.</li>
+        <li>Créer un code plus lisible et maintenable grâce à <code>let</code>, <code>const</code>, et les classes.</li>
+        <li>Réduire les bugs avec des modules et une structure modulaire.</li>
+        <li>Améliorer les performances avec des fonctions optimisées comme les littéraux de gabarits et les opérateurs spread/rest.</li>
+    </ul>
+</div>
+<div class="col-md-12" id="testing">
+    <h3>Tests Unitaires</h3>
+    <p>
+        Les <strong>tests unitaires</strong> consistent à vérifier individuellement chaque fonction ou composant d'un programme pour s'assurer qu'ils fonctionnent correctement.
+        Ils permettent de détecter les bugs rapidement et d'assurer la fiabilité du code lors des modifications.
+    </p>
+
+    <h4>Pourquoi effectuer des tests unitaires ?</h4>
+    <ul>
+        <li><strong>Détection précoce des bugs :</strong> Identifiez les problèmes avant qu'ils n'affectent l'ensemble de l'application.</li>
+        <li><strong>Réduction des coûts :</strong> Corrigez les erreurs avant qu'elles ne deviennent coûteuses à résoudre.</li>
+        <li><strong>Facilite la maintenance :</strong> Assurez-vous que les modifications du code n'introduisent pas de régressions.</li>
+        <li><strong>Améliore la confiance :</strong> Garantit que votre code fonctionne comme prévu.</li>
     </ul>
 
-    <h4>Utilisation de Jest pour les Tests Unitaires</h4>
-    <p>
-        <strong>Jest</strong> est un framework de test JavaScript largement utilisé pour créer et exécuter des tests unitaires. Il propose des méthodes simples comme <code>test</code> et <code>expect</code>, facilitant l'écriture de tests.
-        Voici les étapes pour installer et utiliser Jest :
-    </p>
-    <ol>
-        <li>Installer Jest : <code>npm install --save-dev jest</code></li>
-        <li>Créer un fichier de test, par exemple <code>addition.test.js</code></li>
-        <li>Exécuter les tests : <code>npx jest</code></li>
-    </ol>
-    <p>Un exemple de test en Jest :</p>
+    <h4>Principes des tests unitaires</h4>
+    <ul>
+        <li>Un test doit être indépendant des autres tests.</li>
+        <li>Les tests doivent être faciles à écrire, lire et maintenir.</li>
+        <li>Chaque test doit se concentrer sur un cas spécifique (input/output attendu).</li>
+    </ul>
+
+    <h4>Outils populaires pour les tests unitaires</h4>
+    <ul>
+        <li><strong>Jest :</strong> Framework complet pour le test unitaire, fourni avec des fonctionnalités avancées.</li>
+        <li><strong>Mocha :</strong> Framework flexible pour créer des tests personnalisés.</li>
+        <li><strong>Chai :</strong> Librairie d'assertions souvent utilisée avec Mocha.</li>
+        <li><strong>Vitest :</strong> Framework rapide et moderne pour les projets basés sur Vite.</li>
+    </ul>
+
+    <h4>Exemple de test unitaire avec Jest</h4>
+
+    <h5>Fichier à tester (<code>calcul.js</code>)</h5>
     <div class="example-box">
-        <pre><code class="language-javascript">// addition.js - Fonction à tester
-function addition(a, b) {
-    return a + b;
+        <pre><code class="language-javascript"><span class="comment">// Fonction à tester</span>
+<span class="keyword">export</span> <span class="keyword">function</span> addition(a, b) {
+    <span class="keyword">return</span> a + b;
 }
-module.exports = addition;
 
-// addition.test.js - Test unitaire avec Jest
-const addition = require('./addition');
+<span class="keyword">export</span> <span class="keyword">function</span> division(a, b) {
+    <span class="keyword">if</span> (b === <span class="number">0</span>) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Division par zéro interdite"</span>);
+    }
+    <span class="keyword">return</span> a / b;
+}
+</code></pre>
+    </div>
 
-test('addition de 5 et 10 donne 15', () => {
-    expect(addition(5, 10)).toBe(15);
+    <h5>Fichier de test (<code>calcul.test.js</code>)</h5>
+    <div class="example-box">
+        <pre><code class="language-javascript"><span class="comment">// Importation des fonctions à tester</span>
+<span class="keyword">import</span> { addition, division } <span class="keyword">from</span> <span class="string">"./calcul.js"</span>;
+
+<span class="comment">// Tests pour la fonction addition</span>
+test(<span class="string">"Addition de deux nombres positifs"</span>, () => {
+    <span class="keyword">expect</span>(addition(<span class="number">2</span>, <span class="number">3</span>)).toBe(<span class="number">5</span>);
+});
+
+test(<span class="string">"Addition avec zéro"</span>, () => {
+    <span class="keyword">expect</span>(addition(<span class="number">0</span>, <span class="number">3</span>)).toBe(<span class="number">3</span>);
+});
+
+<span class="comment">// Tests pour la fonction division</span>
+test(<span class="string">"Division de deux nombres positifs"</span>, () => {
+    <span class="keyword">expect</span>(division(<span class="number">10</span>, <span class="number">2</span>)).toBe(<span class="number">5</span>);
+});
+
+test(<span class="string">"Division par zéro génère une erreur"</span>, () => {
+    <span class="keyword">expect</span>(() => division(<span class="number">10</span>, <span class="number">0</span>)).toThrow(<span class="string">"Division par zéro interdite"</span>);
 });
 </code></pre>
-
-        <button onclick="runUnitTest()" class="btn btn-primary">Tester le code unitaire</button>
-        <div id="unit-test-status" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
+
+    <h4>Commandes pour exécuter les tests</h4>
+    <ul>
+        <li><code>npm install jest --save-dev</code> : Installe Jest dans votre projet.</li>
+        <li><code>npx jest</code> : Lance tous les tests.</li>
+        <li><code>npx jest --watch</code> : Exécute les tests automatiquement à chaque modification de fichier.</li>
+    </ul>
+
+    <h4>Cas d’utilisation courants</h4>
+    <ul>
+        <li><strong>Validation de logique métier :</strong> Tester les calculs, les conversions, ou toute logique clé.</li>
+        <li><strong>Gestion des erreurs :</strong> S'assurer que les exceptions sont correctement levées et gérées.</li>
+        <li><strong>Régressions :</strong> Vérifier que les nouvelles fonctionnalités n’introduisent pas de bugs dans le code existant.</li>
+    </ul>
+
+    <h4>Bonnes pratiques</h4>
+    <ul>
+        <li>Écrivez des tests simples et ciblés pour chaque cas d'utilisation.</li>
+        <li>Assurez-vous que les noms des tests décrivent clairement leur objectif.</li>
+        <li>Automatisez vos tests pour exécuter régulièrement votre suite.</li>
+        <li>Évitez les dépendances externes dans vos tests unitaires.</li>
+        <li>Incluez des tests pour les cas normaux, limites et erreurs.</li>
+    </ul>
 </div>
 
-<script>
-    function runUnitTest() {
-        let result = '';
-        try {
-            // Fonction à tester
-            function addition(a, b) {
-                return a + b;
-            }
 
-            // Test unitaire simulé (sans Jest)
-            const expectedResult = 15;
-            const actualResult = addition(5, 10);
-            if (actualResult === expectedResult) {
-                result = "Test réussi : addition(5, 10) donne bien 15.";
-            } else {
-                result = `Test échoué : attendu ${expectedResult}, mais reçu ${actualResult}.`;
-            }
-
-            document.getElementById("unit-test-status").innerHTML = result;
-        } catch (error) {
-            document.getElementById("unit-test-status").innerHTML = "Erreur lors de l'exécution du test : " + error;
-        }
-    }
-</script>
+    </div>
+</div>
 
                 </div>
             </div>
-
-        </div>
-    </div>
 
     <!-- Bootstrap JS (optional if you want responsive behavior) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

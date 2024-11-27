@@ -24,7 +24,11 @@ $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?? '
 
 // Liste des pages autorisées
 $pages = [
+
+    // Page d'accueil
     'home',
+
+    // Section pour les cours de la plateforme
     'cours_html',
     'cours_html_avance',
     'cours_css',
@@ -66,8 +70,26 @@ $pages = [
     'cours_gestion_erreurs',
     'cours_tests_unitaires',
     'cours_performance',
-    'memo',
     'cours_complet',
+
+    // Section pour les fiches de révisions
+    'memo',
+
+    // Section pour les qcm dev
+    'qcm_dev/index',
+    'qcm_dev/qcm1',
+    'qcm_dev/qcm2',
+    'qcm_dev/qcm3',
+    'qcm_dev/qcm4',
+    'qcm_dev/qcm5',
+    'qcm_dev/qcm6',
+    'qcm_dev/qcm7',
+    'qcm_dev/qcm8',
+    'qcm_dev/qcm9',
+    'qcm_dev/qcm10',
+    'qcm_dev/save_score',
+
+    // Page d'erreurs
     '404'
 ];
 

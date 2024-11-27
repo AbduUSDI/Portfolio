@@ -222,15 +222,28 @@ p {
     color: #555; /* Couleur de texte subtile pour une bonne lisibilité */
 }
 
-.btn-primary {
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-secondary {
     border-radius: 20px; /* Bouton avec bords arrondis */
     padding: 8px 20px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: black;
+    color: white;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3; /* Changement de couleur de fond au survol */
+.btn-primary:hover,
+.btn-success:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-info:hover,
+.btn-secondary:hover {
+    background-color: #ffffff; /* Changement de couleur de fond au survol */
     box-shadow: 0 4px 8px rgba(0, 91, 187, 0.4); /* Ombre supplémentaire sur le bouton */
+    color: black;
 }
 /* Box Shadow */
 .effect-box-shadow {
