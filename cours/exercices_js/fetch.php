@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : API Fetch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur l'API Fetch en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,84 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Qu'est-ce que l'API Fetch permet de faire ?",
+            options: [
+                "Effectuer des requêtes réseau",
+                "Créer une base de données",
+                "Importer des modules",
+                "Manipuler le DOM"
+            ],
+            answer: "Effectuer des requêtes réseau"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quelle est la syntaxe correcte pour utiliser Fetch ?",
+            options: [
+                "fetch('url')",
+                "fetch(url).then(data)",
+                "fetch(url, method)",
+                "request(url)"
+            ],
+            answer: "fetch('url')"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Que retourne une requête Fetch réussie ?",
+            options: ["Une promesse", "Un objet JSON", "Une chaîne de caractères", "Un tableau"],
+            answer: "Une promesse"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Comment convertir une réponse Fetch en JSON ?",
+            options: [
+                "response.json()",
+                "JSON.stringify(response)",
+                "JSON.convert(response)",
+                "response.toJSON()"
+            ],
+            answer: "response.json()"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Que se passe-t-il si la requête Fetch échoue ?",
+            options: [
+                "La promesse est rejetée",
+                "La promesse retourne une valeur vide",
+                "Une exception est levée immédiatement",
+                "Le programme s'arrête"
+            ],
+            answer: "La promesse est rejetée"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Comment gérer une erreur dans Fetch ?",
+            options: ["Avec catch()", "Avec resolve()", "Avec finally()", "Avec throw()"],
+            answer: "Avec catch()"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Quel est le statut HTTP d'une requête réussie ?",
+            options: ["200", "404", "500", "302"],
+            answer: "200"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Quelle méthode permet d'envoyer des données avec Fetch ?",
+            options: [
+                "POST",
+                "GET",
+                "PUT",
+                "DELETE"
+            ],
+            answer: "POST"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Quelle option est utilisée pour spécifier les en-têtes dans Fetch ?",
+            options: ["headers", "body", "method", "options"],
+            answer: "headers"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Que retourne response.ok dans Fetch ?",
+            options: [
+                "Un booléen indiquant si la requête a réussi",
+                "Le contenu de la réponse",
+                "Le statut de la réponse",
+                "Les en-têtes de la réponse"
+            ],
+            answer: "Un booléen indiquant si la requête a réussi"
         }
     ];
 
@@ -192,6 +222,8 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
+
 
 </body>
 </html>

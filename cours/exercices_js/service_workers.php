@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : Service Workers & PWA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur les Service Workers et PWA en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,104 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Qu'est-ce qu'un Service Worker ?",
+            options: [
+                "Un script qui intercepte les requêtes réseau et gère le cache",
+                "Un framework pour créer des PWA",
+                "Un outil pour optimiser les images",
+                "Une API pour manipuler les cookies"
+            ],
+            answer: "Un script qui intercepte les requêtes réseau et gère le cache"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quelle est la méthode utilisée pour enregistrer un Service Worker ?",
+            options: [
+                "navigator.serviceWorker.register()",
+                "navigator.registerWorker()",
+                "serviceWorker.install()",
+                "registerWorker(navigator)"
+            ],
+            answer: "navigator.serviceWorker.register()"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Que fait l'événement 'install' dans un Service Worker ?",
+            options: [
+                "Prépare le cache des ressources",
+                "Charge les fichiers CSS",
+                "Envoie une requête réseau",
+                "Supprime les anciens caches"
+            ],
+            answer: "Prépare le cache des ressources"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Que se passe-t-il si un Service Worker échoue à s'enregistrer ?",
+            options: [
+                "Une erreur est levée",
+                "Le navigateur redémarre automatiquement",
+                "Les ressources réseau ne sont plus accessibles",
+                "La PWA cesse de fonctionner"
+            ],
+            answer: "Une erreur est levée"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Quelle API est couramment utilisée avec les Service Workers pour gérer le cache ?",
+            options: [
+                "Cache API",
+                "Storage API",
+                "Web Storage",
+                "LocalStorage"
+            ],
+            answer: "Cache API"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Comment vérifier si un Service Worker est pris en charge par le navigateur ?",
+            options: [
+                "if ('serviceWorker' in navigator)",
+                "if ('Cache' in window)",
+                "if (navigator.workerAvailable)",
+                "if (window.serviceWorkerSupported)"
+            ],
+            answer: "if ('serviceWorker' in navigator)"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Quel fichier est nécessaire pour transformer un site en PWA ?",
+            options: [
+                "manifest.json",
+                "service-worker.js",
+                "index.html",
+                "app-config.json"
+            ],
+            answer: "manifest.json"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Quelle fonctionnalité permet à une PWA de fonctionner hors ligne ?",
+            options: [
+                "Les Service Workers",
+                "localStorage",
+                "sessionStorage",
+                "IndexedDB"
+            ],
+            answer: "Les Service Workers"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Comment une PWA peut-elle être ajoutée à l'écran d'accueil d'un appareil ?",
+            options: [
+                "Avec un manifeste correctement configuré",
+                "Avec une API Fetch",
+                "En téléchargeant un fichier APK",
+                "En configurant un fichier JSON"
+            ],
+            answer: "Avec un manifeste correctement configuré"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Quelle méthode du Service Worker permet d'intercepter une requête réseau ?",
+            options: [
+                "fetch",
+                "postMessage",
+                "intercept",
+                "request"
+            ],
+            answer: "fetch"
         }
     ];
 
@@ -192,6 +242,7 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
 
 </body>
 </html>

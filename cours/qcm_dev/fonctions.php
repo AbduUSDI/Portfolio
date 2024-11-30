@@ -235,6 +235,101 @@ class Questions {
             "answers" => ["2013", "2015", "2017", "2019"],
             "correct" => 1
         ],
+         // Évolutions des standards web
+        [
+            "question" => "En quelle année HTML5 a-t-il été officiellement recommandé par le W3C ?",
+            "answers" => ["2012", "2014", "2016", "2018"],
+            "correct" => 1
+        ],
+        [
+            "question" => "Quand CSS3 a-t-il été publié comme standard par le W3C ?",
+            "answers" => ["2008", "2010", "2012", "2014"],
+            "correct" => 1
+        ],
+
+        // Sécurité web
+        [
+            "question" => "En quelle année le protocole HTTPS est-il devenu un standard pour les sites web ?",
+            "answers" => ["2014", "2015", "2016", "2017"],
+            "correct" => 2
+        ],
+        [
+            "question" => "Quand l’initiative Let's Encrypt a-t-elle été lancée pour fournir des certificats SSL gratuits ?",
+            "answers" => ["2014", "2015", "2016", "2017"],
+            "correct" => 0
+        ],
+
+        // Programmation backend
+        [
+            "question" => "Quand Python a-t-il été créé par Guido van Rossum ?",
+            "answers" => ["1989", "1991", "1993", "1995"],
+            "correct" => 0
+        ],
+        [
+            "question" => "Quelle année marque la création de Ruby on Rails ?",
+            "answers" => ["2002", "2003", "2004", "2005"],
+            "correct" => 2
+        ],
+
+        // Frameworks modernes
+        [
+            "question" => "Quand AngularJS a-t-il été lancé par Google ?",
+            "answers" => ["2009", "2010", "2011", "2012"],
+            "correct" => 0
+        ],
+        [
+            "question" => "En quelle année Laravel a-t-il été publié pour la première fois ?",
+            "answers" => ["2010", "2011", "2012", "2013"],
+            "correct" => 1
+        ],
+
+        // Développement mobile
+        [
+            "question" => "Quand Swift, le langage de programmation pour iOS, a-t-il été introduit par Apple ?",
+            "answers" => ["2012", "2013", "2014", "2015"],
+            "correct" => 2
+        ],
+        [
+            "question" => "En quelle année React Native a-t-il été publié pour développer des applications mobiles ?",
+            "answers" => ["2014", "2015", "2016", "2017"],
+            "correct" => 1
+        ],
+
+        // Déploiement et infrastructure
+        [
+            "question" => "Quand Docker a-t-il été lancé pour la première fois ?",
+            "answers" => ["2011", "2012", "2013", "2014"],
+            "correct" => 2
+        ],
+        [
+            "question" => "Quand Kubernetes a-t-il été lancé par Google ?",
+            "answers" => ["2014", "2015", "2016", "2017"],
+            "correct" => 0
+        ],
+
+        // Évolutions des outils collaboratifs
+        [
+            "question" => "Quand Git a-t-il été créé par Linus Torvalds ?",
+            "answers" => ["2003", "2005", "2007", "2009"],
+            "correct" => 1
+        ],
+        [
+            "question" => "Quelle année marque la création de GitHub pour l'hébergement de code source ?",
+            "answers" => ["2006", "2008", "2010", "2012"],
+            "correct" => 1
+        ],
+
+        // Tendances et pratiques modernes
+        [
+            "question" => "Quand le concept de DevOps a-t-il été popularisé ?",
+            "answers" => ["2005", "2007", "2009", "2011"],
+            "correct" => 2
+        ],
+        [
+            "question" => "Quand le paradigme JAMstack a-t-il été introduit pour le développement web ?",
+            "answers" => ["2013", "2014", "2015", "2016"],
+            "correct" => 0
+        ]
     ];
     }
 
@@ -565,6 +660,89 @@ class Questions {
                     "Un langage de requêtes utilisé pour les APIs modernes"
                 ],
                 "correct" => 0
+            ],
+             // Développement web et architecture
+            [
+                "question" => "Qu'est-ce que le Mobile-First Design en développement web ?",
+                "answers" => [
+                    "Une méthode pour développer des applications mobiles natives",
+                    "Une approche qui consiste à concevoir d'abord pour les appareils mobiles avant les écrans plus grands",
+                    "Un langage de programmation pour le mobile",
+                    "Un framework pour développer des applications web progressives"
+                ],
+                "correct" => 1
+            ],
+
+            // Interconnectivité et APIs
+            [
+                "question" => "Qu'est-ce que l'authentification OAuth ?",
+                "answers" => [
+                    "Un protocole pour sécuriser les API avec des jetons d'accès",
+                    "Un langage de requêtes utilisé pour interagir avec les bases de données",
+                    "Un outil pour créer des Single Page Applications",
+                    "Un mécanisme pour optimiser les performances réseau"
+                ],
+                "correct" => 0
+            ],
+
+            // Sécurité web
+            [
+                "question" => "Qu'est-ce que le chiffrement asymétrique en cryptographie ?",
+                "answers" => [
+                    "Une méthode utilisant une clé publique et une clé privée pour sécuriser les communications",
+                    "Un processus de sauvegarde automatique des bases de données",
+                    "Un protocole pour optimiser les performances des serveurs",
+                    "Une méthode pour protéger les API REST"
+                ],
+                "correct" => 0
+            ],
+
+            // Bases de données
+            [
+                "question" => "Quelle est la différence entre une base de données relationnelle et une base NoSQL ?",
+                "answers" => [
+                    "Les bases relationnelles organisent les données en tables, tandis que les bases NoSQL utilisent des structures flexibles",
+                    "Les bases relationnelles fonctionnent hors ligne, tandis que les bases NoSQL nécessitent une connexion permanente",
+                    "Les bases relationnelles ne supportent pas les grandes quantités de données, contrairement aux bases NoSQL",
+                    "Les bases relationnelles sont plus rapides que les bases NoSQL"
+                ],
+                "correct" => 0
+            ],
+
+            // Applications web modernes
+            [
+                "question" => "Qu'est-ce que le Server-Side Rendering (SSR) ?",
+                "answers" => [
+                    "Une technique où le contenu est généré côté serveur avant d'être envoyé au navigateur",
+                    "Un processus où les requêtes API sont exécutées en temps réel côté client",
+                    "Un protocole pour sécuriser les applications web",
+                    "Un outil pour créer des applications web progressives"
+                ],
+                "correct" => 0
+            ],
+
+            // Optimisation et Performances
+            [
+                "question" => "Qu'est-ce qu'un Content Delivery Network (CDN) ?",
+                "answers" => [
+                    "Un réseau de serveurs distribuant le contenu pour améliorer les temps de chargement",
+                    "Une méthode pour concevoir des Single Page Applications",
+                    "Un protocole pour sécuriser les données des applications web",
+                    "Un outil de gestion de bases de données NoSQL"
+                ],
+                "correct" => 0
+            ],
+
+            // Culture digitale et tendances
+            [
+                "question" => "Qu'est-ce que le Design Thinking et comment est-il utilisé en développement ?",
+                "answers" => [
+                    "Une méthodologie centrée sur l'utilisateur pour résoudre des problèmes de manière créative",
+                    "Un langage de programmation utilisé pour concevoir des applications web",
+                    "Un outil pour analyser les performances des applications",
+                    "Une méthode de sauvegarde et de restauration des bases de données"
+                ],
+                "correct" => 0
             ]
         ];
     }
@@ -851,6 +1029,181 @@ class Questions {
                     "Réduction du nombre de tests automatisés",
                     "Optimisation des performances des API",
                     "Planification stricte et détaillée de chaque étape"
+                ],
+                "correct" => 0
+            ],
+            // Agile
+            [
+                "question" => "Quelle est une des pratiques clés de l'Agile pour gérer les changements ?",
+                "answers" => [
+                    "Refuser tous les changements après le démarrage du projet",
+                    "Accueillir les changements, même tard dans le projet, pour apporter de la valeur au client",
+                    "Prioriser les processus stricts et rigides",
+                    "Automatiser tous les processus pour éviter les changements"
+                ],
+                "correct" => 1
+            ],
+            [
+                "question" => "Dans une équipe Agile, comment les membres doivent-ils travailler ensemble ?",
+                "answers" => [
+                    "En suivant strictement les instructions du chef de projet",
+                    "En collaborant étroitement et en s'auto-organisant",
+                    "En travaillant chacun de leur côté sans interaction",
+                    "En se concentrant uniquement sur leurs tâches individuelles"
+                ],
+                "correct" => 1
+            ],
+
+            // Scrum
+            [
+                "question" => "Qu'est-ce que le backlog produit dans Scrum ?",
+                "answers" => [
+                    "Une liste ordonnée de tout ce qui pourrait être nécessaire au produit",
+                    "Un document de spécifications détaillées",
+                    "Un ensemble de tâches déjà terminées",
+                    "Un outil pour mesurer la performance des développeurs"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Que signifie la vélocité dans Scrum ?",
+                "answers" => [
+                    "La rapidité de livraison des fonctionnalités",
+                    "Le nombre d'éléments du backlog produit complétés lors d'un sprint",
+                    "La durée d'une réunion quotidienne",
+                    "Le temps nécessaire pour planifier un sprint"
+                ],
+                "correct" => 1
+            ],
+
+            // Lean et Kanban
+            [
+                "question" => "Qu'est-ce que le concept de flux continu dans Kanban ?",
+                "answers" => [
+                    "Un processus où les tâches progressent sans interruption",
+                    "Un outil pour définir les objectifs de sprint",
+                    "Un type de réunion d'équipe",
+                    "Un mécanisme pour corriger les erreurs en production"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Comment Kanban gère-t-il les tâches prioritaires ?",
+                "answers" => [
+                    "En utilisant une file d'attente et des limites de WIP (Work In Progress)",
+                    "En fixant une durée stricte pour chaque tâche",
+                    "En éliminant toutes les tâches non prioritaires",
+                    "En attribuant chaque tâche à un seul développeur"
+                ],
+                "correct" => 0
+            ],
+
+            // Git Flow
+            [
+                "question" => "Quelle branche est utilisée pour préparer une nouvelle version stable dans Git Flow ?",
+                "answers" => [
+                    "Release branch",
+                    "Feature branch",
+                    "Develop branch",
+                    "Master branch"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Quel est l'objectif principal des hotfix branches dans Git Flow ?",
+                "answers" => [
+                    "Corriger rapidement des bugs critiques en production",
+                    "Tester les nouvelles fonctionnalités",
+                    "Créer des sauvegardes de la branche principale",
+                    "Préparer des versions stables"
+                ],
+                "correct" => 0
+            ],
+
+            // CI/CD
+            [
+                "question" => "Qu'est-ce que le déploiement continu (CD) dans une pipeline CI/CD ?",
+                "answers" => [
+                    "Un processus automatisé pour livrer en continu des changements au système de production",
+                    "Un outil pour tester manuellement les fonctionnalités",
+                    "Un mécanisme pour surveiller la performance des serveurs",
+                    "Un protocole pour sécuriser les bases de données"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Pourquoi les tests automatisés sont-ils cruciaux dans une pipeline CI/CD ?",
+                "answers" => [
+                    "Pour garantir que chaque modification du code est testée avant d'être fusionnée ou déployée",
+                    "Pour réduire le nombre de bugs en production manuellement",
+                    "Pour éviter les fusions dans une branche commune",
+                    "Pour améliorer la performance des applications"
+                ],
+                "correct" => 0
+            ],
+
+            // Méthodologies Modernes
+            [
+                "question" => "Comment les méthodologies Agile se comparent-elles aux méthodologies en cascade ?",
+                "answers" => [
+                    "Agile privilégie des cycles itératifs et adaptatifs, tandis que la cascade suit un processus séquentiel rigide",
+                    "Agile est moins collaboratif que la cascade",
+                    "La cascade encourage les livraisons fréquentes contrairement à Agile",
+                    "Agile nécessite une documentation plus détaillée que la cascade"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Quels sont les avantages du pair programming ?",
+                "answers" => [
+                    "Amélioration de la qualité du code et partage des connaissances entre développeurs",
+                    "Réduction des délais en multipliant les développeurs sur une même tâche",
+                    "Minimisation des interactions entre les membres de l'équipe",
+                    "Automatisation des tests"
+                ],
+                "correct" => 0
+            ],
+
+            // Développement Centré sur l'Utilisateur
+            [
+                "question" => "Dans le Design Thinking, quelle étape suit immédiatement l'empathie ?",
+                "answers" => [
+                    "Définition",
+                    "Prototypage",
+                    "Idéation",
+                    "Test"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Quels sont les principes fondamentaux de Lean UX ?",
+                "answers" => [
+                    "Centré sur l'utilisateur, collaboratif et basé sur des cycles rapides d'apprentissage",
+                    "Documentation détaillée, planification stricte et validation manuelle",
+                    "Optimisation des performances, réduction des coûts et développement autonome",
+                    "Automatisation des processus, réduction des tests et augmentation de la vitesse"
+                ],
+                "correct" => 0
+            ],
+
+            // TDD et BDD
+            [
+                "question" => "Pourquoi BDD est-il considéré comme un complément à TDD ?",
+                "answers" => [
+                    "Parce qu'il ajoute une couche de spécifications compréhensibles par les non-développeurs",
+                    "Parce qu'il élimine le besoin de tests automatisés",
+                    "Parce qu'il remplace entièrement TDD dans les méthodologies modernes",
+                    "Parce qu'il est utilisé uniquement pour les API"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Qu'est-ce que le Refactoring dans TDD ?",
+                "answers" => [
+                    "Améliorer le code sans changer son comportement pour le rendre plus clair et maintenable",
+                    "Créer une nouvelle fonctionnalité à partir de zéro",
+                    "Supprimer des fonctionnalités inutilisées",
+                    "Écrire des tests pour des fonctionnalités non encore développées"
                 ],
                 "correct" => 0
             ]
@@ -1183,6 +1536,173 @@ class Questions {
                     "CircleCI"
                 ],
                 "correct" => 2
+            ],
+            // Langages et Technologies de Base
+            [
+                "question" => "Qu'est-ce que les Custom Elements dans HTML5 permettent de faire ?",
+                "answers" => [
+                    "Définir ses propres balises HTML pour plus de modularité",
+                    "Créer des graphiques en 2D dans le navigateur",
+                    "Encapsuler les styles CSS d'une page entière",
+                    "Gérer le stockage local et les sessions"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Quelle est la fonction principale du Shadow DOM en HTML5 ?",
+                "answers" => [
+                    "Créer des graphiques interactifs",
+                    "Fournir un encapsulage pour les styles et balises",
+                    "Optimiser les performances des applications web",
+                    "Gérer les données asynchrones"
+                ],
+                "correct" => 1
+            ],
+            [
+                "question" => "Quelle nouveauté CSS permet de définir des variables réutilisables dans une application web ?",
+                "answers" => [
+                    "CSS Grid",
+                    "Flexbox",
+                    "CSS Variables",
+                    "Clamp()"
+                ],
+                "correct" => 2
+            ],
+            [
+                "question" => "Que permet la fonction Clamp() en CSS ?",
+                "answers" => [
+                    "Créer des animations complexes",
+                    "Limiter une valeur à des minimums et maximums dynamiques",
+                    "Ajouter des effets de flou et de luminosité",
+                    "Organiser les éléments sur deux axes"
+                ],
+                "correct" => 1
+            ],
+            [
+                "question" => "Quel est l'objectif principal des modules JavaScript (ESM) ?",
+                "answers" => [
+                    "Améliorer les performances réseau",
+                    "Structurer le code en divisant les fonctionnalités dans des fichiers importés/exportés",
+                    "Créer des animations graphiques",
+                    "Simplifier la gestion des bases de données"
+                ],
+                "correct" => 1
+            ],
+
+            // Frameworks et Bibliothèques
+            [
+                "question" => "Quelle est la spécificité de Next.js par rapport à React.js ?",
+                "answers" => [
+                    "Il offre le rendu côté serveur (SSR) et les applications statiques pour améliorer le SEO",
+                    "Il est une alternative plus légère à React",
+                    "Il remplace complètement le DOM virtuel",
+                    "Il est utilisé uniquement pour les applications mobiles"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Quel framework JavaScript est connu pour compiler les composants en JavaScript pur pour améliorer les performances ?",
+                "answers" => [
+                    "React.js",
+                    "Vue.js",
+                    "Svelte",
+                    "Angular"
+                ],
+                "correct" => 2
+            ],
+            [
+                "question" => "Quel framework backend est décrit comme une alternative inspirée de Laravel pour Node.js ?",
+                "answers" => [
+                    "Express.js",
+                    "AdonisJS",
+                    "NestJS",
+                    "Django"
+                ],
+                "correct" => 1
+            ],
+
+            // Bases de Données
+            [
+                "question" => "Quelle base de données NoSQL est orientée colonnes et conçue pour des volumes massifs de données ?",
+                "answers" => [
+                    "MongoDB",
+                    "Cassandra",
+                    "Redis",
+                    "Firebase Realtime Database"
+                ],
+                "correct" => 1
+            ],
+            [
+                "question" => "Qu'est-ce qui distingue MariaDB de MySQL ?",
+                "answers" => [
+                    "Elle offre des fonctionnalités supplémentaires comme des requêtes parallèles et un stockage hybride JSON",
+                    "Elle est uniquement utilisée pour les bases NoSQL",
+                    "Elle est spécialisée dans le traitement de données massives",
+                    "Elle est conçue pour des environnements mobiles"
+                ],
+                "correct" => 0
+            ],
+
+            // Outils DevOps
+            [
+                "question" => "Quel outil est une alternative à Docker, conçu pour un environnement sans démon ?",
+                "answers" => [
+                    "Kubernetes",
+                    "Podman",
+                    "Helm",
+                    "Vagrant"
+                ],
+                "correct" => 1
+            ],
+            [
+                "question" => "Quelle plateforme est utilisée pour l'orchestration de conteneurs ?",
+                "answers" => [
+                    "Docker Compose",
+                    "Terraform",
+                    "Kubernetes",
+                    "Ansible"
+                ],
+                "correct" => 2
+            ],
+            [
+                "question" => "Que permet l'utilisation d'Helm dans Kubernetes ?",
+                "answers" => [
+                    "Orchestrer des conteneurs en temps réel",
+                    "Créer des pipelines CI/CD",
+                    "Simplifier l'installation et la gestion des configurations complexes",
+                    "Automatiser les tâches d'administration système"
+                ],
+                "correct" => 2
+            ],
+            [
+                "question" => "Quel est le rôle de Prometheus dans une infrastructure moderne ?",
+                "answers" => [
+                    "Collecter des métriques en temps réel pour le monitoring",
+                    "Gérer les logs d'application",
+                    "Créer des conteneurs et les déployer",
+                    "Orchestrer des bases de données distribuées"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Quel outil permet de gérer des infrastructures comme du code (IaC) ?",
+                "answers" => [
+                    "Terraform",
+                    "Jenkins",
+                    "Grafana",
+                    "Docker Compose"
+                ],
+                "correct" => 0
+            ],
+            [
+                "question" => "Qu'est-ce qu'ArgoCD dans l'écosystème Kubernetes ?",
+                "answers" => [
+                    "Un outil de gestion CI/CD basé sur GitOps",
+                    "Un système de monitoring en continu",
+                    "Une alternative au Shadow DOM",
+                    "Une base de données distribuée"
+                ],
+                "correct" => 0
             ]
         ];
     }

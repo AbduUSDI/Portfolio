@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : Web Storage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur le Web Storage en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,94 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Qu'est-ce que le Web Storage ?",
+            options: [
+                "Une API pour stocker des données dans le navigateur",
+                "Un espace pour héberger des fichiers web",
+                "Une méthode pour manipuler le DOM",
+                "Un service cloud pour sauvegarder les données"
+            ],
+            answer: "Une API pour stocker des données dans le navigateur"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quelle est la différence principale entre localStorage et sessionStorage ?",
+            options: [
+                "localStorage persiste après fermeture du navigateur",
+                "localStorage est plus rapide",
+                "sessionStorage supporte JSON natif",
+                "sessionStorage est plus sécurisé"
+            ],
+            answer: "localStorage persiste après fermeture du navigateur"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Quelle méthode est utilisée pour enregistrer des données ?",
+            options: [
+                "setItem(key, value)",
+                "saveItem(key, value)",
+                "add(key, value)",
+                "store(key, value)"
+            ],
+            answer: "setItem(key, value)"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Comment récupérer une donnée depuis localStorage ?",
+            options: [
+                "getItem(key)",
+                "localStorage.key",
+                "retrieve(key)",
+                "fetchItem(key)"
+            ],
+            answer: "getItem(key)"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Comment supprimer une seule clé de localStorage ?",
+            options: [
+                "removeItem(key)",
+                "delete(key)",
+                "clear(key)",
+                "localStorage.remove(key)"
+            ],
+            answer: "removeItem(key)"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Quelle méthode vide tout le localStorage ?",
+            options: ["clear()", "reset()", "removeAll()", "localStorage.clearAll()"],
+            answer: "clear()"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Que retourne localStorage.getItem('clé') si la clé n'existe pas ?",
+            options: ["null", "undefined", "false", "Erreur"],
+            answer: "null"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Quel type de données peut-on stocker directement dans localStorage ?",
+            options: [
+                "Une chaîne de caractères",
+                "Un objet",
+                "Un tableau",
+                "N'importe quel type de données"
+            ],
+            answer: "Une chaîne de caractères"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Comment stocker un objet dans localStorage ?",
+            options: [
+                "En le convertissant en JSON avec JSON.stringify()",
+                "En utilisant localStorage.saveObject()",
+                "En l'ajoutant directement",
+                "En le sérialisant avec .toString()"
+            ],
+            answer: "En le convertissant en JSON avec JSON.stringify()"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Quelle méthode peut être utilisée pour parcourir toutes les clés dans localStorage ?",
+            options: [
+                "localStorage.key(index)",
+                "localStorage.forEach()",
+                "Object.keys(localStorage)",
+                "localStorage.getKeys()"
+            ],
+            answer: "localStorage.key(index)"
         }
     ];
 

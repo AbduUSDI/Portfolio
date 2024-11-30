@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : Modules JavaScript</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur les Modules en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,94 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Que permet de faire un module en JavaScript ?",
+            options: [
+                "Organiser le code en blocs réutilisables",
+                "Créer une application mobile",
+                "Exécuter du code sur le serveur",
+                "Ajouter des styles CSS"
+            ],
+            answer: "Organiser le code en blocs réutilisables"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quelle syntaxe permet d'importer une valeur par défaut ?",
+            options: [
+                "import myValue from './module.js';",
+                "require('./module.js');",
+                "include myValue './module.js';",
+                "fetch('./module.js');"
+            ],
+            answer: "import myValue from './module.js';"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Quelle est la syntaxe correcte pour exporter une fonction par défaut ?",
+            options: [
+                "export default function myFunction() {}",
+                "export function = myFunction() {}",
+                "default export myFunction() {}",
+                "module.exports = myFunction;"
+            ],
+            answer: "export default function myFunction() {}"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Que signifie l'instruction `export { myFunction }` ?",
+            options: [
+                "Exporter une fonction nommée",
+                "Exporter une valeur par défaut",
+                "Renommer une fonction",
+                "Importer une fonction"
+            ],
+            answer: "Exporter une fonction nommée"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Comment renommer une valeur importée ?",
+            options: [
+                "import { myValue as newName } from './module.js';",
+                "import myValue as newName from './module.js';",
+                "rename myValue to newName;",
+                "import { rename myValue newName }"
+            ],
+            answer: "import { myValue as newName } from './module.js';"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Quel est le type de fichier attendu pour un module en JavaScript ?",
+            options: [".js", ".json", ".css", ".html"],
+            answer: ".js"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Que retourne l'importation d'une valeur dans un module ?",
+            options: [
+                "La valeur exportée",
+                "Une promesse",
+                "Une fonction",
+                "Un objet vide"
+            ],
+            answer: "La valeur exportée"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Peut-on importer plusieurs valeurs d'un même module ?",
+            options: ["Oui", "Non", "Seulement avec import *", "Seulement avec export default"],
+            answer: "Oui"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Quelle est la différence entre `export` et `export default` ?",
+            options: [
+                "`export` permet d'exporter plusieurs éléments, `export default` un seul",
+                "`export` exporte des objets, `export default` exporte des fonctions",
+                "`export` est utilisé pour Node.js uniquement",
+                "Aucune différence"
+            ],
+            answer: "`export` permet d'exporter plusieurs éléments, `export default` un seul"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Que fait l'instruction `import * as Utils from './module.js';` ?",
+            options: [
+                "Importe tout le contenu du module sous l'alias Utils",
+                "Crée une copie locale du module",
+                "Importe uniquement les fonctions exportées",
+                "Remplace le contenu du module"
+            ],
+            answer: "Importe tout le contenu du module sous l'alias Utils"
         }
     ];
 
@@ -192,6 +232,8 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
+
 
 </body>
 </html>

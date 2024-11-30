@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice Callback & Closures</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
+
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur les Callbacks et Closures en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +61,94 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Qu'est-ce qu'un callback ?",
+            options: [
+                "Une fonction passée en paramètre",
+                "Une promesse",
+                "Une fonction retournée par une autre",
+                "Une fonction asynchrone"
+            ],
+            answer: "Une fonction passée en paramètre"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quel est un exemple valide de callback ?",
+            options: [
+                "setTimeout(() => console.log('Hello'), 1000);",
+                "console.log('Hello');",
+                "Promise.resolve('Hello');",
+                "function callback() { return 'Hello'; }"
+            ],
+            answer: "setTimeout(() => console.log('Hello'), 1000);"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Qu'est-ce qu'une closure en JavaScript ?",
+            options: [
+                "Une fonction qui se souvient de son contexte lexical",
+                "Une fonction qui retourne une promesse",
+                "Une fonction async",
+                "Une méthode statique d'un objet"
+            ],
+            answer: "Une fonction qui se souvient de son contexte lexical"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Pourquoi utilise-t-on les closures ?",
+            options: [
+                "Pour encapsuler des données et leur état",
+                "Pour gérer des promesses",
+                "Pour déclarer des classes",
+                "Pour utiliser des propriétés statiques"
+            ],
+            answer: "Pour encapsuler des données et leur état"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Quelle est la sortie de ce code ?\n```javascript\nfunction makeCounter() {\n  let count = 0;\n  return function() {\n    return ++count;\n  };\n}\nconst counter = makeCounter();\nconsole.log(counter());\nconsole.log(counter());\n```",
+            options: ["1 et 2", "0 et 1", "undefined et 1", "Erreur"],
+            answer: "1 et 2"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Quel est un inconvénient des callbacks ?",
+            options: [
+                "Callback Hell (imbriqué de fonctions)",
+                "Ils sont asynchrones",
+                "Ils ne fonctionnent pas avec les promesses",
+                "Ils n'utilisent pas les closures"
+            ],
+            answer: "Callback Hell (imbriqué de fonctions)"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Que retourne la méthode bind() sur une fonction ?",
+            options: [
+                "Une nouvelle fonction avec un contexte fixé",
+                "Une promesse",
+                "La fonction d'origine",
+                "Une erreur si utilisée sur un objet"
+            ],
+            answer: "Une nouvelle fonction avec un contexte fixé"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Comment passer plusieurs arguments à un callback dans un événement ?",
+            options: [
+                "En utilisant une fonction anonyme",
+                "En les fixant avec apply()",
+                "En retournant une closure",
+                "En appelant bind()"
+            ],
+            answer: "En utilisant une fonction anonyme"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Quelle est une utilisation courante des closures ?",
+            options: [
+                "Créer des fonctions privées",
+                "Appeler des promesses",
+                "Gérer des erreurs",
+                "Manipuler des objets JSON"
+            ],
+            answer: "Créer des fonctions privées"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Quelle est la sortie de ce code ?\n```javascript\nfunction outer() {\n  let x = 5;\n  return function inner() {\n    return x * 2;\n  };\n}\nconst fn = outer();\nconsole.log(fn());\n```",
+            options: ["10", "5", "undefined", "Erreur"],
+            answer: "10"
         }
     ];
 
@@ -192,6 +233,8 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
+
 
 </body>
 </html>

@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : Gestion des Erreurs & Debugging</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
+
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur la Gestion des Erreurs en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +61,99 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Que permet le bloc try...catch en JavaScript ?",
+            options: [
+                "Capturer et gérer les erreurs",
+                "Exécuter des fonctions de manière synchrone",
+                "Remplacer les promesses",
+                "Créer des erreurs personnalisées"
+            ],
+            answer: "Capturer et gérer les erreurs"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Que fait l'instruction throw en JavaScript ?",
+            options: [
+                "Lève une exception",
+                "Interrompt une promesse",
+                "Arrête immédiatement le script",
+                "Crée un nouvel objet d'erreur"
+            ],
+            answer: "Lève une exception"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Comment capturer une erreur levée dans une promesse ?",
+            options: [
+                "Avec catch()",
+                "Avec try...catch",
+                "Avec throw",
+                "Avec resolve()"
+            ],
+            answer: "Avec catch()"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Que contient l'objet Error en JavaScript ?",
+            options: [
+                "Un message et une pile d'appels (stack)",
+                "Le statut HTTP de l'erreur",
+                "Une méthode pour redémarrer le script",
+                "Un type de valeur null"
+            ],
+            answer: "Un message et une pile d'appels (stack)"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Quelle méthode est utilisée pour créer une erreur personnalisée ?",
+            options: [
+                "throw new Error()",
+                "Error.create()",
+                "try { new Error() }",
+                "new Error.custom()"
+            ],
+            answer: "throw new Error()"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Que se passe-t-il si une erreur est levée dans un bloc catch ?",
+            options: [
+                "Elle remonte jusqu'au niveau supérieur",
+                "Elle est automatiquement ignorée",
+                "Elle interrompt le script",
+                "Elle est ajoutée à la pile d'appels"
+            ],
+            answer: "Elle remonte jusqu'au niveau supérieur"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Que fait un bloc finally ?",
+            options: [
+                "Il s'exécute toujours, qu'il y ait une erreur ou non",
+                "Il capture les erreurs non gérées",
+                "Il remplace les blocs catch",
+                "Il s'exécute uniquement si une erreur est levée"
+            ],
+            answer: "Il s'exécute toujours, qu'il y ait une erreur ou non"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Comment gérer une erreur asynchrone avec async/await ?",
+            options: [
+                "Avec try...catch",
+                "Avec then()",
+                "Avec throw new Error()",
+                "Avec resolve()"
+            ],
+            answer: "Avec try...catch"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Quelle est la sortie de ce code ?\n```javascript\ntry {\n  throw new Error('Erreur détectée');\n} catch (e) {\n  console.log(e.message);\n}\n```",
+            options: ["Erreur détectée", "undefined", "null", "Erreur détectée et arrêt"],
+            answer: "Erreur détectée"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Comment gérer les erreurs dans une promesse chaînée ?",
+            options: [
+                "Avec .catch() à la fin de la chaîne",
+                "Avec plusieurs .then()",
+                "Avec resolve()",
+                "Avec un bloc finally"
+            ],
+            answer: "Avec .catch() à la fin de la chaîne"
         }
     ];
 
@@ -192,6 +238,7 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
 
 </body>
 </html>

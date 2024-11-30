@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice POO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur la POO en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,54 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Comment crée-t-on un objet en JavaScript ?",
+            options: ["{ }", "new Object()", "class Object", "instanceof Object"],
+            answer: "{ }"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Comment définit-on une propriété d'un objet ?",
+            options: ["obj.property = value;", "obj->property = value;", "obj:property = value;", "obj-property = value;"],
+            answer: "obj.property = value;"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Quelle est la méthode pour lister les propriétés d'un objet ?",
+            options: ["Object.keys()", "Object.getProperties()", "Object.list()", "Object.values()"],
+            answer: "Object.keys()"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Quelle méthode permet d'ajouter une propriété à tous les objets d'un type ?",
+            options: ["Object.prototype", "Object.addProperty", "Object.prototypeAdd", "Object.propertyExtension"],
+            answer: "Object.prototype"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Comment vérifie-t-on si un objet est une instance d'une classe ?",
+            options: ["instanceof", "isInstance", "isA", "isType"],
+            answer: "instanceof"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Quelle est la syntaxe pour créer une méthode dans une classe ?",
+            options: ["method() {}", "function method() {}", "class.method {}", "method = function() {}"],
+            answer: "method() {}"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Comment appelle-t-on une méthode d'un objet ?",
+            options: ["obj.method()", "method(obj)", "obj->method()", "call obj.method()"],
+            answer: "obj.method()"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Comment hérite-t-on d'une classe parente ?",
+            options: ["class Child extends Parent", "class Child : Parent", "class Child inherits Parent", "class Child implements Parent"],
+            answer: "class Child extends Parent"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Comment définit-on un getter dans une classe ?",
+            options: ["get propertyName()", "getter propertyName()", "propertyName() => {}", "propertyName.get()"],
+            answer: "get propertyName()"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Quelle est la méthode utilisée pour ajouter une propriété avec des attributs (par ex. non énumérable) ?",
+            options: ["Object.defineProperty", "Object.setProperty", "Object.addAttributes", "Object.propertySettings"],
+            answer: "Object.defineProperty"
         }
     ];
 

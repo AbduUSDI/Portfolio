@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : Web Workers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur les Web Workers en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,104 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Qu'est-ce qu'un Web Worker ?",
+            options: [
+                "Un script qui s'exécute en arrière-plan sans bloquer le thread principal",
+                "Un framework JavaScript pour le backend",
+                "Un gestionnaire d'événements DOM",
+                "Un type de bibliothèque JavaScript"
+            ],
+            answer: "Un script qui s'exécute en arrière-plan sans bloquer le thread principal"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Comment crée-t-on un Web Worker ?",
+            options: [
+                "new Worker('script.js')",
+                "Worker.create('script.js')",
+                "WebWorker('script.js')",
+                "import Worker from 'script.js'"
+            ],
+            answer: "new Worker('script.js')"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Comment le thread principal communique-t-il avec un Web Worker ?",
+            options: [
+                "Avec postMessage() et onmessage",
+                "Avec fetch() et response.json()",
+                "Avec une API HTTP",
+                "Avec des appels AJAX"
+            ],
+            answer: "Avec postMessage() et onmessage"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Quelle méthode permet de terminer un Web Worker ?",
+            options: [
+                "worker.terminate()",
+                "worker.close()",
+                "worker.stop()",
+                "worker.kill()"
+            ],
+            answer: "worker.terminate()"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Quelle méthode permet d'envoyer un message à un Web Worker ?",
+            options: [
+                "worker.postMessage(data)",
+                "worker.send(data)",
+                "worker.emit(data)",
+                "worker.dispatch(data)"
+            ],
+            answer: "worker.postMessage(data)"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Que se passe-t-il si un Web Worker rencontre une erreur ?",
+            options: [
+                "Un événement 'error' est émis",
+                "Il se ferme automatiquement",
+                "Il bloque le thread principal",
+                "Rien ne se passe"
+            ],
+            answer: "Un événement 'error' est émis"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Quels types de données peuvent être envoyés via postMessage() ?",
+            options: [
+                "Des objets sérialisables comme JSON",
+                "Des fonctions",
+                "Des références DOM",
+                "Des types non sérialisables"
+            ],
+            answer: "Des objets sérialisables comme JSON"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Quel type de stockage de données permet de partager entre Web Workers ?",
+            options: [
+                "SharedArrayBuffer",
+                "localStorage",
+                "sessionStorage",
+                "IndexedDB"
+            ],
+            answer: "SharedArrayBuffer"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Un Web Worker a-t-il accès au DOM ?",
+            options: [
+                "Non",
+                "Oui",
+                "Seulement avec un contexte sécurisé",
+                "Oui, avec l'API fetch"
+            ],
+            answer: "Non"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Comment traiter des tâches longues dans un Web Worker ?",
+            options: [
+                "En divisant les tâches en segments avec setTimeout()",
+                "En bloquant le thread principal",
+                "En utilisant async/await",
+                "En instanciant plusieurs workers"
+            ],
+            answer: "En divisant les tâches en segments avec setTimeout()"
         }
     ];
 

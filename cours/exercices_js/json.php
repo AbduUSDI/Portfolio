@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice Promise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
+
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur JSON en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +61,69 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Que signifie JSON ?",
+            options: [
+                "JavaScript Object Notation",
+                "Java Serialized Object Name",
+                "JavaScript Online Notation",
+                "JavaScript Output Name"
+            ],
+            answer: "JavaScript Object Notation"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Comment convertir un objet JavaScript en chaîne JSON ?",
+            options: ["JSON.stringify()", "JSON.parse()", "JSON.objectify()", "JSON.convert()"],
+            answer: "JSON.stringify()"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Comment convertir une chaîne JSON en objet JavaScript ?",
+            options: ["JSON.parse()", "JSON.stringify()", "JSON.convert()", "JSON.toObject()"],
+            answer: "JSON.parse()"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Quel est un format valide de JSON ?",
+            options: [
+                '{"name": "Alice", "age": 25}',
+                "{name: Alice, age: 25}",
+                "[name: 'Alice', age: 25]",
+                "JSON{name: Alice, age: 25}"
+            ],
+            answer: '{"name": "Alice", "age": 25}'
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Que retourne JSON.stringify([1, 2, 3]) ?",
+            options: ['"[1,2,3]"', '["1","2","3"]', '"[1]", "[2]", "[3]"', 'Erreur'],
+            answer: '"[1,2,3]"'
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Quelle méthode est utilisée pour tester si une chaîne est JSON valide ?",
+            options: ["JSON.parse()", "JSON.validate()", "JSON.isValid()", "JSON.check()"],
+            answer: "JSON.parse()"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Quelle structure de données n'est pas valide en JSON ?",
+            options: ["undefined", "array", "object", "string"],
+            answer: "undefined"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "JSON est-il typé dynamiquement ou statiquement ?",
+            options: ["Dynamique", "Statique", "Ni l'un ni l'autre", "Ça dépend de l'implémentation"],
+            answer: "Dynamique"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Que signifie 'propriété énumérable' dans le contexte JSON ?",
+            options: [
+                "Une propriété qui peut être affichée",
+                "Une propriété qui est unique",
+                "Une propriété modifiable",
+                "Une propriété accessible uniquement en lecture"
+            ],
+            answer: "Une propriété qui peut être affichée"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Que retourne JSON.parse('123') ?",
+            options: ["123", "'123'", "undefined", "Erreur"],
+            answer: "123"
         }
     ];
 
@@ -192,6 +208,7 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
 
 </body>
 </html>

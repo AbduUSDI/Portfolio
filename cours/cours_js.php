@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Complet sur JavaScript - Exemples Visuels et Concepts</title>
+    <title>Cours complet sur JavaScript - Exemples visuels et Concepts</title>
     <!-- Bootstrap pour les modals et la sidebar responsive -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Font Awesome pour les icônes -->
@@ -22,7 +22,7 @@
     <a href="#intro">Introduction</a>
 
     <!-- Section : Fondamentaux -->
-    <button class="dropdown-btn"><i class="fas fa-code"></i> JavaScript : Les Fondamentaux <i class="fas fa-caret-down"></i></button>
+    <button class="dropdown-btn"><i class="fas fa-code"></i> JavaScript : Les fondamentaux <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#variables">Variables</a>
         <a href="#types-donnees">Types de données</a>
@@ -42,13 +42,13 @@
     </div>
 
     <!-- Section : Manipulation DOM et Événements -->
-    <button class="dropdown-btn"><i class="fas fa-rocket"></i> JavaScript : Manipulation du DOM et Événements <i class="fas fa-caret-down"></i></button>
+    <button class="dropdown-btn"><i class="fas fa-rocket"></i> JavaScript : Manipulation du DOM et événements <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#dom-selection">Sélection DOM</a>
         <a href="#dom-modification">Modification du DOM</a>
         <a href="#events">Gestion des événements</a>
     </div>
-    <button class="dropdown-btn"><i class="fas fa-pen-nib"></i> Exercices : DOM et Événements <i class="fas fa-caret-down"></i></button>
+    <button class="dropdown-btn"><i class="fas fa-pen-nib"></i> Exercices : DOM et événements <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="exercices_js/selection_dom.php">Sélection DOM</a>
         <a href="exercices_js/modify_dom.php">Modification du DOM</a>
@@ -56,7 +56,7 @@
     </div>
 
     <!-- Section : Concepts Avancés -->
-    <button class="dropdown-btn"><i class="fas fa-laptop-code"></i> JavaScript : Concepts Avancés <i class="fas fa-caret-down"></i></button>
+    <button class="dropdown-btn"><i class="fas fa-laptop-code"></i> JavaScript : Concepts avancés <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#classes">Classes</a>
         <a href="#poo">Programmation orientée objet</a>
@@ -67,20 +67,20 @@
         <a href="#modules">Modules</a>
         <a href="#fetch">API Fetch</a>
     </div>
-    <button class="dropdown-btn"><i class="fas fa-handshake"></i> Exercices : Concepts Avancés <i class="fas fa-caret-down"></i></button>
+    <button class="dropdown-btn"><i class="fas fa-handshake"></i> Exercices : Concepts avancés <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="exercices_js/classes.php">Classes</a>
-        <a href="exercices_js/poo_js.php">Classes</a>
+        <a href="exercices_js/poo.php">Programmation orientée objet</a>
         <a href="exercices_js/promise.php">Promises</a>
         <a href="exercices_js/async_await.php">Async/Await</a>
-        <a href="exercices_js/callback-closures/callback_closures.php">Callbacks & Closures</a>
-        <a href="exercices_js/json/json.php">JSON</a>
-        <a href="exercices_js/modules-exercice/modules.php">Modules</a>
-        <a href="exercices_js/fetch-exercice/fetch.php">API Fetch</a>
+        <a href="exercices_js/callback_closures.php">Callbacks & Closures</a>
+        <a href="exercices_js/json.php">JSON</a>
+        <a href="exercices_js/modules.php">Modules</a>
+        <a href="exercices_js/fetch.php">API Fetch</a>
     </div>
 
     <!-- Section : Expert et Pro -->
-    <button class="dropdown-btn"><i class="fas fa-code-branch"></i> JavaScript : Techniques Expert <i class="fas fa-caret-down"></i></button>
+    <button class="dropdown-btn"><i class="fas fa-code-branch"></i> JavaScript : Techniques expert <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
         <a href="#webstorage">Web Storage</a>
         <a href="#poo-expert">Programmation Orientée Objet</a>
@@ -92,13 +92,13 @@
     </div>
     <button class="dropdown-btn"><i class="fas fa-tasks"></i> Exercices : Expert <i class="fas fa-caret-down"></i></button>
     <div class="dropdown-container">
-        <a href="exercices_js/web-storage/web_storage.php">Web Storage</a>
-        <a href="exercices_js/poo/poo_expert.php">Programmation Orientée Objet</a>
-        <a href="exercices_js/web-workers/web_workers.php">Web Workers</a>
-        <a href="exercices_js/gestion-erreurs/gestion_erreurs.php">Gestion des Erreurs</a>
-        <a href="exercices_js/service-workers/service_workers.php">Service Workers & PWA</a>
-        <a href="exercices_js/es6/es6.php">Syntaxe Moderne ES6+</a>
-        <a href="exercices_js/unit-test/unit_test.php">Tests Unitaires</a>
+        <a href="exercices_js/web_storage.php">Web Storage</a>
+        <a href="exercices_js/poo_expert.php">POO Expert</a>
+        <a href="exercices_js/web_workers.php">Web Workers</a>
+        <a href="exercices_js/gestion_erreurs.php">Gestion des Erreurs</a>
+        <a href="exercices_js/service_workers.php">Service Workers & PWA</a>
+        <a href="exercices_js/es6.php">Syntaxe Moderne ES6+</a>
+        <a href="exercices_js/unit_test.php">Tests Unitaires</a>
     </div>
 
 </div>

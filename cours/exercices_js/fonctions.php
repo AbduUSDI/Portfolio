@@ -6,123 +6,156 @@
     <title>Exercice Fonctions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
+    <style>
+        #game-container {
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            background-color: #333;
+            position: relative;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #444;
+        }
+
+        #runner {
+            width: 50px;
+            height: 50px;
+            background-color: #ff9800;
+            border-radius: 50%;
+            position: absolute;
+            top: 75px;
+            left: 10px;
+            transition: left 1s ease;
+        }
+
+        #finish-line {
+            width: 10px;
+            height: 200px;
+            background-color: #4caf50;
+            position: absolute;
+            right: 10px;
+            top: 0;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
-
     <div class="container mt-5">
-        <h1 class="text-center mb-5">Exercice 6 : Fonctions</h1>
-        <?php include '../templates/retour.php'; ?>
-        <section id="fonctions">
-            <p>Écrivez des exemples de fonctions JavaScript en utilisant chaque type de fonction ci-dessous et entrez vos réponses :</p>
-
-            <!-- Formulaire pour entrer les expressions de fonctions -->
-            <div class="mb-3">
-                <label for="fonctionDeclareeInput" class="form-label">Fonction déclarée :</label>
-                <input type="text" id="fonctionDeclareeInput" class="form-control" placeholder="Exemple : function saluer() { return 'Bonjour'; }">
-            </div>
-
-            <div class="mb-3">
-                <label for="fonctionAnonymeInput" class="form-label">Fonction anonyme assignée à une variable :</label>
-                <input type="text" id="fonctionAnonymeInput" class="form-control" placeholder="Exemple : const saluer = function() { return 'Bonjour'; };">
-            </div>
-
-            <div class="mb-3">
-                <label for="fonctionFlecheeInput" class="form-label">Fonction fléchée :</label>
-                <input type="text" id="fonctionFlecheeInput" class="form-control" placeholder="Exemple : const saluer = () => 'Bonjour';">
-            </div>
-
-            <div class="mb-3">
-                <label for="fonctionParametreInput" class="form-label">Fonction avec paramètres :</label>
-                <input type="text" id="fonctionParametreInput" class="form-control" placeholder="Exemple : function addition(a, b) { return a + b; }">
-            </div>
-
-            <div class="mb-3">
-                <label for="fonctionParamDefautInput" class="form-label">Fonction avec paramètre par défaut :</label>
-                <input type="text" id="fonctionParamDefautInput" class="form-control" placeholder="Exemple : function saluer(nom = 'inconnu') { return 'Bonjour ' + nom; }">
-            </div>
-
-            <button class="btn btn-primary" onclick="verifierReponses()">Vérifier les réponses</button>
-            <div id="resultat-exercice" class="mt-3"></div>
-
-            <!-- Boutons d'indices -->
-            <div class="mt-4">
-                <button class="btn btn-secondary me-2" onclick="afficherIndice(1)">Indice 1</button>
-                <button class="btn btn-secondary me-2" onclick="afficherIndice(2)">Indice 2</button>
-                <button class="btn btn-secondary" onclick="afficherIndice(3)">Indice 3</button>
-                <div id="indice" class="mt-3"></div>
-            </div>
-
-            <!-- Bouton pour afficher la réponse -->
-            <div class="mt-4">
-                <button class="btn btn-warning" onclick="afficherReponse()">Afficher la réponse</button>
-                <div id="reponse" class="mt-3"></div>
-            </div>
-        </section>
+        <h1 class="text-center">Exercice : Fonctions</h1>
+        <div>
+            <button class="btn btn-danger mb-3" onclick="recommencer()">Recommencer</button>
+            <?php include '../templates/retour.php' ?>
+        </div>
+        <div id="game-container">
+            <div id="runner"></div>
+            <div id="finish-line"></div>
+        </div>
+        <div id="questions-container" class="mt-4">
+            <!-- Les questions seront générées ici -->
+        </div>
+        <div id="resultat" class="mt-3"></div>
     </div>
 
     <script>
-        function verifierReponses() {
-            const fonctionDeclareeInput = document.getElementById("fonctionDeclareeInput").value.trim();
-            const fonctionAnonymeInput = document.getElementById("fonctionAnonymeInput").value.trim();
-            const fonctionFlecheeInput = document.getElementById("fonctionFlecheeInput").value.trim();
-            const fonctionParametreInput = document.getElementById("fonctionParametreInput").value.trim();
-            const fonctionParamDefautInput = document.getElementById("fonctionParamDefautInput").value.trim();
+        const allQuestions = [
+            { question: "Quelle est la syntaxe correcte pour une fonction déclarée ?", options: ["function saluer() { return 'Bonjour'; }", "const saluer = () => { return 'Bonjour'; }", "function() { return 'Bonjour'; }", "const saluer = function() { 'Bonjour'; };"], correct: 0 },
+            { question: "Quelle est la syntaxe correcte pour une fonction anonyme ?", options: ["const saluer = function() { return 'Bonjour'; };", "function saluer() { return 'Bonjour'; }", "() => { return 'Bonjour'; }", "let saluer = function saluer() { 'Bonjour'; };"], correct: 0 },
+            { question: "Quelle est la syntaxe correcte pour une fonction fléchée ?", options: ["const saluer = () => 'Bonjour';", "function() { return 'Bonjour'; }", "function saluer() => 'Bonjour';", "const saluer = function => { return 'Bonjour'; };"], correct: 0 },
+            { question: "Quelle fonction prend des paramètres et retourne leur somme ?", options: ["function addition(a, b) { return a + b; }", "function addition() { a + b; }", "() => a + b;", "const addition = () => 'a + b';"], correct: 0 },
+            { question: "Quelle fonction prend un paramètre avec une valeur par défaut ?", options: ["function saluer(nom = 'inconnu') { return 'Bonjour ' + nom; }", "function saluer() { return 'Bonjour ' + nom; }", "function saluer(nom) { return 'Bonjour ' + nom || 'inconnu'; }", "const saluer = (nom) => { 'Bonjour ' + nom; };"], correct: 0 },
+            { question: "Quelle est la sortie de : `function f() { return 'Bonjour'; } console.log(f());` ?", options: ["Bonjour", "undefined", "null", "Erreur"], correct: 0 },
+            { question: "Quelle est la syntaxe correcte pour une fonction auto-invoquée ?", options: ["(function() { console.log('Bonjour'); })();", "function() { console.log('Bonjour'); }();", "(() => { console.log('Bonjour'); });", "function() => { console.log('Bonjour'); };"], correct: 0 },
+            { question: "Quelle est la différence entre une fonction anonyme et une fonction déclarée ?", options: ["Une fonction anonyme n'a pas de nom", "Une fonction anonyme est toujours fléchée", "Une fonction déclarée est toujours globale", "Il n'y a pas de différence"], correct: 0 },
+            { question: "Quelle est la sortie de : `const f = () => { return 'Bonjour'; }; console.log(f());` ?", options: ["Bonjour", "undefined", "null", "Erreur"], correct: 0 },
+            { question: "Quelle est la sortie de : `function f(a = 1) { return a + 1; } console.log(f(2));` ?", options: ["3", "4", "1", "Erreur"], correct: 0 },
+            { question: "Quelle est la sortie de : `function f(a, b) { return a * b; } console.log(f(2, 3));` ?", options: ["6", "5", "undefined", "Erreur"], correct: 0 },
+            { question: "Quelle est la sortie de : `const f = function() { return 'Hello'; }; console.log(typeof f);` ?", options: ["function", "string", "undefined", "object"], correct: 0 },
+            { question: "Quelle est la différence principale entre une fonction fléchée et une fonction déclarée ?", options: ["Les fonctions fléchées n'ont pas de contexte `this` propre", "Les fonctions fléchées ne peuvent pas avoir de paramètres", "Les fonctions fléchées ne peuvent pas retourner une valeur", "Les fonctions fléchées doivent être anonymes"], correct: 0 },
+            { question: "Quelle est la sortie de : `const f = (a, b) => a - b; console.log(f(10, 4));` ?", options: ["6", "14", "undefined", "Erreur"], correct: 0 },
+            { question: "Quelle est la sortie de : `function f(a, b = 5) { return a + b; } console.log(f(3));` ?", options: ["8", "3", "undefined", "Erreur"], correct: 0 },
+            { question: "Quelle est la syntaxe correcte pour retourner un tableau depuis une fonction ?", options: ["function f() { return [1, 2, 3]; }", "function f() => [1, 2, 3];", "function f() { [1, 2, 3]; }", "function f { return [1, 2, 3]; }"], correct: 0 },
+            { question: "Quelle est la sortie de : `function f() { return; } console.log(f());` ?", options: ["undefined", "null", "Erreur", "Aucune valeur"], correct: 0 },
+            { question: "Quelle est la sortie de : `const f = () => { let x = 10; }; console.log(f());` ?", options: ["undefined", "10", "null", "Erreur"], correct: 0 },
+            { question: "Quelle est la syntaxe correcte pour une fonction nommée dans une expression ?", options: ["const f = function nom() { };", "function nom() { }", "const nom = function nom() { };", "Toutes les réponses"], correct: 3 },
+            { question: "Quelle est la sortie de : `function f(a, b) { return a % b; } console.log(f(10, 3));` ?", options: ["1", "3", "10", "Erreur"], correct: 0 }
+        ];
 
-            // Réponses attendues
-            const bonneReponseDeclaree = "function saluer() { return 'Bonjour'; }";
-            const bonneReponseAnonyme = "const saluer = function() { return 'Bonjour'; };";
-            const bonneReponseFlechee = "const saluer = () => 'Bonjour';";
-            const bonneReponseParametre = "function addition(a, b) { return a + b; }";
-            const bonneReponseParamDefaut = "function saluer(nom = 'inconnu') { return 'Bonjour ' + nom; }";
+        // Fonction pour sélectionner 10 questions aléatoires
+        function getRandomQuestions(questions, count) {
+            const shuffled = questions.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
 
-            let resultat = "";
+        // Sélectionne 10 questions aléatoires
+        const questions = getRandomQuestions(allQuestions, 10);
 
-            if (fonctionDeclareeInput === bonneReponseDeclaree && fonctionAnonymeInput === bonneReponseAnonyme &&
-                fonctionFlecheeInput === bonneReponseFlechee && fonctionParametreInput === bonneReponseParametre &&
-                fonctionParamDefautInput === bonneReponseParamDefaut) {
-                resultat = "<div class='alert alert-success'>Bravo ! Toutes les réponses sont correctes.</div>";
+        let position = 10; // Position initiale du coureur
+        let currentQuestion = 0; // Question actuelle
+        let score = 0; // Nombre de bonnes réponses
+
+        function afficherQuestion() {
+            if (currentQuestion >= questions.length) return;
+
+            const questionData = questions[currentQuestion];
+            const container = document.getElementById('questions-container');
+            container.innerHTML = `
+                <div class="question">
+                    <p><strong>Question ${currentQuestion + 1} :</strong> ${questionData.question}</p>
+                    <div>
+                        ${questionData.options.map((option, index) => 
+                            `<button class="btn btn-primary me-2" onclick="verifierReponse(${index})">${index + 1}. ${option}</button>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function verifierReponse(choix) {
+            const questionData = questions[currentQuestion];
+            const runner = document.getElementById('runner');
+            const resultat = document.getElementById('resultat');
+
+            if (choix === questionData.correct) {
+                score++;
+                position += 50; // Le bonhomme avance
+                runner.style.left = position + "px";
+
+                if (score === questions.length) {
+                    resultat.innerHTML = "<div class='alert alert-success'>Félicitations ! Vous avez terminé l'exercice.</div>";
+                } else {
+                    resultat.innerHTML = "<div class='alert alert-success'>Bonne réponse ! Continuez.</div>";
+                }
             } else {
-                resultat = "<div class='alert alert-danger'>Les réponses sont incorrectes. Vérifiez vos réponses.</div>";
-                if (fonctionDeclareeInput !== bonneReponseDeclaree) {
-                    resultat += "<p>Astuce pour la fonction déclarée : Utilisez `function` suivi d'un nom et des accolades pour le corps.</p>";
-                }
-                if (fonctionAnonymeInput !== bonneReponseAnonyme) {
-                    resultat += "<p>Astuce pour la fonction anonyme : Utilisez `const nom = function() { ... }`.</p>";
-                }
-                if (fonctionFlecheeInput !== bonneReponseFlechee) {
-                    resultat += "<p>Astuce pour la fonction fléchée : Utilisez `() =>` pour déclarer la fonction.</p>";
-                }
-                if (fonctionParametreInput !== bonneReponseParametre) {
-                    resultat += "<p>Astuce pour la fonction avec paramètres : Ajoutez des paramètres entre parenthèses.</p>";
-                }
-                if (fonctionParamDefautInput !== bonneReponseParamDefaut) {
-                    resultat += "<p>Astuce pour la fonction avec paramètre par défaut : Utilisez `=` pour définir une valeur par défaut.</p>";
-                }
+                resultat.innerHTML = "<div class='alert alert-danger'>Mauvaise réponse. Recommencez la partie.</div>";
+                document.getElementById('questions-container').classList.add('disabled');
             }
-            document.getElementById("resultat-exercice").innerHTML = resultat;
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) afficherQuestion();
         }
 
-        function afficherIndice(niveau) {
-            const indices = [
-                "Indice 1 : Une fonction déclarée commence avec `function nom() { ... }`.",
-                "Indice 2 : Une fonction fléchée utilise la syntaxe `const nom = () => { ... }`.",
-                "Indice 3 : Les paramètres par défaut se définissent avec `param = valeur`."
-            ];
-            document.getElementById("indice").innerHTML = `<div class='alert alert-info'>${indices[niveau - 1]}</div>`;
+        function recommencer() {
+            position = 10;
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('runner').style.left = position + "px";
+            document.getElementById('resultat').innerHTML = "";
+            document.getElementById('questions-container').classList.remove('disabled');
+            afficherQuestion();
         }
 
-        function afficherReponse() {
-            const reponse = `
-                <div class='alert alert-warning'>
-                    Réponses :<br>
-                    Fonction déclarée : <code>function saluer() { return 'Bonjour'; }</code><br>
-                    Fonction anonyme : <code>const saluer = function() { return 'Bonjour'; };</code><br>
-                    Fonction fléchée : <code>const saluer = () => 'Bonjour';</code><br>
-                    Fonction avec paramètres : <code>function addition(a, b) { return a + b; }</code><br>
-                    Fonction avec paramètre par défaut : <code>function saluer(nom = 'inconnu') { return 'Bonjour ' + nom; }</code>
-                </div>`;
-            document.getElementById("reponse").innerHTML = reponse;
-        }
+        // Initialisation
+        afficherQuestion();
     </script>
 </body>
 </html>

@@ -3,114 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Promesses</title>
+    <title>Exercice Promise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
-    <div class="container mt-5">
-        <h1 class="text-center mb-5">Exercice 7 : Promesses</h1>
-        <?php include '../templates/retour.php'; ?>
-        <section id="promesses">
-            <p>Écrivez des exemples JavaScript en utilisant les Promesses. Entrez vos réponses pour chaque section ci-dessous :</p>
-
-            <!-- Formulaire pour entrer les exemples de Promesses -->
-            <div class="mb-3">
-                <label for="creerPromesseInput" class="form-label">Créer une promesse qui résout avec un message "Succès" :</label>
-                <input type="text" id="creerPromesseInput" class="form-control" placeholder="Exemple : const promesse = new Promise((resolve, reject) => { resolve('Succès'); });">
+<div class="container mt-5">
+    <h1 class="text-center">Exercice sur les Promises en JavaScript</h1>
+    <div id="game-area" class="row mt-4">
+        <!-- Zone de questions -->
+        <div class="col-md-6">
+            <div id="question-container" class="mb-4">
+                <h3>Question :</h3>
+                <p id="question-text">La question s'affichera ici.</p>
             </div>
-
-            <div class="mb-3">
-                <label for="thenCatchInput" class="form-label">Utilisez `then` et `catch` pour gérer une promesse :</label>
-                <input type="text" id="thenCatchInput" class="form-control" placeholder="Exemple : promesse.then(result => console.log(result)).catch(error => console.error(error));">
+            <div id="answer-container">
+                <!-- Boutons pour les réponses -->
+                <div id="choices" class="d-flex flex-column gap-2"></div>
             </div>
-
-            <div class="mb-3">
-                <label for="finallyInput" class="form-label">Ajoutez un `finally` pour exécuter une action finale :</label>
-                <input type="text" id="finallyInput" class="form-control" placeholder="Exemple : promesse.finally(() => console.log('Terminé')); ">
+        </div>
+        <!-- Zone de dessin -->
+        <div class="col-md-6 text-center">
+            <div id="drawing-area">
+                <svg width="200" height="400">
+                    <!-- Poutre -->
+                    <line x1="20" y1="380" x2="180" y2="380" stroke="black" stroke-width="3" />
+                    <line x1="100" y1="380" x2="100" y2="50" stroke="black" stroke-width="3" />
+                    <line x1="100" y1="50" x2="160" y2="50" stroke="black" stroke-width="3" />
+                    <line x1="160" y1="50" x2="160" y2="80" stroke="black" stroke-width="3" />
+                    <!-- Corde -->
+                    <line id="rope" x1="160" y1="80" x2="160" y2="120" stroke="black" stroke-width="2" style="visibility: hidden;" />
+                    <!-- Bonhomme -->
+                    <circle id="head" cx="160" cy="140" r="20" stroke="black" stroke-width="2" fill="none" style="visibility: hidden;" />
+                    <line id="body" x1="160" y1="160" x2="160" y2="220" stroke="black" stroke-width="2" style="visibility: hidden;" />
+                    <line id="left-arm" x1="160" y1="180" x2="140" y2="200" stroke="black" stroke-width="2" style="visibility: hidden;" />
+                    <line id="right-arm" x1="160" y1="180" x2="180" y2="200" stroke="black" stroke-width="2" style="visibility: hidden;" />
+                    <line id="left-leg" x1="160" y1="220" x2="140" y2="260" stroke="black" stroke-width="2" style="visibility: hidden;" />
+                    <line id="right-leg" x1="160" y1="220" x2="180" y2="260" stroke="black" stroke-width="2" style="visibility: hidden;" />
+                </svg>
             </div>
-
-            <div class="mb-3">
-                <label for="asyncAwaitInput" class="form-label">Utilisez `async` et `await` pour attendre la résolution d'une promesse :</label>
-                <input type="text" id="asyncAwaitInput" class="form-control" placeholder="Exemple : async function test() { const result = await promesse; console.log(result); }">
-            </div>
-
-            <button class="btn btn-primary" onclick="verifierReponses()">Vérifier les réponses</button>
-            <div id="resultat-exercice" class="mt-3"></div>
-
-            <!-- Boutons d'indices -->
-            <div class="mt-4">
-                <button class="btn btn-secondary me-2" onclick="afficherIndice(1)">Indice 1</button>
-                <button class="btn btn-secondary me-2" onclick="afficherIndice(2)">Indice 2</button>
-                <button class="btn btn-secondary" onclick="afficherIndice(3)">Indice 3</button>
-                <div id="indice" class="mt-3"></div>
-            </div>
-
-            <!-- Bouton pour afficher la réponse -->
-            <div class="mt-4">
-                <button class="btn btn-warning" onclick="afficherReponse()">Afficher la réponse</button>
-                <div id="reponse" class="mt-3"></div>
-            </div>
-        </section>
+        </div>
     </div>
+    <!-- Zone de message -->
+    <div id="message-container" class="text-center mt-4">
+        <p id="game-message" class="text-muted">Bonne chance !</p>
+    </div>
+    <!-- Boutons -->
+    <div class="text-center mt-4">
+        <button class="btn btn-danger mb-3" onclick="recommencer()">Recommencer</button>
+        <?php include '../templates/retour.php' ?>
+    </div>
+</div>
 
-    <script>
-        function verifierReponses() {
-            const creerPromesseInput = document.getElementById("creerPromesseInput").value.trim();
-            const thenCatchInput = document.getElementById("thenCatchInput").value.trim();
-            const finallyInput = document.getElementById("finallyInput").value.trim();
-            const asyncAwaitInput = document.getElementById("asyncAwaitInput").value.trim();
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    const questions = [
+        {
+            question: "Comment crée-t-on une nouvelle Promise ?",
+            options: ["new Promise()", "Promise.create()", "Promise()", "promise = new()"],
+            answer: "new Promise()"
+        },
+        {
+            question: "Quelle méthode est utilisée pour une Promise réussie ?",
+            options: ["resolve()", "done()", "success()", "then()"],
+            answer: "resolve()"
+        },
+        {
+            question: "Quelle méthode est utilisée pour gérer une erreur dans une Promise ?",
+            options: ["catch()", "resolve()", "error()", "reject()"],
+            answer: "catch()"
+        },
+        {
+            question: "Quelle méthode permet de chaîner plusieurs Promises ?",
+            options: ["then()", "chain()", "link()", "append()"],
+            answer: "then()"
+        },
+        {
+            question: "Quelle méthode permet d'exécuter une action, qu'une Promise réussisse ou échoue ?",
+            options: ["finally()", "resolve()", "catch()", "always()"],
+            answer: "finally()"
+        },
+        {
+            question: "Que retourne une méthode async ?",
+            options: ["Une Promise", "Une fonction", "Une valeur", "Un objet"],
+            answer: "Une Promise"
+        },
+        {
+            question: "Que fait la méthode Promise.all() ?",
+            options: [
+                "Attend que toutes les Promises soient résolues",
+                "Annule toutes les Promises",
+                "Résout seulement la première Promise",
+                "Retourne une valeur après la première résolution"
+            ],
+            answer: "Attend que toutes les Promises soient résolues"
+        },
+        {
+            question: "Que fait la méthode Promise.race() ?",
+            options: [
+                "Résout la première Promise qui réussit ou échoue",
+                "Attend que toutes les Promises soient résolues",
+                "Annule toutes les Promises",
+                "Résout les Promises dans l'ordre"
+            ],
+            answer: "Résout la première Promise qui réussit ou échoue"
+        },
+        {
+            question: "Que retourne reject() ?",
+            options: ["Une Promise rejetée", "Une valeur", "Un objet", "Un message"],
+            answer: "Une Promise rejetée"
+        },
+        {
+            question: "Quel est l'état initial d'une Promise ?",
+            options: ["pending", "resolved", "rejected", "fulfilled"],
+            answer: "pending"
+        }
+    ];
 
-            // Réponses attendues
-            const bonneReponseCreerPromesse = "const promesse = new Promise((resolve, reject) => { resolve('Succès'); });";
-            const bonneReponseThenCatch = "promesse.then(result => console.log(result)).catch(error => console.error(error));";
-            const bonneReponseFinally = "promesse.finally(() => console.log('Terminé'));";
-            const bonneReponseAsyncAwait = "async function test() { const result = await promesse; console.log(result); }";
+    let currentQuestion = 0;
+    let errors = 0;
 
-            let resultat = "";
+    function updateQuestion() {
+        const questionData = questions[currentQuestion];
+        document.getElementById("question-text").innerText = questionData.question;
 
-            if (creerPromesseInput === bonneReponseCreerPromesse && thenCatchInput === bonneReponseThenCatch &&
-                finallyInput === bonneReponseFinally && asyncAwaitInput === bonneReponseAsyncAwait) {
-                resultat = "<div class='alert alert-success'>Bravo ! Toutes les réponses sont correctes.</div>";
-            } else {
-                resultat = "<div class='alert alert-danger'>Les réponses sont incorrectes. Vérifiez vos réponses.</div>";
-                if (creerPromesseInput !== bonneReponseCreerPromesse) {
-                    resultat += "<p>Astuce pour la création d'une promesse : Utilisez `new Promise((resolve, reject) => { ... })`.</p>";
+        const choicesContainer = document.getElementById("choices");
+        choicesContainer.innerHTML = ""; // Réinitialiser les choix
+
+        questionData.options.forEach(option => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add("btn", "btn-outline-primary");
+            button.addEventListener("click", () => handleAnswer(option, button));
+            choicesContainer.appendChild(button);
+        });
+    }
+
+    function handleAnswer(selectedOption, button) {
+        const questionData = questions[currentQuestion];
+
+        if (selectedOption === questionData.answer) {
+            button.classList.remove("btn-outline-primary");
+            button.classList.add("btn-success");
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    updateQuestion();
+                    showMessage("Bonne réponse ! Continuez.", false);
+                } else {
+                    showMessage("Félicitations ! Vous avez gagné.", false);
+                    disableGame();
                 }
-                if (thenCatchInput !== bonneReponseThenCatch) {
-                    resultat += "<p>Astuce pour `then` et `catch` : Utilisez `promesse.then(...).catch(...)`.</p>";
-                }
-                if (finallyInput !== bonneReponseFinally) {
-                    resultat += "<p>Astuce pour `finally` : Utilisez `promesse.finally(...)`.</p>";
-                }
-                if (asyncAwaitInput !== bonneReponseAsyncAwait) {
-                    resultat += "<p>Astuce pour `async/await` : Utilisez `async function nom() { const result = await promesse; ... }`.</p>";
-                }
+            }, 1000);
+        } else {
+            button.classList.remove("btn-outline-primary");
+            button.classList.add("btn-danger");
+            errors++;
+            const parts = ["rope", "head", "body", "left-arm", "right-arm", "left-leg", "right-leg"];
+            if (errors <= parts.length) {
+                drawPart(parts[errors - 1]);
             }
-            document.getElementById("resultat-exercice").innerHTML = resultat;
+            if (errors >= 7) {
+                showMessage("Dommage, vous avez perdu ! Le bonhomme est complet.", true);
+                disableGame();
+            } else {
+                showMessage("Mauvaise réponse. Essayez encore !", true);
+            }
         }
+    }
 
-        function afficherIndice(niveau) {
-            const indices = [
-                "Indice 1 : Pour créer une promesse, utilisez `new Promise((resolve, reject) => { ... })`.",
-                "Indice 2 : La gestion des promesses se fait avec `.then()` pour les succès et `.catch()` pour les erreurs.",
-                "Indice 3 : `async/await` simplifie le code pour attendre une promesse."
-            ];
-            document.getElementById("indice").innerHTML = `<div class='alert alert-info'>${indices[niveau - 1]}</div>`;
-        }
+    function drawPart(partId) {
+        document.getElementById(partId).style.visibility = "visible";
+    }
 
-        function afficherReponse() {
-            const reponse = `
-                <div class='alert alert-warning'>
-                    Réponses :<br>
-                    Créer une promesse : <code>const promesse = new Promise((resolve, reject) => { resolve('Succès'); });</code><br>
-                    Utiliser then et catch : <code>promesse.then(result => console.log(result)).catch(error => console.error(error));</code><br>
-                    Utiliser finally : <code>promesse.finally(() => console.log('Terminé'));</code><br>
-                    Utiliser async/await : <code>async function test() { const result = await promesse; console.log(result); }</code>
-                </div>`;
-            document.getElementById("reponse").innerHTML = reponse;
-        }
-    </script>
+    function showMessage(message, isError = false) {
+        const messageElement = document.getElementById("game-message");
+        messageElement.innerText = message;
+        messageElement.classList.toggle("text-danger", isError);
+        messageElement.classList.toggle("text-success", !isError);
+    }
+
+    function disableGame() {
+        document.getElementById("choices").innerHTML = "";
+    }
+
+    function recommencer() {
+        currentQuestion = 0;
+        errors = 0;
+        const parts = ["rope", "head", "body", "left-arm", "right-arm", "left-leg", "right-leg"];
+        parts.forEach(part => {
+            document.getElementById(part).style.visibility = "hidden";
+        });
+        showMessage("Bonne chance !", false);
+        updateQuestion();
+    }
+
+    // Initialiser le jeu
+    updateQuestion();
+</script>
+
+
 </body>
 </html>

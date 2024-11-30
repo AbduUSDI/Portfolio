@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice : Tests Unitaires</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice sur les Tests Unitaires avec Jest</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +60,99 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Que teste Jest en JavaScript ?",
+            options: [
+                "Le comportement des fonctions",
+                "Le style CSS",
+                "La validité des fichiers HTML",
+                "La connexion au serveur"
+            ],
+            answer: "Le comportement des fonctions"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quelle commande est utilisée pour exécuter des tests avec Jest ?",
+            options: [
+                "npx jest",
+                "npm run jest",
+                "jest start",
+                "node jest"
+            ],
+            answer: "npx jest"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Que signifie l'assertion `expect(value).toBe(expected)` ?",
+            options: [
+                "Vérifie que value est strictement égal à expected",
+                "Vérifie que value est de même type que expected",
+                "Compare deux objets",
+                "Crée un test asynchrone"
+            ],
+            answer: "Vérifie que value est strictement égal à expected"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Comment simuler une fonction avec Jest ?",
+            options: [
+                "Avec jest.fn()",
+                "Avec sinon.stub()",
+                "Avec mock.fn()",
+                "Avec jest.mockFunction()"
+            ],
+            answer: "Avec jest.fn()"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Que fait l'option `test.only()` ?",
+            options: [
+                "Exécute uniquement le test spécifié",
+                "Ignore tous les autres tests",
+                "Arrête l'exécution après un échec",
+                "Crée un test temporaire"
+            ],
+            answer: "Exécute uniquement le test spécifié"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Quelle méthode est utilisée pour tester les promesses ?",
+            options: [
+                "expect(promise).resolves",
+                "expect(promise).toPromise",
+                "expectAsync(promise)",
+                "assertAsync(promise)"
+            ],
+            answer: "expect(promise).resolves"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Quelle est la sortie de ce code ?\n```javascript\ntest('addition', () => {\n  expect(1 + 1).toBe(2);\n});\n```",
+            options: ["Le test passe", "Erreur", "Test ignoré", "Test invalide"],
+            answer: "Le test passe"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Quelle méthode est utilisée pour vérifier les appels d'une fonction simulée ?",
+            options: [
+                "mock.calls",
+                "spy.calls",
+                "jest.fn().calls",
+                "mockFunction.calls"
+            ],
+            answer: "mock.calls"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Comment configurer Jest pour un projet ?",
+            options: [
+                "Avec un fichier jest.config.js",
+                "Avec un fichier .testrc",
+                "Avec un script dans package.json",
+                "Aucune configuration n'est nécessaire"
+            ],
+            answer: "Avec un fichier jest.config.js"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Comment tester une fonction asynchrone avec Jest ?",
+            options: [
+                "En utilisant async/await dans le test",
+                "En appelant .catch() dans le test",
+                "En enveloppant le test dans une promesse",
+                "En ignorant le test"
+            ],
+            answer: "En utilisant async/await dans le test"
         }
     ];
 
@@ -192,6 +237,7 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
 
 </body>
 </html>

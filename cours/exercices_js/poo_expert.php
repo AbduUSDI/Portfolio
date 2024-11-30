@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice Classes</title>
+    <title>Exercice POO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/exercice.css"/>
 </head>
 <body>
 
+
 <div class="container mt-5">
-    <h1 class="text-center">Exercice sur les Classes en JavaScript</h1>
+    <h1 class="text-center">Exercice Expert sur la POO en JavaScript</h1>
     <div id="game-area" class="row mt-4">
         <!-- Zone de questions -->
         <div class="col-md-6">
@@ -60,54 +61,104 @@
 <script>
     const questions = [
         {
-            question: "Quelle est la syntaxe pour créer une classe ?",
-            options: ["function", "class", "constructor", "object"],
-            answer: "class"
+            question: "Comment simuler un héritage multiple en JavaScript ?",
+            options: [
+                "En utilisant la composition via des mixins",
+                "En utilisant `extends` plusieurs fois",
+                "En combinant les prototypes avec `Object.create()`",
+                "En utilisant des closures"
+            ],
+            answer: "En utilisant la composition via des mixins"
         },
         {
-            question: "Comment définit-on un constructeur ?",
-            options: ["constructor", "class", "method", "instance"],
-            answer: "constructor"
+            question: "Quelle est la différence entre une classe et un prototype en JavaScript ?",
+            options: [
+                "Une classe est une syntaxe, un prototype est le mécanisme sous-jacent",
+                "Une classe est dynamique, un prototype est statique",
+                "Un prototype est plus lent que les classes",
+                "Les prototypes n'existent pas en ES6"
+            ],
+            answer: "Une classe est une syntaxe, un prototype est le mécanisme sous-jacent"
         },
         {
-            question: "Comment instancie-t-on une classe ?",
-            options: ["instance()", "new", "create()", "objectify()"],
-            answer: "new"
+            question: "Comment ajouter une méthode privée dans une classe ?",
+            options: [
+                "En utilisant un `#` avant le nom de la méthode",
+                "En utilisant `this.private`",
+                "En utilisant `Object.defineProperty()`",
+                "En créant un getter avec `get private()`"
+            ],
+            answer: "En utilisant un `#` avant le nom de la méthode"
         },
         {
-            question: "Comment définit-on une méthode ?",
-            options: ["function", "method", "method()", "defineMethod"],
-            answer: "method"
+            question: "Quelle est une caractéristique clé des mixins ?",
+            options: [
+                "Ils permettent de partager des fonctionnalités entre classes",
+                "Ils sont des classes statiques",
+                "Ils remplacent l'héritage",
+                "Ils permettent d'écrire des modules"
+            ],
+            answer: "Ils permettent de partager des fonctionnalités entre classes"
         },
         {
-            question: "Quelle méthode est appelée automatiquement lors de l'instanciation ?",
-            options: ["init", "setup", "constructor", "initialize"],
-            answer: "constructor"
+            question: "Quel est un exemple valide d'un mixin ?",
+            options: [
+                "const Mixin = Base => class extends Base { method() { ... } };",
+                "class Mixin { constructor() { ... } };",
+                "Mixin(Base) { ... }",
+                "Mixin(Base) => Base.class { ... }"
+            ],
+            answer: "const Mixin = Base => class extends Base { method() { ... } };"
         },
         {
-            question: "Comment étend-on une classe pour en créer une nouvelle ?",
-            options: ["extends", "inherit", "super", "expand"],
-            answer: "extends"
+            question: "Comment ajouter dynamiquement une méthode à une classe ?",
+            options: [
+                "Avec `Object.defineProperty(Class.prototype, 'method', ...)`",
+                "Avec `Class.prototype.newMethod = ...`",
+                "Avec `Class.addMethod('method', ...)`",
+                "Avec `Object.addMethod('method', ...)`"
+            ],
+            answer: "Avec `Class.prototype.newMethod = ...`"
         },
         {
-            question: "Quelle méthode est utilisée pour appeler le constructeur d'une classe parente ?",
-            options: ["parent()", "base()", "constructor()", "super()"],
-            answer: "super()"
+            question: "Qu'est-ce qu'un décorateur en JavaScript ?",
+            options: [
+                "Une fonction qui modifie un élément de classe",
+                "Un module externe",
+                "Un héritage spécial",
+                "Un type de mixin avancé"
+            ],
+            answer: "Une fonction qui modifie un élément de classe"
         },
         {
-            question: "Comment définit-on une propriété statique dans une classe ?",
-            options: ["static", "const", "this", "global"],
-            answer: "static"
+            question: "Quelle est une bonne utilisation des décorateurs ?",
+            options: [
+                "Ajouter des métadonnées ou modifier des méthodes",
+                "Créer une classe dérivée",
+                "Remplacer les propriétés statiques",
+                "Éviter d'utiliser `this`"
+            ],
+            answer: "Ajouter des métadonnées ou modifier des méthodes"
         },
         {
-            question: "Comment empêche-t-on qu'une classe soit instanciée directement ?",
-            options: ["abstract", "private", "protected", "sealed"],
-            answer: "abstract"
+            question: "Comment accède-t-on au prototype d'une classe ?",
+            options: [
+                "`Class.prototype`",
+                "`Class.constructor`",
+                "`Class.base`",
+                "`Object.create(Class)`"
+            ],
+            answer: "`Class.prototype`"
         },
         {
-            question: "Comment définir un getter dans une classe ?",
-            options: ["getter", "get", "fetch", "retrieve"],
-            answer: "get"
+            question: "Que permet Reflect.apply() ?",
+            options: [
+                "Appeler une méthode avec un contexte et des arguments spécifiques",
+                "Créer une nouvelle méthode dans une classe",
+                "Modifier une méthode existante",
+                "Ajouter un décorateur"
+            ],
+            answer: "Appeler une méthode avec un contexte et des arguments spécifiques"
         }
     ];
 
@@ -192,6 +243,8 @@
     // Initialiser le jeu
     updateQuestion();
 </script>
+
+
 
 </body>
 </html>

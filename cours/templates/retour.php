@@ -1,5 +1,5 @@
 <!-- retour.php -->
-<div style="margin: 20px;">
+<div>
     <button onclick="retourDernierePage()" class="btn btn-primary">Retour à la page précédente</button>
 </div>
 
