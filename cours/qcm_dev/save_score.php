@@ -28,6 +28,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Récupérer la catégorie envoyée
+    $category = htmlspecialchars(trim($_POST['category'] ?? ''));
+    if (empty($category)) {
+        echo "<div class='container mt-5 text-center'>";
+        echo "<h1 class='text-danger'>Erreur</h1>";
+        echo "<p class='text-muted'>La catégorie est manquante. Veuillez relancer le quiz.</p>";
+        echo "<a href='index.php?page=qcm_dev/index' class='btn btn-primary mt-3'>Retour à l'accueil</a>";
+        echo "</div>";
+        exit;
+    }
+
     // Calculer le score
     $score = 0;
     $responses = []; // Stocker les réponses données et les bonnes réponses
@@ -47,13 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ajouter le score dans la base de données
     try {
         $leaderboard = new Leaderboard();
-        $leaderboard->addScore($pseudo, $score);
+        $leaderboard->addScore($pseudo, $score, $category);
 
         // Afficher le résultat
         echo "<div class='container mt-5 text-center'>";
         echo "<div class='alert alert-success' role='alert'>";
         echo "<h1 class='display-4'>Merci, $pseudo !</h1>";
-        echo "<p class='lead'>Votre score de <strong>$score/" . count($questions) . "</strong> a été enregistré avec succès.</p>";
+        echo "<p class='lead'>Votre score de <strong>$score/" . count($questions) . "</strong> dans la catégorie <strong>$category</strong> a été enregistré avec succès.</p>";
         echo "</div>";
         echo "<button id='show-answers' class='btn btn-secondary mt-3'>Voir les réponses</button>";
         echo "<a href='index.php?page=qcm_dev/index' class='btn btn-primary mt-3'>Retour à l'accueil</a>";

@@ -4,15 +4,15 @@ include 'templates/nav.php';
 require 'fonctions.php';
 
 $questionHandler = new Questions();
-$questions = $questionHandler->getQuestionQCM3();
+$questions = $questionHandler->getQuestionEvaluationFinale();
 
 shuffle($questions);
-$selectedQuestions = array_slice($questions, 0, 20);
+$selectedQuestions = array_slice($questions, 0, 50);
 
-$_SESSION['questions'] = $selectedQuestions;
+$_SESSION['questions'] = $selectedQuestions; // Stocker les questions dans la session.
 
 // Définir la catégorie pour ce QCM
-$category = "Méthodologies"; // Modifier ici selon la catégorie du QCM
+$category = "Evaluation finale"; // Modifier ici selon la catégorie du QCM
 ?>
 
 <!DOCTYPE html>

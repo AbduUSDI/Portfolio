@@ -10,6 +10,9 @@ shuffle($questions);
 $selectedQuestions = array_slice($questions, 0, 20);
 
 $_SESSION['questions'] = $selectedQuestions; // Stocker les questions dans la session.
+
+// Définir la catégorie pour ce QCM
+$category = "Dates"; // Modifier ici selon la catégorie du QCM
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +49,7 @@ $_SESSION['questions'] = $selectedQuestions; // Stocker les questions dans la se
                                                 value="<?= $answerIndex ?>" 
                                                 id="q<?= $index ?>a<?= $answerIndex ?>" 
                                                 class="form-check-input styled-checkbox"
+                                                required
                                             >
                                             <label class="form-check-label d-flex align-items-center" for="q<?= $index ?>a<?= $answerIndex ?>">
                                                 <span class="checkbox-custom"></span>
@@ -67,11 +71,12 @@ $_SESSION['questions'] = $selectedQuestions; // Stocker les questions dans la se
             <input type="text" name="pseudo" id="pseudo" class="form-control rounded-pill shadow-sm" required>
         </div>
 
+        <!-- Champ caché pour la catégorie -->
+        <input type="hidden" name="category" value="<?= $category ?>">
+
         <button type="submit" class="btn btn-success w-100 shadow-lg">Valider le QCM</button>
     </form>
 </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

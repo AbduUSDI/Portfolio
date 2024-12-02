@@ -1,9 +1,17 @@
 <?php
-// Inclure les fonctions pour le leaderboard
 require 'fonctions.php';
 $leaderboard = new Leaderboard();
-$topScores = $leaderboard->getTopScores(10); // Top 10 des scores
+
+// Récupérer toutes les catégories
+$categories = $leaderboard->getCategories();
+
+$leaderboards = [];
+foreach ($categories as $category) {
+    $leaderboards[$category] = $leaderboard->getTopScores(10, $category);
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +25,7 @@ $topScores = $leaderboard->getTopScores(10); // Top 10 des scores
 </head>
 <body>
 
-<?php
+<di?php
 // Inclure le template de la navigation
 include 'templates/nav.php';
 ?>
@@ -122,21 +130,61 @@ include 'templates/nav.php';
     </div>
 </div>
 <div class="container mt-5">
-    <h2 class="text-center">Classement</h2>
-    <ul class="list-group">
-        <?php if (!empty($topScores)): ?>
-            <?php foreach ($topScores as $score): ?>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <span><?= htmlspecialchars($score['pseudo']) ?></span>
-                    <span><?= $score['score'] ?>/20</span>
-                    <small class="text-muted"><?= $score['created_at'] ?></small>
-                </li>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <li class="list-group-item">Aucun score enregistré pour l'instant.</li>
-        <?php endif; ?>
-    </ul>
+    <div class="row mt-4">
+        <!-- Carte pour l'évaluation finale -->
+        <div class="col-md-12 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Évaluation finale</h3>
+                    <p class="card-text">
+                        L'évaluation finale est l'ultime test de vos compétences. Elle regroupe 50 questions couvrant l'ensemble des thèmes abordés dans les précédents QCM. 
+                        Les questions sont variées, allant de très faciles à extrêmement complexes, afin de tester votre compréhension en profondeur. 
+                        Vous serez noté sur 50 points, avec un barème rigoureux pour évaluer vos connaissances de manière équitable.
+                        <br><br>
+                        ⚠️ Prenez le temps de réviser avant de vous lancer ! Revoyez les QCM précédents et identifiez vos points faibles pour maximiser vos chances de succès.
+                        <br><br>
+                        🎯 Objectif : Obtenir un score d'au moins 40/50 pour valider vos compétences et prouver que vous êtes prêt(e) à affronter des défis plus grands !
+                    </p>
+                    <a href="index.php?page=qcm_dev/evaluation_final" class="btn btn-primary">Commencer l'évaluation</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+<div class="container mt-5">
+    <h2 class="text-center">Classements par Catégories</h2>
+
+    <?php if (!empty($leaderboards)): ?>
+        <?php foreach ($leaderboards as $category => $scores): ?>
+            <div class="mt-4">
+                <h3 class="text-primary"><?= htmlspecialchars($category) ?></h3>
+                <ul class="list-group">
+                    <?php if (!empty($scores)): ?>
+                        <?php foreach ($scores as $score): ?>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong><?= htmlspecialchars($score['pseudo']) ?></strong>
+                                </div>
+                                <div>
+                                    <span><?= $score['score'] ?>/20</span>
+                                    <small class="text-muted"><?= $score['created_at'] ?></small>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li class="list-group-item">Aucun score enregistré pour cette catégorie.</li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p class="text-center">Aucune donnée disponible pour le moment.</p>
+    <?php endif; ?>
+</div>
+
+
+
 
 <!-- Bootstrap JS pour les fonctionnalités responsive -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
