@@ -167,7 +167,11 @@ include 'templates/nav.php';
                                     <strong><?= htmlspecialchars($score['pseudo']) ?></strong>
                                 </div>
                                 <div>
-                                    <span><?= $score['score'] ?>/20</span>
+                                    <?php if ($category === "Evaluation finale"): ?>
+                                        <span><?= $score['score'] ?>/50</span>
+                                    <?php else: ?>
+                                        <span><?= $score['score'] ?>/20</span>
+                                    <?php endif; ?>
                                     <small class="text-muted"><?= $score['created_at'] ?></small>
                                 </div>
                             </li>
@@ -182,9 +186,6 @@ include 'templates/nav.php';
         <p class="text-center">Aucune donnée disponible pour le moment.</p>
     <?php endif; ?>
 </div>
-
-
-
 
 <!-- Bootstrap JS pour les fonctionnalités responsive -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
