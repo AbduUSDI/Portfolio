@@ -1,87 +1,94 @@
+// main.js
+
 document.addEventListener("DOMContentLoaded", () => {
-  const clock = document.getElementById("clock")
+  const clock = document.getElementById("clock");
 
   function updateClock() {
-    const now = new Date()
-    clock.innerText = now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })
+    const now = new Date();
+    clock.innerText = now.toLocaleTimeString("fr-FR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
   }
 
-  setInterval(updateClock, 1000)
-  updateClock()
+  setInterval(updateClock, 1000);
+  updateClock();
 
   // Make windows draggable
   function makeDraggable(element) {
     let pos1 = 0,
       pos2 = 0,
       pos3 = 0,
-      pos4 = 0
+      pos4 = 0;
 
-    const header = element.querySelector(".window-header")
+    const header = element.querySelector(".window-header");
     if (header) {
-      header.onmousedown = dragMouseDown
+      header.onmousedown = dragMouseDown;
     }
 
     function dragMouseDown(e) {
-      e.preventDefault()
-      pos3 = e.clientX
-      pos4 = e.clientY
-      document.onmouseup = closeDragElement
-      document.onmousemove = elementDrag
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
     }
 
     function elementDrag(e) {
-      e.preventDefault()
-      pos1 = pos3 - e.clientX
-      pos2 = pos4 - e.clientY
-      pos3 = e.clientX
-      pos4 = e.clientY
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
 
       // Calculate new position
-      let newTop = element.offsetTop - pos2
-      let newLeft = element.offsetLeft - pos1
+      let newTop = element.offsetTop - pos2;
+      let newLeft = element.offsetLeft - pos1;
 
       // Apply boundaries
-      const maxTop = window.innerHeight - element.offsetHeight
-      const maxLeft = window.innerWidth - element.offsetWidth
+      const maxTop = window.innerHeight - element.offsetHeight;
+      const maxLeft = window.innerWidth - element.offsetWidth;
 
-      newTop = Math.max(0, Math.min(newTop, maxTop))
-      newLeft = Math.max(0, Math.min(newLeft, maxLeft))
+      newTop = Math.max(0, Math.min(newTop, maxTop));
+      newLeft = Math.max(0, Math.min(newLeft, maxLeft));
 
-      element.style.top = newTop + "px"
-      element.style.left = newLeft + "px"
+      element.style.top = newTop + "px";
+      element.style.left = newLeft + "px";
     }
 
     function closeDragElement() {
-      document.onmouseup = null
-      document.onmousemove = null
+      document.onmouseup = null;
+      document.onmousemove = null;
     }
   }
 
   // Create window function
   function createWindow(title, content) {
     // Check if window already exists
-    const existingWindow = document.querySelector(`.window[data-title="${title}"]`)
+    const existingWindow = document.querySelector(
+      `.window[data-title="${title}"]`
+    );
     if (existingWindow) {
       // Bring to front
-      const windows = document.querySelectorAll(".window")
-      windows.forEach((win) => (win.style.zIndex = "10"))
-      existingWindow.style.zIndex = "11"
-      return
+      const windows = document.querySelectorAll(".window");
+      windows.forEach((win) => (win.style.zIndex = "10"));
+      existingWindow.style.zIndex = "11";
+      return;
     }
 
-    const windowEl = document.createElement("div")
-    windowEl.className = "window"
-    windowEl.dataset.title = title
+    const windowEl = document.createElement("div");
+    windowEl.className = "window";
+    windowEl.dataset.title = title;
 
     // Position window in the center
-    const width = Math.min(800, window.innerWidth * 0.8)
-    const height = Math.min(600, window.innerHeight * 0.8)
+    const width = Math.min(800, window.innerWidth * 0.8);
+    const height = Math.min(600, window.innerHeight * 0.8);
 
-    windowEl.style.width = `${width}px`
-    windowEl.style.height = `${height}px`
-    windowEl.style.left = `${(window.innerWidth - width) / 2}px`
-    windowEl.style.top = `${(window.innerHeight - height) / 2}px`
-    windowEl.style.zIndex = "11"
+    windowEl.style.width = `${width}px`;
+    windowEl.style.height = `${height}px`;
+    windowEl.style.left = `${(window.innerWidth - width) / 2}px`;
+    windowEl.style.top = `${(window.innerHeight - height) / 2}px`;
+    windowEl.style.zIndex = "11";
 
     windowEl.innerHTML = `
       <div class="window-header">
@@ -93,61 +100,78 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
       <div class="window-content">${content}</div>
-    `
+    `;
 
-    document.body.appendChild(windowEl)
-    makeDraggable(windowEl)
+    document.body.appendChild(windowEl);
+    makeDraggable(windowEl);
 
-    // Add event listeners for window controls
-    const closeBtn = windowEl.querySelector(".window-close")
+    // 👉 Ici : ajout de l’icône dans la taskbar
+    const taskbar = document.getElementById("taskbarApps");
+    const taskIcon = document.createElement("div");
+    taskIcon.className = "taskbar-item";
+    taskIcon.textContent = title;
+
+    // Générer un ID unique pour chaque fenêtre
+    const windowId = `window-${Date.now()}`;
+    windowEl.setAttribute("id", windowId);
+    taskIcon.dataset.windowId = windowId;
+
+    taskbar.appendChild(taskIcon);
+
+    // Click sur l'icône de la taskbar
+    taskIcon.addEventListener("click", () => {
+      if (windowEl.classList.contains("minimized")) {
+        windowEl.classList.remove("minimized");
+        windowEl.classList.add("restoring");
+        windowEl.style.opacity = "1";
+        windowEl.style.transform = "scale(1)";
+        setTimeout(() => windowEl.classList.remove("restoring"), 300);
+      } else {
+        windowEl.classList.add("minimized");
+      }
+    });
+
+    // ❌ Fermeture avec animation
+    const closeBtn = windowEl.querySelector(".window-close");
     closeBtn.addEventListener("click", () => {
-      windowEl.remove()
-    })
+      windowEl.classList.add("closing");
+      setTimeout(() => {
+        windowEl.remove();
+        taskIcon.remove();
+      }, 200); // durée de l'animation CSS .closing
+    });
 
-    const minimizeBtn = windowEl.querySelector(".window-minimize")
+    // 🟡 Minimisation fluide
+    const minimizeBtn = windowEl.querySelector(".window-minimize");
     minimizeBtn.addEventListener("click", () => {
-      windowEl.style.transform = "scale(0.1)"
-      windowEl.style.opacity = "0"
-      windowEl.style.bottom = "0"
-      windowEl.style.right = "0"
+      windowEl.classList.add("minimized");
+    });
 
-      // Create a minimized indicator
-      const indicator = document.createElement("div")
-      indicator.className = "minimized-indicator"
-      indicator.textContent = title
-      document.body.appendChild(indicator)
-
-      indicator.addEventListener("click", () => {
-        windowEl.style.transform = "scale(1)"
-        windowEl.style.opacity = "1"
-        indicator.remove()
-      })
-    })
-
-    const maximizeBtn = windowEl.querySelector(".window-maximize")
+    // 🟢 Maximiser / restaurer
+    const maximizeBtn = windowEl.querySelector(".window-maximize");
     maximizeBtn.addEventListener("click", () => {
       if (windowEl.classList.contains("maximized")) {
-        windowEl.classList.remove("maximized")
-        windowEl.style.width = `${width}px`
-        windowEl.style.height = `${height}px`
-        windowEl.style.left = `${(window.innerWidth - width) / 2}px`
-        windowEl.style.top = `${(window.innerHeight - height) / 2}px`
+        windowEl.classList.remove("maximized");
+        windowEl.style.width = `${width}px`;
+        windowEl.style.height = `${height}px`;
+        windowEl.style.left = `${(window.innerWidth - width) / 2}px`;
+        windowEl.style.top = `${(window.innerHeight - height) / 2}px`;
       } else {
-        windowEl.classList.add("maximized")
-        windowEl.style.width = "100%"
-        windowEl.style.height = "100%"
-        windowEl.style.left = "0"
-        windowEl.style.top = "0"
+        windowEl.classList.add("maximized");
+        windowEl.style.width = "100%";
+        windowEl.style.height = "100%";
+        windowEl.style.left = "0";
+        windowEl.style.top = "0";
       }
-    })
+    });
   }
 
   // Make createWindow available globally
-  window.createWindow = createWindow
+  window.createWindow = createWindow;
 
   document.querySelectorAll(".icon").forEach((icon) => {
     icon.addEventListener("dblclick", () => {
-      const app = icon.dataset.app
+      const app = icon.dataset.app;
 
       if (app === "about") {
         createWindow(
@@ -155,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `
           <div class="about-container">
             <div class="about-header">
-              <img src="assets/profile.jpg" alt="Abdurrahman USDI" class="profile-image">
+              <img src="https://dynamic-web.fr/wp-content/uploads/2025/03/DW_abdoraman.png" alt="Abdurrahman USDI" class="profile-image">
               <div>
                 <h2 class="about-title">Abdurrahman USDI</h2>
                 <p class="about-subtitle">Développeur Web Full-Stack</p>
@@ -163,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             
             <div class="about-description">
-              <p>Passionné par le développement web depuis plus de 5 ans, je crée des applications web modernes, 
+              <p>Développeur web depuis plus d'un an, je crée des applications web modernes, 
               performantes et accessibles. Mon expertise couvre à la fois le front-end et le back-end, 
               me permettant de concevoir des solutions complètes et cohérentes.</p>
               
@@ -177,9 +201,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="skill-tag">HTML5</span>
                 <span class="skill-tag">CSS3</span>
                 <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">jQuery</span>
+                <span class="skill-tag">AJAX</span>
+                <span class="skill-tag">WordPress</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">MongoDB</span>
                 <span class="skill-tag">PHP</span>
                 <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">React</span>
                 <span class="skill-tag">Node.js</span>
                 <span class="skill-tag">Git</span>
                 <span class="skill-tag">Responsive Design</span>
@@ -189,32 +221,32 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div>
               <h3>Formation</h3>
-              <p><strong>Diplôme de Développeur Web</strong> - École de développement web, 2020-2022</p>
-              <p><strong>Formation continue</strong> - Certifications en ligne (Udemy, OpenClassrooms)</p>
+              <p><strong>Diplôme de Développeur Web</strong> - École de développement web, STUDI 2024-2025</p>
+              <p><strong>Formation continue</strong> - Certifications en ligne (STUDI, Udemy, ...)</p>
             </div>
             
             <div>
               <h3>Langues</h3>
-              <p>Français (natif), Anglais (professionnel), Arabe (notions)</p>
+              <p>Français (natif), Anglais (professionnel), Turc (maternelle), Espagnol (compris), Arabe (notions)</p>
             </div>
             
             <div class="social-links">
               <a href="https://github.com" target="_blank" class="social-link">
-                <img src="assets/github.svg" alt="GitHub">
+                <img src="../../public/assets/icons/github.png" alt="GitHub">
                 GitHub
               </a>
               <a href="https://www.linkedin.com/in/abdu-usdi-553877268/" target="_blank" class="social-link">
-                <img src="assets/linkedin.svg" alt="LinkedIn">
+                <img src="../../public/assets/icons/linkedin.png" alt="LinkedIn">
                 LinkedIn
               </a>
               <a href="mailto:abdu.usdi@gmail.com" class="social-link">
-                <img src="assets/email.svg" alt="Email">
+                <img src="../../public/assets/icons/mail.png" alt="Email">
                 abdu.usdi@gmail.com
               </a>
             </div>
           </div>
-        `,
-        )
+        `
+        );
       } else if (app === "projects") {
         createWindow(
           "Mes projets",
@@ -332,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             
             <div class="project-card">
-              <img src="../../public/assets/projects/potfolio-os.webp" alt="Portfolio OS" class="project-image">
+              <img src="../../public/assets/projects/portfolio-os.png" alt="Portfolio OS" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">Portfolio OS</h3>
                 <p class="project-description">Ce portfolio que vous consultez actuellement, conçu comme un système d'exploitation 
@@ -349,12 +381,14 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
           </div>
-        `,
-        )
+        `
+        );
       } else if (app === "cv") {
-        createWindow("Mon CV", "<iframe src='data/cv.pdf' style='width:100%;height:100%;border:none;'></iframe>")
+        createWindow(
+          "Mon CV",
+          "<iframe src='data/cv.pdf' style='width:100%;height:100%;border:none;'></iframe>"
+        );
       }
-    })
-  })
-})
-
+    });
+  });
+});

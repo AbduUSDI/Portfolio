@@ -455,3 +455,53 @@ body {
   }
 }
 
+.taskbar-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.taskbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.taskbar-apps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  right: 100px !important; /* Force la position à 50px depuis la droite */
+}
+@keyframes windowMinimize {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1) translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes windowRestore {
+  0% {
+    transform: scale(0.1) translateY(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.window.minimized {
+  animation: windowMinimize 0.3s forwards ease-in;
+}
+
+.window.restoring {
+  animation: windowRestore 0.3s forwards ease-out;
+}
