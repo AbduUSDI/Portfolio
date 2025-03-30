@@ -221,61 +221,85 @@ document.addEventListener("DOMContentLoaded", () => {
           `
           <div class="projects-container">
             <div class="project-card">
-              <img src="assets/zoo-arcadia.jpg" alt="Zoo Arcadia" class="project-image">
+              <img src="../../public/assets/projects/zoo-arcadia.webp" alt="Zoo Arcadia" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">Zoo Arcadia</h3>
-                <p class="project-description">Application web de gestion de zoo développée avec une architecture SOLID en PHP. 
+                <p class="project-description">Application web de gestion de zoo développée avec une architecture SOLID en PHP au cours de ma formation. 
                 Permet la gestion des animaux, des enclos, des employés et des visites.</p>
                 <div class="project-tags">
                   <span class="project-tag">PHP</span>
                   <span class="project-tag">MySQL</span>
+                  <span class="project-tag">Bootstrap</span>
+                  <span class="project-tag">jQuery</span>
                   <span class="project-tag">SOLID</span>
                   <span class="project-tag">JavaScript</span>
+                  <span class="project-tag">AJAX</span>
+                  <span class="project-tag">HTML5/CSS3</span>
+                  <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Git</span>
                 </div>
                 <a href="/Portfolio/Zoo-Arcadia-New/home" target="_blank" class="project-link">Voir le projet</a>
               </div>
             </div>
             
             <div class="project-card">
-              <img src="assets/nouveau-ne.jpg" alt="Tout pour un nouveau-né" class="project-image">
+              <img src="../../public/assets/projects/first_screen.webp" alt="Tout pour un nouveau-né" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">Tout pour un nouveau-né</h3>
                 <p class="project-description">Site d'accompagnement parental offrant des conseils, des ressources et un forum 
                 pour les jeunes parents. Inclut un système de suivi de croissance et un calendrier de vaccination.</p>
                 <div class="project-tags">
                   <span class="project-tag">PHP</span>
+                  <span class="project-tag">Bootstrap</span>
+                  <span class="project-tag">jQuery</span>
                   <span class="project-tag">MySQL</span>
                   <span class="project-tag">JavaScript</span>
                   <span class="project-tag">AJAX</span>
+                  <span class="project-tag">HTML5/CSS3</span>
+                  <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Git</span>
+                  <span class="project-tag">Responsive Design</span>
                 </div>
                 <a href="/Portfolio/toutpourunnouveaune/home" target="_blank" class="project-link">Voir le projet</a>
               </div>
             </div>
             
             <div class="project-card">
-              <img src="assets/e-learning.jpg" alt="E-learning" class="project-image">
+              <img src="../../public/assets/projects/image.work.webp" alt="E-learning" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">E-learning</h3>
                 <p class="project-description">Plateforme de formation en ligne avec des cours interactifs, des quiz, 
                 un système de progression et des certificats. Supporte différents formats de contenu.</p>
                 <div class="project-tags">
                   <span class="project-tag">PHP</span>
+                  <span class="project-tag">Bootstrap</span>
+                  <span class="project-tag">jQuery</span>
+                  <span class="project-tag">AJAX</span>
                   <span class="project-tag">MySQL</span>
                   <span class="project-tag">JavaScript</span>
                   <span class="project-tag">HTML5/CSS3</span>
+                  <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Git</span>
+                  <span class="project-tag">Responsive Design</span>
                 </div>
                 <a href="/Portfolio/e_learning/home" target="_blank" class="project-link">Voir le projet</a>
               </div>
             </div>
             
             <div class="project-card">
-              <img src="assets/cours.jpg" alt="Plateforme de cours" class="project-image">
+              <img src="../../public/assets/projects/cours.webp" alt="Plateforme de cours" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">Plateforme de cours</h3>
                 <p class="project-description">Interface d'apprentissage avec gestion des cours, des étudiants et des enseignants. 
                 Inclut un tableau de bord pour suivre les progrès et les performances.</p>
                 <div class="project-tags">
                   <span class="project-tag">PHP</span>
+                  <span class="project-tag">JavaScript</span>
+                  <span class="project-tag">AJAX</span>
+                  <span class="project-tag">HTML5/CSS3</span>
+                  <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Git</span>
+                  <span class="project-tag">Responsive Design</span>
                   <span class="project-tag">MySQL</span>
                   <span class="project-tag">Bootstrap</span>
                   <span class="project-tag">jQuery</span>
@@ -285,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             
             <div class="project-card">
-              <img src="assets/abduclip.jpg" alt="Abduclip" class="project-image">
+              <img src="../../public/assets/projects/abduclip.png" alt="Abduclip" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">Abduclip</h3>
                 <p class="project-description">Plateforme de mini-jeux en cours de développement. Propose différents jeux 
@@ -295,13 +319,20 @@ document.addEventListener("DOMContentLoaded", () => {
                   <span class="project-tag">JavaScript</span>
                   <span class="project-tag">Canvas</span>
                   <span class="project-tag">WebSockets</span>
+                  <span class="project-tag">HTML5/CSS3</span>
+                  <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Git</span>
+                  <span class="project-tag">Responsive Design</span>
+                  <span class="project-tag">MySQL</span>
+                  <span class="project-tag">Bootstrap</span>
+                  <span class="project-tag">jQuery</span>
                 </div>
                 <a href="abduclip/src/public/index.php" target="_blank" class="project-link">Voir le projet</a>
               </div>
             </div>
             
             <div class="project-card">
-              <img src="assets/portfolio.jpg" alt="Portfolio OS" class="project-image">
+              <img src="../../public/assets/projects/potfolio-os.webp" alt="Portfolio OS" class="project-image">
               <div class="project-info">
                 <h3 class="project-title">Portfolio OS</h3>
                 <p class="project-description">Ce portfolio que vous consultez actuellement, conçu comme un système d'exploitation 
@@ -311,6 +342,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   <span class="project-tag">CSS3</span>
                   <span class="project-tag">JavaScript</span>
                   <span class="project-tag">UI/UX</span>
+                  <span class="project-tag">Responsive Design</span>
+                  <span class="project-tag">Git</span>
                 </div>
                 <a href="#" class="project-link">Vous y êtes !</a>
               </div>
