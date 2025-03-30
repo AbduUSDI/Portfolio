@@ -1,22 +1,29 @@
-# Activer le module de réécriture
+# ---------------------------------------------
+# ⚙️ Activer la réécriture d’URL
+# ---------------------------------------------
 RewriteEngine On
 RewriteBase /
 
-# 1. Redirection vers les fichiers du portfolio principal
-RewriteRule ^home$ index.html [L]
+# 🔁 1. Redirection vers le contrôleur principal
+RewriteRule ^home$ index.php [L]
 
-# Rediriger abduusdi.fr vers https://www.abduusdi.fr/home
-RewriteCond %{HTTP_HOST} ^abduusdi\.fr$ [NC]
-RewriteRule ^(.*)$ https://www.abduusdi.fr/index.html [R=301,L]
+# 🔁 2. Redirection d’un domaine vers une page précise (externe ou en ligne)
+# NOTE : Pas utile pour un VHost local, à commenter sauf si utilisé en prod
+# RewriteCond %{HTTP_HOST} ^abduusdi\.fr$ [NC]
+# RewriteRule ^(.*)$ https://www.abduusdi.fr/home [R=301,L]
 
-# Activer la compression Gzip (y compris pour les fichiers .webp)
+# ---------------------------------------------
+# 📦 Compression GZIP (HTML, CSS, JS, images...)
+# ---------------------------------------------
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
     AddOutputFilterByType DEFLATE image/svg+xml image/webp
     AddOutputFilterByType DEFLATE font/truetype font/opentype application/vnd.ms-fontobject
 </IfModule>
 
-# Mise en cache des fichiers statiques (CSS, JS, images, y compris .webp)
+# ---------------------------------------------
+# 🧠 Mise en cache des fichiers statiques
+# ---------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 year"
@@ -24,48 +31,47 @@ RewriteRule ^(.*)$ https://www.abduusdi.fr/index.html [R=301,L]
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
 </IfModule>
 
-# Désactiver la signature du serveur pour plus de sécurité
-ServerSignature Off
-
-# Utiliser rel=preload pour les ressources prioritaires
+# ---------------------------------------------
+# 🚀 Préchargement des ressources critiques
+# ---------------------------------------------
 <IfModule mod_headers.c>
-    Header always set Link "<https://www.abduusdi.fr/assets/css/styles.css>; rel=preload; as=style"
-    Header always set Link "<https://www.abduusdi.fr/assets/js/scripts.js>; rel=preload; as=script"
+    Header always set Link "</assets/css/styles.css>; rel=preload; as=style"
+    Header always set Link "</assets/js/scripts.js>; rel=preload; as=script"
 </IfModule>
 
-# Gérer l'accès direct aux fichiers dans les dossiers comme assets, uploads, vendor, etc.
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# 2. Redirections pour chaque projet
-
-# Zoo-Arcadia
-RewriteRule ^Zoo-Arcadia-New/(.*)$ /Zoo-Arcadia-New/$1 [L]
-RewriteRule ^Zoo-Arcadia-New/$ /Zoo-Arcadia-New/index.php [L]
-
-# Tout pour un nouveau né
-RewriteRule ^toutpourunnouveaune/(.*)$ /toutpourunnouveaune/$1 [L]
-RewriteRule ^toutpourunnouveaune$ /toutpourunnouveaune/index.php [L]
-
-# E-learning
-RewriteRule ^e_learning/(.*)$ /e_learning/$1 [L]
-RewriteRule ^e_learning$ /e_learning/index.php [L]
-
-# 3. Gestion des erreurs 404 (personnalisée)
+# ---------------------------------------------
+# 🧱 Gestion des erreurs personnalisées
+# ---------------------------------------------
 ErrorDocument 404 /404.html
 
-# Protection des fichiers sensibles
+# ---------------------------------------------
+# 🔒 Protection des fichiers sensibles
+# ---------------------------------------------
 <FilesMatch "(\.htaccess|\.env|composer\.json|composer\.lock)">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Utilisation de HTTP/2 si disponible
+# ---------------------------------------------
+# 🚷 Bloquer l'accès aux fichiers/dossiers inexistants
+# ---------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# ---------------------------------------------
+# ⚡ HTTP/2 (si dispo)
+# ---------------------------------------------
 <IfModule mod_http2.c>
     Protocols h2 http/1.1
 </IfModule>
+
+# ---------------------------------------------
+# 🔕 Désactiver la signature serveur
+# ---------------------------------------------
+ServerSignature Off

@@ -1,7 +1,0 @@
-# Dossiers à ignorer
-vendor/
-
-# Fichiers à ignorer
-composer.phar
-composer.lock
-.env

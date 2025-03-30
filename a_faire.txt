@@ -1,9 +1,0 @@
-## Fonctionnalités en cours
-
--> Je dois finir get_teacher_profile.php dans e_learning/app/views/admin/users/...   -> Terminé !
--> Je dois trouver d'où vient l'erreur dans get_user_profile.php pour la page de profil des Formateurs-> En cours
-
-
-## Fonctionnalités prévues
-
--> Déploiement prévu
