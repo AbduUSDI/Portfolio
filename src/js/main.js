@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (app === "cv") {
         createWindow(
           "Mon CV",
-          "<iframe src='data/cv.pdf' style='width:100%;height:100%;border:none;'></iframe>"
+          "<iframe src='../../data/cv.pdf' style='width:100%;height:100%;border:none;'></iframe>"
         );
       }
     });
