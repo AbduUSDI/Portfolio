@@ -1,40 +1,254 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio OS - Abdurrahman</title>
   <link rel="stylesheet" href="../src/css/style.css" />
+  <link rel="icon" href="public/favicon.ico" />
 </head>
+<body class="windows-theme">
+  <!-- OS Switcher -->
+  <div id="os-switcher">
+    <button id="windows-switch" class="active">Windows 11</button>
+    <button id="macos-switch">macOS</button>
+  </div>
 
-<body>
-  <div id="desktop">
+  <!-- Windows Desktop -->
+  <div id="windows-desktop" class="desktop active">
     <div class="desktop-icons">
       <div class="icon" data-app="about">
-        <img src="assets/icons/user.png" alt="À propos" />
+        <img src="public/assets/windows/user-folder.svg" alt="À propos" />
         <span>À propos</span>
       </div>
       <div class="icon" data-app="projects">
-        <img src="assets/icons/projects-folder.png" alt="Projets" />
+        <img src="public/assets/windows/projects-folder.svg" alt="Projets" />
         <span>Mes projets</span>
       </div>
       <div class="icon" data-app="cv">
-        <img src="assets/icons/pdf.png" alt="CV" />
+        <img src="public/assets/windows/pdf.png" alt="CV" />
         <span>Mon CV</span>
+      </div>
+      <div class="icon" data-app="calculator">
+        <img src="public/assets/windows/calculator.png" alt="Calculatrice" />
+        <span>Calculatrice</span>
+      </div>
+      <div class="icon" data-app="chrome">
+        <img src="public/assets/windows/chrome.png" alt="Chrome" />
+        <span>Chrome</span>
       </div>
     </div>
   </div>
 
-  <div id="taskbar">
-    <div class="start-btn">🪟</div>
-    <div class="taskbar-apps" id="taskbarApps"></div> <!-- Ici on ajoute dynamiquement -->
-    <div class="clock" id="clock"></div>
+  <!-- macOS Desktop -->
+  <div id="macos-desktop" class="desktop">
+    <div class="desktop-icons">
+      <div class="icon" data-app="about">
+        <img src="public/assets/macos/user-folder.svg" alt="À propos" />
+        <span>À propos</span>
+      </div>
+      <div class="icon" data-app="projects">
+        <img src="public/assets/macos/projects-folder.png" alt="Projets" />
+        <span>Mes projets</span>
+      </div>
+      <div class="icon" data-app="cv">
+        <img src="public/assets/macos/pdf.png" alt="CV" />
+        <span>Mon CV</span>
+      </div>
+      <div class="icon" data-app="calculator">
+        <img src="public/assets/macos/calculator.png" alt="Calculatrice" />
+        <span>Calculatrice</span>
+      </div>
+      <div class="icon" data-app="chrome">
+        <img src="public/assets/macos/chrome.png" alt="Chrome" />
+        <span>Chrome</span>
+      </div>
+    </div>
   </div>
-  
 
-  <script src="../src/js/main.js"></script>
-  
+  <!-- Windows Taskbar -->
+  <div id="windows-taskbar" class="taskbar active">
+    <div class="start-btn" id="windows-start-btn">
+      <img src="public/assets/windows/windows-logo.svg" alt="Start" />
+    </div>
+    <div class="search-btn">
+      <img src="public/assets/windows/search.png" alt="Search" />
+    </div>
+    <div class="taskbar-apps"></div>
+    <div class="system-tray">
+      <div class="tray-icon">
+        <img src="public/assets/windows/wifi.png" alt="WiFi" />
+      </div>
+      <div class="tray-icon">
+        <img src="public/assets/windows/volume.png" alt="Volume" />
+      </div>
+      <div class="tray-icon">
+        <img src="public/assets/windows/battery.png" alt="Battery" />
+      </div>
+      <div class="clock" id="windows-clock"></div>
+    </div>
+  </div>
+
+  <!-- macOS Dock -->
+  <div id="macos-dock" class="dock">
+    <div class="dock-container">
+      <div class="dock-item" data-app="finder">
+        <img src="public/assets/macos/finder.png" alt="Finder" />
+      </div>
+      <div class="dock-item" data-app="about">
+        <img src="public/assets/macos/user-folder.svg" alt="À propos" />
+      </div>
+      <div class="dock-item" data-app="projects">
+        <img src="public/assets/macos/projects-folder.png" alt="Projets" />
+      </div>
+      <div class="dock-item" data-app="cv">
+        <img src="public/assets/macos/pdf.png" alt="CV" />
+      </div>
+      <div class="dock-item" data-app="calculator">
+        <img src="public/assets/macos/calculator.png" alt="Calculatrice" />
+      </div>
+      <div class="dock-item" data-app="chrome">
+        <img src="public/assets/macos/chrome.png" alt="Chrome" />
+      </div>
+    </div>
+  </div>
+
+  <!-- macOS Menu Bar -->
+  <div id="macos-menubar" class="menubar">
+    <div class="apple-menu">
+      <img src="public/assets/macos/apple-logo.svg" alt="Apple" />
+    </div>
+    <div class="menu-app-name">Finder</div>
+    <div class="menu-items">
+      <div class="menu-item">Fichier</div>
+      <div class="menu-item">Édition</div>
+      <div class="menu-item">Affichage</div>
+      <div class="menu-item">Aller</div>
+      <div class="menu-item">Fenêtre</div>
+      <div class="menu-item">Aide</div>
+    </div>
+    <div class="menu-right">
+      <div class="menu-icon">
+        <img src="public/assets/macos/wifi.png" alt="WiFi" />
+      </div>
+      <div class="menu-icon">
+        <img src="public/assets/macos/battery.png" alt="Battery" />
+      </div>
+      <div class="menu-icon">
+        <img src="public/assets/macos/volume.png" alt="Volume" />
+      </div>
+      <div class="clock" id="macos-clock"></div>
+    </div>
+  </div>
+
+  <!-- Windows Start Menu -->
+  <div id="start-menu" class="start-menu">
+    <div class="start-search">
+      <input type="text" placeholder="Rechercher..." />
+    </div>
+    <div class="pinned-apps">
+      <h3>Applications épinglées</h3>
+      <div class="app-grid">
+        <div class="app-item" data-app="about">
+          <img src="public/assets/windows/user-folder.svg" alt="À propos" />
+          <span>À propos</span>
+        </div>
+        <div class="app-item" data-app="projects">
+          <img src="public/assets/windows/projects-folder.svg" alt="Projets" />
+          <span>Mes projets</span>
+        </div>
+        <div class="app-item" data-app="cv">
+          <img src="public/assets/windows/pdf.png" alt="CV" />
+          <span>Mon CV</span>
+        </div>
+        <div class="app-item" data-app="calculator">
+          <img src="public/assets/windows/calculator.png" alt="Calculatrice" />
+          <span>Calculatrice</span>
+        </div>
+        <div class="app-item" data-app="chrome">
+          <img src="public/assets/windows/chrome.png" alt="Chrome" />
+          <span>Chrome</span>
+        </div>
+      </div>
+    </div>
+    <div class="recommended">
+      <h3>Recommandés</h3>
+      <div class="recommended-list">
+        <div class="recommended-item">
+          <img src="public/assets/windows/recent.png" alt="Recent" />
+          <span>Projet récent</span>
+        </div>
+      </div>
+    </div>
+    <div class="start-footer">
+      <div class="user-profile">
+        <img src="public/assets/windows/user.png" alt="User" />
+        <span>Abdurrahman</span>
+      </div>
+      <div class="power-button">
+        <img src="public/assets/windows/power.png" alt="Power" />
+      </div>
+    </div>
+  </div>
+
+  <!-- macOS Apple Menu -->
+  <div id="apple-menu" class="apple-menu-dropdown">
+    <div class="menu-item">À propos de ce Mac</div>
+    <div class="menu-separator"></div>
+    <div class="menu-item">Préférences Système...</div>
+    <div class="menu-separator"></div>
+    <div class="menu-item">Forcer à quitter...</div>
+    <div class="menu-separator"></div>
+    <div class="menu-item">Suspendre l'activité</div>
+    <div class="menu-item">Redémarrer...</div>
+    <div class="menu-item">Éteindre...</div>
+    <div class="menu-separator"></div>
+    <div class="menu-item">Verrouiller l'écran</div>
+    <div class="menu-item">Se déconnecter...</div>
+  </div>
+
+  <!-- Windows Container -->
+  <div id="windows-container"></div>
+
+  <!-- Templates for Windows -->
+  <template id="window-template">
+    <div class="window" data-app="">
+      <div class="window-header">
+        <div class="window-title"></div>
+        <div class="window-controls">
+          <button class="window-control minimize"></button>
+          <button class="window-control maximize"></button>
+          <button class="window-control close"></button>
+        </div>
+      </div>
+      <div class="window-content"></div>
+      <div class="window-resize-handle"></div>
+    </div>
+  </template>
+
+  <template id="macos-window-template">
+    <div class="window macos-window" data-app="">
+      <div class="window-header">
+        <div class="window-controls">
+          <button class="window-control close"></button>
+          <button class="window-control minimize"></button>
+          <button class="window-control maximize"></button>
+        </div>
+        <div class="window-title"></div>
+      </div>
+      <div class="window-content"></div>
+      <div class="window-resize-handle"></div>
+    </div>
+  </template>
+
+  <!-- Scripts -->
+  <script src="../src/js/config.js" type="module"></script>
+  <script src="../src/js/storage.js" type="module"></script>
+  <script src="../src/js/windows.js" type="module"></script>
+  <script src="../src/js/launcher.js" type="module"></script>
+  <script src="../src/js/main.js" type="module"></script>
+  <script src="../src/apps/calculator.js" type="module"></script>
+  <script src="../src/apps/chrome.js" type="module"></script>
+  <script src="../src/apps/pdfViewer.js" type="module"></script>
 </body>
-
 </html>

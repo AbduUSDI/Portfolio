@@ -1,0 +1,37 @@
+{
+    "projects": [
+      {
+        "title": "E-commerce Platform",
+        "description": "Plateforme e-commerce complète avec panier, paiement et gestion des commandes.",
+        "image": "public/assets/projects/ecommerce.png",
+        "tags": ["React", "Node.js", "MongoDB", "Stripe"],
+        "github": "https://github.com/abdurrahman/ecommerce",
+        "demo": "https://ecommerce-demo.abdurrahman.fr"
+      },
+      {
+        "title": "Task Manager",
+        "description": "Application de gestion de tâches avec fonctionnalités de collaboration en temps réel.",
+        "image": "public/assets/projects/taskmanager.png",
+        "tags": ["Vue.js", "Firebase", "Tailwind CSS"],
+        "github": "https://github.com/abdurrahman/taskmanager",
+        "demo": "https://taskmanager.abdurrahman.fr"
+      },
+      {
+        "title": "Portfolio OS",
+        "description": "Portfolio interactif simulant Windows 11 et macOS avec des applications personnalisées.",
+        "image": "public/assets/projects/portfolioos.png",
+        "tags": ["HTML", "CSS", "JavaScript"],
+        "github": "https://github.com/abdurrahman/portfolio-os",
+        "demo": "https://portfolio.abdurrahman.fr"
+      },
+      {
+        "title": "Weather App",
+        "description": "Application météo avec prévisions sur 7 jours et géolocalisation.",
+        "image": "public/assets/projects/weatherapp.png",
+        "tags": ["React", "OpenWeather API", "Geolocation"],
+        "github": "https://github.com/abdurrahman/weather-app",
+        "demo": "https://weather.abdurrahman.fr"
+      }
+    ]
+  }
+  
