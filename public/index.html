@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio OS - Abdurrahman</title>
   <link rel="stylesheet" href="../src/css/style.css" />
-  <link rel="icon" href="public/favicon.ico" />
+  <link rel="icon" href="../public/favicon.ico" />
 </head>
+
 <body class="windows-theme">
   <!-- OS Switcher -->
   <div id="os-switcher">
@@ -241,14 +243,15 @@
     </div>
   </template>
 
-  <!-- Scripts -->
-  <script src="../src/js/config.js" type="module"></script>
-  <script src="../src/js/storage.js" type="module"></script>
-  <script src="../src/js/windows.js" type="module"></script>
-  <script src="../src/js/launcher.js" type="module"></script>
-  <script src="../src/js/main.js" type="module"></script>
-  <script src="../src/apps/calculator.js" type="module"></script>
-  <script src="../src/apps/chrome.js" type="module"></script>
-  <script src="../src/apps/pdfViewer.js" type="module"></script>
+  <!-- Scripts - Chargés dans le bon ordre sans utiliser type="module" -->
+  <script src="../src/js/config.js"></script>
+  <script src="../src/js/storage.js"></script>
+  <script src="../src/js/windows.js"></script>
+  <script src="../src/apps/calculator.js"></script>
+  <script src="../src/apps/chrome.js"></script>
+  <script src="../src/apps/pdfViewer.js"></script>
+  <script src="../src/js/launcher.js"></script>
+  <script src="../src/js/main.js"></script>
 </body>
+
 </html>

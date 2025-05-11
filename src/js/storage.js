@@ -4,7 +4,7 @@
  */
 class Storage {
   constructor() {
-    this.storageKey = "portfolio-os-state"
+    this.storageKey = "portfolio-os-state";
   }
 
   /**
@@ -13,10 +13,10 @@ class Storage {
    */
   saveState(state) {
     try {
-      const serializedState = JSON.stringify(state)
-      localStorage.setItem(this.storageKey, serializedState)
+      const serializedState = JSON.stringify(state);
+      localStorage.setItem(this.storageKey, serializedState);
     } catch (error) {
-      console.error("Error saving state to localStorage:", error)
+      console.error("Error saving state to localStorage:", error);
     }
   }
 
@@ -26,14 +26,14 @@ class Storage {
    */
   loadState() {
     try {
-      const serializedState = localStorage.getItem(this.storageKey)
+      const serializedState = localStorage.getItem(this.storageKey);
       if (serializedState === null) {
-        return null
+        return null;
       }
-      return JSON.parse(serializedState)
+      return JSON.parse(serializedState);
     } catch (error) {
-      console.error("Error loading state from localStorage:", error)
-      return null
+      console.error("Error loading state from localStorage:", error);
+      return null;
     }
   }
 
@@ -44,17 +44,17 @@ class Storage {
    * @param {Object} size - The window size {width, height}
    */
   saveWindowState(appId, position, size) {
-    const state = this.loadState() || {}
-    const windows = state.windows || {}
+    const state = this.loadState() || {};
+    const windows = state.windows || {};
 
     windows[appId] = {
       position,
       size,
-      isOpen: true,
-    }
+      isOpen: true
+    };
 
-    state.windows = windows
-    this.saveState(state)
+    state.windows = windows;
+    this.saveState(state);
   }
 
   /**
@@ -63,11 +63,11 @@ class Storage {
    * @returns {Object|null} The window state or null if not found
    */
   loadWindowState(appId) {
-    const state = this.loadState()
+    const state = this.loadState();
     if (!state || !state.windows || !state.windows[appId]) {
-      return null
+      return null;
     }
-    return state.windows[appId]
+    return state.windows[appId];
   }
 
   /**
@@ -75,9 +75,9 @@ class Storage {
    * @param {string} theme - The theme name ('windows' or 'macos')
    */
   saveTheme(theme) {
-    const state = this.loadState() || {}
-    state.theme = theme
-    this.saveState(state)
+    const state = this.loadState() || {};
+    state.theme = theme;
+    this.saveState(state);
   }
 
   /**
@@ -85,8 +85,8 @@ class Storage {
    * @returns {string} The theme name ('windows' or 'macos')
    */
   loadTheme() {
-    const state = this.loadState()
-    return state && state.theme ? state.theme : "windows"
+    const state = this.loadState();
+    return state && state.theme ? state.theme : "windows";
   }
 
   /**
@@ -94,9 +94,9 @@ class Storage {
    * @param {Array} apps - Array of open app IDs
    */
   saveOpenApps(apps) {
-    const state = this.loadState() || {}
-    state.openApps = apps
-    this.saveState(state)
+    const state = this.loadState() || {};
+    state.openApps = apps;
+    this.saveState(state);
   }
 
   /**
@@ -104,21 +104,17 @@ class Storage {
    * @returns {Array} Array of open app IDs
    */
   loadOpenApps() {
-    const state = this.loadState()
-    return state && state.openApps ? state.openApps : []
+    const state = this.loadState();
+    return state && state.openApps ? state.openApps : [];
   }
 
   /**
    * Clear all stored data
    */
   clearAll() {
-    localStorage.removeItem(this.storageKey)
+    localStorage.removeItem(this.storageKey);
   }
 }
 
 // Create a singleton instance
-const storage = new Storage()
-
-// Rendre storage accessible globalement
-window.storage = storage
-export default storage
+const storage = new Storage();

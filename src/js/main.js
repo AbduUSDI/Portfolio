@@ -3,97 +3,95 @@
  * Initializes the OS and handles global events
  */
 
-// Remplacer les imports
-import * as storage from "./storage.js"
-import * as appLauncher from "./app-launcher.js"
-import * as windowManager from "./window-manager.js"
-
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize storage
-  const storedTheme = storage.loadTheme()
+  const storedTheme = storage.loadTheme();
 
   // Set initial theme
   if (storedTheme === "macos") {
-    document.body.classList.remove("windows-theme")
-    document.body.classList.add("macos-theme")
+    document.body.classList.remove("windows-theme");
+    document.body.classList.add("macos-theme");
   } else {
-    document.body.classList.add("windows-theme")
-    document.body.classList.remove("macos-theme")
+    document.body.classList.add("windows-theme");
+    document.body.classList.remove("macos-theme");
   }
 
   // Initialize clock
-  updateClock()
-  setInterval(updateClock, 1000)
+  updateClock();
+  setInterval(updateClock, 1000);
 
   // Initialize app launcher
-  appLauncher.setupEventListeners()
+  appLauncher.setupEventListeners();
 
   // Setup OS switcher
-  const windowsSwitch = document.getElementById("windows-switch")
-  const macosSwitch = document.getElementById("macos-switch")
+  const windowsSwitch = document.getElementById("windows-switch");
+  const macosSwitch = document.getElementById("macos-switch");
 
   windowsSwitch.addEventListener("click", () => {
-    switchToWindows()
-  })
+    switchToWindows();
+  });
 
   macosSwitch.addEventListener("click", () => {
-    switchToMacOS()
-  })
+    switchToMacOS();
+  });
 
   // Setup Windows start menu
-  const startBtn = document.getElementById("windows-start-btn")
-  const startMenu = document.getElementById("start-menu")
+  const startBtn = document.getElementById("windows-start-btn");
+  const startMenu = document.getElementById("start-menu");
 
   startBtn.addEventListener("click", () => {
-    startMenu.classList.toggle("active")
-  })
+    startMenu.classList.toggle("active");
+  });
 
   // Close start menu when clicking outside
   document.addEventListener("click", (e) => {
-    if (!e.target.closest("#start-menu") && !e.target.closest("#windows-start-btn")) {
-      startMenu.classList.remove("active")
+    if (
+      !e.target.closest("#start-menu") &&
+      !e.target.closest("#windows-start-btn")
+    ) {
+      startMenu.classList.remove("active");
     }
-  })
+  });
 
   // Setup macOS Apple menu
-  const appleMenu = document.querySelector(".apple-menu")
-  const appleMenuDropdown = document.getElementById("apple-menu")
+  const appleMenu = document.querySelector(".apple-menu");
+  const appleMenuDropdown = document.getElementById("apple-menu");
 
   appleMenu.addEventListener("click", () => {
-    appleMenuDropdown.classList.toggle("active")
-  })
+    appleMenuDropdown.classList.toggle("active");
+  });
 
   // Close Apple menu when clicking outside
   document.addEventListener("click", (e) => {
     if (!e.target.closest("#apple-menu") && !e.target.closest(".apple-menu")) {
-      appleMenuDropdown.classList.remove("active")
+      appleMenuDropdown.classList.remove("active");
     }
-  })
+  });
 
   // Restore open apps
-  appLauncher.restoreOpenApps()
-})
+  appLauncher.restoreOpenApps();
+});
 
 /**
  * Update the clock display
  */
 function updateClock() {
-  const now = new Date()
+  const now = new Date();
 
   // Format time
-  const hours = now.getHours().toString().padStart(2, "0")
-  const minutes = now.getMinutes().toString().padStart(2, "0")
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
 
   // Windows clock
-  const windowsClock = document.getElementById("windows-clock")
+  const windowsClock = document.getElementById("windows-clock");
   if (windowsClock) {
-    windowsClock.textContent = `${hours}:${minutes}`
+    windowsClock.textContent = `${hours}:${minutes}`;
   }
 
   // macOS clock
-  const macosClock = document.getElementById("macos-clock")
+  const macosClock = document.getElementById("macos-clock");
   if (macosClock) {
-    macosClock.textContent = `${hours}:${minutes}`
+    macosClock.textContent = `${hours}:${minutes}`;
   }
 }
 
@@ -102,27 +100,27 @@ function updateClock() {
  */
 function switchToWindows() {
   // Update body class
-  document.body.classList.add("windows-theme")
-  document.body.classList.remove("macos-theme")
+  document.body.classList.add("windows-theme");
+  document.body.classList.remove("macos-theme");
 
   // Update switcher buttons
-  document.getElementById("windows-switch").classList.add("active")
-  document.getElementById("macos-switch").classList.remove("active")
+  document.getElementById("windows-switch").classList.add("active");
+  document.getElementById("macos-switch").classList.remove("active");
 
   // Show Windows desktop and taskbar
-  document.getElementById("windows-desktop").classList.add("active")
-  document.getElementById("windows-taskbar").classList.add("active")
+  document.getElementById("windows-desktop").classList.add("active");
+  document.getElementById("windows-taskbar").classList.add("active");
 
   // Hide macOS desktop, dock and menubar
-  document.getElementById("macos-desktop").classList.remove("active")
-  document.getElementById("macos-dock").classList.remove("active")
-  document.getElementById("macos-menubar").classList.remove("active")
+  document.getElementById("macos-desktop").classList.remove("active");
+  document.getElementById("macos-dock").style.display = "none";
+  document.getElementById("macos-menubar").style.display = "none";
 
   // Save theme preference
-  storage.saveTheme("windows")
+  storage.saveTheme("windows");
 
   // Close all windows and reopen them with Windows style
-  reopenAllWindows()
+  reopenAllWindows();
 }
 
 /**
@@ -130,27 +128,27 @@ function switchToWindows() {
  */
 function switchToMacOS() {
   // Update body class
-  document.body.classList.add("macos-theme")
-  document.body.classList.remove("windows-theme")
+  document.body.classList.add("macos-theme");
+  document.body.classList.remove("windows-theme");
 
   // Update switcher buttons
-  document.getElementById("macos-switch").classList.add("active")
-  document.getElementById("windows-switch").classList.remove("active")
+  document.getElementById("macos-switch").classList.add("active");
+  document.getElementById("windows-switch").classList.remove("active");
 
   // Show macOS desktop, dock and menubar
-  document.getElementById("macos-desktop").classList.add("active")
-  document.getElementById("macos-dock").style.display = "flex"
-  document.getElementById("macos-menubar").style.display = "flex"
+  document.getElementById("macos-desktop").classList.add("active");
+  document.getElementById("macos-dock").style.display = "flex";
+  document.getElementById("macos-menubar").style.display = "flex";
 
   // Hide Windows desktop and taskbar
-  document.getElementById("windows-desktop").classList.remove("active")
-  document.getElementById("windows-taskbar").classList.remove("active")
+  document.getElementById("windows-desktop").classList.remove("active");
+  document.getElementById("windows-taskbar").classList.remove("active");
 
   // Save theme preference
-  storage.saveTheme("macos")
+  storage.saveTheme("macos");
 
   // Close all windows and reopen them with macOS style
-  reopenAllWindows()
+  reopenAllWindows();
 }
 
 /**
@@ -158,15 +156,15 @@ function switchToMacOS() {
  */
 function reopenAllWindows() {
   // Get all open windows
-  const openWindows = windowManager.getOpenWindows()
+  const openWindows = windowManager.getOpenWindows();
 
   // Close all windows
   openWindows.forEach((appId) => {
-    windowManager.closeWindow(appId)
-  })
+    windowManager.closeWindow(appId);
+  });
 
   // Reopen windows
   openWindows.forEach((appId) => {
-    appLauncher.launchApp(appId)
-  })
+    appLauncher.launchApp(appId);
+  });
 }
