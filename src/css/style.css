@@ -15,18 +15,22 @@ body {
 }
 
 /* OS Theme Styles */
+/* OS Theme Styles */
 body.windows-theme {
-  background-image: url('../public/assets/windows/wallpaper.jpg');
+  background-image: url("../../public/assets/windows/wallpaper.png");
   background-size: cover;
   background-position: center;
 }
 
 body.macos-theme {
-  background-image: url('../public/assets/macos/wallpaper.jpg');
+  background-image: url("../../public/assets/macos/wallpaper.png");
   background-size: cover;
   background-position: center;
 }
-
+/* Gestion de l'affichage du taskbar selon le thème */
+body.macos-theme #windows-taskbar {
+  display: none;
+}
 /* OS Switcher */
 #os-switcher {
   position: absolute;
