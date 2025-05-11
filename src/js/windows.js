@@ -444,7 +444,7 @@ class WindowManager {
 
     // Add icon
     const icon = document.createElement("img");
-    icon.src = `public/assets/windows/${appId}.png`;
+    icon.src = `../../public/assets/windows/${appId}.png`;
     icon.alt = appId;
     taskbarApp.appendChild(icon);
 

@@ -4,109 +4,128 @@
 const CONFIG = {
   // User information
   user: {
-    name: "Abdurrahman",
-    title: "Développeur Full Stack",
-    avatar: "../../public/assets/avatar.png",
-    email: "contact@abdurrahman.fr",
-    github: "https://github.com/abdurrahman",
-    linkedin: "https://linkedin.com/in/abdurrahman"
+    name: "Abdurahman USDI",
+    title: "Développeur Web - PHP - Full Stack",
+    avatar: "../../public/avatar.png",
+    email: "abdu.usdi@gmail.com",
+    phone: "+33 6 66 78 93 73",
+    github: "https://github.com/AbduUSDI",
+    linkedin: "https://www.linkedin.com/in/abdu-usdi-553877268/",
   },
 
   // About information
   about: {
-    bio: "Je suis un développeur Full Stack passionné par la création d'applications web modernes et performantes. J'aime résoudre des problèmes complexes et apprendre de nouvelles technologies.",
+    bio: "Développeur Web passionné avec une expertise en PHP, JavaScript, HTML, et CSS. Fort de plusieurs années d'expérience en gestion d'équipes et de travail intensif. Débutant en développement web complet, cependant, je suis déterminé, persévérant et orienté résultat.",
     skills: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Vue.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "PostgreSQL",
       "HTML5",
       "CSS3",
-      "Tailwind CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL",
       "Git",
-      "Docker",
-      "AWS",
-      "Firebase"
+      "SOLID",
+      "Agile & Scrum",
+      "React",
+      "Vue.js",
+      "Bootstrap",
+      "Laravel",
+      "MVC",
     ],
     experience: [
       {
-        title: "Développeur Full Stack Senior",
-        company: "TechCorp",
+        title: "Assistant responsable compagnie aérienne - Traffic Assistant",
+        company: "EVA AIR - Aéroport de CDG",
         period: "2020 - Présent",
         description:
-          "Développement d'applications web avec React et Node.js. Mise en place d'architectures microservices et déploiement sur AWS."
+          "Utilisation et gestion d'un système de facturation (ACCESS). Manipulation de données importantes et insertion dans un algorithme de suivi de facturation. Assistant à la supervision de 10 agents et gestion de rapports mensuels. Utilisation de AMADEUS et ALTEA, des logiciels aéroportuaire international.",
       },
       {
-        title: "Développeur Front-end",
-        company: "WebAgency",
+        title: "Adjoint au chef de la réception",
+        company: "Staci 9 - Mitry Mory",
         period: "2018 - 2020",
         description:
-          "Création d'interfaces utilisateur réactives avec Vue.js et intégration avec des API REST."
+          "Contrôle des produits reçus et saisie des bons de livraison. Gestion des commandes, des camions planifiés et de l'emploi du temps. Utilisation d'un logiciel interne pour créer et ajouter les produits dans la base de données sous un n°PAL.",
       },
-      {
-        title: "Développeur Junior",
-        company: "StartupInc",
-        period: "2016 - 2018",
-        description:
-          "Développement de fonctionnalités front-end et back-end pour une application SaaS."
-      }
     ],
     education: [
       {
-        degree: "Master en Informatique",
-        school: "Université de Paris",
-        year: "2016"
+        degree: "Développeur Web & Web Mobile",
+        school: "STUDI",
+        year: "2023",
+        description:
+          "Création d'applications web complètes (HTML, CSS, JavaScript, PHP), Méthodologies Agiles (Scrum, Kanban), Tests et débogages (unitaires et fonctionnels), Référencement SEO et Design thinking",
       },
       {
-        degree: "Licence en Informatique",
-        school: "Université de Lyon",
-        year: "2014"
-      }
-    ]
+        degree: "ALTEA + AMADEUS AIR R/V/H",
+        school: "Airsup Paris",
+        year: "2020",
+        description:
+          "Apprentissage des logiciels Altea et Amadeus pour le métier d'agent d'escale, Maîtrise des techniques d'accueil et de gestion des passagers, Anglais commercial (communication avec des passagers internationaux)",
+      },
+    ],
+    socialMedia: {
+      facebook: "https://facebook.com/abdurahman.usdi",
+      twitter: "https://twitter.com/abdurahman_usdi",
+      instagram: "https://instagram.com/abdurahman_usdi",
+      linkedin: "https://www.linkedin.com/in/abdu-usdi-553877268/",
+      github: "https://github.com/AbduUSDI",
+    },
   },
 
   // Projects information
   projects: [
     {
-      title: "E-commerce Platform",
-      description:
-        "Plateforme e-commerce complète avec panier, paiement et gestion des commandes.",
-      image: "../../public/assets/projects/ecommerce.png",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/abdurrahman/ecommerce",
-      demo: "https://ecommerce-demo.abdurrahman.fr"
+      title: "Zoo Arcadia",
+      description: "Application web pour un Zoo, conçue avec les principes SOLID en PHP.",
+      image: "assets/projects/zoo-arcadia.webp",
+      tags: ["PHP", "SOLID", "MVC", "MySQL"],
+      github: "https://github.com/abdurrahman/zoo-arcadia",
+      demo: "https://zoo-arcadia.abdurrahman.fr",
     },
     {
-      title: "Task Manager",
-      description:
-        "Application de gestion de tâches avec fonctionnalités de collaboration en temps réel.",
-      image: "../../public/assets/projects/taskmanager.png",
-      tags: ["Vue.js", "Firebase", "Tailwind CSS"],
-      github: "https://github.com/abdurrahman/taskmanager",
-      demo: "https://taskmanager.abdurrahman.fr"
+      title: "Tout pour un nouveau-né",
+      description: "Site pour accompagner les nouveaux parents, construit en PHP avec une structure MVC.",
+      image: "assets/projects/first_screen.webp",
+      tags: ["PHP", "MVC", "MySQL", "Bootstrap"],
+      github: "https://github.com/abdurrahman/nouveau-ne",
+      demo: "https://nouveau-ne.abdurrahman.fr",
     },
     {
-      title: "Portfolio OS",
+      title: "E-Learning Platform",
       description:
-        "Portfolio interactif simulant Windows 11 et macOS avec des applications personnalisées.",
-      image: "../../public/assets/projects/portfolioos.png",
-      tags: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/abdurrahman/portfolio-os",
-      demo: "https://portfolio.abdurrahman.fr"
+        "Plateforme de formation en ligne, permettant aux organismes de créer des cours et d'organiser des sessions live.",
+      image: "assets/projects/cours.webp",
+      tags: ["PHP", "JavaScript", "MySQL", "Bootstrap"],
+      github: "https://github.com/abdurrahman/e-learning",
+      demo: "https://e-learning.abdurrahman.fr",
     },
     {
-      title: "Weather App",
+      title: "FullStackExplorer",
       description:
-        "Application météo avec prévisions sur 7 jours et géolocalisation.",
-      image: "../../public/assets/projects/weatherapp.png",
-      tags: ["React", "OpenWeather API", "Geolocation"],
-      github: "https://github.com/abdurrahman/weather-app",
-      demo: "https://weather.abdurrahman.fr"
-    }
+        "Une interface d'apprentissage moderne pour réviser les bases, explorer des concepts avancés, et suivre les dernières évolutions technologiques.",
+      image: "assets/projects/image.work.webp",
+      tags: ["JavaScript", "React", "Node.js", "MongoDB"],
+      github: "https://github.com/abdurrahman/fullstack-explorer",
+      demo: "https://fullstack-explorer.abdurrahman.fr",
+    },
+    {
+      title: "Abduclip",
+      description:
+        "Plateforme de mini-jeux sur HTML5 et JavaScript avec des CDN et IFRAME, incluant un système de trophées et classements.",
+      image: "assets/projects/abduclip.png",
+      tags: ["HTML5", "JavaScript", "CSS3", "API"],
+      github: "https://github.com/abdurrahman/abduclip",
+      demo: "https://abduclip.abdurrahman.fr",
+    },
+    {
+      title: "Plateforme de mini-jeux de codage",
+      description:
+        "Plateforme de mini-jeux de codage sur JavaScript, Vue.js et Nest.js avec un éditeur de code intégré, une console et un canvas de sortie.",
+      image: "assets/projects/portfolio-os.png",
+      tags: ["JavaScript", "Vue.js", "Nest.js", "Canvas API"],
+      github: "https://github.com/abdurrahman/coding-games",
+      demo: "https://coding-games.abdurrahman.fr",
+    },
   ],
 
   // Default window positions
@@ -115,7 +134,7 @@ const CONFIG = {
     projects: { top: 80, left: 120 },
     cv: { top: 100, left: 200 },
     calculator: { top: 150, left: 300 },
-    chrome: { top: 50, left: 400 }
+    chrome: { top: 50, left: 400 },
   },
 
   // Default window sizes
@@ -124,6 +143,6 @@ const CONFIG = {
     projects: { width: 800, height: 600 },
     cv: { width: 800, height: 700 },
     calculator: { width: 300, height: 400 },
-    chrome: { width: 900, height: 600 }
-  }
-};
+    chrome: { width: 900, height: 600 },
+  },
+}
