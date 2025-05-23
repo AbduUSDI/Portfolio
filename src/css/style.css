@@ -48,7 +48,7 @@ body.macos-theme #windows-taskbar {
 #os-switcher button {
   border: none;
   background: transparent;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 8px 15px;
   border-radius: 15px;
   cursor: pointer;
