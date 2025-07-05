@@ -441,12 +441,12 @@ class AppLauncher {
         CONFIG.about.socialMedia.linkedin
       }" target="_blank">LinkedIn</a></p>
         </div>
-        
+
         <div style="margin-bottom: 20px;">
           <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">À propos de moi</h3>
           <p>${CONFIG.about.bio}</p>
         </div>
-        
+
         <div style="margin-bottom: 20px;">
           <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Compétences</h3>
           <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
@@ -458,7 +458,7 @@ class AppLauncher {
               .join("")}
           </div>
         </div>
-        
+
         <div style="margin-bottom: 20px;">
           <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Expérience professionnelle</h3>
           <ul style="list-style-type: none; padding-left: 0;">
@@ -475,7 +475,7 @@ class AppLauncher {
               .join("")}
           </ul>
         </div>
-        
+
         <div style="margin-bottom: 20px;">
           <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Formation</h3>
           <ul style="list-style-type: none; padding-left: 0;">
@@ -492,7 +492,7 @@ class AppLauncher {
               .join("")}
           </ul>
         </div>
-        
+
         <div>
           <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Projets</h3>
           <ul>

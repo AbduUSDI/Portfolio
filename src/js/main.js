@@ -1,127 +1,107 @@
 /**
- * Main JavaScript for the Portfolio OS
- * Initializes the OS and handles global events
+ * Point d'entrée principal pour le Portfolio OS
+ * Initialise le système modulaire et démarre l'OS
  */
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize storage
-  const storedTheme = storage.loadTheme();
+import PortfolioOS from './core.js';
 
-  // Set initial theme
-  if (storedTheme === "macos") {
-    document.body.classList.remove("windows-theme");
-    document.body.classList.add("macos-theme");
-  } else {
-    document.body.classList.add("windows-theme");
-    document.body.classList.remove("macos-theme");
+// Variable globale pour accéder au système depuis la console
+let portfolioOS = null;
+
+/**
+ * Initialiser le Portfolio OS au chargement de la page
+ */
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    console.log('🔄 Démarrage du Portfolio OS...');
+
+    // Créer une instance du système principal
+    portfolioOS = new PortfolioOS();
+
+    // Initialiser complètement le système
+    await portfolioOS.init();
+
+    // Rendre le système accessible globalement pour les tests et le debug
+    window.portfolioOS = portfolioOS;
+
+    console.log('✅ Portfolio OS démarré avec succès!');
+    console.log('💡 Utilisez window.portfolioOS pour accéder au système dans la console');
+
+  } catch (error) {
+    console.error('❌ Erreur lors du démarrage du Portfolio OS:', error);
+
+    // Afficher un message d'erreur à l'utilisateur
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ff4444;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      z-index: 10000;
+      max-width: 300px;
+    `;
+    errorDiv.innerHTML = `
+      <strong>Erreur de démarrage</strong><br>
+      Impossible d'initialiser le Portfolio OS.<br>
+      <small>Consultez la console pour plus de détails.</small>
+    `;
+    document.body.appendChild(errorDiv);
+
+    // Supprimer le message d'erreur après 10 secondes
+    setTimeout(() => {
+      errorDiv.remove();
+    }, 10000);
   }
-
-  // Initialize clock
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  // Initialize app launcher
-  appLauncher.setupEventListeners();
-
-  // Setup OS switcher
-  const windowsSwitch = document.getElementById("windows-switch");
-  const macosSwitch = document.getElementById("macos-switch");
-
-  windowsSwitch.addEventListener("click", () => {
-    switchToWindows();
-  });
-
-  macosSwitch.addEventListener("click", () => {
-    switchToMacOS();
-  });
-
-  // Setup Windows start menu
-  const startBtn = document.getElementById("windows-start-btn");
-  const startMenu = document.getElementById("start-menu");
-
-  startBtn.addEventListener("click", () => {
-    startMenu.classList.toggle("active");
-  });
-
-  // Close start menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (
-      !e.target.closest("#start-menu") &&
-      !e.target.closest("#windows-start-btn")
-    ) {
-      startMenu.classList.remove("active");
-    }
-  });
-
-  // Setup macOS Apple menu
-  const appleMenu = document.querySelector(".apple-menu");
-  const appleMenuDropdown = document.getElementById("apple-menu");
-
-  appleMenu.addEventListener("click", () => {
-    appleMenuDropdown.classList.toggle("active");
-  });
-
-  // Close Apple menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest("#apple-menu") && !e.target.closest(".apple-menu")) {
-      appleMenuDropdown.classList.remove("active");
-    }
-  });
-
-  // Restore open apps
-  appLauncher.restoreOpenApps();
 });
 
 /**
- * Update the clock display
+ * Gestion propre de la fermeture de la page
  */
-function updateClock() {
-  const now = new Date();
-
-  // Format time
-  const hours = now.getHours().toString().padStart(2, "0");
-  const minutes = now.getMinutes().toString().padStart(2, "0");
-
-  // Windows clock
-  const windowsClock = document.getElementById("windows-clock");
-  if (windowsClock) {
-    windowsClock.textContent = `${hours}:${minutes}`;
+window.addEventListener('beforeunload', () => {
+  if (portfolioOS) {
+    portfolioOS.beforeUnload();
   }
-
-  // macOS clock
-  const macosClock = document.getElementById("macos-clock");
-  if (macosClock) {
-    macosClock.textContent = `${hours}:${minutes}`;
-  }
-}
+});
 
 /**
- * Switch to Windows theme
+ * Gestion des erreurs non capturées
  */
-function switchToWindows() {
-  // Update body class
-  document.body.classList.add("windows-theme");
-  document.body.classList.remove("macos-theme");
+window.addEventListener('error', (event) => {
+  console.error('Erreur JavaScript non capturée:', event.error);
+  if (portfolioOS && portfolioOS.notifications) {
+    portfolioOS.notifications.show({
+      title: 'Erreur système',
+      message: 'Une erreur inattendue s\'est produite',
+      type: 'error',
+      duration: 5000
+    });
+  }
+});
 
-  // Update switcher buttons
-  document.getElementById("windows-switch").classList.add("active");
-  document.getElementById("macos-switch").classList.remove("active");
+/**
+ * Gestion des promesses rejetées non capturées
+ */
+window.addEventListener('unhandledrejection', (event) => {
+  console.error('Promesse rejetée non capturée:', event.reason);
+  if (portfolioOS && portfolioOS.notifications) {
+    portfolioOS.notifications.show({
+      title: 'Erreur système',
+      message: 'Une erreur asynchrone s\'est produite',
+      type: 'error',
+      duration: 5000
+    });
+  }
+});
 
-  // Show Windows desktop and taskbar
-  document.getElementById("windows-desktop").classList.add("active");
-  document.getElementById("windows-taskbar").classList.add("active");
-
-  // Hide macOS desktop, dock and menubar
-  document.getElementById("macos-desktop").classList.remove("active");
-  document.getElementById("macos-dock").style.display = "none";
-  document.getElementById("macos-menubar").style.display = "none";
-
-  // Save theme preference
-  storage.saveTheme("windows");
+// Exporter l'instance pour pouvoir l'utiliser ailleurs si nécessaire
+export default portfolioOS;
 
   // Close all windows and reopen them with Windows style
   reopenAllWindows();
-}
 
 /**
  * Switch to macOS theme
